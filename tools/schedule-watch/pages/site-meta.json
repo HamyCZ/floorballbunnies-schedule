@@ -1,5 +1,5 @@
 {
-  "probedAt": "2026-10-06T22:04:51Z",
+  "probedAt": "2026-10-07T22:19:22Z",
   "gameCount": 200,
   "clubId": 78,
   "clubName": "Floorballbunnies",
@@ -212,9 +212,9 @@
     }
   ],
   "pagesBaseUrl": null,
-  "lastRun": "2026-10-07T16:11:02Z",
+  "lastRun": "2026-10-07T22:19:23Z",
   "nextRun": "2026-10-12T07:00:00Z",
-  "lastRunLabel": "Wed 07 Oct 2026 16:11 UTC",
+  "lastRunLabel": "Wed 07 Oct 2026 22:19 UTC",
   "nextRunLabel": "Mon 12 Oct 2026 07:00 UTC",
   "theme": "floorballbunnies-dark-lime",
   "fortress": {
