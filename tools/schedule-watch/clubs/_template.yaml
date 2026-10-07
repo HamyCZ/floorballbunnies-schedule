@@ -1,0 +1,55 @@
+# Template for another Austrian FloorballFlash club.
+# 1. Copy to clubs/<slug>.yaml and fill in club.* 
+# 2. Run with: SCHEDULE_WATCH_CONFIG=clubs/<slug>.yaml python run_watch.py ...
+# 3. Seed data/schedule-snapshot.json via fetch_schedule.py --club-id <id>
+# 4. Adjust reminders.categories to that club's adult competition labels
+
+schemaVersion: 1
+
+club:
+  id: 0                      # REQUIRED — FloorballFlash clubId
+  name: "Example Floorball Club"
+  slug: example-club
+  url: https://example.at
+  logoUrl: https://example.at/logo.png
+  nameMatchers:
+    - "Example Floorball Club"
+
+mcp:
+  host: mcp.floorballflash.at
+  timeoutSeconds: 180
+  maxAttempts: 20
+
+schedule:
+  cron: "0 7 * * 1"
+  timezone: Europe/Vienna
+  watchFields:
+    - date
+    - time
+    - venue
+    - state
+    - homeTeam
+    - awayTeam
+    - competitionId
+    - competitionName
+
+fortress:
+  minGameRatio: 0.70
+  maxAddedGames: 100
+  maxRemovedGames: 100
+  requireHttpsPagesUrl: true
+  validateSnapshot: true
+  csp: true
+
+brand:
+  lime: "#ccff00"
+  ink: "#0d0d0d"
+
+reminders:
+  categories: []             # e.g. ["Bundesliga", "Adults Grossfeld"]
+  weekdays: [mon, wed, fri]
+  hour: 9
+
+# competitionId → coach emails for split digests (unmapped → ALERT_TO)
+coaches: {}
+coachesNotifyDefaultFull: false

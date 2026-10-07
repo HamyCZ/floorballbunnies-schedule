@@ -1,0 +1,146 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Floorballbunnies//Schedule//EN
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+X-WR-CALNAME:Floorballbunnies U14 Kleinfeld
+X-WR-TIMEZONE:Europe/Vienna
+BEGIN:VTIMEZONE
+TZID:Europe/Vienna
+X-LIC-LOCATION:Europe/Vienna
+BEGIN:DAYLIGHT
+TZOFFSETFROM:+0100
+TZOFFSETTO:+0200
+TZNAME:CEST
+DTSTART:19700329T020000
+RRULE:FREQ=YEARLY;BYMONTH=3;BYDAY=-1SU
+END:DAYLIGHT
+BEGIN:STANDARD
+TZOFFSETFROM:+0200
+TZOFFSETTO:+0100
+TZNAME:CET
+DTSTART:19701025T030000
+RRULE:FREQ=YEARLY;BYMONTH=10;BYDAY=-1SU
+END:STANDARD
+END:VTIMEZONE
+BEGIN:VEVENT
+UID:floorballbunnies-16268@floorballbunnies.at
+DTSTART;TZID=Europe/Vienna:20261017T163000
+DTEND;TZID=Europe/Vienna:20261017T180000
+SUMMARY:U14 Kleinfeld: vs Minty Penguins
+DESCRIPTION:Wiener U14 Kleinfeld Meisterschaft\nAway vs Minty Penguins\nTime: 16:30 (Europe/Vienna)\nVenue: Alterlaa\nGame #16268
+LOCATION:Alterlaa
+END:VEVENT
+BEGIN:VEVENT
+UID:floorballbunnies-16270@floorballbunnies.at
+DTSTART;TZID=Europe/Vienna:20261017T170700
+DTEND;TZID=Europe/Vienna:20261017T183700
+SUMMARY:U14 Kleinfeld: vs WFV
+DESCRIPTION:Wiener U14 Kleinfeld Meisterschaft\nAway vs WFV\nTime: 17:07 (Europe/Vienna)\nVenue: Alterlaa\nGame #16270
+LOCATION:Alterlaa
+END:VEVENT
+BEGIN:VEVENT
+UID:floorballbunnies-16274@floorballbunnies.at
+DTSTART;TZID=Europe/Vienna:20261017T174400
+DTEND;TZID=Europe/Vienna:20261017T191400
+SUMMARY:U14 Kleinfeld: vs FBC Dragons 2
+DESCRIPTION:Wiener U14 Kleinfeld Meisterschaft\nHome vs FBC Dragons 2\nTime: 17:44 (Europe/Vienna)\nVenue: Alterlaa\nGame #16274
+LOCATION:Alterlaa
+END:VEVENT
+BEGIN:VEVENT
+UID:floorballbunnies-16660@floorballbunnies.at
+DTSTART;TZID=Europe/Vienna:20261017T182100
+DTEND;TZID=Europe/Vienna:20261017T195100
+SUMMARY:U14 Kleinfeld: vs FBC Dragons 1
+DESCRIPTION:Wiener U14 Kleinfeld Meisterschaft\nHome vs FBC Dragons 1\nTime: 18:21 (Europe/Vienna)\nVenue: Alterlaa\nGame #16660
+LOCATION:Alterlaa
+END:VEVENT
+BEGIN:VEVENT
+UID:floorballbunnies-16286@floorballbunnies.at
+DTSTART;TZID=Europe/Vienna:20261114T182100
+DTEND;TZID=Europe/Vienna:20261114T195100
+SUMMARY:U14 Kleinfeld: vs FBC Dragons 1
+DESCRIPTION:Wiener U14 Kleinfeld Meisterschaft\nAway vs FBC Dragons 1\nTime: 18:21 (Europe/Vienna)\nVenue: Alterlaa\nGame #16286
+LOCATION:Alterlaa
+END:VEVENT
+BEGIN:VEVENT
+UID:floorballbunnies-16289@floorballbunnies.at
+DTSTART;TZID=Europe/Vienna:20261114T185800
+DTEND;TZID=Europe/Vienna:20261114T202800
+SUMMARY:U14 Kleinfeld: vs WFV
+DESCRIPTION:Wiener U14 Kleinfeld Meisterschaft\nHome vs WFV\nTime: 18:58 (Europe/Vienna)\nVenue: Alterlaa\nGame #16289
+LOCATION:Alterlaa
+END:VEVENT
+BEGIN:VEVENT
+UID:floorballbunnies-16290@floorballbunnies.at
+DTSTART;TZID=Europe/Vienna:20261114T193500
+DTEND;TZID=Europe/Vienna:20261114T210500
+SUMMARY:U14 Kleinfeld: vs FBC Dragons 2
+DESCRIPTION:Wiener U14 Kleinfeld Meisterschaft\nAway vs FBC Dragons 2\nTime: 19:35 (Europe/Vienna)\nVenue: Alterlaa\nGame #16290
+LOCATION:Alterlaa
+END:VEVENT
+BEGIN:VEVENT
+UID:floorballbunnies-16293@floorballbunnies.at
+DTSTART;TZID=Europe/Vienna:20270220T180000
+DTEND;TZID=Europe/Vienna:20270220T193000
+SUMMARY:U14 Kleinfeld: vs Minty Penguins
+DESCRIPTION:Wiener U14 Kleinfeld Meisterschaft\nHome vs Minty Penguins\nTime: 18:00 (Europe/Vienna)\nVenue: Alterlaa\nGame #16293
+LOCATION:Alterlaa
+END:VEVENT
+BEGIN:VEVENT
+UID:floorballbunnies-16295@floorballbunnies.at
+DTSTART;TZID=Europe/Vienna:20270220T183700
+DTEND;TZID=Europe/Vienna:20270220T200700
+SUMMARY:U14 Kleinfeld: vs WFV
+DESCRIPTION:Wiener U14 Kleinfeld Meisterschaft\nAway vs WFV\nTime: 18:37 (Europe/Vienna)\nVenue: Alterlaa\nGame #16295
+LOCATION:Alterlaa
+END:VEVENT
+BEGIN:VEVENT
+UID:floorballbunnies-16300@floorballbunnies.at
+DTSTART;TZID=Europe/Vienna:20270220T191400
+DTEND;TZID=Europe/Vienna:20270220T204400
+SUMMARY:U14 Kleinfeld: vs FBC Dragons 1
+DESCRIPTION:Wiener U14 Kleinfeld Meisterschaft\nHome vs FBC Dragons 1\nTime: 19:14 (Europe/Vienna)\nVenue: Alterlaa\nGame #16300
+LOCATION:Alterlaa
+END:VEVENT
+BEGIN:VEVENT
+UID:floorballbunnies-16303@floorballbunnies.at
+DTSTART;TZID=Europe/Vienna:20270220T202800
+DTEND;TZID=Europe/Vienna:20270220T215800
+SUMMARY:U14 Kleinfeld: vs FBC Dragons 2
+DESCRIPTION:Wiener U14 Kleinfeld Meisterschaft\nHome vs FBC Dragons 2\nTime: 20:28 (Europe/Vienna)\nVenue: Alterlaa\nGame #16303
+LOCATION:Alterlaa
+END:VEVENT
+BEGIN:VEVENT
+UID:floorballbunnies-16304@floorballbunnies.at
+DTSTART;TZID=Europe/Vienna:20270522T173000
+DTEND;TZID=Europe/Vienna:20270522T190000
+SUMMARY:U14 Kleinfeld: vs Minty Penguins
+DESCRIPTION:Wiener U14 Kleinfeld Meisterschaft\nHome vs Minty Penguins\nTime: 17:30 (Europe/Vienna)\nVenue: Alterlaa\nGame #16304
+LOCATION:Alterlaa
+END:VEVENT
+BEGIN:VEVENT
+UID:floorballbunnies-16306@floorballbunnies.at
+DTSTART;TZID=Europe/Vienna:20270522T180700
+DTEND;TZID=Europe/Vienna:20270522T193700
+SUMMARY:U14 Kleinfeld: vs FBC Dragons 2
+DESCRIPTION:Wiener U14 Kleinfeld Meisterschaft\nAway vs FBC Dragons 2\nTime: 18:07 (Europe/Vienna)\nVenue: Alterlaa\nGame #16306
+LOCATION:Alterlaa
+END:VEVENT
+BEGIN:VEVENT
+UID:floorballbunnies-16308@floorballbunnies.at
+DTSTART;TZID=Europe/Vienna:20270522T184400
+DTEND;TZID=Europe/Vienna:20270522T201400
+SUMMARY:U14 Kleinfeld: vs WFV
+DESCRIPTION:Wiener U14 Kleinfeld Meisterschaft\nHome vs WFV\nTime: 18:44 (Europe/Vienna)\nVenue: Alterlaa\nGame #16308
+LOCATION:Alterlaa
+END:VEVENT
+BEGIN:VEVENT
+UID:floorballbunnies-16311@floorballbunnies.at
+DTSTART;TZID=Europe/Vienna:20270522T195800
+DTEND;TZID=Europe/Vienna:20270522T212800
+SUMMARY:U14 Kleinfeld: vs FBC Dragons 1
+DESCRIPTION:Wiener U14 Kleinfeld Meisterschaft\nAway vs FBC Dragons 1\nTime: 19:58 (Europe/Vienna)\nVenue: Alterlaa\nGame #16311
+LOCATION:Alterlaa
+END:VEVENT
+END:VCALENDAR

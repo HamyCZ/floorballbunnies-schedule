@@ -1,0 +1,90 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Floorballbunnies//Schedule//EN
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+X-WR-CALNAME:Floorballbunnies U12 Mädchen
+X-WR-TIMEZONE:Europe/Vienna
+BEGIN:VTIMEZONE
+TZID:Europe/Vienna
+X-LIC-LOCATION:Europe/Vienna
+BEGIN:DAYLIGHT
+TZOFFSETFROM:+0100
+TZOFFSETTO:+0200
+TZNAME:CEST
+DTSTART:19700329T020000
+RRULE:FREQ=YEARLY;BYMONTH=3;BYDAY=-1SU
+END:DAYLIGHT
+BEGIN:STANDARD
+TZOFFSETFROM:+0200
+TZOFFSETTO:+0100
+TZNAME:CET
+DTSTART:19701025T030000
+RRULE:FREQ=YEARLY;BYMONTH=10;BYDAY=-1SU
+END:STANDARD
+END:VTIMEZONE
+BEGIN:VEVENT
+UID:floorballbunnies-16256@floorballbunnies.at
+DTSTART;TZID=Europe/Vienna:20261017T150000
+DTEND;TZID=Europe/Vienna:20261017T163000
+SUMMARY:U12 Mädchen: vs WFV
+DESCRIPTION:Wiener U12 Mädchen Meisterschaft\nHome vs WFV\nTime: 15:00 (Europe/Vienna)\nVenue: Alterlaa\nGame #16256
+LOCATION:Alterlaa
+END:VEVENT
+BEGIN:VEVENT
+UID:floorballbunnies-16257@floorballbunnies.at
+DTSTART;TZID=Europe/Vienna:20261017T153200
+DTEND;TZID=Europe/Vienna:20261017T170200
+SUMMARY:U12 Mädchen: vs WFV
+DESCRIPTION:Wiener U12 Mädchen Meisterschaft\nAway vs WFV\nTime: 15:32 (Europe/Vienna)\nVenue: Alterlaa\nGame #16257
+LOCATION:Alterlaa
+END:VEVENT
+BEGIN:VEVENT
+UID:floorballbunnies-16258@floorballbunnies.at
+DTSTART;TZID=Europe/Vienna:20261213T140000
+DTEND;TZID=Europe/Vienna:20261213T153000
+SUMMARY:U12 Mädchen: vs WFV
+DESCRIPTION:Wiener U12 Mädchen Meisterschaft\nHome vs WFV\nTime: 14:00 (Europe/Vienna)\nVenue: PAHO Kurt Kucera Rundhalle\nGame #16258
+LOCATION:PAHO Kurt Kucera Rundhalle
+END:VEVENT
+BEGIN:VEVENT
+UID:floorballbunnies-16259@floorballbunnies.at
+DTSTART;TZID=Europe/Vienna:20261213T143200
+DTEND;TZID=Europe/Vienna:20261213T160200
+SUMMARY:U12 Mädchen: vs WFV
+DESCRIPTION:Wiener U12 Mädchen Meisterschaft\nAway vs WFV\nTime: 14:32 (Europe/Vienna)\nVenue: PAHO Kurt Kucera Rundhalle\nGame #16259
+LOCATION:PAHO Kurt Kucera Rundhalle
+END:VEVENT
+BEGIN:VEVENT
+UID:floorballbunnies-16260@floorballbunnies.at
+DTSTART;TZID=Europe/Vienna:20270227T140000
+DTEND;TZID=Europe/Vienna:20270227T153000
+SUMMARY:U12 Mädchen: vs WFV
+DESCRIPTION:Wiener U12 Mädchen Meisterschaft\nHome vs WFV\nTime: 14:00 (Europe/Vienna)\nVenue: PAHO Kurt Kucera Rundhalle\nGame #16260
+LOCATION:PAHO Kurt Kucera Rundhalle
+END:VEVENT
+BEGIN:VEVENT
+UID:floorballbunnies-16261@floorballbunnies.at
+DTSTART;TZID=Europe/Vienna:20270227T143200
+DTEND;TZID=Europe/Vienna:20270227T160200
+SUMMARY:U12 Mädchen: vs WFV
+DESCRIPTION:Wiener U12 Mädchen Meisterschaft\nAway vs WFV\nTime: 14:32 (Europe/Vienna)\nVenue: PAHO Kurt Kucera Rundhalle\nGame #16261
+LOCATION:PAHO Kurt Kucera Rundhalle
+END:VEVENT
+BEGIN:VEVENT
+UID:floorballbunnies-16262@floorballbunnies.at
+DTSTART;TZID=Europe/Vienna:20270418T090000
+DTEND;TZID=Europe/Vienna:20270418T103000
+SUMMARY:U12 Mädchen: vs WFV
+DESCRIPTION:Wiener U12 Mädchen Meisterschaft\nHome vs WFV\nTime: 09:00 (Europe/Vienna)\nVenue: PAHO Kurt Kucera Rundhalle\nGame #16262
+LOCATION:PAHO Kurt Kucera Rundhalle
+END:VEVENT
+BEGIN:VEVENT
+UID:floorballbunnies-16263@floorballbunnies.at
+DTSTART;TZID=Europe/Vienna:20270418T093200
+DTEND;TZID=Europe/Vienna:20270418T110200
+SUMMARY:U12 Mädchen: vs WFV
+DESCRIPTION:Wiener U12 Mädchen Meisterschaft\nAway vs WFV\nTime: 09:32 (Europe/Vienna)\nVenue: PAHO Kurt Kucera Rundhalle\nGame #16263
+LOCATION:PAHO Kurt Kucera Rundhalle
+END:VEVENT
+END:VCALENDAR

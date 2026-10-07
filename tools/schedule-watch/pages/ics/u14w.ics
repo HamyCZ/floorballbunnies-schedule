@@ -1,0 +1,98 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Floorballbunnies//Schedule//EN
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+X-WR-CALNAME:Floorballbunnies U14w
+X-WR-TIMEZONE:Europe/Vienna
+BEGIN:VTIMEZONE
+TZID:Europe/Vienna
+X-LIC-LOCATION:Europe/Vienna
+BEGIN:DAYLIGHT
+TZOFFSETFROM:+0100
+TZOFFSETTO:+0200
+TZNAME:CEST
+DTSTART:19700329T020000
+RRULE:FREQ=YEARLY;BYMONTH=3;BYDAY=-1SU
+END:DAYLIGHT
+BEGIN:STANDARD
+TZOFFSETFROM:+0200
+TZOFFSETTO:+0100
+TZNAME:CET
+DTSTART:19701025T030000
+RRULE:FREQ=YEARLY;BYMONTH=10;BYDAY=-1SU
+END:STANDARD
+END:VTIMEZONE
+BEGIN:VEVENT
+UID:floorballbunnies-17366@floorballbunnies.at
+DTSTART;VALUE=DATE:20260306
+DTEND;VALUE=DATE:20260306
+SUMMARY:U14w: vs Wiener Floorball Verein
+DESCRIPTION:ÖFBV U14w Jugendliga\nAway vs Wiener Floorball Verein\nTime: TBD (Europe/Vienna)\nVenue: Sankt Martin\nGame #17366
+LOCATION:Sankt Martin
+END:VEVENT
+BEGIN:VEVENT
+UID:floorballbunnies-17367@floorballbunnies.at
+DTSTART;VALUE=DATE:20260306
+DTEND;VALUE=DATE:20260306
+SUMMARY:U14w: vs VSV Unihockey
+DESCRIPTION:ÖFBV U14w Jugendliga\nAway vs VSV Unihockey\nTime: TBD (Europe/Vienna)\nVenue: Sankt Martin\nGame #17367
+LOCATION:Sankt Martin
+END:VEVENT
+BEGIN:VEVENT
+UID:floorballbunnies-17354@floorballbunnies.at
+DTSTART;TZID=Europe/Vienna:20261219T123000
+DTEND;TZID=Europe/Vienna:20261219T140000
+SUMMARY:U14w: vs Wiener Floorball Verein
+DESCRIPTION:ÖFBV U14w Jugendliga\nHome vs Wiener Floorball Verein\nTime: 12:30 (Europe/Vienna)\nVenue: PAHO Kurt Kucera Rundhalle\nGame #17354
+LOCATION:PAHO Kurt Kucera Rundhalle
+END:VEVENT
+BEGIN:VEVENT
+UID:floorballbunnies-17357@floorballbunnies.at
+DTSTART;TZID=Europe/Vienna:20261219T131500
+DTEND;TZID=Europe/Vienna:20261219T144500
+SUMMARY:U14w: vs UHC Alligator Rum
+DESCRIPTION:ÖFBV U14w Jugendliga\nAway vs UHC Alligator Rum\nTime: 13:15 (Europe/Vienna)\nVenue: PAHO Kurt Kucera Rundhalle\nGame #17357
+LOCATION:PAHO Kurt Kucera Rundhalle
+END:VEVENT
+BEGIN:VEVENT
+UID:floorballbunnies-17362@floorballbunnies.at
+DTSTART;VALUE=DATE:20270206
+DTEND;VALUE=DATE:20270206
+SUMMARY:U14w: vs UHC Alligator Rum
+DESCRIPTION:ÖFBV U14w Jugendliga\nAway vs UHC Alligator Rum\nTime: TBD (Europe/Vienna)\nVenue: Sporthalle Neu-Rum\nGame #17362
+LOCATION:Sporthalle Neu-Rum
+END:VEVENT
+BEGIN:VEVENT
+UID:floorballbunnies-17381@floorballbunnies.at
+DTSTART;VALUE=DATE:20270206
+DTEND;VALUE=DATE:20270206
+SUMMARY:U14w: vs VSV Unihockey
+DESCRIPTION:ÖFBV U14w Jugendliga\nHome vs VSV Unihockey\nTime: TBD (Europe/Vienna)\nVenue: Sporthalle Neu-Rum\nGame #17381
+LOCATION:Sporthalle Neu-Rum
+END:VEVENT
+BEGIN:VEVENT
+UID:floorballbunnies-17380@floorballbunnies.at
+DTSTART;TZID=Europe/Vienna:20270425T113000
+DTEND;TZID=Europe/Vienna:20270425T130000
+SUMMARY:U14w: vs VSV Unihockey
+DESCRIPTION:ÖFBV U14w Jugendliga\nHome vs VSV Unihockey\nTime: 11:30 (Europe/Vienna)\nVenue: Alterlaa\nGame #17380
+LOCATION:Alterlaa
+END:VEVENT
+BEGIN:VEVENT
+UID:floorballbunnies-17372@floorballbunnies.at
+DTSTART;TZID=Europe/Vienna:20270425T121500
+DTEND;TZID=Europe/Vienna:20270425T134500
+SUMMARY:U14w: vs Wiener Floorball Verein
+DESCRIPTION:ÖFBV U14w Jugendliga\nAway vs Wiener Floorball Verein\nTime: 12:15 (Europe/Vienna)\nVenue: Alterlaa\nGame #17372
+LOCATION:Alterlaa
+END:VEVENT
+BEGIN:VEVENT
+UID:floorballbunnies-17379@floorballbunnies.at
+DTSTART;TZID=Europe/Vienna:20270425T131500
+DTEND;TZID=Europe/Vienna:20270425T144500
+SUMMARY:U14w: vs UHC Alligator Rum
+DESCRIPTION:ÖFBV U14w Jugendliga\nAway vs UHC Alligator Rum\nTime: 13:15 (Europe/Vienna)\nVenue: Alterlaa\nGame #17379
+LOCATION:Alterlaa
+END:VEVENT
+END:VCALENDAR

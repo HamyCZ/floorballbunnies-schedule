@@ -1,0 +1,224 @@
+{
+  "probedAt": "2026-10-06T22:04:51Z",
+  "gameCount": 200,
+  "clubId": 78,
+  "clubName": "Floorballbunnies",
+  "timezone": "Europe/Vienna",
+  "weekend": {
+    "sat": "2026-10-10",
+    "sun": "2026-10-11",
+    "games": 4
+  },
+  "clashCategories": [
+    "U12 group overlap"
+  ],
+  "calendarCategories": [
+    {
+      "category": "U8",
+      "slug": "u8",
+      "file": "ics/u8.ics",
+      "games": 20,
+      "dates": [
+        "2026-11-14",
+        "2026-12-20",
+        "2027-02-21",
+        "2027-04-25",
+        "2027-05-30"
+      ]
+    },
+    {
+      "category": "U10",
+      "slug": "u10",
+      "file": "ics/u10.ics",
+      "games": 20,
+      "dates": [
+        "2026-10-18",
+        "2026-12-12",
+        "2027-02-20",
+        "2027-04-04",
+        "2027-05-22",
+        "2027-06-06"
+      ]
+    },
+    {
+      "category": "U10 Alpencup",
+      "slug": "u10-alpencup",
+      "file": "ics/u10-alpencup.ics",
+      "games": 12,
+      "dates": [
+        "2027-01-16",
+        "2027-03-14"
+      ]
+    },
+    {
+      "category": "U12 Assist",
+      "slug": "u12-assist",
+      "file": "ics/u12-assist.ics",
+      "games": 15,
+      "dates": [
+        "2026-11-15",
+        "2026-12-12",
+        "2027-02-21",
+        "2027-03-07",
+        "2027-04-04",
+        "2027-05-29"
+      ]
+    },
+    {
+      "category": "U12 Bully",
+      "slug": "u12-bully",
+      "file": "ics/u12-bully.ics",
+      "games": 12,
+      "dates": [
+        "2026-11-15",
+        "2027-02-21",
+        "2027-03-07",
+        "2027-04-11",
+        "2027-05-29"
+      ]
+    },
+    {
+      "category": "U12 M\u00e4dchen",
+      "slug": "u12-maedchen",
+      "file": "ics/u12-maedchen.ics",
+      "games": 8,
+      "dates": [
+        "2026-10-17",
+        "2026-12-13",
+        "2027-02-27",
+        "2027-04-18"
+      ]
+    },
+    {
+      "category": "U12 Alpencup",
+      "slug": "u12-alpencup",
+      "file": "ics/u12-alpencup.ics",
+      "games": 16,
+      "dates": [
+        "2026-12-12",
+        "2027-01-23"
+      ]
+    },
+    {
+      "category": "U14 Gro\u00dffeld",
+      "slug": "u14-grossfeld",
+      "file": "ics/u14-grossfeld.ics",
+      "games": 16,
+      "dates": [
+        "2026-10-11",
+        "2026-11-07",
+        "2026-12-05",
+        "2026-12-13",
+        "2027-01-16",
+        "2027-03-06",
+        "2027-03-13",
+        "2027-06-06"
+      ]
+    },
+    {
+      "category": "U14 Kleinfeld",
+      "slug": "u14-kleinfeld",
+      "file": "ics/u14-kleinfeld.ics",
+      "games": 15,
+      "dates": [
+        "2026-10-17",
+        "2026-11-14",
+        "2027-02-20",
+        "2027-05-22"
+      ]
+    },
+    {
+      "category": "U14w",
+      "slug": "u14w",
+      "file": "ics/u14w.ics",
+      "games": 9,
+      "dates": [
+        "2026-03-06",
+        "2026-12-19",
+        "2027-02-06",
+        "2027-04-25"
+      ]
+    },
+    {
+      "category": "U17",
+      "slug": "u17",
+      "file": "ics/u17.ics",
+      "games": 18,
+      "dates": [
+        "2026-11-22",
+        "2026-12-06",
+        "2026-12-19",
+        "2027-02-27",
+        "2027-03-07",
+        "2027-04-03",
+        "2027-04-11",
+        "2027-04-18",
+        "2027-05-08"
+      ]
+    },
+    {
+      "category": "U17w",
+      "slug": "u17w",
+      "file": "ics/u17w.ics",
+      "games": 12,
+      "dates": [
+        "2026-01-17",
+        "2026-11-07",
+        "2026-12-20",
+        "2027-02-28",
+        "2027-03-14",
+        "2027-05-02"
+      ]
+    },
+    {
+      "category": "Adults Grossfeld",
+      "slug": "adults-grossfeld",
+      "file": "ics/adults-grossfeld.ics",
+      "games": 5,
+      "dates": [
+        "2026-10-11",
+        "2026-11-21",
+        "2027-01-10"
+      ]
+    },
+    {
+      "category": "Adults Kleinfeld",
+      "slug": "adults-kleinfeld",
+      "file": "ics/adults-kleinfeld.ics",
+      "games": 10,
+      "dates": [
+        "2026-10-18",
+        "2026-11-08",
+        "2027-03-14",
+        "2027-04-04",
+        "2027-06-06"
+      ]
+    },
+    {
+      "category": "Bundesliga",
+      "slug": "bundesliga",
+      "file": "ics/bundesliga.ics",
+      "games": 8,
+      "dates": [
+        "2026-11-15",
+        "2026-12-05",
+        "2026-12-13",
+        "2026-12-20",
+        "2027-01-09",
+        "2027-01-17",
+        "2027-02-21",
+        "2027-02-28"
+      ]
+    }
+  ],
+  "pagesBaseUrl": null,
+  "lastRun": "2026-10-07T12:17:32Z",
+  "nextRun": "2026-10-12T07:00:00Z",
+  "lastRunLabel": "Wed 07 Oct 2026 12:17 UTC",
+  "nextRunLabel": "Mon 12 Oct 2026 07:00 UTC",
+  "theme": "floorballbunnies-dark-lime",
+  "fortress": {
+    "csp": true,
+    "minGameRatio": 0.7
+  }
+}

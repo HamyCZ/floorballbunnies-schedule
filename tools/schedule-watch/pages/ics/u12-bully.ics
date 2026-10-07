@@ -1,0 +1,122 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Floorballbunnies//Schedule//EN
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+X-WR-CALNAME:Floorballbunnies U12 Bully
+X-WR-TIMEZONE:Europe/Vienna
+BEGIN:VTIMEZONE
+TZID:Europe/Vienna
+X-LIC-LOCATION:Europe/Vienna
+BEGIN:DAYLIGHT
+TZOFFSETFROM:+0100
+TZOFFSETTO:+0200
+TZNAME:CEST
+DTSTART:19700329T020000
+RRULE:FREQ=YEARLY;BYMONTH=3;BYDAY=-1SU
+END:DAYLIGHT
+BEGIN:STANDARD
+TZOFFSETFROM:+0200
+TZOFFSETTO:+0100
+TZNAME:CET
+DTSTART:19701025T030000
+RRULE:FREQ=YEARLY;BYMONTH=10;BYDAY=-1SU
+END:STANDARD
+END:VTIMEZONE
+BEGIN:VEVENT
+UID:floorballbunnies-16195@floorballbunnies.at
+DTSTART;TZID=Europe/Vienna:20261115T090000
+DTEND;TZID=Europe/Vienna:20261115T103000
+SUMMARY:U12 Bully: vs FBC Dragons
+DESCRIPTION:Wiener U12 Bully Meisterschaft\nAway vs FBC Dragons\nTime: 09:00 (Europe/Vienna)\nVenue: Alterlaa\nGame #16195
+LOCATION:Alterlaa
+END:VEVENT
+BEGIN:VEVENT
+UID:floorballbunnies-16199@floorballbunnies.at
+DTSTART;TZID=Europe/Vienna:20261115T113200
+DTEND;TZID=Europe/Vienna:20261115T130200
+SUMMARY:U12 Bully: vs WFV
+DESCRIPTION:Wiener U12 Bully Meisterschaft\nHome vs WFV\nTime: 11:32 (Europe/Vienna)\nVenue: Alterlaa\nGame #16199
+LOCATION:Alterlaa
+END:VEVENT
+BEGIN:VEVENT
+UID:floorballbunnies-16205@floorballbunnies.at
+DTSTART;TZID=Europe/Vienna:20270221T120000
+DTEND;TZID=Europe/Vienna:20270221T133000
+SUMMARY:U12 Bully: vs Hainburger Löwen
+DESCRIPTION:Wiener U12 Bully Meisterschaft\nHome vs Hainburger Löwen\nTime: 12:00 (Europe/Vienna)\nVenue: PAHO Kurt Kucera Rundhalle\nGame #16205
+LOCATION:PAHO Kurt Kucera Rundhalle
+END:VEVENT
+BEGIN:VEVENT
+UID:floorballbunnies-16209@floorballbunnies.at
+DTSTART;TZID=Europe/Vienna:20270221T143200
+DTEND;TZID=Europe/Vienna:20270221T160200
+SUMMARY:U12 Bully: vs IBC Leoben
+DESCRIPTION:Wiener U12 Bully Meisterschaft\nAway vs IBC Leoben\nTime: 14:32 (Europe/Vienna)\nVenue: PAHO Kurt Kucera Rundhalle\nGame #16209
+LOCATION:PAHO Kurt Kucera Rundhalle
+END:VEVENT
+BEGIN:VEVENT
+UID:floorballbunnies-16211@floorballbunnies.at
+DTSTART;TZID=Europe/Vienna:20270221T151000
+DTEND;TZID=Europe/Vienna:20270221T164000
+SUMMARY:U12 Bully: vs IBC Leoben
+DESCRIPTION:Wiener U12 Bully Meisterschaft\nHome vs IBC Leoben\nTime: 15:10 (Europe/Vienna)\nVenue: PAHO Kurt Kucera Rundhalle\nGame #16211
+LOCATION:PAHO Kurt Kucera Rundhalle
+END:VEVENT
+BEGIN:VEVENT
+UID:floorballbunnies-16212@floorballbunnies.at
+DTSTART;TZID=Europe/Vienna:20270307T143000
+DTEND;TZID=Europe/Vienna:20270307T160000
+SUMMARY:U12 Bully: vs WFV
+DESCRIPTION:Wiener U12 Bully Meisterschaft\nAway vs WFV\nTime: 14:30 (Europe/Vienna)\nVenue: Alterlaa\nGame #16212
+LOCATION:Alterlaa
+END:VEVENT
+BEGIN:VEVENT
+UID:floorballbunnies-16213@floorballbunnies.at
+DTSTART;TZID=Europe/Vienna:20270307T143800
+DTEND;TZID=Europe/Vienna:20270307T160800
+SUMMARY:U12 Bully: vs Hainburger Löwen
+DESCRIPTION:Wiener U12 Bully Meisterschaft\nAway vs Hainburger Löwen\nTime: 14:38 (Europe/Vienna)\nVenue: Alterlaa\nGame #16213
+LOCATION:Alterlaa
+END:VEVENT
+BEGIN:VEVENT
+UID:floorballbunnies-16202@floorballbunnies.at
+DTSTART;TZID=Europe/Vienna:20270411T180800
+DTEND;TZID=Europe/Vienna:20270411T193800
+SUMMARY:U12 Bully: vs WFV
+DESCRIPTION:Wiener U12 Bully Meisterschaft\nHome vs WFV\nTime: 18:08 (Europe/Vienna)\nVenue: PAHO Kurt Kucera Rundhalle\nGame #16202
+LOCATION:PAHO Kurt Kucera Rundhalle
+END:VEVENT
+BEGIN:VEVENT
+UID:floorballbunnies-16203@floorballbunnies.at
+DTSTART;TZID=Europe/Vienna:20270411T184600
+DTEND;TZID=Europe/Vienna:20270411T201600
+SUMMARY:U12 Bully: vs FBC Dragons
+DESCRIPTION:Wiener U12 Bully Meisterschaft\nHome vs FBC Dragons\nTime: 18:46 (Europe/Vienna)\nVenue: PAHO Kurt Kucera Rundhalle\nGame #16203
+LOCATION:PAHO Kurt Kucera Rundhalle
+END:VEVENT
+BEGIN:VEVENT
+UID:floorballbunnies-16220@floorballbunnies.at
+DTSTART;TZID=Europe/Vienna:20270529T131600
+DTEND;TZID=Europe/Vienna:20270529T144600
+SUMMARY:U12 Bully: vs FBC Dragons
+DESCRIPTION:Wiener U12 Bully Meisterschaft\nAway vs FBC Dragons\nTime: 13:16 (Europe/Vienna)\nVenue: PAHO Kurt Kucera Rundhalle\nGame #16220
+LOCATION:PAHO Kurt Kucera Rundhalle
+END:VEVENT
+BEGIN:VEVENT
+UID:floorballbunnies-16221@floorballbunnies.at
+DTSTART;TZID=Europe/Vienna:20270529T135400
+DTEND;TZID=Europe/Vienna:20270529T152400
+SUMMARY:U12 Bully: vs Hainburger Löwen
+DESCRIPTION:Wiener U12 Bully Meisterschaft\nHome vs Hainburger Löwen\nTime: 13:54 (Europe/Vienna)\nVenue: PAHO Kurt Kucera Rundhalle\nGame #16221
+LOCATION:PAHO Kurt Kucera Rundhalle
+END:VEVENT
+BEGIN:VEVENT
+UID:floorballbunnies-16223@floorballbunnies.at
+DTSTART;TZID=Europe/Vienna:20270529T151000
+DTEND;TZID=Europe/Vienna:20270529T164000
+SUMMARY:U12 Bully: vs IBC Leoben
+DESCRIPTION:Wiener U12 Bully Meisterschaft\nAway vs IBC Leoben\nTime: 15:10 (Europe/Vienna)\nVenue: PAHO Kurt Kucera Rundhalle\nGame #16223
+LOCATION:PAHO Kurt Kucera Rundhalle
+END:VEVENT
+END:VCALENDAR

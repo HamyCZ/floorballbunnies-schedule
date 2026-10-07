@@ -1,0 +1,154 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Floorballbunnies//Schedule//EN
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+X-WR-CALNAME:Floorballbunnies U14 Großfeld
+X-WR-TIMEZONE:Europe/Vienna
+BEGIN:VTIMEZONE
+TZID:Europe/Vienna
+X-LIC-LOCATION:Europe/Vienna
+BEGIN:DAYLIGHT
+TZOFFSETFROM:+0100
+TZOFFSETTO:+0200
+TZNAME:CEST
+DTSTART:19700329T020000
+RRULE:FREQ=YEARLY;BYMONTH=3;BYDAY=-1SU
+END:DAYLIGHT
+BEGIN:STANDARD
+TZOFFSETFROM:+0200
+TZOFFSETTO:+0100
+TZNAME:CET
+DTSTART:19701025T030000
+RRULE:FREQ=YEARLY;BYMONTH=10;BYDAY=-1SU
+END:STANDARD
+END:VTIMEZONE
+BEGIN:VEVENT
+UID:floorballbunnies-16094@floorballbunnies.at
+DTSTART;TZID=Europe/Vienna:20261011T083000
+DTEND;TZID=Europe/Vienna:20261011T100000
+SUMMARY:U14 Großfeld: vs Wiener Floorballverein
+DESCRIPTION:Wiener U14 Großfeld Meisterschaft\nHome vs Wiener Floorballverein\nTime: 08:30 (Europe/Vienna)\nVenue: PAHO Kurt Kucera Rundhalle\nGame #16094
+LOCATION:PAHO Kurt Kucera Rundhalle
+END:VEVENT
+BEGIN:VEVENT
+UID:floorballbunnies-16096@floorballbunnies.at
+DTSTART;TZID=Europe/Vienna:20261011T110000
+DTEND;TZID=Europe/Vienna:20261011T123000
+SUMMARY:U14 Großfeld: vs FBC Dragons
+DESCRIPTION:Wiener U14 Großfeld Meisterschaft\nHome vs FBC Dragons\nTime: 11:00 (Europe/Vienna)\nVenue: PAHO Kurt Kucera Rundhalle\nGame #16096
+LOCATION:PAHO Kurt Kucera Rundhalle
+END:VEVENT
+BEGIN:VEVENT
+UID:floorballbunnies-16578@floorballbunnies.at
+DTSTART;VALUE=DATE:20261107
+DTEND;VALUE=DATE:20261107
+SUMMARY:U14 Großfeld: vs HFC Feldkirch
+DESCRIPTION:ÖFBV U14 Jugendliga\nAway vs HFC Feldkirch\nTime: TBD (Europe/Vienna)\nVenue: PAHO Kurt Kucera Rundhalle\nGame #16578
+LOCATION:PAHO Kurt Kucera Rundhalle
+END:VEVENT
+BEGIN:VEVENT
+UID:floorballbunnies-16579@floorballbunnies.at
+DTSTART;VALUE=DATE:20261107
+DTEND;VALUE=DATE:20261107
+SUMMARY:U14 Großfeld: vs Wiener Floorball Verein
+DESCRIPTION:ÖFBV U14 Jugendliga\nHome vs Wiener Floorball Verein\nTime: TBD (Europe/Vienna)\nVenue: PAHO Kurt Kucera Rundhalle\nGame #16579
+LOCATION:PAHO Kurt Kucera Rundhalle
+END:VEVENT
+BEGIN:VEVENT
+UID:floorballbunnies-16582@floorballbunnies.at
+DTSTART;VALUE=DATE:20261205
+DTEND;VALUE=DATE:20261205
+SUMMARY:U14 Großfeld: vs VSV Unihockey
+DESCRIPTION:ÖFBV U14 Jugendliga\nAway vs VSV Unihockey\nTime: TBD (Europe/Vienna)\nVenue: Sankt Martin\nGame #16582
+LOCATION:Sankt Martin
+END:VEVENT
+BEGIN:VEVENT
+UID:floorballbunnies-16584@floorballbunnies.at
+DTSTART;VALUE=DATE:20261205
+DTEND;VALUE=DATE:20261205
+SUMMARY:U14 Großfeld: vs Floorballbunnies Wien vs Floorballbunnies Wien
+DESCRIPTION:ÖFBV U14 Jugendliga\nBoth-club? vs Floorballbunnies Wien vs Floorballbunnies Wien\nTime: TBD (Europe/Vienna)\nVenue: Sankt Martin\nGame #16584
+LOCATION:Sankt Martin
+END:VEVENT
+BEGIN:VEVENT
+UID:floorballbunnies-16098@floorballbunnies.at
+DTSTART;TZID=Europe/Vienna:20261213T111500
+DTEND;TZID=Europe/Vienna:20261213T124500
+SUMMARY:U14 Großfeld: vs Wiener Floorballverein
+DESCRIPTION:Wiener U14 Großfeld Meisterschaft\nAway vs Wiener Floorballverein\nTime: 11:15 (Europe/Vienna)\nVenue: PAHO Kurt Kucera Rundhalle\nGame #16098
+LOCATION:PAHO Kurt Kucera Rundhalle
+END:VEVENT
+BEGIN:VEVENT
+UID:floorballbunnies-16099@floorballbunnies.at
+DTSTART;TZID=Europe/Vienna:20261213T123000
+DTEND;TZID=Europe/Vienna:20261213T140000
+SUMMARY:U14 Großfeld: vs FBC Dragons
+DESCRIPTION:Wiener U14 Großfeld Meisterschaft\nAway vs FBC Dragons\nTime: 12:30 (Europe/Vienna)\nVenue: PAHO Kurt Kucera Rundhalle\nGame #16099
+LOCATION:PAHO Kurt Kucera Rundhalle
+END:VEVENT
+BEGIN:VEVENT
+UID:floorballbunnies-16101@floorballbunnies.at
+DTSTART;TZID=Europe/Vienna:20270116T101500
+DTEND;TZID=Europe/Vienna:20270116T114500
+SUMMARY:U14 Großfeld: vs Wiener Floorballverein
+DESCRIPTION:Wiener U14 Großfeld Meisterschaft\nHome vs Wiener Floorballverein\nTime: 10:15 (Europe/Vienna)\nVenue: PAHO Kurt Kucera Rundhalle\nGame #16101
+LOCATION:PAHO Kurt Kucera Rundhalle
+END:VEVENT
+BEGIN:VEVENT
+UID:floorballbunnies-16102@floorballbunnies.at
+DTSTART;TZID=Europe/Vienna:20270116T113000
+DTEND;TZID=Europe/Vienna:20270116T130000
+SUMMARY:U14 Großfeld: vs FBC Dragons
+DESCRIPTION:Wiener U14 Großfeld Meisterschaft\nHome vs FBC Dragons\nTime: 11:30 (Europe/Vienna)\nVenue: PAHO Kurt Kucera Rundhalle\nGame #16102
+LOCATION:PAHO Kurt Kucera Rundhalle
+END:VEVENT
+BEGIN:VEVENT
+UID:floorballbunnies-16314@floorballbunnies.at
+DTSTART;TZID=Europe/Vienna:20270306T154500
+DTEND;TZID=Europe/Vienna:20270306T171500
+SUMMARY:U14 Großfeld: vs Wiener Floorballverein
+DESCRIPTION:Wiener U14 Großfeld Meisterschaft\nAway vs Wiener Floorballverein\nTime: 15:45 (Europe/Vienna)\nVenue: Alterlaa\nGame #16314
+LOCATION:Alterlaa
+END:VEVENT
+BEGIN:VEVENT
+UID:floorballbunnies-16315@floorballbunnies.at
+DTSTART;TZID=Europe/Vienna:20270306T170000
+DTEND;TZID=Europe/Vienna:20270306T183000
+SUMMARY:U14 Großfeld: vs FBC Dragons
+DESCRIPTION:Wiener U14 Großfeld Meisterschaft\nAway vs FBC Dragons\nTime: 17:00 (Europe/Vienna)\nVenue: Alterlaa\nGame #16315
+LOCATION:Alterlaa
+END:VEVENT
+BEGIN:VEVENT
+UID:floorballbunnies-16591@floorballbunnies.at
+DTSTART;VALUE=DATE:20270313
+DTEND;VALUE=DATE:20270313
+SUMMARY:U14 Großfeld: vs KAC Floorball
+DESCRIPTION:ÖFBV U14 Jugendliga\nHome vs KAC Floorball\nTime: TBD (Europe/Vienna)\nVenue: Rennerschule\nGame #16591
+LOCATION:Rennerschule
+END:VEVENT
+BEGIN:VEVENT
+UID:floorballbunnies-16594@floorballbunnies.at
+DTSTART;VALUE=DATE:20270313
+DTEND;VALUE=DATE:20270313
+SUMMARY:U14 Großfeld: vs UHC Alligator Rum
+DESCRIPTION:ÖFBV U14 Jugendliga\nAway vs UHC Alligator Rum\nTime: TBD (Europe/Vienna)\nVenue: Rennerschule\nGame #16594
+LOCATION:Rennerschule
+END:VEVENT
+BEGIN:VEVENT
+UID:floorballbunnies-16317@floorballbunnies.at
+DTSTART;TZID=Europe/Vienna:20270606T131500
+DTEND;TZID=Europe/Vienna:20270606T144500
+SUMMARY:U14 Großfeld: vs Wiener Floorballverein
+DESCRIPTION:Wiener U14 Großfeld Meisterschaft\nHome vs Wiener Floorballverein\nTime: 13:15 (Europe/Vienna)\nVenue: Alterlaa\nGame #16317
+LOCATION:Alterlaa
+END:VEVENT
+BEGIN:VEVENT
+UID:floorballbunnies-16318@floorballbunnies.at
+DTSTART;TZID=Europe/Vienna:20270606T143000
+DTEND;TZID=Europe/Vienna:20270606T160000
+SUMMARY:U14 Großfeld: vs FBC Dragons
+DESCRIPTION:Wiener U14 Großfeld Meisterschaft\nHome vs FBC Dragons\nTime: 14:30 (Europe/Vienna)\nVenue: Alterlaa\nGame #16318
+LOCATION:Alterlaa
+END:VEVENT
+END:VCALENDAR

@@ -1,0 +1,496 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Floorballbunnies//Schedule//EN
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+X-WR-CALNAME:Floorballbunnies Adults Kleinfeld (+ reminders)
+X-WR-TIMEZONE:Europe/Vienna
+BEGIN:VTIMEZONE
+TZID:Europe/Vienna
+X-LIC-LOCATION:Europe/Vienna
+BEGIN:DAYLIGHT
+TZOFFSETFROM:+0100
+TZOFFSETTO:+0200
+TZNAME:CEST
+DTSTART:19700329T020000
+RRULE:FREQ=YEARLY;BYMONTH=3;BYDAY=-1SU
+END:DAYLIGHT
+BEGIN:STANDARD
+TZOFFSETFROM:+0200
+TZOFFSETTO:+0100
+TZNAME:CET
+DTSTART:19701025T030000
+RRULE:FREQ=YEARLY;BYMONTH=10;BYDAY=-1SU
+END:STANDARD
+END:VTIMEZONE
+BEGIN:VEVENT
+UID:floorballbunnies-16352@floorballbunnies.at
+DTSTART;TZID=Europe/Vienna:20261018T130000
+DTEND;TZID=Europe/Vienna:20261018T143000
+SUMMARY:Adults Kleinfeld: vs FBC Dragons Hobby
+DESCRIPTION:Wiener Kleinfeldliga\nHome vs FBC Dragons Hobby\nTime: 13:00 (Europe/Vienna)\nVenue: Alterlaa\nGame #16352
+LOCATION:Alterlaa
+END:VEVENT
+BEGIN:VEVENT
+UID:floorballbunnies-16352-remind-mon@floorballbunnies.at
+DTSTART;TZID=Europe/Vienna:20261012T090000
+DTEND;TZID=Europe/Vienna:20261012T091500
+SUMMARY:Reminder (Mon): Adults Kleinfeld vs FBC Dragons Hobby
+DESCRIPTION:Monday reminder before the game.\nGame: Sun 18 Oct 2026 · 13:00\nHome vs FBC Dragons Hobby\nVenue: Alterlaa\nCompetition: Wiener Kleinfeldliga\nGame #16352\nTimezone: Europe/Vienna
+LOCATION:Alterlaa
+BEGIN:VALARM
+TRIGGER:-PT0S
+ACTION:DISPLAY
+DESCRIPTION:Reminder (Mon): Adults Kleinfeld vs FBC Dragons Hobby
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:floorballbunnies-16352-remind-wed@floorballbunnies.at
+DTSTART;TZID=Europe/Vienna:20261014T090000
+DTEND;TZID=Europe/Vienna:20261014T091500
+SUMMARY:Reminder (Wed): Adults Kleinfeld vs FBC Dragons Hobby
+DESCRIPTION:Wednesday reminder before the game.\nGame: Sun 18 Oct 2026 · 13:00\nHome vs FBC Dragons Hobby\nVenue: Alterlaa\nCompetition: Wiener Kleinfeldliga\nGame #16352\nTimezone: Europe/Vienna
+LOCATION:Alterlaa
+BEGIN:VALARM
+TRIGGER:-PT0S
+ACTION:DISPLAY
+DESCRIPTION:Reminder (Wed): Adults Kleinfeld vs FBC Dragons Hobby
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:floorballbunnies-16352-remind-fri@floorballbunnies.at
+DTSTART;TZID=Europe/Vienna:20261016T090000
+DTEND;TZID=Europe/Vienna:20261016T091500
+SUMMARY:Reminder (Fri): Adults Kleinfeld vs FBC Dragons Hobby
+DESCRIPTION:Friday reminder before the game.\nGame: Sun 18 Oct 2026 · 13:00\nHome vs FBC Dragons Hobby\nVenue: Alterlaa\nCompetition: Wiener Kleinfeldliga\nGame #16352\nTimezone: Europe/Vienna
+LOCATION:Alterlaa
+BEGIN:VALARM
+TRIGGER:-PT0S
+ACTION:DISPLAY
+DESCRIPTION:Reminder (Fri): Adults Kleinfeld vs FBC Dragons Hobby
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:floorballbunnies-16356@floorballbunnies.at
+DTSTART;TZID=Europe/Vienna:20261018T153000
+DTEND;TZID=Europe/Vienna:20261018T170000
+SUMMARY:Adults Kleinfeld: vs FBC Dragons Youth
+DESCRIPTION:Wiener Kleinfeldliga\nHome vs FBC Dragons Youth\nTime: 15:30 (Europe/Vienna)\nVenue: Alterlaa\nGame #16356
+LOCATION:Alterlaa
+END:VEVENT
+BEGIN:VEVENT
+UID:floorballbunnies-16356-remind-mon@floorballbunnies.at
+DTSTART;TZID=Europe/Vienna:20261012T090000
+DTEND;TZID=Europe/Vienna:20261012T091500
+SUMMARY:Reminder (Mon): Adults Kleinfeld vs FBC Dragons Youth
+DESCRIPTION:Monday reminder before the game.\nGame: Sun 18 Oct 2026 · 15:30\nHome vs FBC Dragons Youth\nVenue: Alterlaa\nCompetition: Wiener Kleinfeldliga\nGame #16356\nTimezone: Europe/Vienna
+LOCATION:Alterlaa
+BEGIN:VALARM
+TRIGGER:-PT0S
+ACTION:DISPLAY
+DESCRIPTION:Reminder (Mon): Adults Kleinfeld vs FBC Dragons Youth
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:floorballbunnies-16356-remind-wed@floorballbunnies.at
+DTSTART;TZID=Europe/Vienna:20261014T090000
+DTEND;TZID=Europe/Vienna:20261014T091500
+SUMMARY:Reminder (Wed): Adults Kleinfeld vs FBC Dragons Youth
+DESCRIPTION:Wednesday reminder before the game.\nGame: Sun 18 Oct 2026 · 15:30\nHome vs FBC Dragons Youth\nVenue: Alterlaa\nCompetition: Wiener Kleinfeldliga\nGame #16356\nTimezone: Europe/Vienna
+LOCATION:Alterlaa
+BEGIN:VALARM
+TRIGGER:-PT0S
+ACTION:DISPLAY
+DESCRIPTION:Reminder (Wed): Adults Kleinfeld vs FBC Dragons Youth
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:floorballbunnies-16356-remind-fri@floorballbunnies.at
+DTSTART;TZID=Europe/Vienna:20261016T090000
+DTEND;TZID=Europe/Vienna:20261016T091500
+SUMMARY:Reminder (Fri): Adults Kleinfeld vs FBC Dragons Youth
+DESCRIPTION:Friday reminder before the game.\nGame: Sun 18 Oct 2026 · 15:30\nHome vs FBC Dragons Youth\nVenue: Alterlaa\nCompetition: Wiener Kleinfeldliga\nGame #16356\nTimezone: Europe/Vienna
+LOCATION:Alterlaa
+BEGIN:VALARM
+TRIGGER:-PT0S
+ACTION:DISPLAY
+DESCRIPTION:Reminder (Fri): Adults Kleinfeld vs FBC Dragons Youth
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:floorballbunnies-16357@floorballbunnies.at
+DTSTART;TZID=Europe/Vienna:20261108T160000
+DTEND;TZID=Europe/Vienna:20261108T173000
+SUMMARY:Adults Kleinfeld: vs Crossroads
+DESCRIPTION:Wiener Kleinfeldliga\nHome vs Crossroads\nTime: 16:00 (Europe/Vienna)\nVenue: PAHO Kurt Kucera Rundhalle\nGame #16357
+LOCATION:PAHO Kurt Kucera Rundhalle
+END:VEVENT
+BEGIN:VEVENT
+UID:floorballbunnies-16357-remind-mon@floorballbunnies.at
+DTSTART;TZID=Europe/Vienna:20261102T090000
+DTEND;TZID=Europe/Vienna:20261102T091500
+SUMMARY:Reminder (Mon): Adults Kleinfeld vs Crossroads
+DESCRIPTION:Monday reminder before the game.\nGame: Sun 08 Nov 2026 · 16:00\nHome vs Crossroads\nVenue: PAHO Kurt Kucera Rundhalle\nCompetition: Wiener Kleinfeldliga\nGame #16357\nTimezone: Europe/Vienna
+LOCATION:PAHO Kurt Kucera Rundhalle
+BEGIN:VALARM
+TRIGGER:-PT0S
+ACTION:DISPLAY
+DESCRIPTION:Reminder (Mon): Adults Kleinfeld vs Crossroads
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:floorballbunnies-16357-remind-wed@floorballbunnies.at
+DTSTART;TZID=Europe/Vienna:20261104T090000
+DTEND;TZID=Europe/Vienna:20261104T091500
+SUMMARY:Reminder (Wed): Adults Kleinfeld vs Crossroads
+DESCRIPTION:Wednesday reminder before the game.\nGame: Sun 08 Nov 2026 · 16:00\nHome vs Crossroads\nVenue: PAHO Kurt Kucera Rundhalle\nCompetition: Wiener Kleinfeldliga\nGame #16357\nTimezone: Europe/Vienna
+LOCATION:PAHO Kurt Kucera Rundhalle
+BEGIN:VALARM
+TRIGGER:-PT0S
+ACTION:DISPLAY
+DESCRIPTION:Reminder (Wed): Adults Kleinfeld vs Crossroads
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:floorballbunnies-16357-remind-fri@floorballbunnies.at
+DTSTART;TZID=Europe/Vienna:20261106T090000
+DTEND;TZID=Europe/Vienna:20261106T091500
+SUMMARY:Reminder (Fri): Adults Kleinfeld vs Crossroads
+DESCRIPTION:Friday reminder before the game.\nGame: Sun 08 Nov 2026 · 16:00\nHome vs Crossroads\nVenue: PAHO Kurt Kucera Rundhalle\nCompetition: Wiener Kleinfeldliga\nGame #16357\nTimezone: Europe/Vienna
+LOCATION:PAHO Kurt Kucera Rundhalle
+BEGIN:VALARM
+TRIGGER:-PT0S
+ACTION:DISPLAY
+DESCRIPTION:Reminder (Fri): Adults Kleinfeld vs Crossroads
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:floorballbunnies-16361@floorballbunnies.at
+DTSTART;TZID=Europe/Vienna:20261108T183000
+DTEND;TZID=Europe/Vienna:20261108T200000
+SUMMARY:Adults Kleinfeld: vs Sokol Wien
+DESCRIPTION:Wiener Kleinfeldliga\nHome vs Sokol Wien\nTime: 18:30 (Europe/Vienna)\nVenue: PAHO Kurt Kucera Rundhalle\nGame #16361
+LOCATION:PAHO Kurt Kucera Rundhalle
+END:VEVENT
+BEGIN:VEVENT
+UID:floorballbunnies-16361-remind-mon@floorballbunnies.at
+DTSTART;TZID=Europe/Vienna:20261102T090000
+DTEND;TZID=Europe/Vienna:20261102T091500
+SUMMARY:Reminder (Mon): Adults Kleinfeld vs Sokol Wien
+DESCRIPTION:Monday reminder before the game.\nGame: Sun 08 Nov 2026 · 18:30\nHome vs Sokol Wien\nVenue: PAHO Kurt Kucera Rundhalle\nCompetition: Wiener Kleinfeldliga\nGame #16361\nTimezone: Europe/Vienna
+LOCATION:PAHO Kurt Kucera Rundhalle
+BEGIN:VALARM
+TRIGGER:-PT0S
+ACTION:DISPLAY
+DESCRIPTION:Reminder (Mon): Adults Kleinfeld vs Sokol Wien
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:floorballbunnies-16361-remind-wed@floorballbunnies.at
+DTSTART;TZID=Europe/Vienna:20261104T090000
+DTEND;TZID=Europe/Vienna:20261104T091500
+SUMMARY:Reminder (Wed): Adults Kleinfeld vs Sokol Wien
+DESCRIPTION:Wednesday reminder before the game.\nGame: Sun 08 Nov 2026 · 18:30\nHome vs Sokol Wien\nVenue: PAHO Kurt Kucera Rundhalle\nCompetition: Wiener Kleinfeldliga\nGame #16361\nTimezone: Europe/Vienna
+LOCATION:PAHO Kurt Kucera Rundhalle
+BEGIN:VALARM
+TRIGGER:-PT0S
+ACTION:DISPLAY
+DESCRIPTION:Reminder (Wed): Adults Kleinfeld vs Sokol Wien
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:floorballbunnies-16361-remind-fri@floorballbunnies.at
+DTSTART;TZID=Europe/Vienna:20261106T090000
+DTEND;TZID=Europe/Vienna:20261106T091500
+SUMMARY:Reminder (Fri): Adults Kleinfeld vs Sokol Wien
+DESCRIPTION:Friday reminder before the game.\nGame: Sun 08 Nov 2026 · 18:30\nHome vs Sokol Wien\nVenue: PAHO Kurt Kucera Rundhalle\nCompetition: Wiener Kleinfeldliga\nGame #16361\nTimezone: Europe/Vienna
+LOCATION:PAHO Kurt Kucera Rundhalle
+BEGIN:VALARM
+TRIGGER:-PT0S
+ACTION:DISPLAY
+DESCRIPTION:Reminder (Fri): Adults Kleinfeld vs Sokol Wien
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:floorballbunnies-16366@floorballbunnies.at
+DTSTART;TZID=Europe/Vienna:20270314T113000
+DTEND;TZID=Europe/Vienna:20270314T130000
+SUMMARY:Adults Kleinfeld: vs Crossroads
+DESCRIPTION:Wiener Kleinfeldliga\nHome vs Crossroads\nTime: 11:30 (Europe/Vienna)\nVenue: Alterlaa\nGame #16366
+LOCATION:Alterlaa
+END:VEVENT
+BEGIN:VEVENT
+UID:floorballbunnies-16366-remind-mon@floorballbunnies.at
+DTSTART;TZID=Europe/Vienna:20270308T090000
+DTEND;TZID=Europe/Vienna:20270308T091500
+SUMMARY:Reminder (Mon): Adults Kleinfeld vs Crossroads
+DESCRIPTION:Monday reminder before the game.\nGame: Sun 14 Mar 2027 · 11:30\nHome vs Crossroads\nVenue: Alterlaa\nCompetition: Wiener Kleinfeldliga\nGame #16366\nTimezone: Europe/Vienna
+LOCATION:Alterlaa
+BEGIN:VALARM
+TRIGGER:-PT0S
+ACTION:DISPLAY
+DESCRIPTION:Reminder (Mon): Adults Kleinfeld vs Crossroads
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:floorballbunnies-16366-remind-wed@floorballbunnies.at
+DTSTART;TZID=Europe/Vienna:20270310T090000
+DTEND;TZID=Europe/Vienna:20270310T091500
+SUMMARY:Reminder (Wed): Adults Kleinfeld vs Crossroads
+DESCRIPTION:Wednesday reminder before the game.\nGame: Sun 14 Mar 2027 · 11:30\nHome vs Crossroads\nVenue: Alterlaa\nCompetition: Wiener Kleinfeldliga\nGame #16366\nTimezone: Europe/Vienna
+LOCATION:Alterlaa
+BEGIN:VALARM
+TRIGGER:-PT0S
+ACTION:DISPLAY
+DESCRIPTION:Reminder (Wed): Adults Kleinfeld vs Crossroads
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:floorballbunnies-16366-remind-fri@floorballbunnies.at
+DTSTART;TZID=Europe/Vienna:20270312T090000
+DTEND;TZID=Europe/Vienna:20270312T091500
+SUMMARY:Reminder (Fri): Adults Kleinfeld vs Crossroads
+DESCRIPTION:Friday reminder before the game.\nGame: Sun 14 Mar 2027 · 11:30\nHome vs Crossroads\nVenue: Alterlaa\nCompetition: Wiener Kleinfeldliga\nGame #16366\nTimezone: Europe/Vienna
+LOCATION:Alterlaa
+BEGIN:VALARM
+TRIGGER:-PT0S
+ACTION:DISPLAY
+DESCRIPTION:Reminder (Fri): Adults Kleinfeld vs Crossroads
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:floorballbunnies-16364@floorballbunnies.at
+DTSTART;TZID=Europe/Vienna:20270314T171500
+DTEND;TZID=Europe/Vienna:20270314T184500
+SUMMARY:Adults Kleinfeld: vs WFV
+DESCRIPTION:Wiener Kleinfeldliga\nHome vs WFV\nTime: 17:15 (Europe/Vienna)\nVenue: Alterlaa\nGame #16364
+LOCATION:Alterlaa
+END:VEVENT
+BEGIN:VEVENT
+UID:floorballbunnies-16364-remind-mon@floorballbunnies.at
+DTSTART;TZID=Europe/Vienna:20270308T090000
+DTEND;TZID=Europe/Vienna:20270308T091500
+SUMMARY:Reminder (Mon): Adults Kleinfeld vs WFV
+DESCRIPTION:Monday reminder before the game.\nGame: Sun 14 Mar 2027 · 17:15\nHome vs WFV\nVenue: Alterlaa\nCompetition: Wiener Kleinfeldliga\nGame #16364\nTimezone: Europe/Vienna
+LOCATION:Alterlaa
+BEGIN:VALARM
+TRIGGER:-PT0S
+ACTION:DISPLAY
+DESCRIPTION:Reminder (Mon): Adults Kleinfeld vs WFV
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:floorballbunnies-16364-remind-wed@floorballbunnies.at
+DTSTART;TZID=Europe/Vienna:20270310T090000
+DTEND;TZID=Europe/Vienna:20270310T091500
+SUMMARY:Reminder (Wed): Adults Kleinfeld vs WFV
+DESCRIPTION:Wednesday reminder before the game.\nGame: Sun 14 Mar 2027 · 17:15\nHome vs WFV\nVenue: Alterlaa\nCompetition: Wiener Kleinfeldliga\nGame #16364\nTimezone: Europe/Vienna
+LOCATION:Alterlaa
+BEGIN:VALARM
+TRIGGER:-PT0S
+ACTION:DISPLAY
+DESCRIPTION:Reminder (Wed): Adults Kleinfeld vs WFV
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:floorballbunnies-16364-remind-fri@floorballbunnies.at
+DTSTART;TZID=Europe/Vienna:20270312T090000
+DTEND;TZID=Europe/Vienna:20270312T091500
+SUMMARY:Reminder (Fri): Adults Kleinfeld vs WFV
+DESCRIPTION:Friday reminder before the game.\nGame: Sun 14 Mar 2027 · 17:15\nHome vs WFV\nVenue: Alterlaa\nCompetition: Wiener Kleinfeldliga\nGame #16364\nTimezone: Europe/Vienna
+LOCATION:Alterlaa
+BEGIN:VALARM
+TRIGGER:-PT0S
+ACTION:DISPLAY
+DESCRIPTION:Reminder (Fri): Adults Kleinfeld vs WFV
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:floorballbunnies-16369@floorballbunnies.at
+DTSTART;TZID=Europe/Vienna:20270404T171500
+DTEND;TZID=Europe/Vienna:20270404T184500
+SUMMARY:Adults Kleinfeld: vs FBC Dragons Hobby
+DESCRIPTION:Wiener Kleinfeldliga\nHome vs FBC Dragons Hobby\nTime: 17:15 (Europe/Vienna)\nVenue: Alterlaa\nGame #16369
+LOCATION:Alterlaa
+END:VEVENT
+BEGIN:VEVENT
+UID:floorballbunnies-16369-remind-mon@floorballbunnies.at
+DTSTART;TZID=Europe/Vienna:20270329T090000
+DTEND;TZID=Europe/Vienna:20270329T091500
+SUMMARY:Reminder (Mon): Adults Kleinfeld vs FBC Dragons Hobby
+DESCRIPTION:Monday reminder before the game.\nGame: Sun 04 Apr 2027 · 17:15\nHome vs FBC Dragons Hobby\nVenue: Alterlaa\nCompetition: Wiener Kleinfeldliga\nGame #16369\nTimezone: Europe/Vienna
+LOCATION:Alterlaa
+BEGIN:VALARM
+TRIGGER:-PT0S
+ACTION:DISPLAY
+DESCRIPTION:Reminder (Mon): Adults Kleinfeld vs FBC Dragons Hobby
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:floorballbunnies-16369-remind-wed@floorballbunnies.at
+DTSTART;TZID=Europe/Vienna:20270331T090000
+DTEND;TZID=Europe/Vienna:20270331T091500
+SUMMARY:Reminder (Wed): Adults Kleinfeld vs FBC Dragons Hobby
+DESCRIPTION:Wednesday reminder before the game.\nGame: Sun 04 Apr 2027 · 17:15\nHome vs FBC Dragons Hobby\nVenue: Alterlaa\nCompetition: Wiener Kleinfeldliga\nGame #16369\nTimezone: Europe/Vienna
+LOCATION:Alterlaa
+BEGIN:VALARM
+TRIGGER:-PT0S
+ACTION:DISPLAY
+DESCRIPTION:Reminder (Wed): Adults Kleinfeld vs FBC Dragons Hobby
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:floorballbunnies-16369-remind-fri@floorballbunnies.at
+DTSTART;TZID=Europe/Vienna:20270402T090000
+DTEND;TZID=Europe/Vienna:20270402T091500
+SUMMARY:Reminder (Fri): Adults Kleinfeld vs FBC Dragons Hobby
+DESCRIPTION:Friday reminder before the game.\nGame: Sun 04 Apr 2027 · 17:15\nHome vs FBC Dragons Hobby\nVenue: Alterlaa\nCompetition: Wiener Kleinfeldliga\nGame #16369\nTimezone: Europe/Vienna
+LOCATION:Alterlaa
+BEGIN:VALARM
+TRIGGER:-PT0S
+ACTION:DISPLAY
+DESCRIPTION:Reminder (Fri): Adults Kleinfeld vs FBC Dragons Hobby
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:floorballbunnies-16371@floorballbunnies.at
+DTSTART;TZID=Europe/Vienna:20270404T183000
+DTEND;TZID=Europe/Vienna:20270404T200000
+SUMMARY:Adults Kleinfeld: vs FBC Dragons Youth
+DESCRIPTION:Wiener Kleinfeldliga\nHome vs FBC Dragons Youth\nTime: 18:30 (Europe/Vienna)\nVenue: Alterlaa\nGame #16371
+LOCATION:Alterlaa
+END:VEVENT
+BEGIN:VEVENT
+UID:floorballbunnies-16371-remind-mon@floorballbunnies.at
+DTSTART;TZID=Europe/Vienna:20270329T090000
+DTEND;TZID=Europe/Vienna:20270329T091500
+SUMMARY:Reminder (Mon): Adults Kleinfeld vs FBC Dragons Youth
+DESCRIPTION:Monday reminder before the game.\nGame: Sun 04 Apr 2027 · 18:30\nHome vs FBC Dragons Youth\nVenue: Alterlaa\nCompetition: Wiener Kleinfeldliga\nGame #16371\nTimezone: Europe/Vienna
+LOCATION:Alterlaa
+BEGIN:VALARM
+TRIGGER:-PT0S
+ACTION:DISPLAY
+DESCRIPTION:Reminder (Mon): Adults Kleinfeld vs FBC Dragons Youth
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:floorballbunnies-16371-remind-wed@floorballbunnies.at
+DTSTART;TZID=Europe/Vienna:20270331T090000
+DTEND;TZID=Europe/Vienna:20270331T091500
+SUMMARY:Reminder (Wed): Adults Kleinfeld vs FBC Dragons Youth
+DESCRIPTION:Wednesday reminder before the game.\nGame: Sun 04 Apr 2027 · 18:30\nHome vs FBC Dragons Youth\nVenue: Alterlaa\nCompetition: Wiener Kleinfeldliga\nGame #16371\nTimezone: Europe/Vienna
+LOCATION:Alterlaa
+BEGIN:VALARM
+TRIGGER:-PT0S
+ACTION:DISPLAY
+DESCRIPTION:Reminder (Wed): Adults Kleinfeld vs FBC Dragons Youth
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:floorballbunnies-16371-remind-fri@floorballbunnies.at
+DTSTART;TZID=Europe/Vienna:20270402T090000
+DTEND;TZID=Europe/Vienna:20270402T091500
+SUMMARY:Reminder (Fri): Adults Kleinfeld vs FBC Dragons Youth
+DESCRIPTION:Friday reminder before the game.\nGame: Sun 04 Apr 2027 · 18:30\nHome vs FBC Dragons Youth\nVenue: Alterlaa\nCompetition: Wiener Kleinfeldliga\nGame #16371\nTimezone: Europe/Vienna
+LOCATION:Alterlaa
+BEGIN:VALARM
+TRIGGER:-PT0S
+ACTION:DISPLAY
+DESCRIPTION:Reminder (Fri): Adults Kleinfeld vs FBC Dragons Youth
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:floorballbunnies-16378@floorballbunnies.at
+DTSTART;TZID=Europe/Vienna:20270606T170000
+DTEND;TZID=Europe/Vienna:20270606T183000
+SUMMARY:Adults Kleinfeld: vs Sokol Wien
+DESCRIPTION:Wiener Kleinfeldliga\nHome vs Sokol Wien\nTime: 17:00 (Europe/Vienna)\nVenue: Alterlaa\nGame #16378
+LOCATION:Alterlaa
+END:VEVENT
+BEGIN:VEVENT
+UID:floorballbunnies-16378-remind-mon@floorballbunnies.at
+DTSTART;TZID=Europe/Vienna:20270531T090000
+DTEND;TZID=Europe/Vienna:20270531T091500
+SUMMARY:Reminder (Mon): Adults Kleinfeld vs Sokol Wien
+DESCRIPTION:Monday reminder before the game.\nGame: Sun 06 Jun 2027 · 17:00\nHome vs Sokol Wien\nVenue: Alterlaa\nCompetition: Wiener Kleinfeldliga\nGame #16378\nTimezone: Europe/Vienna
+LOCATION:Alterlaa
+BEGIN:VALARM
+TRIGGER:-PT0S
+ACTION:DISPLAY
+DESCRIPTION:Reminder (Mon): Adults Kleinfeld vs Sokol Wien
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:floorballbunnies-16378-remind-wed@floorballbunnies.at
+DTSTART;TZID=Europe/Vienna:20270602T090000
+DTEND;TZID=Europe/Vienna:20270602T091500
+SUMMARY:Reminder (Wed): Adults Kleinfeld vs Sokol Wien
+DESCRIPTION:Wednesday reminder before the game.\nGame: Sun 06 Jun 2027 · 17:00\nHome vs Sokol Wien\nVenue: Alterlaa\nCompetition: Wiener Kleinfeldliga\nGame #16378\nTimezone: Europe/Vienna
+LOCATION:Alterlaa
+BEGIN:VALARM
+TRIGGER:-PT0S
+ACTION:DISPLAY
+DESCRIPTION:Reminder (Wed): Adults Kleinfeld vs Sokol Wien
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:floorballbunnies-16378-remind-fri@floorballbunnies.at
+DTSTART;TZID=Europe/Vienna:20270604T090000
+DTEND;TZID=Europe/Vienna:20270604T091500
+SUMMARY:Reminder (Fri): Adults Kleinfeld vs Sokol Wien
+DESCRIPTION:Friday reminder before the game.\nGame: Sun 06 Jun 2027 · 17:00\nHome vs Sokol Wien\nVenue: Alterlaa\nCompetition: Wiener Kleinfeldliga\nGame #16378\nTimezone: Europe/Vienna
+LOCATION:Alterlaa
+BEGIN:VALARM
+TRIGGER:-PT0S
+ACTION:DISPLAY
+DESCRIPTION:Reminder (Fri): Adults Kleinfeld vs Sokol Wien
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:floorballbunnies-16381@floorballbunnies.at
+DTSTART;TZID=Europe/Vienna:20270606T193000
+DTEND;TZID=Europe/Vienna:20270606T210000
+SUMMARY:Adults Kleinfeld: vs WFV
+DESCRIPTION:Wiener Kleinfeldliga\nHome vs WFV\nTime: 19:30 (Europe/Vienna)\nVenue: Alterlaa\nGame #16381
+LOCATION:Alterlaa
+END:VEVENT
+BEGIN:VEVENT
+UID:floorballbunnies-16381-remind-mon@floorballbunnies.at
+DTSTART;TZID=Europe/Vienna:20270531T090000
+DTEND;TZID=Europe/Vienna:20270531T091500
+SUMMARY:Reminder (Mon): Adults Kleinfeld vs WFV
+DESCRIPTION:Monday reminder before the game.\nGame: Sun 06 Jun 2027 · 19:30\nHome vs WFV\nVenue: Alterlaa\nCompetition: Wiener Kleinfeldliga\nGame #16381\nTimezone: Europe/Vienna
+LOCATION:Alterlaa
+BEGIN:VALARM
+TRIGGER:-PT0S
+ACTION:DISPLAY
+DESCRIPTION:Reminder (Mon): Adults Kleinfeld vs WFV
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:floorballbunnies-16381-remind-wed@floorballbunnies.at
+DTSTART;TZID=Europe/Vienna:20270602T090000
+DTEND;TZID=Europe/Vienna:20270602T091500
+SUMMARY:Reminder (Wed): Adults Kleinfeld vs WFV
+DESCRIPTION:Wednesday reminder before the game.\nGame: Sun 06 Jun 2027 · 19:30\nHome vs WFV\nVenue: Alterlaa\nCompetition: Wiener Kleinfeldliga\nGame #16381\nTimezone: Europe/Vienna
+LOCATION:Alterlaa
+BEGIN:VALARM
+TRIGGER:-PT0S
+ACTION:DISPLAY
+DESCRIPTION:Reminder (Wed): Adults Kleinfeld vs WFV
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:floorballbunnies-16381-remind-fri@floorballbunnies.at
+DTSTART;TZID=Europe/Vienna:20270604T090000
+DTEND;TZID=Europe/Vienna:20270604T091500
+SUMMARY:Reminder (Fri): Adults Kleinfeld vs WFV
+DESCRIPTION:Friday reminder before the game.\nGame: Sun 06 Jun 2027 · 19:30\nHome vs WFV\nVenue: Alterlaa\nCompetition: Wiener Kleinfeldliga\nGame #16381\nTimezone: Europe/Vienna
+LOCATION:Alterlaa
+BEGIN:VALARM
+TRIGGER:-PT0S
+ACTION:DISPLAY
+DESCRIPTION:Reminder (Fri): Adults Kleinfeld vs WFV
+END:VALARM
+END:VEVENT
+END:VCALENDAR
