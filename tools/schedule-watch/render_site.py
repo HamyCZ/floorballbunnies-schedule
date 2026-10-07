@@ -37,13 +37,14 @@ CATEGORY_ORDER = [
 ]
 
 # Related squads: still separate categories/calendars, but surface cross-squad overlaps.
-# U12: Bully = A, Assist = B, Mädchen, Alpencup (OÖ) — flag when any 2+ play the same day.
+# U12: Bully = A, Assist = B, Mädchen, Alpencup (OÖ) — same-day only (no kickoff time check).
 RELATED_SQUAD_GROUPS = [
     {
         "id": "u12-groups",
         "label": "U12 group overlap",
-        "detail": "Assist · Bully · Mädchen · Alpencup — separate squads, flagged when any two collide",
+        "detail": "Assist · Bully · Mädchen · Alpencup — separate squads, flagged when any two play the same day",
         "categories": ("U12 Assist", "U12 Bully", "U12 Mädchen", "U12 Alpencup"),
+        "timeClash": False,
     },
 ]
 BAND_ACCENT = {
@@ -703,8 +704,9 @@ def detect_clashes(games: list[dict[str, Any]]) -> dict[str, Any]:
     """
     Same-squad clashes + related multi-squad awareness (e.g. all U12 groups).
 
-    Calendars stay per category. Related groups add informational overlaps when
-    any two (or more) listed squads play the same day / overlapping kickoff.
+    Calendars stay per category. Related groups add informational same-day overlaps
+    when any two (or more) listed squads play. U12 uses same-day only — no kickoff
+    time-overlap check (related or same-squad).
     """
     by_date: dict[str, list] = defaultdict(list)
     for g in games:
@@ -730,9 +732,11 @@ def detect_clashes(games: list[dict[str, Any]]) -> dict[str, Any]:
                     }
                 )
 
-        # Same squad: overlapping kickoffs across competitions
+        # Same squad: overlapping kickoffs across competitions (not used for U12)
         seen_pairs: set[tuple[int, int]] = set()
         for cat, cgs in by_cat.items():
+            if cat.startswith("U12"):
+                continue
             timed = [(g, parse_time(g.get("time"))) for g in cgs if parse_time(g.get("time")) is not None]
             for i in range(len(timed)):
                 for j in range(i + 1, len(timed)):
@@ -768,7 +772,9 @@ def detect_clashes(games: list[dict[str, Any]]) -> dict[str, Any]:
                     ),
                 }
             )
-            # Time overlap across every pair of present related squads
+            # Optional kickoff overlap across related squads (disabled for U12)
+            if group.get("timeClash", True) is False:
+                continue
             timed_by_cat = [
                 (c, [(g, parse_time(g.get("time"))) for g in pool if parse_time(g.get("time")) is not None])
                 for c, pool in present
@@ -826,7 +832,7 @@ def build_clashes(
 
     parts = [
         '<p class="lead">Same-squad conflicts, plus U12 group overlap awareness '
-        "(Assist · Bully · Mädchen · Alpencup — separate calendars, flagged when any two collide).</p>",
+        "(Assist · Bully · Mädchen · Alpencup — separate calendars, flagged when any two play the same day).</p>",
         '<div class="chips">',
     ]
     for gid in related_active:

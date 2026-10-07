@@ -296,12 +296,11 @@ Categories stay **separate calendars/ICS** (order in `render_site.py`):
 | Detect | Meaning |
 |---|---|
 | **SAME DAY** (same squad) | Same category has games in **2+ different competitions** on one calendar day |
-| **TIME CLASH** (same squad) | Same category, different competitions, kickoffs overlap within **~90 minutes** |
+| **TIME CLASH** (same squad) | Same category, different competitions, kickoffs overlap within **~90 minutes** — **not used for U12** |
 | **U12 same day** | Any **2+** of Assist / Bully / Mädchen / Alpencup play that day (informational) |
-| **U12 time overlap** | Kickoffs across those U12 groups overlap within **~90 minutes** |
-| **Not a clash** | Unrelated age bands (e.g. U12 vs U17) — not cross-U12 (those *are* flagged) |
+| **Not a clash** | Unrelated age bands (e.g. U12 vs U17); U12 kickoff time overlap is intentionally ignored |
 
-U12 Assist, Bully, Mädchen, and Alpencup stay **own categories/calendars**, but overlaps between **any two** are listed under **U12 group overlap** (Bully = A · Assist = B · Alpencup = OÖ).
+U12 Assist, Bully, Mädchen, and Alpencup stay **own categories/calendars**. Overlaps between **any two** are listed under **U12 group overlap** as **same-day only** (no time-overlap check).
 
 Site page: `pages/clashes.html` / preview `docs/site/clashes.html`.
 
@@ -611,7 +610,7 @@ Audited against club 78 / season 2026 snapshot (200 games).
 | `OÖ U10 + Alpencup` | 749 | **U10 Alpencup** | Own calendar |
 
 **Confirmed:** Alpencup stays **separate** (own calendar + own ICS). Do not merge into Assist/Bully.  
-**Confirmed:** Assist, Bully, Mädchen, and Alpencup stay **own categories**, with **U12 group overlap** alerts when any two collide (same day and/or ~90 min kickoff overlap).
+**Confirmed:** Assist, Bully, Mädchen, and Alpencup stay **own categories**, with **U12 group overlap** alerts when any two play the **same day** (no kickoff time-overlap check).
 
 ### Adult reminder categories
 
