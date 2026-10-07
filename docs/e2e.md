@@ -313,11 +313,14 @@ Page: `weekend.html`.
 
 | Action | Result |
 |---|---|
-| Pick category | Month grid (current month); kickoffs in cells |
+| Pick category | Month grid (current month); kickoffs in cells on desktop |
+| Mobile | Compact day cells (date + game count); details in the day panel |
 | Click day | Day panel: download that day / that game |
 | Download season | Full category `.ics` |
 
 **Timezone:** every timed event uses `DTSTART;TZID=Europe/Vienna:…` plus a full `VTIMEZONE` (CET/CEST). Also `X-WR-TIMEZONE:Europe/Vienna`. Not floating local times.
+
+**ICS compatibility (RFC 5545):** files use **CRLF** line endings, **`DTSTAMP`** on every `VEVENT`, line folding for long `DESCRIPTION`s, and exclusive `DTEND` for all-day (`VALUE=DATE`) events. Browser “download day/game” builds the same rules client-side.
 
 **Adult reminders** (config → `reminders`; defaults):
 

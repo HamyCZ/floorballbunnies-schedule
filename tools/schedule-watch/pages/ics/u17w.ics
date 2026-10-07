@@ -25,98 +25,123 @@ END:STANDARD
 END:VTIMEZONE
 BEGIN:VEVENT
 UID:floorballbunnies-16656@floorballbunnies.at
+DTSTAMP:20261007T161102Z
 DTSTART;VALUE=DATE:20260117
-DTEND;VALUE=DATE:20260117
+DTEND;VALUE=DATE:20260118
 SUMMARY:U17w: vs FBC Dragons
-DESCRIPTION:ÖFBV U17w Jugendliga\nHome vs FBC Dragons\nTime: TBD (Europe/Vienna)\nVenue: Sporthalle Neu-Rum\nGame #16656
+DESCRIPTION:ÖFBV U17w Jugendliga\nHome vs FBC Dragons\nTime: TBD (Europe/V
+ ienna)\nVenue: Sporthalle Neu-Rum\nGame #16656
 LOCATION:Sporthalle Neu-Rum
 END:VEVENT
 BEGIN:VEVENT
 UID:floorballbunnies-16659@floorballbunnies.at
+DTSTAMP:20261007T161102Z
 DTSTART;VALUE=DATE:20260117
-DTEND;VALUE=DATE:20260117
+DTEND;VALUE=DATE:20260118
 SUMMARY:U17w: vs Wiener Floorball Verein
-DESCRIPTION:ÖFBV U17w Jugendliga\nHome vs Wiener Floorball Verein\nTime: TBD (Europe/Vienna)\nVenue: Sporthalle Neu-Rum\nGame #16659
+DESCRIPTION:ÖFBV U17w Jugendliga\nHome vs Wiener Floorball Verein\nTime: T
+ BD (Europe/Vienna)\nVenue: Sporthalle Neu-Rum\nGame #16659
 LOCATION:Sporthalle Neu-Rum
 END:VEVENT
 BEGIN:VEVENT
 UID:floorballbunnies-16640@floorballbunnies.at
+DTSTAMP:20261007T161102Z
 DTSTART;VALUE=DATE:20261107
-DTEND;VALUE=DATE:20261107
+DTEND;VALUE=DATE:20261108
 SUMMARY:U17w: vs UHC Alligator Rum
-DESCRIPTION:ÖFBV U17w Jugendliga\nAway vs UHC Alligator Rum\nTime: TBD (Europe/Vienna)\nVenue: Sankt Martin\nGame #16640
+DESCRIPTION:ÖFBV U17w Jugendliga\nAway vs UHC Alligator Rum\nTime: TBD (Eu
+ rope/Vienna)\nVenue: Sankt Martin\nGame #16640
 LOCATION:Sankt Martin
 END:VEVENT
 BEGIN:VEVENT
 UID:floorballbunnies-16643@floorballbunnies.at
+DTSTAMP:20261007T161102Z
 DTSTART;VALUE=DATE:20261107
-DTEND;VALUE=DATE:20261107
+DTEND;VALUE=DATE:20261108
 SUMMARY:U17w: vs UHC Alligator Rum
-DESCRIPTION:ÖFBV U17w Jugendliga\nHome vs UHC Alligator Rum\nTime: TBD (Europe/Vienna)\nVenue: Sankt Martin\nGame #16643
+DESCRIPTION:ÖFBV U17w Jugendliga\nHome vs UHC Alligator Rum\nTime: TBD (Eu
+ rope/Vienna)\nVenue: Sankt Martin\nGame #16643
 LOCATION:Sankt Martin
 END:VEVENT
 BEGIN:VEVENT
 UID:floorballbunnies-16646@floorballbunnies.at
+DTSTAMP:20261007T161102Z
 DTSTART;VALUE=DATE:20261220
-DTEND;VALUE=DATE:20261220
+DTEND;VALUE=DATE:20261221
 SUMMARY:U17w: vs UHC Alligator Rum
-DESCRIPTION:ÖFBV U17w Jugendliga\nAway vs UHC Alligator Rum\nTime: TBD (Europe/Vienna)\nVenue: PAHO Kurt Kucera Rundhalle\nGame #16646
+DESCRIPTION:ÖFBV U17w Jugendliga\nAway vs UHC Alligator Rum\nTime: TBD (Eu
+ rope/Vienna)\nVenue: PAHO Kurt Kucera Rundhalle\nGame #16646
 LOCATION:PAHO Kurt Kucera Rundhalle
 END:VEVENT
 BEGIN:VEVENT
 UID:floorballbunnies-16649@floorballbunnies.at
+DTSTAMP:20261007T161102Z
 DTSTART;VALUE=DATE:20261220
-DTEND;VALUE=DATE:20261220
+DTEND;VALUE=DATE:20261221
 SUMMARY:U17w: vs VSV Unihockey
-DESCRIPTION:ÖFBV U17w Jugendliga\nHome vs VSV Unihockey\nTime: TBD (Europe/Vienna)\nVenue: PAHO Kurt Kucera Rundhalle\nGame #16649
+DESCRIPTION:ÖFBV U17w Jugendliga\nHome vs VSV Unihockey\nTime: TBD (Europe
+ /Vienna)\nVenue: PAHO Kurt Kucera Rundhalle\nGame #16649
 LOCATION:PAHO Kurt Kucera Rundhalle
 END:VEVENT
 BEGIN:VEVENT
 UID:floorballbunnies-16322@floorballbunnies.at
+DTSTAMP:20261007T161102Z
 DTSTART;TZID=Europe/Vienna:20270228T090000
 DTEND;TZID=Europe/Vienna:20270228T103000
 SUMMARY:U17w: vs WFV
-DESCRIPTION:Wiener U17 Mädchen Meisterschaft\nAway vs WFV\nTime: 09:00 (Europe/Vienna)\nVenue: PAHO Kurt Kucera Rundhalle\nGame #16322
+DESCRIPTION:Wiener U17 Mädchen Meisterschaft\nAway vs WFV\nTime: 09:00 (Eu
+ rope/Vienna)\nVenue: PAHO Kurt Kucera Rundhalle\nGame #16322
 LOCATION:PAHO Kurt Kucera Rundhalle
 END:VEVENT
 BEGIN:VEVENT
 UID:floorballbunnies-16323@floorballbunnies.at
+DTSTAMP:20261007T161102Z
 DTSTART;TZID=Europe/Vienna:20270228T101500
 DTEND;TZID=Europe/Vienna:20270228T114500
 SUMMARY:U17w: vs FBC Dragons
-DESCRIPTION:Wiener U17 Mädchen Meisterschaft\nHome vs FBC Dragons\nTime: 10:15 (Europe/Vienna)\nVenue: PAHO Kurt Kucera Rundhalle\nGame #16323
+DESCRIPTION:Wiener U17 Mädchen Meisterschaft\nHome vs FBC Dragons\nTime: 1
+ 0:15 (Europe/Vienna)\nVenue: PAHO Kurt Kucera Rundhalle\nGame #16323
 LOCATION:PAHO Kurt Kucera Rundhalle
 END:VEVENT
 BEGIN:VEVENT
 UID:floorballbunnies-16650@floorballbunnies.at
+DTSTAMP:20261007T161102Z
 DTSTART;VALUE=DATE:20270314
-DTEND;VALUE=DATE:20270314
+DTEND;VALUE=DATE:20270315
 SUMMARY:U17w: vs Wiener Floorball Verein
-DESCRIPTION:ÖFBV U17w Jugendliga\nHome vs Wiener Floorball Verein\nTime: TBD (Europe/Vienna)\nVenue: Alterlaa\nGame #16650
+DESCRIPTION:ÖFBV U17w Jugendliga\nHome vs Wiener Floorball Verein\nTime: T
+ BD (Europe/Vienna)\nVenue: Alterlaa\nGame #16650
 LOCATION:Alterlaa
 END:VEVENT
 BEGIN:VEVENT
 UID:floorballbunnies-16653@floorballbunnies.at
+DTSTAMP:20261007T161102Z
 DTSTART;VALUE=DATE:20270314
-DTEND;VALUE=DATE:20270314
+DTEND;VALUE=DATE:20270315
 SUMMARY:U17w: vs FBC Dragons
-DESCRIPTION:ÖFBV U17w Jugendliga\nAway vs FBC Dragons\nTime: TBD (Europe/Vienna)\nVenue: Alterlaa\nGame #16653
+DESCRIPTION:ÖFBV U17w Jugendliga\nAway vs FBC Dragons\nTime: TBD (Europe/V
+ ienna)\nVenue: Alterlaa\nGame #16653
 LOCATION:Alterlaa
 END:VEVENT
 BEGIN:VEVENT
 UID:floorballbunnies-16325@floorballbunnies.at
+DTSTAMP:20261007T161102Z
 DTSTART;TZID=Europe/Vienna:20270502T090000
 DTEND;TZID=Europe/Vienna:20270502T103000
 SUMMARY:U17w: vs WFV
-DESCRIPTION:Wiener U17 Mädchen Meisterschaft\nAway vs WFV\nTime: 09:00 (Europe/Vienna)\nVenue: Alterlaa\nGame #16325
+DESCRIPTION:Wiener U17 Mädchen Meisterschaft\nAway vs WFV\nTime: 09:00 (Eu
+ rope/Vienna)\nVenue: Alterlaa\nGame #16325
 LOCATION:Alterlaa
 END:VEVENT
 BEGIN:VEVENT
 UID:floorballbunnies-16326@floorballbunnies.at
+DTSTAMP:20261007T161102Z
 DTSTART;TZID=Europe/Vienna:20270502T101500
 DTEND;TZID=Europe/Vienna:20270502T114500
 SUMMARY:U17w: vs FBC Dragons
-DESCRIPTION:Wiener U17 Mädchen Meisterschaft\nHome vs FBC Dragons\nTime: 10:15 (Europe/Vienna)\nVenue: Alterlaa\nGame #16326
+DESCRIPTION:Wiener U17 Mädchen Meisterschaft\nHome vs FBC Dragons\nTime: 1
+ 0:15 (Europe/Vienna)\nVenue: Alterlaa\nGame #16326
 LOCATION:Alterlaa
 END:VEVENT
 END:VCALENDAR
+

@@ -25,18 +25,23 @@ END:STANDARD
 END:VTIMEZONE
 BEGIN:VEVENT
 UID:floorballbunnies-16442@floorballbunnies.at
+DTSTAMP:20261007T161102Z
 DTSTART;TZID=Europe/Vienna:20261115T190000
 DTEND;TZID=Europe/Vienna:20261115T203000
 SUMMARY:Bundesliga: vs Sokol Wien
-DESCRIPTION:ÖFBV Bundesliga Herren\nAway vs Sokol Wien\nTime: 19:00 (Europe/Vienna)\nVenue: Alterlaa\nGame #16442
+DESCRIPTION:ÖFBV Bundesliga Herren\nAway vs Sokol Wien\nTime: 19:00 (Europ
+ e/Vienna)\nVenue: Alterlaa\nGame #16442
 LOCATION:Alterlaa
 END:VEVENT
 BEGIN:VEVENT
 UID:floorballbunnies-16442-remind-mon@floorballbunnies.at
+DTSTAMP:20261007T161102Z
 DTSTART;TZID=Europe/Vienna:20261109T090000
 DTEND;TZID=Europe/Vienna:20261109T091500
 SUMMARY:Reminder (Mon): Bundesliga vs Sokol Wien
-DESCRIPTION:Monday reminder before the game.\nGame: Sun 15 Nov 2026 · 19:00\nAway vs Sokol Wien\nVenue: Alterlaa\nCompetition: ÖFBV Bundesliga Herren\nGame #16442\nTimezone: Europe/Vienna
+DESCRIPTION:Monday reminder before the game.\nGame: Sun 15 Nov 2026 · 19:0
+ 0\nAway vs Sokol Wien\nVenue: Alterlaa\nCompetition: ÖFBV Bundesliga Herr
+ en\nGame #16442\nTimezone: Europe/Vienna
 LOCATION:Alterlaa
 BEGIN:VALARM
 TRIGGER:-PT0S
@@ -46,10 +51,13 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:floorballbunnies-16442-remind-wed@floorballbunnies.at
+DTSTAMP:20261007T161102Z
 DTSTART;TZID=Europe/Vienna:20261111T090000
 DTEND;TZID=Europe/Vienna:20261111T091500
 SUMMARY:Reminder (Wed): Bundesliga vs Sokol Wien
-DESCRIPTION:Wednesday reminder before the game.\nGame: Sun 15 Nov 2026 · 19:00\nAway vs Sokol Wien\nVenue: Alterlaa\nCompetition: ÖFBV Bundesliga Herren\nGame #16442\nTimezone: Europe/Vienna
+DESCRIPTION:Wednesday reminder before the game.\nGame: Sun 15 Nov 2026 · 1
+ 9:00\nAway vs Sokol Wien\nVenue: Alterlaa\nCompetition: ÖFBV Bundesliga H
+ erren\nGame #16442\nTimezone: Europe/Vienna
 LOCATION:Alterlaa
 BEGIN:VALARM
 TRIGGER:-PT0S
@@ -59,10 +67,13 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:floorballbunnies-16442-remind-fri@floorballbunnies.at
+DTSTAMP:20261007T161102Z
 DTSTART;TZID=Europe/Vienna:20261113T090000
 DTEND;TZID=Europe/Vienna:20261113T091500
 SUMMARY:Reminder (Fri): Bundesliga vs Sokol Wien
-DESCRIPTION:Friday reminder before the game.\nGame: Sun 15 Nov 2026 · 19:00\nAway vs Sokol Wien\nVenue: Alterlaa\nCompetition: ÖFBV Bundesliga Herren\nGame #16442\nTimezone: Europe/Vienna
+DESCRIPTION:Friday reminder before the game.\nGame: Sun 15 Nov 2026 · 19:0
+ 0\nAway vs Sokol Wien\nVenue: Alterlaa\nCompetition: ÖFBV Bundesliga Herr
+ en\nGame #16442\nTimezone: Europe/Vienna
 LOCATION:Alterlaa
 BEGIN:VALARM
 TRIGGER:-PT0S
@@ -72,18 +83,23 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:floorballbunnies-16440@floorballbunnies.at
+DTSTAMP:20261007T161102Z
 DTSTART;TZID=Europe/Vienna:20261205T180000
 DTEND;TZID=Europe/Vienna:20261205T193000
 SUMMARY:Bundesliga: vs ASKÖ Unihockey Club Linz
-DESCRIPTION:ÖFBV Bundesliga Herren\nAway vs ASKÖ Unihockey Club Linz\nTime: 18:00 (Europe/Vienna)\nVenue: Rennerschule\nGame #16440
+DESCRIPTION:ÖFBV Bundesliga Herren\nAway vs ASKÖ Unihockey Club Linz\nTim
+ e: 18:00 (Europe/Vienna)\nVenue: Rennerschule\nGame #16440
 LOCATION:Rennerschule
 END:VEVENT
 BEGIN:VEVENT
 UID:floorballbunnies-16440-remind-mon@floorballbunnies.at
+DTSTAMP:20261007T161102Z
 DTSTART;TZID=Europe/Vienna:20261130T090000
 DTEND;TZID=Europe/Vienna:20261130T091500
 SUMMARY:Reminder (Mon): Bundesliga vs ASKÖ Unihockey Club Linz
-DESCRIPTION:Monday reminder before the game.\nGame: Sat 05 Dec 2026 · 18:00\nAway vs ASKÖ Unihockey Club Linz\nVenue: Rennerschule\nCompetition: ÖFBV Bundesliga Herren\nGame #16440\nTimezone: Europe/Vienna
+DESCRIPTION:Monday reminder before the game.\nGame: Sat 05 Dec 2026 · 18:0
+ 0\nAway vs ASKÖ Unihockey Club Linz\nVenue: Rennerschule\nCompetition: Ö
+ FBV Bundesliga Herren\nGame #16440\nTimezone: Europe/Vienna
 LOCATION:Rennerschule
 BEGIN:VALARM
 TRIGGER:-PT0S
@@ -93,10 +109,13 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:floorballbunnies-16440-remind-wed@floorballbunnies.at
+DTSTAMP:20261007T161102Z
 DTSTART;TZID=Europe/Vienna:20261202T090000
 DTEND;TZID=Europe/Vienna:20261202T091500
 SUMMARY:Reminder (Wed): Bundesliga vs ASKÖ Unihockey Club Linz
-DESCRIPTION:Wednesday reminder before the game.\nGame: Sat 05 Dec 2026 · 18:00\nAway vs ASKÖ Unihockey Club Linz\nVenue: Rennerschule\nCompetition: ÖFBV Bundesliga Herren\nGame #16440\nTimezone: Europe/Vienna
+DESCRIPTION:Wednesday reminder before the game.\nGame: Sat 05 Dec 2026 · 1
+ 8:00\nAway vs ASKÖ Unihockey Club Linz\nVenue: Rennerschule\nCompetition:
+  ÖFBV Bundesliga Herren\nGame #16440\nTimezone: Europe/Vienna
 LOCATION:Rennerschule
 BEGIN:VALARM
 TRIGGER:-PT0S
@@ -106,10 +125,13 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:floorballbunnies-16440-remind-fri@floorballbunnies.at
+DTSTAMP:20261007T161102Z
 DTSTART;TZID=Europe/Vienna:20261204T090000
 DTEND;TZID=Europe/Vienna:20261204T091500
 SUMMARY:Reminder (Fri): Bundesliga vs ASKÖ Unihockey Club Linz
-DESCRIPTION:Friday reminder before the game.\nGame: Sat 05 Dec 2026 · 18:00\nAway vs ASKÖ Unihockey Club Linz\nVenue: Rennerschule\nCompetition: ÖFBV Bundesliga Herren\nGame #16440\nTimezone: Europe/Vienna
+DESCRIPTION:Friday reminder before the game.\nGame: Sat 05 Dec 2026 · 18:0
+ 0\nAway vs ASKÖ Unihockey Club Linz\nVenue: Rennerschule\nCompetition: Ö
+ FBV Bundesliga Herren\nGame #16440\nTimezone: Europe/Vienna
 LOCATION:Rennerschule
 BEGIN:VALARM
 TRIGGER:-PT0S
@@ -119,18 +141,23 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:floorballbunnies-16430@floorballbunnies.at
+DTSTAMP:20261007T161102Z
 DTSTART;TZID=Europe/Vienna:20261213T160000
 DTEND;TZID=Europe/Vienna:20261213T173000
 SUMMARY:Bundesliga: vs ASKÖ Unihockey Club Linz
-DESCRIPTION:ÖFBV Bundesliga Herren\nHome vs ASKÖ Unihockey Club Linz\nTime: 16:00 (Europe/Vienna)\nVenue: PAHO Kurt Kucera Rundhalle\nGame #16430
+DESCRIPTION:ÖFBV Bundesliga Herren\nHome vs ASKÖ Unihockey Club Linz\nTim
+ e: 16:00 (Europe/Vienna)\nVenue: PAHO Kurt Kucera Rundhalle\nGame #16430
 LOCATION:PAHO Kurt Kucera Rundhalle
 END:VEVENT
 BEGIN:VEVENT
 UID:floorballbunnies-16430-remind-mon@floorballbunnies.at
+DTSTAMP:20261007T161102Z
 DTSTART;TZID=Europe/Vienna:20261207T090000
 DTEND;TZID=Europe/Vienna:20261207T091500
 SUMMARY:Reminder (Mon): Bundesliga vs ASKÖ Unihockey Club Linz
-DESCRIPTION:Monday reminder before the game.\nGame: Sun 13 Dec 2026 · 16:00\nHome vs ASKÖ Unihockey Club Linz\nVenue: PAHO Kurt Kucera Rundhalle\nCompetition: ÖFBV Bundesliga Herren\nGame #16430\nTimezone: Europe/Vienna
+DESCRIPTION:Monday reminder before the game.\nGame: Sun 13 Dec 2026 · 16:0
+ 0\nHome vs ASKÖ Unihockey Club Linz\nVenue: PAHO Kurt Kucera Rundhalle\nC
+ ompetition: ÖFBV Bundesliga Herren\nGame #16430\nTimezone: Europe/Vienna
 LOCATION:PAHO Kurt Kucera Rundhalle
 BEGIN:VALARM
 TRIGGER:-PT0S
@@ -140,10 +167,14 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:floorballbunnies-16430-remind-wed@floorballbunnies.at
+DTSTAMP:20261007T161102Z
 DTSTART;TZID=Europe/Vienna:20261209T090000
 DTEND;TZID=Europe/Vienna:20261209T091500
 SUMMARY:Reminder (Wed): Bundesliga vs ASKÖ Unihockey Club Linz
-DESCRIPTION:Wednesday reminder before the game.\nGame: Sun 13 Dec 2026 · 16:00\nHome vs ASKÖ Unihockey Club Linz\nVenue: PAHO Kurt Kucera Rundhalle\nCompetition: ÖFBV Bundesliga Herren\nGame #16430\nTimezone: Europe/Vienna
+DESCRIPTION:Wednesday reminder before the game.\nGame: Sun 13 Dec 2026 · 1
+ 6:00\nHome vs ASKÖ Unihockey Club Linz\nVenue: PAHO Kurt Kucera Rundhalle
+ \nCompetition: ÖFBV Bundesliga Herren\nGame #16430\nTimezone: Europe/Vien
+ na
 LOCATION:PAHO Kurt Kucera Rundhalle
 BEGIN:VALARM
 TRIGGER:-PT0S
@@ -153,10 +184,13 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:floorballbunnies-16430-remind-fri@floorballbunnies.at
+DTSTAMP:20261007T161102Z
 DTSTART;TZID=Europe/Vienna:20261211T090000
 DTEND;TZID=Europe/Vienna:20261211T091500
 SUMMARY:Reminder (Fri): Bundesliga vs ASKÖ Unihockey Club Linz
-DESCRIPTION:Friday reminder before the game.\nGame: Sun 13 Dec 2026 · 16:00\nHome vs ASKÖ Unihockey Club Linz\nVenue: PAHO Kurt Kucera Rundhalle\nCompetition: ÖFBV Bundesliga Herren\nGame #16430\nTimezone: Europe/Vienna
+DESCRIPTION:Friday reminder before the game.\nGame: Sun 13 Dec 2026 · 16:0
+ 0\nHome vs ASKÖ Unihockey Club Linz\nVenue: PAHO Kurt Kucera Rundhalle\nC
+ ompetition: ÖFBV Bundesliga Herren\nGame #16430\nTimezone: Europe/Vienna
 LOCATION:PAHO Kurt Kucera Rundhalle
 BEGIN:VALARM
 TRIGGER:-PT0S
@@ -166,18 +200,23 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:floorballbunnies-16431@floorballbunnies.at
+DTSTAMP:20261007T161102Z
 DTSTART;TZID=Europe/Vienna:20261220T190000
 DTEND;TZID=Europe/Vienna:20261220T203000
 SUMMARY:Bundesliga: vs FBC Dragons II
-DESCRIPTION:ÖFBV Bundesliga Herren\nHome vs FBC Dragons II\nTime: 19:00 (Europe/Vienna)\nVenue: PAHO Kurt Kucera Rundhalle\nGame #16431
+DESCRIPTION:ÖFBV Bundesliga Herren\nHome vs FBC Dragons II\nTime: 19:00 (E
+ urope/Vienna)\nVenue: PAHO Kurt Kucera Rundhalle\nGame #16431
 LOCATION:PAHO Kurt Kucera Rundhalle
 END:VEVENT
 BEGIN:VEVENT
 UID:floorballbunnies-16431-remind-mon@floorballbunnies.at
+DTSTAMP:20261007T161102Z
 DTSTART;TZID=Europe/Vienna:20261214T090000
 DTEND;TZID=Europe/Vienna:20261214T091500
 SUMMARY:Reminder (Mon): Bundesliga vs FBC Dragons II
-DESCRIPTION:Monday reminder before the game.\nGame: Sun 20 Dec 2026 · 19:00\nHome vs FBC Dragons II\nVenue: PAHO Kurt Kucera Rundhalle\nCompetition: ÖFBV Bundesliga Herren\nGame #16431\nTimezone: Europe/Vienna
+DESCRIPTION:Monday reminder before the game.\nGame: Sun 20 Dec 2026 · 19:0
+ 0\nHome vs FBC Dragons II\nVenue: PAHO Kurt Kucera Rundhalle\nCompetition:
+  ÖFBV Bundesliga Herren\nGame #16431\nTimezone: Europe/Vienna
 LOCATION:PAHO Kurt Kucera Rundhalle
 BEGIN:VALARM
 TRIGGER:-PT0S
@@ -187,10 +226,13 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:floorballbunnies-16431-remind-wed@floorballbunnies.at
+DTSTAMP:20261007T161102Z
 DTSTART;TZID=Europe/Vienna:20261216T090000
 DTEND;TZID=Europe/Vienna:20261216T091500
 SUMMARY:Reminder (Wed): Bundesliga vs FBC Dragons II
-DESCRIPTION:Wednesday reminder before the game.\nGame: Sun 20 Dec 2026 · 19:00\nHome vs FBC Dragons II\nVenue: PAHO Kurt Kucera Rundhalle\nCompetition: ÖFBV Bundesliga Herren\nGame #16431\nTimezone: Europe/Vienna
+DESCRIPTION:Wednesday reminder before the game.\nGame: Sun 20 Dec 2026 · 1
+ 9:00\nHome vs FBC Dragons II\nVenue: PAHO Kurt Kucera Rundhalle\nCompetiti
+ on: ÖFBV Bundesliga Herren\nGame #16431\nTimezone: Europe/Vienna
 LOCATION:PAHO Kurt Kucera Rundhalle
 BEGIN:VALARM
 TRIGGER:-PT0S
@@ -200,10 +242,13 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:floorballbunnies-16431-remind-fri@floorballbunnies.at
+DTSTAMP:20261007T161102Z
 DTSTART;TZID=Europe/Vienna:20261218T090000
 DTEND;TZID=Europe/Vienna:20261218T091500
 SUMMARY:Reminder (Fri): Bundesliga vs FBC Dragons II
-DESCRIPTION:Friday reminder before the game.\nGame: Sun 20 Dec 2026 · 19:00\nHome vs FBC Dragons II\nVenue: PAHO Kurt Kucera Rundhalle\nCompetition: ÖFBV Bundesliga Herren\nGame #16431\nTimezone: Europe/Vienna
+DESCRIPTION:Friday reminder before the game.\nGame: Sun 20 Dec 2026 · 19:0
+ 0\nHome vs FBC Dragons II\nVenue: PAHO Kurt Kucera Rundhalle\nCompetition:
+  ÖFBV Bundesliga Herren\nGame #16431\nTimezone: Europe/Vienna
 LOCATION:PAHO Kurt Kucera Rundhalle
 BEGIN:VALARM
 TRIGGER:-PT0S
@@ -213,18 +258,23 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:floorballbunnies-16435@floorballbunnies.at
+DTSTAMP:20261007T161102Z
 DTSTART;TZID=Europe/Vienna:20270109T180000
 DTEND;TZID=Europe/Vienna:20270109T193000
 SUMMARY:Bundesliga: vs FBC Dragons II
-DESCRIPTION:ÖFBV Bundesliga Herren\nAway vs FBC Dragons II\nTime: 18:00 (Europe/Vienna)\nVenue: Alterlaa\nGame #16435
+DESCRIPTION:ÖFBV Bundesliga Herren\nAway vs FBC Dragons II\nTime: 18:00 (E
+ urope/Vienna)\nVenue: Alterlaa\nGame #16435
 LOCATION:Alterlaa
 END:VEVENT
 BEGIN:VEVENT
 UID:floorballbunnies-16435-remind-mon@floorballbunnies.at
+DTSTAMP:20261007T161102Z
 DTSTART;TZID=Europe/Vienna:20270104T090000
 DTEND;TZID=Europe/Vienna:20270104T091500
 SUMMARY:Reminder (Mon): Bundesliga vs FBC Dragons II
-DESCRIPTION:Monday reminder before the game.\nGame: Sat 09 Jan 2027 · 18:00\nAway vs FBC Dragons II\nVenue: Alterlaa\nCompetition: ÖFBV Bundesliga Herren\nGame #16435\nTimezone: Europe/Vienna
+DESCRIPTION:Monday reminder before the game.\nGame: Sat 09 Jan 2027 · 18:0
+ 0\nAway vs FBC Dragons II\nVenue: Alterlaa\nCompetition: ÖFBV Bundesliga 
+ Herren\nGame #16435\nTimezone: Europe/Vienna
 LOCATION:Alterlaa
 BEGIN:VALARM
 TRIGGER:-PT0S
@@ -234,10 +284,13 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:floorballbunnies-16435-remind-wed@floorballbunnies.at
+DTSTAMP:20261007T161102Z
 DTSTART;TZID=Europe/Vienna:20270106T090000
 DTEND;TZID=Europe/Vienna:20270106T091500
 SUMMARY:Reminder (Wed): Bundesliga vs FBC Dragons II
-DESCRIPTION:Wednesday reminder before the game.\nGame: Sat 09 Jan 2027 · 18:00\nAway vs FBC Dragons II\nVenue: Alterlaa\nCompetition: ÖFBV Bundesliga Herren\nGame #16435\nTimezone: Europe/Vienna
+DESCRIPTION:Wednesday reminder before the game.\nGame: Sat 09 Jan 2027 · 1
+ 8:00\nAway vs FBC Dragons II\nVenue: Alterlaa\nCompetition: ÖFBV Bundesli
+ ga Herren\nGame #16435\nTimezone: Europe/Vienna
 LOCATION:Alterlaa
 BEGIN:VALARM
 TRIGGER:-PT0S
@@ -247,10 +300,13 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:floorballbunnies-16435-remind-fri@floorballbunnies.at
+DTSTAMP:20261007T161102Z
 DTSTART;TZID=Europe/Vienna:20270108T090000
 DTEND;TZID=Europe/Vienna:20270108T091500
 SUMMARY:Reminder (Fri): Bundesliga vs FBC Dragons II
-DESCRIPTION:Friday reminder before the game.\nGame: Sat 09 Jan 2027 · 18:00\nAway vs FBC Dragons II\nVenue: Alterlaa\nCompetition: ÖFBV Bundesliga Herren\nGame #16435\nTimezone: Europe/Vienna
+DESCRIPTION:Friday reminder before the game.\nGame: Sat 09 Jan 2027 · 18:0
+ 0\nAway vs FBC Dragons II\nVenue: Alterlaa\nCompetition: ÖFBV Bundesliga 
+ Herren\nGame #16435\nTimezone: Europe/Vienna
 LOCATION:Alterlaa
 BEGIN:VALARM
 TRIGGER:-PT0S
@@ -260,18 +316,23 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:floorballbunnies-16432@floorballbunnies.at
+DTSTAMP:20261007T161102Z
 DTSTART;TZID=Europe/Vienna:20270117T160000
 DTEND;TZID=Europe/Vienna:20270117T173000
 SUMMARY:Bundesliga: vs Wiener Floorball Verein II
-DESCRIPTION:ÖFBV Bundesliga Herren\nHome vs Wiener Floorball Verein II\nTime: 16:00 (Europe/Vienna)\nVenue: PAHO Kurt Kucera Rundhalle\nGame #16432
+DESCRIPTION:ÖFBV Bundesliga Herren\nHome vs Wiener Floorball Verein II\nTi
+ me: 16:00 (Europe/Vienna)\nVenue: PAHO Kurt Kucera Rundhalle\nGame #16432
 LOCATION:PAHO Kurt Kucera Rundhalle
 END:VEVENT
 BEGIN:VEVENT
 UID:floorballbunnies-16432-remind-mon@floorballbunnies.at
+DTSTAMP:20261007T161102Z
 DTSTART;TZID=Europe/Vienna:20270111T090000
 DTEND;TZID=Europe/Vienna:20270111T091500
 SUMMARY:Reminder (Mon): Bundesliga vs Wiener Floorball Verein II
-DESCRIPTION:Monday reminder before the game.\nGame: Sun 17 Jan 2027 · 16:00\nHome vs Wiener Floorball Verein II\nVenue: PAHO Kurt Kucera Rundhalle\nCompetition: ÖFBV Bundesliga Herren\nGame #16432\nTimezone: Europe/Vienna
+DESCRIPTION:Monday reminder before the game.\nGame: Sun 17 Jan 2027 · 16:0
+ 0\nHome vs Wiener Floorball Verein II\nVenue: PAHO Kurt Kucera Rundhalle\n
+ Competition: ÖFBV Bundesliga Herren\nGame #16432\nTimezone: Europe/Vienna
 LOCATION:PAHO Kurt Kucera Rundhalle
 BEGIN:VALARM
 TRIGGER:-PT0S
@@ -281,10 +342,14 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:floorballbunnies-16432-remind-wed@floorballbunnies.at
+DTSTAMP:20261007T161102Z
 DTSTART;TZID=Europe/Vienna:20270113T090000
 DTEND;TZID=Europe/Vienna:20270113T091500
 SUMMARY:Reminder (Wed): Bundesliga vs Wiener Floorball Verein II
-DESCRIPTION:Wednesday reminder before the game.\nGame: Sun 17 Jan 2027 · 16:00\nHome vs Wiener Floorball Verein II\nVenue: PAHO Kurt Kucera Rundhalle\nCompetition: ÖFBV Bundesliga Herren\nGame #16432\nTimezone: Europe/Vienna
+DESCRIPTION:Wednesday reminder before the game.\nGame: Sun 17 Jan 2027 · 1
+ 6:00\nHome vs Wiener Floorball Verein II\nVenue: PAHO Kurt Kucera Rundhall
+ e\nCompetition: ÖFBV Bundesliga Herren\nGame #16432\nTimezone: Europe/Vie
+ nna
 LOCATION:PAHO Kurt Kucera Rundhalle
 BEGIN:VALARM
 TRIGGER:-PT0S
@@ -294,10 +359,13 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:floorballbunnies-16432-remind-fri@floorballbunnies.at
+DTSTAMP:20261007T161102Z
 DTSTART;TZID=Europe/Vienna:20270115T090000
 DTEND;TZID=Europe/Vienna:20270115T091500
 SUMMARY:Reminder (Fri): Bundesliga vs Wiener Floorball Verein II
-DESCRIPTION:Friday reminder before the game.\nGame: Sun 17 Jan 2027 · 16:00\nHome vs Wiener Floorball Verein II\nVenue: PAHO Kurt Kucera Rundhalle\nCompetition: ÖFBV Bundesliga Herren\nGame #16432\nTimezone: Europe/Vienna
+DESCRIPTION:Friday reminder before the game.\nGame: Sun 17 Jan 2027 · 16:0
+ 0\nHome vs Wiener Floorball Verein II\nVenue: PAHO Kurt Kucera Rundhalle\n
+ Competition: ÖFBV Bundesliga Herren\nGame #16432\nTimezone: Europe/Vienna
 LOCATION:PAHO Kurt Kucera Rundhalle
 BEGIN:VALARM
 TRIGGER:-PT0S
@@ -307,18 +375,23 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:floorballbunnies-16433@floorballbunnies.at
+DTSTAMP:20261007T161102Z
 DTSTART;TZID=Europe/Vienna:20270221T180000
 DTEND;TZID=Europe/Vienna:20270221T193000
 SUMMARY:Bundesliga: vs Sokol Wien
-DESCRIPTION:ÖFBV Bundesliga Herren\nHome vs Sokol Wien\nTime: 18:00 (Europe/Vienna)\nVenue: PAHO Kurt Kucera Rundhalle\nGame #16433
+DESCRIPTION:ÖFBV Bundesliga Herren\nHome vs Sokol Wien\nTime: 18:00 (Europ
+ e/Vienna)\nVenue: PAHO Kurt Kucera Rundhalle\nGame #16433
 LOCATION:PAHO Kurt Kucera Rundhalle
 END:VEVENT
 BEGIN:VEVENT
 UID:floorballbunnies-16433-remind-mon@floorballbunnies.at
+DTSTAMP:20261007T161102Z
 DTSTART;TZID=Europe/Vienna:20270215T090000
 DTEND;TZID=Europe/Vienna:20270215T091500
 SUMMARY:Reminder (Mon): Bundesliga vs Sokol Wien
-DESCRIPTION:Monday reminder before the game.\nGame: Sun 21 Feb 2027 · 18:00\nHome vs Sokol Wien\nVenue: PAHO Kurt Kucera Rundhalle\nCompetition: ÖFBV Bundesliga Herren\nGame #16433\nTimezone: Europe/Vienna
+DESCRIPTION:Monday reminder before the game.\nGame: Sun 21 Feb 2027 · 18:0
+ 0\nHome vs Sokol Wien\nVenue: PAHO Kurt Kucera Rundhalle\nCompetition: ÖF
+ BV Bundesliga Herren\nGame #16433\nTimezone: Europe/Vienna
 LOCATION:PAHO Kurt Kucera Rundhalle
 BEGIN:VALARM
 TRIGGER:-PT0S
@@ -328,10 +401,13 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:floorballbunnies-16433-remind-wed@floorballbunnies.at
+DTSTAMP:20261007T161102Z
 DTSTART;TZID=Europe/Vienna:20270217T090000
 DTEND;TZID=Europe/Vienna:20270217T091500
 SUMMARY:Reminder (Wed): Bundesliga vs Sokol Wien
-DESCRIPTION:Wednesday reminder before the game.\nGame: Sun 21 Feb 2027 · 18:00\nHome vs Sokol Wien\nVenue: PAHO Kurt Kucera Rundhalle\nCompetition: ÖFBV Bundesliga Herren\nGame #16433\nTimezone: Europe/Vienna
+DESCRIPTION:Wednesday reminder before the game.\nGame: Sun 21 Feb 2027 · 1
+ 8:00\nHome vs Sokol Wien\nVenue: PAHO Kurt Kucera Rundhalle\nCompetition: 
+ ÖFBV Bundesliga Herren\nGame #16433\nTimezone: Europe/Vienna
 LOCATION:PAHO Kurt Kucera Rundhalle
 BEGIN:VALARM
 TRIGGER:-PT0S
@@ -341,10 +417,13 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:floorballbunnies-16433-remind-fri@floorballbunnies.at
+DTSTAMP:20261007T161102Z
 DTSTART;TZID=Europe/Vienna:20270219T090000
 DTEND;TZID=Europe/Vienna:20270219T091500
 SUMMARY:Reminder (Fri): Bundesliga vs Sokol Wien
-DESCRIPTION:Friday reminder before the game.\nGame: Sun 21 Feb 2027 · 18:00\nHome vs Sokol Wien\nVenue: PAHO Kurt Kucera Rundhalle\nCompetition: ÖFBV Bundesliga Herren\nGame #16433\nTimezone: Europe/Vienna
+DESCRIPTION:Friday reminder before the game.\nGame: Sun 21 Feb 2027 · 18:0
+ 0\nHome vs Sokol Wien\nVenue: PAHO Kurt Kucera Rundhalle\nCompetition: ÖF
+ BV Bundesliga Herren\nGame #16433\nTimezone: Europe/Vienna
 LOCATION:PAHO Kurt Kucera Rundhalle
 BEGIN:VALARM
 TRIGGER:-PT0S
@@ -354,18 +433,23 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:floorballbunnies-16449@floorballbunnies.at
+DTSTAMP:20261007T161102Z
 DTSTART;TZID=Europe/Vienna:20270228T170000
 DTEND;TZID=Europe/Vienna:20270228T183000
 SUMMARY:Bundesliga: vs Wiener Floorball Verein II
-DESCRIPTION:ÖFBV Bundesliga Herren\nAway vs Wiener Floorball Verein II\nTime: 17:00 (Europe/Vienna)\nVenue: PAHO Kurt Kucera Rundhalle\nGame #16449
+DESCRIPTION:ÖFBV Bundesliga Herren\nAway vs Wiener Floorball Verein II\nTi
+ me: 17:00 (Europe/Vienna)\nVenue: PAHO Kurt Kucera Rundhalle\nGame #16449
 LOCATION:PAHO Kurt Kucera Rundhalle
 END:VEVENT
 BEGIN:VEVENT
 UID:floorballbunnies-16449-remind-mon@floorballbunnies.at
+DTSTAMP:20261007T161102Z
 DTSTART;TZID=Europe/Vienna:20270222T090000
 DTEND;TZID=Europe/Vienna:20270222T091500
 SUMMARY:Reminder (Mon): Bundesliga vs Wiener Floorball Verein II
-DESCRIPTION:Monday reminder before the game.\nGame: Sun 28 Feb 2027 · 17:00\nAway vs Wiener Floorball Verein II\nVenue: PAHO Kurt Kucera Rundhalle\nCompetition: ÖFBV Bundesliga Herren\nGame #16449\nTimezone: Europe/Vienna
+DESCRIPTION:Monday reminder before the game.\nGame: Sun 28 Feb 2027 · 17:0
+ 0\nAway vs Wiener Floorball Verein II\nVenue: PAHO Kurt Kucera Rundhalle\n
+ Competition: ÖFBV Bundesliga Herren\nGame #16449\nTimezone: Europe/Vienna
 LOCATION:PAHO Kurt Kucera Rundhalle
 BEGIN:VALARM
 TRIGGER:-PT0S
@@ -375,10 +459,14 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:floorballbunnies-16449-remind-wed@floorballbunnies.at
+DTSTAMP:20261007T161102Z
 DTSTART;TZID=Europe/Vienna:20270224T090000
 DTEND;TZID=Europe/Vienna:20270224T091500
 SUMMARY:Reminder (Wed): Bundesliga vs Wiener Floorball Verein II
-DESCRIPTION:Wednesday reminder before the game.\nGame: Sun 28 Feb 2027 · 17:00\nAway vs Wiener Floorball Verein II\nVenue: PAHO Kurt Kucera Rundhalle\nCompetition: ÖFBV Bundesliga Herren\nGame #16449\nTimezone: Europe/Vienna
+DESCRIPTION:Wednesday reminder before the game.\nGame: Sun 28 Feb 2027 · 1
+ 7:00\nAway vs Wiener Floorball Verein II\nVenue: PAHO Kurt Kucera Rundhall
+ e\nCompetition: ÖFBV Bundesliga Herren\nGame #16449\nTimezone: Europe/Vie
+ nna
 LOCATION:PAHO Kurt Kucera Rundhalle
 BEGIN:VALARM
 TRIGGER:-PT0S
@@ -388,10 +476,13 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:floorballbunnies-16449-remind-fri@floorballbunnies.at
+DTSTAMP:20261007T161102Z
 DTSTART;TZID=Europe/Vienna:20270226T090000
 DTEND;TZID=Europe/Vienna:20270226T091500
 SUMMARY:Reminder (Fri): Bundesliga vs Wiener Floorball Verein II
-DESCRIPTION:Friday reminder before the game.\nGame: Sun 28 Feb 2027 · 17:00\nAway vs Wiener Floorball Verein II\nVenue: PAHO Kurt Kucera Rundhalle\nCompetition: ÖFBV Bundesliga Herren\nGame #16449\nTimezone: Europe/Vienna
+DESCRIPTION:Friday reminder before the game.\nGame: Sun 28 Feb 2027 · 17:0
+ 0\nAway vs Wiener Floorball Verein II\nVenue: PAHO Kurt Kucera Rundhalle\n
+ Competition: ÖFBV Bundesliga Herren\nGame #16449\nTimezone: Europe/Vienna
 LOCATION:PAHO Kurt Kucera Rundhalle
 BEGIN:VALARM
 TRIGGER:-PT0S
@@ -400,3 +491,4 @@ DESCRIPTION:Reminder (Fri): Bundesliga vs Wiener Floorball Verein II
 END:VALARM
 END:VEVENT
 END:VCALENDAR
+

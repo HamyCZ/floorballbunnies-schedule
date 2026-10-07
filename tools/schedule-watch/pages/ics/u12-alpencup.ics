@@ -25,130 +25,163 @@ END:STANDARD
 END:VTIMEZONE
 BEGIN:VEVENT
 UID:floorballbunnies-16931@floorballbunnies.at
+DTSTAMP:20261007T161102Z
 DTSTART;VALUE=DATE:20261212
-DTEND;VALUE=DATE:20261212
+DTEND;VALUE=DATE:20261213
 SUMMARY:U12 Alpencup: vs UHC Linz Weiß
-DESCRIPTION:OÖ U12 + Alpencup\nAway vs UHC Linz Weiß\nTime: TBD (Europe/Vienna)\nVenue: Rennerschule\nGame #16931
+DESCRIPTION:OÖ U12 + Alpencup\nAway vs UHC Linz Weiß\nTime: TBD (Europe/V
+ ienna)\nVenue: Rennerschule\nGame #16931
 LOCATION:Rennerschule
 END:VEVENT
 BEGIN:VEVENT
 UID:floorballbunnies-16938@floorballbunnies.at
+DTSTAMP:20261007T161102Z
 DTSTART;VALUE=DATE:20261212
-DTEND;VALUE=DATE:20261212
+DTEND;VALUE=DATE:20261213
 SUMMARY:U12 Alpencup: vs FBV Haag
-DESCRIPTION:OÖ U12 + Alpencup\nAway vs FBV Haag\nTime: TBD (Europe/Vienna)\nVenue: Rennerschule\nGame #16938
+DESCRIPTION:OÖ U12 + Alpencup\nAway vs FBV Haag\nTime: TBD (Europe/Vienna)
+ \nVenue: Rennerschule\nGame #16938
 LOCATION:Rennerschule
 END:VEVENT
 BEGIN:VEVENT
 UID:floorballbunnies-16943@floorballbunnies.at
+DTSTAMP:20261007T161102Z
 DTSTART;VALUE=DATE:20261212
-DTEND;VALUE=DATE:20261212
+DTEND;VALUE=DATE:20261213
 SUMMARY:U12 Alpencup: vs SU Puchkirchen
-DESCRIPTION:OÖ U12 + Alpencup\nHome vs SU Puchkirchen\nTime: TBD (Europe/Vienna)\nVenue: Rennerschule\nGame #16943
+DESCRIPTION:OÖ U12 + Alpencup\nHome vs SU Puchkirchen\nTime: TBD (Europe/V
+ ienna)\nVenue: Rennerschule\nGame #16943
 LOCATION:Rennerschule
 END:VEVENT
 BEGIN:VEVENT
 UID:floorballbunnies-16948@floorballbunnies.at
+DTSTAMP:20261007T161102Z
 DTSTART;VALUE=DATE:20261212
-DTEND;VALUE=DATE:20261212
+DTEND;VALUE=DATE:20261213
 SUMMARY:U12 Alpencup: vs SU Floorball Bad Ischl Grün
-DESCRIPTION:OÖ U12 + Alpencup\nHome vs SU Floorball Bad Ischl Grün\nTime: TBD (Europe/Vienna)\nVenue: Rennerschule\nGame #16948
+DESCRIPTION:OÖ U12 + Alpencup\nHome vs SU Floorball Bad Ischl Grün\nTime:
+  TBD (Europe/Vienna)\nVenue: Rennerschule\nGame #16948
 LOCATION:Rennerschule
 END:VEVENT
 BEGIN:VEVENT
 UID:floorballbunnies-16953@floorballbunnies.at
+DTSTAMP:20261007T161102Z
 DTSTART;VALUE=DATE:20261212
-DTEND;VALUE=DATE:20261212
+DTEND;VALUE=DATE:20261213
 SUMMARY:U12 Alpencup: vs UHC Linz Rot
-DESCRIPTION:OÖ U12 + Alpencup\nHome vs UHC Linz Rot\nTime: TBD (Europe/Vienna)\nVenue: Rennerschule\nGame #16953
+DESCRIPTION:OÖ U12 + Alpencup\nHome vs UHC Linz Rot\nTime: TBD (Europe/Vie
+ nna)\nVenue: Rennerschule\nGame #16953
 LOCATION:Rennerschule
 END:VEVENT
 BEGIN:VEVENT
 UID:floorballbunnies-16957@floorballbunnies.at
+DTSTAMP:20261007T161102Z
 DTSTART;VALUE=DATE:20261212
-DTEND;VALUE=DATE:20261212
+DTEND;VALUE=DATE:20261213
 SUMMARY:U12 Alpencup: vs FBC Dragons
-DESCRIPTION:OÖ U12 + Alpencup\nHome vs FBC Dragons\nTime: TBD (Europe/Vienna)\nVenue: Rennerschule\nGame #16957
+DESCRIPTION:OÖ U12 + Alpencup\nHome vs FBC Dragons\nTime: TBD (Europe/Vien
+ na)\nVenue: Rennerschule\nGame #16957
 LOCATION:Rennerschule
 END:VEVENT
 BEGIN:VEVENT
 UID:floorballbunnies-16961@floorballbunnies.at
+DTSTAMP:20261007T161102Z
 DTSTART;VALUE=DATE:20261212
-DTEND;VALUE=DATE:20261212
+DTEND;VALUE=DATE:20261213
 SUMMARY:U12 Alpencup: vs Salzburg Star Bulls
-DESCRIPTION:OÖ U12 + Alpencup\nAway vs Salzburg Star Bulls\nTime: TBD (Europe/Vienna)\nVenue: Rennerschule\nGame #16961
+DESCRIPTION:OÖ U12 + Alpencup\nAway vs Salzburg Star Bulls\nTime: TBD (Eur
+ ope/Vienna)\nVenue: Rennerschule\nGame #16961
 LOCATION:Rennerschule
 END:VEVENT
 BEGIN:VEVENT
 UID:floorballbunnies-16964@floorballbunnies.at
+DTSTAMP:20261007T161102Z
 DTSTART;VALUE=DATE:20261212
-DTEND;VALUE=DATE:20261212
+DTEND;VALUE=DATE:20261213
 SUMMARY:U12 Alpencup: vs SU Floorball Bad Ischl Blau
-DESCRIPTION:OÖ U12 + Alpencup\nAway vs SU Floorball Bad Ischl Blau\nTime: TBD (Europe/Vienna)\nVenue: Rennerschule\nGame #16964
+DESCRIPTION:OÖ U12 + Alpencup\nAway vs SU Floorball Bad Ischl Blau\nTime: 
+ TBD (Europe/Vienna)\nVenue: Rennerschule\nGame #16964
 LOCATION:Rennerschule
 END:VEVENT
 BEGIN:VEVENT
 UID:floorballbunnies-16880@floorballbunnies.at
+DTSTAMP:20261007T161102Z
 DTSTART;VALUE=DATE:20270123
-DTEND;VALUE=DATE:20270123
+DTEND;VALUE=DATE:20270124
 SUMMARY:U12 Alpencup: vs UHC Linz Weiß
-DESCRIPTION:OÖ U12 + Alpencup\nAway vs UHC Linz Weiß\nTime: TBD (Europe/Vienna)\nVenue: Rennerschule\nGame #16880
+DESCRIPTION:OÖ U12 + Alpencup\nAway vs UHC Linz Weiß\nTime: TBD (Europe/V
+ ienna)\nVenue: Rennerschule\nGame #16880
 LOCATION:Rennerschule
 END:VEVENT
 BEGIN:VEVENT
 UID:floorballbunnies-16887@floorballbunnies.at
+DTSTAMP:20261007T161102Z
 DTSTART;VALUE=DATE:20270123
-DTEND;VALUE=DATE:20270123
+DTEND;VALUE=DATE:20270124
 SUMMARY:U12 Alpencup: vs FBV Haag
-DESCRIPTION:OÖ U12 + Alpencup\nAway vs FBV Haag\nTime: TBD (Europe/Vienna)\nVenue: Rennerschule\nGame #16887
+DESCRIPTION:OÖ U12 + Alpencup\nAway vs FBV Haag\nTime: TBD (Europe/Vienna)
+ \nVenue: Rennerschule\nGame #16887
 LOCATION:Rennerschule
 END:VEVENT
 BEGIN:VEVENT
 UID:floorballbunnies-16892@floorballbunnies.at
+DTSTAMP:20261007T161102Z
 DTSTART;VALUE=DATE:20270123
-DTEND;VALUE=DATE:20270123
+DTEND;VALUE=DATE:20270124
 SUMMARY:U12 Alpencup: vs SU Puchkirchen
-DESCRIPTION:OÖ U12 + Alpencup\nHome vs SU Puchkirchen\nTime: TBD (Europe/Vienna)\nVenue: Rennerschule\nGame #16892
+DESCRIPTION:OÖ U12 + Alpencup\nHome vs SU Puchkirchen\nTime: TBD (Europe/V
+ ienna)\nVenue: Rennerschule\nGame #16892
 LOCATION:Rennerschule
 END:VEVENT
 BEGIN:VEVENT
 UID:floorballbunnies-16897@floorballbunnies.at
+DTSTAMP:20261007T161102Z
 DTSTART;VALUE=DATE:20270123
-DTEND;VALUE=DATE:20270123
+DTEND;VALUE=DATE:20270124
 SUMMARY:U12 Alpencup: vs SU Floorball Bad Ischl Grün
-DESCRIPTION:OÖ U12 + Alpencup\nHome vs SU Floorball Bad Ischl Grün\nTime: TBD (Europe/Vienna)\nVenue: Rennerschule\nGame #16897
+DESCRIPTION:OÖ U12 + Alpencup\nHome vs SU Floorball Bad Ischl Grün\nTime:
+  TBD (Europe/Vienna)\nVenue: Rennerschule\nGame #16897
 LOCATION:Rennerschule
 END:VEVENT
 BEGIN:VEVENT
 UID:floorballbunnies-16902@floorballbunnies.at
+DTSTAMP:20261007T161102Z
 DTSTART;VALUE=DATE:20270123
-DTEND;VALUE=DATE:20270123
+DTEND;VALUE=DATE:20270124
 SUMMARY:U12 Alpencup: vs UHC Linz Rot
-DESCRIPTION:OÖ U12 + Alpencup\nHome vs UHC Linz Rot\nTime: TBD (Europe/Vienna)\nVenue: Rennerschule\nGame #16902
+DESCRIPTION:OÖ U12 + Alpencup\nHome vs UHC Linz Rot\nTime: TBD (Europe/Vie
+ nna)\nVenue: Rennerschule\nGame #16902
 LOCATION:Rennerschule
 END:VEVENT
 BEGIN:VEVENT
 UID:floorballbunnies-16906@floorballbunnies.at
+DTSTAMP:20261007T161102Z
 DTSTART;VALUE=DATE:20270123
-DTEND;VALUE=DATE:20270123
+DTEND;VALUE=DATE:20270124
 SUMMARY:U12 Alpencup: vs FBC Dragons
-DESCRIPTION:OÖ U12 + Alpencup\nHome vs FBC Dragons\nTime: TBD (Europe/Vienna)\nVenue: Rennerschule\nGame #16906
+DESCRIPTION:OÖ U12 + Alpencup\nHome vs FBC Dragons\nTime: TBD (Europe/Vien
+ na)\nVenue: Rennerschule\nGame #16906
 LOCATION:Rennerschule
 END:VEVENT
 BEGIN:VEVENT
 UID:floorballbunnies-16910@floorballbunnies.at
+DTSTAMP:20261007T161102Z
 DTSTART;VALUE=DATE:20270123
-DTEND;VALUE=DATE:20270123
+DTEND;VALUE=DATE:20270124
 SUMMARY:U12 Alpencup: vs Salzburg Star Bulls
-DESCRIPTION:OÖ U12 + Alpencup\nAway vs Salzburg Star Bulls\nTime: TBD (Europe/Vienna)\nVenue: Rennerschule\nGame #16910
+DESCRIPTION:OÖ U12 + Alpencup\nAway vs Salzburg Star Bulls\nTime: TBD (Eur
+ ope/Vienna)\nVenue: Rennerschule\nGame #16910
 LOCATION:Rennerschule
 END:VEVENT
 BEGIN:VEVENT
 UID:floorballbunnies-16913@floorballbunnies.at
+DTSTAMP:20261007T161102Z
 DTSTART;VALUE=DATE:20270123
-DTEND;VALUE=DATE:20270123
+DTEND;VALUE=DATE:20270124
 SUMMARY:U12 Alpencup: vs SU Floorball Bad Ischl Blau
-DESCRIPTION:OÖ U12 + Alpencup\nAway vs SU Floorball Bad Ischl Blau\nTime: TBD (Europe/Vienna)\nVenue: Rennerschule\nGame #16913
+DESCRIPTION:OÖ U12 + Alpencup\nAway vs SU Floorball Bad Ischl Blau\nTime: 
+ TBD (Europe/Vienna)\nVenue: Rennerschule\nGame #16913
 LOCATION:Rennerschule
 END:VEVENT
 END:VCALENDAR
+

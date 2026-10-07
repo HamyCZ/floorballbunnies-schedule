@@ -25,66 +25,83 @@ END:STANDARD
 END:VTIMEZONE
 BEGIN:VEVENT
 UID:floorballbunnies-16256@floorballbunnies.at
+DTSTAMP:20261007T161102Z
 DTSTART;TZID=Europe/Vienna:20261017T150000
 DTEND;TZID=Europe/Vienna:20261017T163000
 SUMMARY:U12 Mädchen: vs WFV
-DESCRIPTION:Wiener U12 Mädchen Meisterschaft\nHome vs WFV\nTime: 15:00 (Europe/Vienna)\nVenue: Alterlaa\nGame #16256
+DESCRIPTION:Wiener U12 Mädchen Meisterschaft\nHome vs WFV\nTime: 15:00 (Eu
+ rope/Vienna)\nVenue: Alterlaa\nGame #16256
 LOCATION:Alterlaa
 END:VEVENT
 BEGIN:VEVENT
 UID:floorballbunnies-16257@floorballbunnies.at
+DTSTAMP:20261007T161102Z
 DTSTART;TZID=Europe/Vienna:20261017T153200
 DTEND;TZID=Europe/Vienna:20261017T170200
 SUMMARY:U12 Mädchen: vs WFV
-DESCRIPTION:Wiener U12 Mädchen Meisterschaft\nAway vs WFV\nTime: 15:32 (Europe/Vienna)\nVenue: Alterlaa\nGame #16257
+DESCRIPTION:Wiener U12 Mädchen Meisterschaft\nAway vs WFV\nTime: 15:32 (Eu
+ rope/Vienna)\nVenue: Alterlaa\nGame #16257
 LOCATION:Alterlaa
 END:VEVENT
 BEGIN:VEVENT
 UID:floorballbunnies-16258@floorballbunnies.at
+DTSTAMP:20261007T161102Z
 DTSTART;TZID=Europe/Vienna:20261213T140000
 DTEND;TZID=Europe/Vienna:20261213T153000
 SUMMARY:U12 Mädchen: vs WFV
-DESCRIPTION:Wiener U12 Mädchen Meisterschaft\nHome vs WFV\nTime: 14:00 (Europe/Vienna)\nVenue: PAHO Kurt Kucera Rundhalle\nGame #16258
+DESCRIPTION:Wiener U12 Mädchen Meisterschaft\nHome vs WFV\nTime: 14:00 (Eu
+ rope/Vienna)\nVenue: PAHO Kurt Kucera Rundhalle\nGame #16258
 LOCATION:PAHO Kurt Kucera Rundhalle
 END:VEVENT
 BEGIN:VEVENT
 UID:floorballbunnies-16259@floorballbunnies.at
+DTSTAMP:20261007T161102Z
 DTSTART;TZID=Europe/Vienna:20261213T143200
 DTEND;TZID=Europe/Vienna:20261213T160200
 SUMMARY:U12 Mädchen: vs WFV
-DESCRIPTION:Wiener U12 Mädchen Meisterschaft\nAway vs WFV\nTime: 14:32 (Europe/Vienna)\nVenue: PAHO Kurt Kucera Rundhalle\nGame #16259
+DESCRIPTION:Wiener U12 Mädchen Meisterschaft\nAway vs WFV\nTime: 14:32 (Eu
+ rope/Vienna)\nVenue: PAHO Kurt Kucera Rundhalle\nGame #16259
 LOCATION:PAHO Kurt Kucera Rundhalle
 END:VEVENT
 BEGIN:VEVENT
 UID:floorballbunnies-16260@floorballbunnies.at
+DTSTAMP:20261007T161102Z
 DTSTART;TZID=Europe/Vienna:20270227T140000
 DTEND;TZID=Europe/Vienna:20270227T153000
 SUMMARY:U12 Mädchen: vs WFV
-DESCRIPTION:Wiener U12 Mädchen Meisterschaft\nHome vs WFV\nTime: 14:00 (Europe/Vienna)\nVenue: PAHO Kurt Kucera Rundhalle\nGame #16260
+DESCRIPTION:Wiener U12 Mädchen Meisterschaft\nHome vs WFV\nTime: 14:00 (Eu
+ rope/Vienna)\nVenue: PAHO Kurt Kucera Rundhalle\nGame #16260
 LOCATION:PAHO Kurt Kucera Rundhalle
 END:VEVENT
 BEGIN:VEVENT
 UID:floorballbunnies-16261@floorballbunnies.at
+DTSTAMP:20261007T161102Z
 DTSTART;TZID=Europe/Vienna:20270227T143200
 DTEND;TZID=Europe/Vienna:20270227T160200
 SUMMARY:U12 Mädchen: vs WFV
-DESCRIPTION:Wiener U12 Mädchen Meisterschaft\nAway vs WFV\nTime: 14:32 (Europe/Vienna)\nVenue: PAHO Kurt Kucera Rundhalle\nGame #16261
+DESCRIPTION:Wiener U12 Mädchen Meisterschaft\nAway vs WFV\nTime: 14:32 (Eu
+ rope/Vienna)\nVenue: PAHO Kurt Kucera Rundhalle\nGame #16261
 LOCATION:PAHO Kurt Kucera Rundhalle
 END:VEVENT
 BEGIN:VEVENT
 UID:floorballbunnies-16262@floorballbunnies.at
+DTSTAMP:20261007T161102Z
 DTSTART;TZID=Europe/Vienna:20270418T090000
 DTEND;TZID=Europe/Vienna:20270418T103000
 SUMMARY:U12 Mädchen: vs WFV
-DESCRIPTION:Wiener U12 Mädchen Meisterschaft\nHome vs WFV\nTime: 09:00 (Europe/Vienna)\nVenue: PAHO Kurt Kucera Rundhalle\nGame #16262
+DESCRIPTION:Wiener U12 Mädchen Meisterschaft\nHome vs WFV\nTime: 09:00 (Eu
+ rope/Vienna)\nVenue: PAHO Kurt Kucera Rundhalle\nGame #16262
 LOCATION:PAHO Kurt Kucera Rundhalle
 END:VEVENT
 BEGIN:VEVENT
 UID:floorballbunnies-16263@floorballbunnies.at
+DTSTAMP:20261007T161102Z
 DTSTART;TZID=Europe/Vienna:20270418T093200
 DTEND;TZID=Europe/Vienna:20270418T110200
 SUMMARY:U12 Mädchen: vs WFV
-DESCRIPTION:Wiener U12 Mädchen Meisterschaft\nAway vs WFV\nTime: 09:32 (Europe/Vienna)\nVenue: PAHO Kurt Kucera Rundhalle\nGame #16263
+DESCRIPTION:Wiener U12 Mädchen Meisterschaft\nAway vs WFV\nTime: 09:32 (Eu
+ rope/Vienna)\nVenue: PAHO Kurt Kucera Rundhalle\nGame #16263
 LOCATION:PAHO Kurt Kucera Rundhalle
 END:VEVENT
 END:VCALENDAR
+

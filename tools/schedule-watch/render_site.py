@@ -1062,6 +1062,36 @@ def _ics_escape(text: str) -> str:
     )
 
 
+def _ics_dtstamp() -> str:
+    return datetime.now(timezone.utc).strftime("%Y%m%dT%H%M%SZ")
+
+
+def _ics_fold(content: str) -> str:
+    """RFC 5545: CRLF endings + fold lines longer than 75 octets."""
+    out: list[str] = []
+    for raw in content.replace("\r\n", "\n").replace("\r", "\n").split("\n"):
+        data = raw.encode("utf-8")
+        if not data:
+            out.append("")
+            continue
+        first = True
+        while data:
+            limit = 75 if first else 74  # continuation lines start with a space
+            if len(data) <= limit:
+                chunk, data = data, b""
+            else:
+                cut = limit
+                while cut > 0 and (data[cut] & 0xC0) == 0x80:
+                    cut -= 1
+                if cut == 0:
+                    cut = limit
+                chunk, data = data[:cut], data[cut:]
+            text = chunk.decode("utf-8")
+            out.append(text if first else f" {text}")
+            first = False
+    return "\r\n".join(out) + "\r\n"
+
+
 def _vevent(g: dict[str, Any], category: str) -> str:
     gid = g["id"]
     ds = g.get("date") or ""
@@ -1069,6 +1099,7 @@ def _vevent(g: dict[str, Any], category: str) -> str:
     mins = parse_time(tm)
     tzid = schedule_timezone()
     domain = ics_uid_domain()
+    stamp = _ics_dtstamp()
     if mins is not None:
         start = datetime.strptime(f"{ds} {tm}", "%Y-%m-%d %H:%M")
         end = start + timedelta(minutes=90)
@@ -1076,8 +1107,13 @@ def _vevent(g: dict[str, Any], category: str) -> str:
         dtend = end.strftime("%Y%m%dT%H%M%S")
         time_lines = f"DTSTART;TZID={tzid}:{dtstart}\nDTEND;TZID={tzid}:{dtend}"
     else:
-        ymd = ds.replace("-", "")
-        time_lines = f"DTSTART;VALUE=DATE:{ymd}\nDTEND;VALUE=DATE:{ymd}"
+        # All-day: DTEND is exclusive (next calendar day)
+        start_day = date.fromisoformat(ds)
+        end_day = start_day + timedelta(days=1)
+        time_lines = (
+            f"DTSTART;VALUE=DATE:{start_day.strftime('%Y%m%d')}\n"
+            f"DTEND;VALUE=DATE:{end_day.strftime('%Y%m%d')}"
+        )
 
     summary = f"{category}: vs {g.get('opponent') or '?'}"
     desc_parts = [
@@ -1092,6 +1128,7 @@ def _vevent(g: dict[str, Any], category: str) -> str:
     return (
         "BEGIN:VEVENT\n"
         f"UID:{club_info().get('slug') or 'club'}-{gid}@{domain}\n"
+        f"DTSTAMP:{stamp}\n"
         f"{time_lines}\n"
         f"SUMMARY:{_ics_escape(summary)}\n"
         f"DESCRIPTION:{desc}\n"
@@ -1140,9 +1177,11 @@ def _reminder_vevents(g: dict[str, Any], category: str) -> list[str]:
                 f"Timezone: {tzid}",
             ]
         )
+        stamp = _ics_dtstamp()
         out.append(
             "BEGIN:VEVENT\n"
             f"UID:{slug_prefix}-{g['id']}-remind-{slug}@{domain}\n"
+            f"DTSTAMP:{stamp}\n"
             f"DTSTART;TZID={tzid}:{start.strftime('%Y%m%dT%H%M%S')}\n"
             f"DTEND;TZID={tzid}:{end.strftime('%Y%m%dT%H%M%S')}\n"
             f"SUMMARY:{_ics_escape(summary)}\n"
@@ -1170,7 +1209,7 @@ def build_ics(games: list[dict[str, Any]], category: str) -> str:
     cal_name = f"{club_name} {category}"
     if category in rem_cats:
         cal_name += " (+ reminders)"
-    return (
+    raw = (
         "BEGIN:VCALENDAR\n"
         "VERSION:2.0\n"
         f"PRODID:-//{club_name}//Schedule//EN\n"
@@ -1182,6 +1221,7 @@ def build_ics(games: list[dict[str, Any]], category: str) -> str:
         + "\n".join(events)
         + "\nEND:VCALENDAR\n"
     )
+    return _ics_fold(raw)
 
 
 def write_category_ics(games: list[dict[str, Any]], ics_dir: Path) -> list[dict[str, Any]]:
@@ -1199,7 +1239,8 @@ def write_category_ics(games: list[dict[str, Any]], ics_dir: Path) -> list[dict[
             continue
         slug = category_slug(cat)
         path = ics_dir / f"{slug}.ics"
-        path.write_text(build_ics(cgs, cat), encoding="utf-8")
+        # Binary write preserves CRLF produced by _ics_fold
+        path.write_bytes(build_ics(cgs, cat).encode("utf-8"))
         dates = sorted({g["date"] for g in cgs})
         index.append({"category": cat, "slug": slug, "file": f"ics/{slug}.ics", "games": len(cgs), "dates": dates})
     return index
@@ -1249,7 +1290,7 @@ def build_calendar(
     vtz_js = json.dumps(VIENNA_VTIMEZONE)
 
     extra_css = """
-.cal-wrap{display:grid;gap:14px}
+.cal-wrap{display:grid;gap:14px;min-width:0}
 .cat-bar{display:flex;flex-wrap:wrap;gap:8px}
 .cat-bar button{
   border:1px solid var(--line);background:rgba(255,255,255,.03);color:var(--text);
@@ -1258,14 +1299,16 @@ def build_calendar(
 }
 .cat-bar button.is-on{background:var(--lime);color:#000;border-color:var(--lime)}
 .cal-toolbar{display:flex;flex-wrap:wrap;gap:10px;align-items:center;justify-content:space-between}
+.cal-toolbar .nav-row{display:flex;flex-wrap:wrap;gap:6px;align-items:center}
 .cal-grid{
   display:grid;grid-template-columns:repeat(7,minmax(0,1fr));gap:8px;
+  min-width:0;
 }
 .cal-dow{text-align:center;font:700 11px/1 var(--font-display);letter-spacing:.08em;color:var(--muted);padding:6px 0}
 .cal-cell{
   min-height:110px;border:1px solid rgba(255,255,255,.08);border-radius:10px;
   background:rgba(0,0,0,.28);padding:6px;cursor:default;position:relative;
-  display:flex;flex-direction:column;gap:4px;
+  display:flex;flex-direction:column;gap:4px;min-width:0;overflow:hidden;
 }
 .cal-cell.has{
   cursor:pointer;border-color:rgba(204,255,0,.55);background:rgba(204,255,0,.10);
@@ -1274,11 +1317,13 @@ def build_calendar(
 .cal-cell.has:hover,.cal-cell.is-sel{background:rgba(204,255,0,.18);border-color:var(--lime)}
 .cal-cell .d{font:700 13px/1 var(--font-display);color:var(--muted)}
 .cal-cell.has .d{color:var(--lime)}
-.cal-cell .glist{display:flex;flex-direction:column;gap:3px;margin-top:2px}
+.cal-cell .cnt{display:none}
+.cal-cell .glist{display:flex;flex-direction:column;gap:3px;margin-top:2px;min-width:0}
 .cal-cell .g{
   font:600 11px/1.25 var(--font-body);color:var(--text);
   background:rgba(0,0,0,.45);border-left:3px solid var(--lime);
   padding:3px 5px;border-radius:4px;
+  overflow:hidden;text-overflow:ellipsis;white-space:nowrap;
 }
 .cal-cell .g .t{color:var(--lime);font-weight:700;margin-right:4px}
 .cal-cell.mute{opacity:.28;min-height:48px}
@@ -1286,9 +1331,27 @@ def build_calendar(
 .day-panel[hidden]{display:none}
 .dl-row{display:flex;flex-wrap:wrap;gap:8px;margin:8px 0 12px}
 @media (max-width:800px){
-  .cal-grid{gap:5px}
-  .cal-cell{min-height:96px;padding:4px}
-  .cal-cell .g{font-size:10px;padding:2px 4px}
+  .cat-bar{
+    flex-wrap:nowrap;overflow-x:auto;-webkit-overflow-scrolling:touch;
+    gap:6px;padding-bottom:6px;scrollbar-width:thin;
+  }
+  .cat-bar button{flex:0 0 auto;white-space:nowrap;font-size:11px;padding:7px 10px}
+  .cal-toolbar{flex-direction:column;align-items:stretch;gap:10px}
+  .cal-toolbar .nav-row{justify-content:center}
+  .cal-toolbar #monthLabel{font-size:.95rem;margin:0 6px !important}
+  .cal-grid{gap:4px}
+  .cal-dow{font-size:10px;letter-spacing:.04em;padding:2px 0}
+  .cal-cell{
+    min-height:44px;padding:5px 2px;border-radius:8px;
+    align-items:center;justify-content:flex-start;gap:2px;
+  }
+  .cal-cell.mute{min-height:44px}
+  .cal-cell .d{font-size:12px}
+  .cal-cell .glist{display:none}
+  .cal-cell.has .cnt{
+    display:block;font:700 10px/1 var(--font-display);color:var(--lime);letter-spacing:.04em;
+  }
+  .day-panel .game{grid-template-columns:52px 1fr}
 }
 """
 
@@ -1298,13 +1361,13 @@ def build_calendar(
 <div class="cal-wrap">
   <div class="cat-bar" id="catBar"></div>
   <div class="cal-toolbar">
-    <div>
+    <div class="nav-row">
       <button type="button" class="btn btn-ghost" id="prevMonth">←</button>
       <strong id="monthLabel" style="margin:0 10px;font:700 1.1rem var(--font-display);letter-spacing:.06em;text-transform:uppercase"></strong>
       <button type="button" class="btn btn-ghost" id="nextMonth">→</button>
       <button type="button" class="btn btn-ghost" id="thisMonth">Today</button>
     </div>
-    <div style="display:flex;flex-wrap:wrap;gap:8px">
+    <div class="nav-row">
       <a class="btn btn-lime" id="dlAll" href="#">Download season (.ics)</a>
     </div>
   </div>
@@ -1352,6 +1415,28 @@ function gamesFor(catName, dateStr){{
 function icsEscape(s){{
   return String(s||"").replace(/\\\\/g,"\\\\\\\\").replace(/;/g,"\\\\;").replace(/,/g,"\\\\,").replace(/\\n/g,"\\\\n");
 }}
+function icsUtcStamp(){{
+  const d = new Date();
+  return d.getUTCFullYear()+pad(d.getUTCMonth()+1)+pad(d.getUTCDate())+"T"+
+    pad(d.getUTCHours())+pad(d.getUTCMinutes())+pad(d.getUTCSeconds())+"Z";
+}}
+function icsFold(text){{
+  // RFC 5545: CRLF + fold long lines (~75 chars)
+  const lines = String(text).replace(/\\r\\n/g,"\\n").replace(/\\r/g,"\\n").split("\\n");
+  const out = [];
+  lines.forEach(line => {{
+    if (!line) {{ out.push(""); return; }}
+    let s = line;
+    let first = true;
+    while (s.length > 75) {{
+      out.push(s.slice(0, 75));
+      s = " " + s.slice(75);
+      first = false;
+    }}
+    out.push(first ? s : s);
+  }});
+  return out.join("\\r\\n") + "\\r\\n";
+}}
 function previousWeekday(gameDate, jsWeekday){{
   const d = new Date(gameDate+"T00:00:00");
   const cur = d.getDay();
@@ -1360,37 +1445,38 @@ function previousWeekday(gameDate, jsWeekday){{
   d.setDate(d.getDate() - back);
   return d;
 }}
+function fmtLocal(d){{
+  return d.getFullYear()+pad(d.getMonth()+1)+pad(d.getDate())+"T"+
+    pad(d.getHours())+pad(d.getMinutes())+pad(d.getSeconds());
+}}
 function vevent(g){{
   let timeLines;
+  const stamp = icsUtcStamp();
   if (g.time) {{
     const [hh, mm] = String(g.time).split(":").map(Number);
-    const ymdParts = g.date.split("-").map(Number);
-    const fmtLocal = (Y,M,D,H,Mi) => Y+pad(M)+pad(D)+"T"+pad(H)+pad(Mi)+"00";
-    const startS = fmtLocal(ymdParts[0], ymdParts[1], ymdParts[2], hh, mm);
-    let endH = hh, endM = mm + 90;
-    endH += Math.floor(endM / 60); endM = endM % 60;
-    let endD = ymdParts[2], endMo = ymdParts[1], endY = ymdParts[0];
-    if (endH >= 24) {{ endH -= 24; endD += 1; }}
-    const endS = fmtLocal(endY, endMo, endD, endH, endM);
-    timeLines = "DTSTART;TZID="+TZID+":"+startS+"\\nDTEND;TZID="+TZID+":"+endS;
+    const parts = g.date.split("-").map(Number);
+    const start = new Date(parts[0], parts[1]-1, parts[2], hh, mm, 0);
+    const end = new Date(start.getTime() + 90*60000);
+    timeLines = "DTSTART;TZID="+TZID+":"+fmtLocal(start)+"\\nDTEND;TZID="+TZID+":"+fmtLocal(end);
   }} else {{
-    const y = g.date.replace(/-/g,"");
-    timeLines = "DTSTART;VALUE=DATE:"+y+"\\nDTEND;VALUE=DATE:"+y;
+    const parts = g.date.split("-").map(Number);
+    const start = new Date(parts[0], parts[1]-1, parts[2]);
+    const end = new Date(parts[0], parts[1]-1, parts[2]+1);
+    const ymdOf = d => d.getFullYear()+pad(d.getMonth()+1)+pad(d.getDate());
+    timeLines = "DTSTART;VALUE=DATE:"+ymdOf(start)+"\\nDTEND;VALUE=DATE:"+ymdOf(end);
   }}
   const summary = icsEscape(g.category+": vs "+(g.opponent||"?"));
   const desc = icsEscape([g.competitionName, (g.homeAway||"")+" vs "+(g.opponent||""), "Time: "+(g.time||"TBD")+" ("+TZID+")", "Venue: "+(g.venue||"TBD"), "Game #"+g.id].join("\\n"));
-  return "BEGIN:VEVENT\\nUID:"+CLUB_SLUG+"-"+g.id+"@"+UID_DOMAIN+"\\n"+timeLines+"\\nSUMMARY:"+summary+"\\nDESCRIPTION:"+desc+"\\nLOCATION:"+icsEscape(g.venue||"")+"\\nEND:VEVENT";
+  return "BEGIN:VEVENT\\nUID:"+CLUB_SLUG+"-"+g.id+"@"+UID_DOMAIN+"\\nDTSTAMP:"+stamp+"\\n"+timeLines+"\\nSUMMARY:"+summary+"\\nDESCRIPTION:"+desc+"\\nLOCATION:"+icsEscape(g.venue||"")+"\\nEND:VEVENT";
 }}
 function reminderEvents(g){{
   if (!REMINDER_CATS.has(g.category)) return [];
   const out = [];
   REMINDER_DAYS.forEach(r => {{
     const day = previousWeekday(g.date, r.weekday);
-    const fmt = d => d.getFullYear()+pad(d.getMonth()+1)+pad(d.getDate())+"T"+pad(REMINDER_HOUR)+"0000";
-    const endFmt = d => {{
-      const e = new Date(d.getFullYear(), d.getMonth(), d.getDate(), REMINDER_HOUR, 15, 0);
-      return e.getFullYear()+pad(e.getMonth()+1)+pad(e.getDate())+"T"+pad(e.getHours())+pad(e.getMinutes())+"00";
-    }};
+    const start = new Date(day.getFullYear(), day.getMonth(), day.getDate(), REMINDER_HOUR, 0, 0);
+    const end = new Date(day.getFullYear(), day.getMonth(), day.getDate(), REMINDER_HOUR, 15, 0);
+    const stamp = icsUtcStamp();
     const summary = icsEscape("Reminder ("+r.label.slice(0,3)+"): "+g.category+" vs "+(g.opponent||"?"));
     const desc = icsEscape([
       r.label+" reminder before the game.",
@@ -1402,8 +1488,8 @@ function reminderEvents(g){{
       "Timezone: "+TZID
     ].join("\\n"));
     out.push(
-      "BEGIN:VEVENT\\nUID:"+CLUB_SLUG+"-"+g.id+"-remind-"+r.slug+"@"+UID_DOMAIN+"\\n"+
-      "DTSTART;TZID="+TZID+":"+fmt(day)+"\\nDTEND;TZID="+TZID+":"+endFmt(day)+"\\nSUMMARY:"+summary+"\\nDESCRIPTION:"+desc+
+      "BEGIN:VEVENT\\nUID:"+CLUB_SLUG+"-"+g.id+"-remind-"+r.slug+"@"+UID_DOMAIN+"\\nDTSTAMP:"+stamp+"\\n"+
+      "DTSTART;TZID="+TZID+":"+fmtLocal(start)+"\\nDTEND;TZID="+TZID+":"+fmtLocal(end)+"\\nSUMMARY:"+summary+"\\nDESCRIPTION:"+desc+
       "\\nLOCATION:"+icsEscape(g.venue||"")+"\\nBEGIN:VALARM\\nTRIGGER:-PT0S\\nACTION:DISPLAY\\nDESCRIPTION:"+summary+"\\nEND:VALARM\\nEND:VEVENT"
     );
   }});
@@ -1414,7 +1500,8 @@ function icsFile(list, catName){{
   list.forEach(g => {{ events.push(vevent(g)); reminderEvents(g).forEach(e => events.push(e)); }});
   let name = CLUB_NAME+" "+catName;
   if (REMINDER_CATS.has(catName)) name += " (+ reminders)";
-  return "BEGIN:VCALENDAR\\nVERSION:2.0\\nPRODID:-//"+CLUB_NAME+"//Schedule//EN\\nCALSCALE:GREGORIAN\\nMETHOD:PUBLISH\\nX-WR-CALNAME:"+name+"\\nX-WR-TIMEZONE:"+TZID+"\\n"+VTIMEZONE+"\\n"+events.join("\\n")+"\\nEND:VCALENDAR\\n";
+  const raw = "BEGIN:VCALENDAR\\nVERSION:2.0\\nPRODID:-//"+CLUB_NAME+"//Schedule//EN\\nCALSCALE:GREGORIAN\\nMETHOD:PUBLISH\\nX-WR-CALNAME:"+name+"\\nX-WR-TIMEZONE:"+TZID+"\\n"+VTIMEZONE+"\\n"+events.join("\\n")+"\\nEND:VCALENDAR\\n";
+  return icsFold(raw);
 }}
 function downloadIcs(filename, text){{
   const blob = new Blob([text], {{type:"text/calendar;charset=utf-8"}});
@@ -1471,6 +1558,7 @@ function renderMonth(){{
     cell.className = "cal-cell" + (list.length ? " has" : "") + (selectedDate===key ? " is-sel" : "");
     let html = '<div class="d">'+day+'</div>';
     if (list.length) {{
+      html += '<div class="cnt">'+list.length+'</div>';
       html += '<div class="glist">' + list.map(g =>
         '<div class="g"><span class="t">'+escapeHtml(g.time||"TBD")+'</span>vs '+escapeHtml(shortOpp(g.opponent))+'</div>'
       ).join("") + '</div>';

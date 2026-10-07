@@ -25,18 +25,23 @@ END:STANDARD
 END:VTIMEZONE
 BEGIN:VEVENT
 UID:floorballbunnies-16382@floorballbunnies.at
+DTSTAMP:20261007T161102Z
 DTSTART;TZID=Europe/Vienna:20261011T160000
 DTEND;TZID=Europe/Vienna:20261011T173000
 SUMMARY:Adults Grossfeld: vs IBK Währing
-DESCRIPTION:Wiener Grossfeldliga\nAway vs IBK Währing\nTime: 16:00 (Europe/Vienna)\nVenue: PAHO Kurt Kucera Rundhalle\nGame #16382
+DESCRIPTION:Wiener Grossfeldliga\nAway vs IBK Währing\nTime: 16:00 (Europe
+ /Vienna)\nVenue: PAHO Kurt Kucera Rundhalle\nGame #16382
 LOCATION:PAHO Kurt Kucera Rundhalle
 END:VEVENT
 BEGIN:VEVENT
 UID:floorballbunnies-16382-remind-mon@floorballbunnies.at
+DTSTAMP:20261007T161102Z
 DTSTART;TZID=Europe/Vienna:20261005T090000
 DTEND;TZID=Europe/Vienna:20261005T091500
 SUMMARY:Reminder (Mon): Adults Grossfeld vs IBK Währing
-DESCRIPTION:Monday reminder before the game.\nGame: Sun 11 Oct 2026 · 16:00\nAway vs IBK Währing\nVenue: PAHO Kurt Kucera Rundhalle\nCompetition: Wiener Grossfeldliga\nGame #16382\nTimezone: Europe/Vienna
+DESCRIPTION:Monday reminder before the game.\nGame: Sun 11 Oct 2026 · 16:0
+ 0\nAway vs IBK Währing\nVenue: PAHO Kurt Kucera Rundhalle\nCompetition: W
+ iener Grossfeldliga\nGame #16382\nTimezone: Europe/Vienna
 LOCATION:PAHO Kurt Kucera Rundhalle
 BEGIN:VALARM
 TRIGGER:-PT0S
@@ -46,10 +51,13 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:floorballbunnies-16382-remind-wed@floorballbunnies.at
+DTSTAMP:20261007T161102Z
 DTSTART;TZID=Europe/Vienna:20261007T090000
 DTEND;TZID=Europe/Vienna:20261007T091500
 SUMMARY:Reminder (Wed): Adults Grossfeld vs IBK Währing
-DESCRIPTION:Wednesday reminder before the game.\nGame: Sun 11 Oct 2026 · 16:00\nAway vs IBK Währing\nVenue: PAHO Kurt Kucera Rundhalle\nCompetition: Wiener Grossfeldliga\nGame #16382\nTimezone: Europe/Vienna
+DESCRIPTION:Wednesday reminder before the game.\nGame: Sun 11 Oct 2026 · 1
+ 6:00\nAway vs IBK Währing\nVenue: PAHO Kurt Kucera Rundhalle\nCompetition
+ : Wiener Grossfeldliga\nGame #16382\nTimezone: Europe/Vienna
 LOCATION:PAHO Kurt Kucera Rundhalle
 BEGIN:VALARM
 TRIGGER:-PT0S
@@ -59,10 +67,13 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:floorballbunnies-16382-remind-fri@floorballbunnies.at
+DTSTAMP:20261007T161102Z
 DTSTART;TZID=Europe/Vienna:20261009T090000
 DTEND;TZID=Europe/Vienna:20261009T091500
 SUMMARY:Reminder (Fri): Adults Grossfeld vs IBK Währing
-DESCRIPTION:Friday reminder before the game.\nGame: Sun 11 Oct 2026 · 16:00\nAway vs IBK Währing\nVenue: PAHO Kurt Kucera Rundhalle\nCompetition: Wiener Grossfeldliga\nGame #16382\nTimezone: Europe/Vienna
+DESCRIPTION:Friday reminder before the game.\nGame: Sun 11 Oct 2026 · 16:0
+ 0\nAway vs IBK Währing\nVenue: PAHO Kurt Kucera Rundhalle\nCompetition: W
+ iener Grossfeldliga\nGame #16382\nTimezone: Europe/Vienna
 LOCATION:PAHO Kurt Kucera Rundhalle
 BEGIN:VALARM
 TRIGGER:-PT0S
@@ -72,18 +83,23 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:floorballbunnies-16384@floorballbunnies.at
+DTSTAMP:20261007T161102Z
 DTSTART;TZID=Europe/Vienna:20261011T183000
 DTEND;TZID=Europe/Vienna:20261011T200000
 SUMMARY:Adults Grossfeld: vs Crossroads
-DESCRIPTION:Wiener Grossfeldliga\nHome vs Crossroads\nTime: 18:30 (Europe/Vienna)\nVenue: PAHO Kurt Kucera Rundhalle\nGame #16384
+DESCRIPTION:Wiener Grossfeldliga\nHome vs Crossroads\nTime: 18:30 (Europe/V
+ ienna)\nVenue: PAHO Kurt Kucera Rundhalle\nGame #16384
 LOCATION:PAHO Kurt Kucera Rundhalle
 END:VEVENT
 BEGIN:VEVENT
 UID:floorballbunnies-16384-remind-mon@floorballbunnies.at
+DTSTAMP:20261007T161102Z
 DTSTART;TZID=Europe/Vienna:20261005T090000
 DTEND;TZID=Europe/Vienna:20261005T091500
 SUMMARY:Reminder (Mon): Adults Grossfeld vs Crossroads
-DESCRIPTION:Monday reminder before the game.\nGame: Sun 11 Oct 2026 · 18:30\nHome vs Crossroads\nVenue: PAHO Kurt Kucera Rundhalle\nCompetition: Wiener Grossfeldliga\nGame #16384\nTimezone: Europe/Vienna
+DESCRIPTION:Monday reminder before the game.\nGame: Sun 11 Oct 2026 · 18:3
+ 0\nHome vs Crossroads\nVenue: PAHO Kurt Kucera Rundhalle\nCompetition: Wie
+ ner Grossfeldliga\nGame #16384\nTimezone: Europe/Vienna
 LOCATION:PAHO Kurt Kucera Rundhalle
 BEGIN:VALARM
 TRIGGER:-PT0S
@@ -93,10 +109,13 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:floorballbunnies-16384-remind-wed@floorballbunnies.at
+DTSTAMP:20261007T161102Z
 DTSTART;TZID=Europe/Vienna:20261007T090000
 DTEND;TZID=Europe/Vienna:20261007T091500
 SUMMARY:Reminder (Wed): Adults Grossfeld vs Crossroads
-DESCRIPTION:Wednesday reminder before the game.\nGame: Sun 11 Oct 2026 · 18:30\nHome vs Crossroads\nVenue: PAHO Kurt Kucera Rundhalle\nCompetition: Wiener Grossfeldliga\nGame #16384\nTimezone: Europe/Vienna
+DESCRIPTION:Wednesday reminder before the game.\nGame: Sun 11 Oct 2026 · 1
+ 8:30\nHome vs Crossroads\nVenue: PAHO Kurt Kucera Rundhalle\nCompetition: 
+ Wiener Grossfeldliga\nGame #16384\nTimezone: Europe/Vienna
 LOCATION:PAHO Kurt Kucera Rundhalle
 BEGIN:VALARM
 TRIGGER:-PT0S
@@ -106,10 +125,13 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:floorballbunnies-16384-remind-fri@floorballbunnies.at
+DTSTAMP:20261007T161102Z
 DTSTART;TZID=Europe/Vienna:20261009T090000
 DTEND;TZID=Europe/Vienna:20261009T091500
 SUMMARY:Reminder (Fri): Adults Grossfeld vs Crossroads
-DESCRIPTION:Friday reminder before the game.\nGame: Sun 11 Oct 2026 · 18:30\nHome vs Crossroads\nVenue: PAHO Kurt Kucera Rundhalle\nCompetition: Wiener Grossfeldliga\nGame #16384\nTimezone: Europe/Vienna
+DESCRIPTION:Friday reminder before the game.\nGame: Sun 11 Oct 2026 · 18:3
+ 0\nHome vs Crossroads\nVenue: PAHO Kurt Kucera Rundhalle\nCompetition: Wie
+ ner Grossfeldliga\nGame #16384\nTimezone: Europe/Vienna
 LOCATION:PAHO Kurt Kucera Rundhalle
 BEGIN:VALARM
 TRIGGER:-PT0S
@@ -119,18 +141,23 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:floorballbunnies-16389@floorballbunnies.at
+DTSTAMP:20261007T161102Z
 DTSTART;TZID=Europe/Vienna:20261121T101500
 DTEND;TZID=Europe/Vienna:20261121T114500
 SUMMARY:Adults Grossfeld: vs FBC Dragons Hobby
-DESCRIPTION:Wiener Grossfeldliga\nAway vs FBC Dragons Hobby\nTime: 10:15 (Europe/Vienna)\nVenue: PAHO Kurt Kucera Rundhalle\nGame #16389
+DESCRIPTION:Wiener Grossfeldliga\nAway vs FBC Dragons Hobby\nTime: 10:15 (E
+ urope/Vienna)\nVenue: PAHO Kurt Kucera Rundhalle\nGame #16389
 LOCATION:PAHO Kurt Kucera Rundhalle
 END:VEVENT
 BEGIN:VEVENT
 UID:floorballbunnies-16389-remind-mon@floorballbunnies.at
+DTSTAMP:20261007T161102Z
 DTSTART;TZID=Europe/Vienna:20261116T090000
 DTEND;TZID=Europe/Vienna:20261116T091500
 SUMMARY:Reminder (Mon): Adults Grossfeld vs FBC Dragons Hobby
-DESCRIPTION:Monday reminder before the game.\nGame: Sat 21 Nov 2026 · 10:15\nAway vs FBC Dragons Hobby\nVenue: PAHO Kurt Kucera Rundhalle\nCompetition: Wiener Grossfeldliga\nGame #16389\nTimezone: Europe/Vienna
+DESCRIPTION:Monday reminder before the game.\nGame: Sat 21 Nov 2026 · 10:1
+ 5\nAway vs FBC Dragons Hobby\nVenue: PAHO Kurt Kucera Rundhalle\nCompetiti
+ on: Wiener Grossfeldliga\nGame #16389\nTimezone: Europe/Vienna
 LOCATION:PAHO Kurt Kucera Rundhalle
 BEGIN:VALARM
 TRIGGER:-PT0S
@@ -140,10 +167,13 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:floorballbunnies-16389-remind-wed@floorballbunnies.at
+DTSTAMP:20261007T161102Z
 DTSTART;TZID=Europe/Vienna:20261118T090000
 DTEND;TZID=Europe/Vienna:20261118T091500
 SUMMARY:Reminder (Wed): Adults Grossfeld vs FBC Dragons Hobby
-DESCRIPTION:Wednesday reminder before the game.\nGame: Sat 21 Nov 2026 · 10:15\nAway vs FBC Dragons Hobby\nVenue: PAHO Kurt Kucera Rundhalle\nCompetition: Wiener Grossfeldliga\nGame #16389\nTimezone: Europe/Vienna
+DESCRIPTION:Wednesday reminder before the game.\nGame: Sat 21 Nov 2026 · 1
+ 0:15\nAway vs FBC Dragons Hobby\nVenue: PAHO Kurt Kucera Rundhalle\nCompet
+ ition: Wiener Grossfeldliga\nGame #16389\nTimezone: Europe/Vienna
 LOCATION:PAHO Kurt Kucera Rundhalle
 BEGIN:VALARM
 TRIGGER:-PT0S
@@ -153,10 +183,13 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:floorballbunnies-16389-remind-fri@floorballbunnies.at
+DTSTAMP:20261007T161102Z
 DTSTART;TZID=Europe/Vienna:20261120T090000
 DTEND;TZID=Europe/Vienna:20261120T091500
 SUMMARY:Reminder (Fri): Adults Grossfeld vs FBC Dragons Hobby
-DESCRIPTION:Friday reminder before the game.\nGame: Sat 21 Nov 2026 · 10:15\nAway vs FBC Dragons Hobby\nVenue: PAHO Kurt Kucera Rundhalle\nCompetition: Wiener Grossfeldliga\nGame #16389\nTimezone: Europe/Vienna
+DESCRIPTION:Friday reminder before the game.\nGame: Sat 21 Nov 2026 · 10:1
+ 5\nAway vs FBC Dragons Hobby\nVenue: PAHO Kurt Kucera Rundhalle\nCompetiti
+ on: Wiener Grossfeldliga\nGame #16389\nTimezone: Europe/Vienna
 LOCATION:PAHO Kurt Kucera Rundhalle
 BEGIN:VALARM
 TRIGGER:-PT0S
@@ -166,18 +199,23 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:floorballbunnies-16390@floorballbunnies.at
+DTSTAMP:20261007T161102Z
 DTSTART;TZID=Europe/Vienna:20261121T113000
 DTEND;TZID=Europe/Vienna:20261121T130000
 SUMMARY:Adults Grossfeld: vs FBC Dragons Ladies
-DESCRIPTION:Wiener Grossfeldliga\nAway vs FBC Dragons Ladies\nTime: 11:30 (Europe/Vienna)\nVenue: PAHO Kurt Kucera Rundhalle\nGame #16390
+DESCRIPTION:Wiener Grossfeldliga\nAway vs FBC Dragons Ladies\nTime: 11:30 (
+ Europe/Vienna)\nVenue: PAHO Kurt Kucera Rundhalle\nGame #16390
 LOCATION:PAHO Kurt Kucera Rundhalle
 END:VEVENT
 BEGIN:VEVENT
 UID:floorballbunnies-16390-remind-mon@floorballbunnies.at
+DTSTAMP:20261007T161102Z
 DTSTART;TZID=Europe/Vienna:20261116T090000
 DTEND;TZID=Europe/Vienna:20261116T091500
 SUMMARY:Reminder (Mon): Adults Grossfeld vs FBC Dragons Ladies
-DESCRIPTION:Monday reminder before the game.\nGame: Sat 21 Nov 2026 · 11:30\nAway vs FBC Dragons Ladies\nVenue: PAHO Kurt Kucera Rundhalle\nCompetition: Wiener Grossfeldliga\nGame #16390\nTimezone: Europe/Vienna
+DESCRIPTION:Monday reminder before the game.\nGame: Sat 21 Nov 2026 · 11:3
+ 0\nAway vs FBC Dragons Ladies\nVenue: PAHO Kurt Kucera Rundhalle\nCompetit
+ ion: Wiener Grossfeldliga\nGame #16390\nTimezone: Europe/Vienna
 LOCATION:PAHO Kurt Kucera Rundhalle
 BEGIN:VALARM
 TRIGGER:-PT0S
@@ -187,10 +225,13 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:floorballbunnies-16390-remind-wed@floorballbunnies.at
+DTSTAMP:20261007T161102Z
 DTSTART;TZID=Europe/Vienna:20261118T090000
 DTEND;TZID=Europe/Vienna:20261118T091500
 SUMMARY:Reminder (Wed): Adults Grossfeld vs FBC Dragons Ladies
-DESCRIPTION:Wednesday reminder before the game.\nGame: Sat 21 Nov 2026 · 11:30\nAway vs FBC Dragons Ladies\nVenue: PAHO Kurt Kucera Rundhalle\nCompetition: Wiener Grossfeldliga\nGame #16390\nTimezone: Europe/Vienna
+DESCRIPTION:Wednesday reminder before the game.\nGame: Sat 21 Nov 2026 · 1
+ 1:30\nAway vs FBC Dragons Ladies\nVenue: PAHO Kurt Kucera Rundhalle\nCompe
+ tition: Wiener Grossfeldliga\nGame #16390\nTimezone: Europe/Vienna
 LOCATION:PAHO Kurt Kucera Rundhalle
 BEGIN:VALARM
 TRIGGER:-PT0S
@@ -200,10 +241,13 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:floorballbunnies-16390-remind-fri@floorballbunnies.at
+DTSTAMP:20261007T161102Z
 DTSTART;TZID=Europe/Vienna:20261120T090000
 DTEND;TZID=Europe/Vienna:20261120T091500
 SUMMARY:Reminder (Fri): Adults Grossfeld vs FBC Dragons Ladies
-DESCRIPTION:Friday reminder before the game.\nGame: Sat 21 Nov 2026 · 11:30\nAway vs FBC Dragons Ladies\nVenue: PAHO Kurt Kucera Rundhalle\nCompetition: Wiener Grossfeldliga\nGame #16390\nTimezone: Europe/Vienna
+DESCRIPTION:Friday reminder before the game.\nGame: Sat 21 Nov 2026 · 11:3
+ 0\nAway vs FBC Dragons Ladies\nVenue: PAHO Kurt Kucera Rundhalle\nCompetit
+ ion: Wiener Grossfeldliga\nGame #16390\nTimezone: Europe/Vienna
 LOCATION:PAHO Kurt Kucera Rundhalle
 BEGIN:VALARM
 TRIGGER:-PT0S
@@ -213,18 +257,23 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:floorballbunnies-16394@floorballbunnies.at
+DTSTAMP:20261007T161102Z
 DTSTART;TZID=Europe/Vienna:20270110T160000
 DTEND;TZID=Europe/Vienna:20270110T173000
 SUMMARY:Adults Grossfeld: vs FBC Dragons Youth
-DESCRIPTION:Wiener Grossfeldliga\nAway vs FBC Dragons Youth\nTime: 16:00 (Europe/Vienna)\nVenue: Alterlaa\nGame #16394
+DESCRIPTION:Wiener Grossfeldliga\nAway vs FBC Dragons Youth\nTime: 16:00 (E
+ urope/Vienna)\nVenue: Alterlaa\nGame #16394
 LOCATION:Alterlaa
 END:VEVENT
 BEGIN:VEVENT
 UID:floorballbunnies-16394-remind-mon@floorballbunnies.at
+DTSTAMP:20261007T161102Z
 DTSTART;TZID=Europe/Vienna:20270104T090000
 DTEND;TZID=Europe/Vienna:20270104T091500
 SUMMARY:Reminder (Mon): Adults Grossfeld vs FBC Dragons Youth
-DESCRIPTION:Monday reminder before the game.\nGame: Sun 10 Jan 2027 · 16:00\nAway vs FBC Dragons Youth\nVenue: Alterlaa\nCompetition: Wiener Grossfeldliga\nGame #16394\nTimezone: Europe/Vienna
+DESCRIPTION:Monday reminder before the game.\nGame: Sun 10 Jan 2027 · 16:0
+ 0\nAway vs FBC Dragons Youth\nVenue: Alterlaa\nCompetition: Wiener Grossfe
+ ldliga\nGame #16394\nTimezone: Europe/Vienna
 LOCATION:Alterlaa
 BEGIN:VALARM
 TRIGGER:-PT0S
@@ -234,10 +283,13 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:floorballbunnies-16394-remind-wed@floorballbunnies.at
+DTSTAMP:20261007T161102Z
 DTSTART;TZID=Europe/Vienna:20270106T090000
 DTEND;TZID=Europe/Vienna:20270106T091500
 SUMMARY:Reminder (Wed): Adults Grossfeld vs FBC Dragons Youth
-DESCRIPTION:Wednesday reminder before the game.\nGame: Sun 10 Jan 2027 · 16:00\nAway vs FBC Dragons Youth\nVenue: Alterlaa\nCompetition: Wiener Grossfeldliga\nGame #16394\nTimezone: Europe/Vienna
+DESCRIPTION:Wednesday reminder before the game.\nGame: Sun 10 Jan 2027 · 1
+ 6:00\nAway vs FBC Dragons Youth\nVenue: Alterlaa\nCompetition: Wiener Gros
+ sfeldliga\nGame #16394\nTimezone: Europe/Vienna
 LOCATION:Alterlaa
 BEGIN:VALARM
 TRIGGER:-PT0S
@@ -247,10 +299,13 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:floorballbunnies-16394-remind-fri@floorballbunnies.at
+DTSTAMP:20261007T161102Z
 DTSTART;TZID=Europe/Vienna:20270108T090000
 DTEND;TZID=Europe/Vienna:20270108T091500
 SUMMARY:Reminder (Fri): Adults Grossfeld vs FBC Dragons Youth
-DESCRIPTION:Friday reminder before the game.\nGame: Sun 10 Jan 2027 · 16:00\nAway vs FBC Dragons Youth\nVenue: Alterlaa\nCompetition: Wiener Grossfeldliga\nGame #16394\nTimezone: Europe/Vienna
+DESCRIPTION:Friday reminder before the game.\nGame: Sun 10 Jan 2027 · 16:0
+ 0\nAway vs FBC Dragons Youth\nVenue: Alterlaa\nCompetition: Wiener Grossfe
+ ldliga\nGame #16394\nTimezone: Europe/Vienna
 LOCATION:Alterlaa
 BEGIN:VALARM
 TRIGGER:-PT0S
@@ -259,3 +314,4 @@ DESCRIPTION:Reminder (Fri): Adults Grossfeld vs FBC Dragons Youth
 END:VALARM
 END:VEVENT
 END:VCALENDAR
+
