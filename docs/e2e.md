@@ -237,13 +237,19 @@ Treat the pipeline as privileged: it can commit to the default branch and publis
 
 ### Before enabling the workflow — protect `main`
 
-GitHub → **Settings → Branches → Branch protection** on `main`:
+GitHub → **Settings → Rules → Rulesets** (or classic branch protection) on `main`:
 
 | Setting | Recommended |
 |---|---|
-| Require a pull request before merging | On (1+ review) |
 | Block force-push / deletion | On |
-| Allow GitHub Actions to push | Keep allowed (bot commits snapshot + pages) |
+| Require a pull request before merging | Optional (if On, you **must** bypass Actions — see below) |
+| Allow GitHub Actions to push | **Required** — the watch job commits updated snapshot + pages |
+
+**If the `Commit snapshot + pages` step fails** while fetch is healthy: the ruleset is blocking `github-actions[bot]`.
+
+Fix (pick one):
+1. Ruleset → **Bypass list** → add **App → GitHub Actions** (search under Apps / Integrations), or
+2. Create a fine-grained PAT (Contents: Read and write on this repo), add as secret **`SCHEDULE_PUSH_TOKEN`**, and add that account to the ruleset bypass list.
 
 Until `main` is protected, **do not** enable the workflow that has `contents: write`.
 
@@ -544,8 +550,9 @@ Scaling: prefer **one GitHub repo per club** unless you already run a federation
 | `ALERT_TO` | No | Coach digest recipients (comma-separated) |
 | `ALERT_FROM` | No | From address |
 | `HEARTBEAT_TO` | No | Failure alerts **and** weekly all-clear (falls back to `ALERT_TO`) |
+| `SCHEDULE_PUSH_TOKEN` | No | Fine-grained PAT to push baseline commits when the ruleset blocks `GITHUB_TOKEN` |
 
-No secrets → still fetch, diff, Issues on failure, deploy Pages. Emails skipped.
+No secrets → still fetch, diff, Issues on failure, deploy Pages. Emails skipped. Baseline git push needs either a ruleset bypass for GitHub Actions or `SCHEDULE_PUSH_TOKEN`.
 
 ### Workflow permissions
 

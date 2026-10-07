@@ -36,6 +36,12 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+        with:
+          # Optional PAT with ruleset bypass (secret SCHEDULE_PUSH_TOKEN).
+          # Falls back to GITHUB_TOKEN — that only works if the branch ruleset
+          # allows github-actions to push to main.
+          persist-credentials: true
+          token: ${{ secrets.SCHEDULE_PUSH_TOKEN != '' && secrets.SCHEDULE_PUSH_TOKEN || github.token }}
 
       - name: Set up Python
         uses: actions/setup-python@v5
@@ -81,7 +87,9 @@ jobs:
           retention-days: 7
 
       - name: Commit snapshot + pages + last-success
+        id: commit
         if: steps.watch.outputs.health_ok == 'true'
+        continue-on-error: true
         working-directory: tools/schedule-watch
         run: |
           git config user.name "github-actions[bot]"
@@ -93,6 +101,14 @@ jobs:
             git commit -m "chore(schedule): weekly Flash snapshot + site"
             git push
           fi
+
+      - name: Warn if baseline push was blocked
+        if: steps.commit.outcome == 'failure'
+        run: |
+          echo "::warning::Push to main failed after a healthy fetch. Most often the branch ruleset blocks github-actions[bot]."
+          echo "Fix: Rules → protect-main → Bypass list → add App 'GitHub Actions',"
+          echo "  OR set secret SCHEDULE_PUSH_TOKEN (fine-grained PAT with Contents:write + ruleset bypass) and re-run."
+          echo "Pages can still deploy from this run's artifact."
 
       - name: Email coaches if schedule changed (split by competitionId)
         if: steps.watch.outputs.has_changes == 'true' && steps.watch.outputs.health_ok == 'true'
@@ -268,7 +284,8 @@ jobs:
 
   pages:
     needs: watch
-    if: needs.watch.outputs.health_ok == 'true'
+    # Deploy even if the baseline git push was blocked (continue-on-error).
+    if: always() && needs.watch.result == 'success' && needs.watch.outputs.health_ok == 'true'
     runs-on: ubuntu-latest
     permissions:
       pages: write
