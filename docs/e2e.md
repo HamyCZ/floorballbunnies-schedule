@@ -245,11 +245,14 @@ GitHub → **Settings → Rules → Rulesets** (or classic branch protection) on
 | Require a pull request before merging | Optional (if On, you **must** bypass Actions — see below) |
 | Allow GitHub Actions to push | **Required** — the watch job commits updated snapshot + pages |
 
-**If the `Commit snapshot + pages` step fails** while fetch is healthy: the ruleset is blocking `github-actions[bot]`.
+**If the `Commit snapshot + pages` step fails** while fetch is healthy:
 
-Fix (pick one):
-1. Ruleset → **Bypass list** → add **App → GitHub Actions** (search under Apps / Integrations), or
-2. Create a fine-grained PAT (Contents: Read and write on this repo), add as secret **`SCHEDULE_PUSH_TOKEN`**, and add that account to the ruleset bypass list.
+| Error / symptom | Fix |
+|---|---|
+| `rejected … (fetch first)` / non-fast-forward | Main moved after checkout (common on **Re-run** of an old job). Workflow rebases onto latest `main` before push. Prefer **Run workflow** (fresh) over Re-run. |
+| Ruleset blocking the bot | Bypass list → App **GitHub Actions**, or secret **`SCHEDULE_PUSH_TOKEN`** (PAT with Contents:write + bypass) |
+
+Your `protect-main` ruleset with only `non_fast_forward` + `deletion` is fine for normal fast-forward bot pushes.
 
 Until `main` is protected, **do not** enable the workflow that has `contents: write`.
 
