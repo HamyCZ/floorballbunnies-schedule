@@ -1,8 +1,10 @@
-# Floorballbunnies schedule-watch
+# Floorballbunnies schedule
 
-Monday schedule watch, clash detection, Vienna ICS calendars, and coach digests for Austrian floorball clubs (FloorballFlash MCP).
+Monday schedule watch, clash detection, Vienna ICS calendars, and coach digests for [Floorballbunnies](https://github.com/HamyCZ/floorballbunnies-schedule) (FloorballFlash MCP).
 
 **Full end-to-end documentation:** [`docs/e2e.md`](docs/e2e.md)
+
+Public site (after Pages is enabled): `https://hamycz.github.io/floorballbunnies-schedule`
 
 ## Quick start
 
@@ -13,4 +15,6 @@ pip install -r requirements.txt
 python3 render_site.py --snapshot data/schedule-snapshot.json --out-dir pages
 ```
 
-See `docs/e2e.md` for fetch, fortress guards, GitHub Actions, and multi-club setup.
+## Enable on GitHub
+
+See [`docs/e2e.md` §9](docs/e2e.md#9-enable-on-github-production). Workflow file: [`.github/workflows/schedule-watch.yml`](.github/workflows/schedule-watch.yml).
