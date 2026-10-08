@@ -211,10 +211,10 @@
       ]
     }
   ],
-  "pagesBaseUrl": "https://example.github.io/repo",
-  "lastRun": "2026-10-08T08:17:24Z",
+  "pagesBaseUrl": null,
+  "lastRun": "2026-10-08T11:09:38Z",
   "nextRun": "2026-10-12T07:00:00Z",
-  "lastRunLabel": "Thu 08 Oct 2026 08:17 UTC",
+  "lastRunLabel": "Thu 08 Oct 2026 11:09 UTC",
   "nextRunLabel": "Mon 12 Oct 2026 07:00 UTC",
   "theme": "floorballbunnies-dark-lime",
   "fortress": {

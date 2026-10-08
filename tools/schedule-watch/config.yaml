@@ -50,13 +50,13 @@ brand:
   ink: "#0d0d0d"
 
 reminders:
-  # Categories that get Mon/Wed/Fri 09:00 Vienna reminders before each game.
+  # Categories that get Monday 09:00 Vienna reminders before each game.
   # Mapped from Flash names: ÖFBV Bundesliga Herren / Wiener Grossfeldliga / Wiener Kleinfeldliga
   categories:
     - Bundesliga
     - Adults Grossfeld
     - Adults Kleinfeld
-  weekdays: [mon, wed, fri]
+  weekdays: [mon]
   hour: 9
 
 # Split change digests by competitionId → coach emails.

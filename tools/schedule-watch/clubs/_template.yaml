@@ -47,7 +47,7 @@ brand:
 
 reminders:
   categories: []             # e.g. ["Bundesliga", "Adults Grossfeld"]
-  weekdays: [mon, wed, fri]
+  weekdays: [mon]
   hour: 9
 
 # competitionId → coach emails for split digests (unmapped → ALERT_TO)

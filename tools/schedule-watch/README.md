@@ -13,4 +13,5 @@
 | `fetch_schedule.py` / `compare_snapshots.py` / `render_site.py` | Fetch · diff · site |
 | `data/schedule-snapshot.json` | Baseline |
 | `pages/` | Static site + `ics/` |
-| `github-actions/schedule-watch.yml` | Cron + Pages deploy |
+| `github-actions/schedule-watch.yml` | Packaged workflow copy |
+| Canonical cron | `.github/workflows/schedule-watch.yml` (live Actions) |

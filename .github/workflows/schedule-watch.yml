@@ -5,7 +5,7 @@
 # - Default token is read-only; write scopes are per-job.
 # - Protect `main` (required reviews / no force-push) BEFORE enabling this
 #   workflow — the watch job commits snapshot + pages to the default branch.
-# - See docs/fortress.md and docs/multi-club.md.
+# - See docs/e2e.md §5 (fortress) and §8 (multi-club).
 
 name: schedule-watch
 

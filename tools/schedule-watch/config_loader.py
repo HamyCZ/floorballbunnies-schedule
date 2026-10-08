@@ -49,7 +49,7 @@ DEFAULTS: dict[str, Any] = {
     "brand": {"lime": "#ccff00", "ink": "#0d0d0d"},
     "reminders": {
         "categories": ["Bundesliga", "Adults Grossfeld", "Adults Kleinfeld"],
-        "weekdays": ["mon", "wed", "fri"],
+        "weekdays": ["mon"],
         "hour": 9,
     },
     "coaches": {},

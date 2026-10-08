@@ -74,7 +74,7 @@ CATEGORY_ACCENT = {
 
 # Defaults (overridden by config.yaml)
 DEFAULT_REMINDER_CATEGORIES = frozenset({"Bundesliga", "Adults Grossfeld", "Adults Kleinfeld"})
-DEFAULT_REMINDER_WEEKDAYS = (("mon", 0, "Monday"), ("wed", 2, "Wednesday"), ("fri", 4, "Friday"))
+DEFAULT_REMINDER_WEEKDAYS = (("mon", 0, "Monday"),)
 DEFAULT_REMINDER_HOUR = 9
 
 CRON_WEEKDAY = 0  # Monday
@@ -131,7 +131,7 @@ def reminder_settings() -> tuple[frozenset[str], tuple[tuple[str, int, str], ...
     hour = int(rem.get("hour") if rem.get("hour") is not None else DEFAULT_REMINDER_HOUR)
     wd_map = {"mon": (0, "Monday"), "tue": (1, "Tuesday"), "wed": (2, "Wednesday"),
               "thu": (3, "Thursday"), "fri": (4, "Friday"), "sat": (5, "Saturday"), "sun": (6, "Sunday")}
-    raw = rem.get("weekdays") or ["mon", "wed", "fri"]
+    raw = rem.get("weekdays") or ["mon"]
     weekdays: list[tuple[str, int, str]] = []
     for slug in raw:
         key = str(slug).lower()[:3]
@@ -403,16 +403,6 @@ a:hover{color:#e6ff66}
 .nav a:hover,.nav a.is-active{
   background:var(--lime);color:#000;border-color:var(--lime);transform:translateY(-1px);
 }
-.pages-nav{
-  display:flex;flex-wrap:wrap;gap:8px;margin:0 0 16px;padding:10px 0 2px;
-  border-bottom:1px solid rgba(255,255,255,.08);
-}
-.pages-nav a{
-  color:var(--lime);font:700 13px/1 var(--font-display);letter-spacing:.08em;text-transform:uppercase;
-  padding:8px 2px;margin-right:10px;border-bottom:2px solid transparent;
-}
-.pages-nav a.is-active{color:var(--text);border-bottom-color:var(--lime)}
-.pages-nav a:hover{color:#e6ff66}
 .hero{
   position:relative;overflow:hidden;border:1px solid var(--line);border-radius:22px;
   background:
@@ -594,11 +584,9 @@ def shell(
         ("calendar", "calendar.html", "Calendar"),
     ]
     nav = []
-    pages_nav = []
     for key, href, label in nav_items:
         cls = " is-active" if active == key else ""
         nav.append(f'<a class="{cls.strip()}" href="{href}">{label}</a>')
-        pages_nav.append(f'<a class="{cls.strip()}" href="{href}">{label}</a>')
     hero = ""
     if hero_title:
         lead_html = f"<p>{escape(hero_lead)}</p>" if hero_lead else ""
@@ -615,7 +603,7 @@ def shell(
         else ""
     )
     return f"""<!DOCTYPE html>
-<html lang="de">
+<html lang="en">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -643,7 +631,6 @@ def shell(
   </header>
   {hero}
   {when}
-  <nav class="pages-nav" aria-label="Pages">{''.join(pages_nav)}</nav>
   <main class="main">{body}</main>
   <footer class="footer">
     <div>Data from FloorballFlash · club {escape(str(club_id))}</div>
@@ -674,7 +661,12 @@ def resolve_timing(
     return last, next_cron_run(last)
 
 
-def _game_block(g: dict[str, Any], *, show_date: bool = False) -> str:
+def _game_block(
+    g: dict[str, Any],
+    *,
+    show_date: bool = False,
+    extra_html: str = "",
+) -> str:
     cat = g.get("_category") or g["_band"]
     accent = CATEGORY_ACCENT.get(cat) or BAND_ACCENT.get(g["_band"], "#ccff00")
     t = escape(g.get("time") or "TBD")
@@ -691,6 +683,7 @@ def _game_block(g: dict[str, Any], *, show_date: bool = False) -> str:
         f'<strong>{escape(g.get("opponent") or "")}</strong></div>'
         f'<div class="venue">{escape(g.get("venue") or "")}'
         f' <span class="id">#{g["id"]}</span></div>'
+        f"{extra_html}"
         f"</div></article>"
     )
 
@@ -927,21 +920,56 @@ def build_index(
     next_run: datetime | None = None,
     weekend_n: int = 0,
     clash_bands: list[str] | None = None,
+    games: list[dict[str, Any]] | None = None,
+    today: date | None = None,
 ) -> str:
     n = len(snapshot.get("games") or [])
     bands = clash_bands or []
     bands_stat = escape(", ".join(bands)) if bands else "None"
-    body = f"""
+    d_today = today or date.today()
+    today_s = d_today.isoformat()
+    upcoming = sorted(
+        [g for g in (games or []) if (g.get("date") or "") >= today_s],
+        key=lambda g: (g.get("date") or "", g.get("time") or "99:99", g["id"]),
+    )[:8]
+
+    parts = [
+        f"""
 <div class="stats">
   <div class="stat"><span>Games in baseline</span><b>{n}</b></div>
   <div class="stat"><span>This weekend</span><b>{weekend_n}</b></div>
   <div class="stat"><span>Clashes</span><b style="font-size:1.15rem">{bands_stat}</b></div>
 </div>
-"""
+""",
+        '<section class="panel">',
+        '<div class="panel-h"><span>Next games</span>'
+        f'<span class="meta">{len(upcoming)} upcoming</span></div>',
+    ]
+    if not upcoming:
+        parts.append(
+            '<div class="empty"><strong>No upcoming games</strong> in the current baseline.</div>'
+        )
+    else:
+        for g in upcoming:
+            cat = g.get("_category") or ""
+            slug = category_slug(cat)
+            link = (
+                f'<div style="margin-top:8px">'
+                f'<a class="btn btn-ghost" href="calendar.html?cat={escape(slug, quote=True)}">'
+                f'Open {escape(cat)} calendar</a></div>'
+            )
+            parts.append(_game_block(g, show_date=True, extra_html=link))
+    parts.append("</section>")
+
     club = club_info()
+    hero_ctas = (
+        '<a class="btn btn-lime" href="weekend.html">This weekend</a>'
+        '<a class="btn btn-ghost" href="clashes.html">Clashes</a>'
+        '<a class="btn btn-ghost" href="calendar.html">Full calendar</a>'
+    )
     return shell(
         "Schedule",
-        body,
+        "\n".join(parts),
         last_run=last_run,
         next_run=next_run,
         active="home",
@@ -950,6 +978,7 @@ def build_index(
             f"Club {club.get('id')} · {club.get('name') or 'Club'} · "
             f"{n} league games in the current baseline."
         ),
+        hero_ctas=hero_ctas,
     )
 
 
@@ -1205,6 +1234,26 @@ def build_calendar(
 
     extra_css = """
 .cal-wrap{display:grid;gap:14px;min-width:0}
+.cal-legend{
+  display:flex;flex-wrap:wrap;gap:10px 16px;align-items:center;
+  font:600 12px/1.3 var(--font-body);color:var(--muted);
+}
+.cal-legend .swatch{
+  display:inline-flex;align-items:center;justify-content:center;
+  width:22px;height:22px;border-radius:7px;margin-right:6px;vertical-align:middle;
+  font:700 11px/1 var(--font-display);color:#000;background:var(--lime);
+  box-shadow:0 0 0 1px rgba(204,255,0,.5);
+}
+.cal-legend .swatch-today{
+  background:transparent;color:var(--text);
+  box-shadow:inset 0 0 0 2px rgba(255,255,255,.55);
+}
+.cal-empty{
+  margin:0;padding:10px 12px;border-radius:10px;
+  border:1px dashed rgba(255,255,255,.18);background:rgba(0,0,0,.22);
+  color:var(--muted);font:600 13px/1.4 var(--font-body);
+}
+.cal-empty[hidden]{display:none}
 .cat-bar{display:flex;flex-wrap:wrap;gap:8px}
 .cat-bar button{
   border:1px solid var(--line);background:rgba(255,255,255,.03);color:var(--text);
@@ -1224,13 +1273,23 @@ def build_calendar(
   background:rgba(0,0,0,.28);padding:6px;cursor:default;position:relative;
   display:flex;flex-direction:column;gap:4px;min-width:0;overflow:hidden;
 }
-.cal-cell.has{
-  cursor:pointer;border-color:rgba(204,255,0,.55);background:rgba(204,255,0,.10);
-  box-shadow:inset 0 0 0 1px rgba(204,255,0,.25);
+button.cal-cell{
+  font:inherit;color:inherit;text-align:left;width:100%;
+  appearance:none;-webkit-appearance:none;
 }
-.cal-cell.has:hover,.cal-cell.is-sel{background:rgba(204,255,0,.18);border-color:var(--lime)}
+.cal-cell.has{
+  cursor:pointer;border-color:rgba(204,255,0,.75);background:rgba(204,255,0,.16);
+  box-shadow:inset 0 0 0 1px rgba(204,255,0,.35);
+}
+.cal-cell.has:hover,.cal-cell.is-sel{background:rgba(204,255,0,.26);border-color:var(--lime)}
+.cal-cell.is-today{box-shadow:inset 0 0 0 2px rgba(255,255,255,.45)}
+.cal-cell.has.is-today{box-shadow:inset 0 0 0 2px rgba(255,255,255,.55), inset 0 0 0 1px rgba(204,255,0,.35)}
 .cal-cell .d{font:700 13px/1 var(--font-display);color:var(--muted)}
-.cal-cell.has .d{color:var(--lime)}
+.cal-cell.has .d{
+  display:inline-flex;align-items:center;justify-content:center;
+  min-width:1.55em;height:1.55em;padding:0 4px;border-radius:999px;
+  background:var(--lime);color:#000;
+}
 .cal-cell .cnt{display:none}
 .cal-cell .glist{display:flex;flex-direction:column;gap:3px;margin-top:2px;min-width:0}
 .cal-cell .g{
@@ -1256,14 +1315,24 @@ def build_calendar(
   .cal-grid{gap:4px}
   .cal-dow{font-size:10px;letter-spacing:.04em;padding:2px 0}
   .cal-cell{
-    min-height:44px;padding:5px 2px;border-radius:8px;
-    align-items:center;justify-content:flex-start;gap:2px;
+    min-height:52px;padding:4px 2px 6px;border-radius:8px;
+    align-items:center;justify-content:flex-start;gap:3px;
   }
-  .cal-cell.mute{min-height:44px}
+  .cal-cell.has{
+    background:rgba(204,255,0,.28);border-color:var(--lime);
+    border-width:2px;
+  }
+  .cal-cell.mute{min-height:52px}
   .cal-cell .d{font-size:12px}
+  .cal-cell.has .d{
+    min-width:1.7em;height:1.7em;font-size:12px;
+  }
   .cal-cell .glist{display:none}
   .cal-cell.has .cnt{
-    display:block;font:700 10px/1 var(--font-display);color:var(--lime);letter-spacing:.04em;
+    display:inline-flex;align-items:center;justify-content:center;
+    min-width:1.35em;padding:2px 5px;border-radius:999px;
+    font:700 10px/1 var(--font-display);letter-spacing:.02em;
+    color:#000;background:var(--lime);
   }
   .day-panel .game{grid-template-columns:52px 1fr}
 }
@@ -1271,20 +1340,25 @@ def build_calendar(
 
     body = f"""
 <style>{extra_css}</style>
-<p class="lead">Choose a category. Game days show each kickoff in the cell. Click a day for downloads: one game, that day, or the whole season.</p>
+<p class="lead">Choose a category. Lime-marked days have games — on desktop each kickoff shows in the cell; on phones tap a marked day for details and downloads.</p>
 <div class="cal-wrap">
-  <div class="cat-bar" id="catBar"></div>
+  <div class="cal-legend" aria-hidden="true">
+    <span><span class="swatch">12</span> Game day</span>
+    <span><span class="swatch swatch-today">12</span> Today</span>
+  </div>
+  <div class="cat-bar" id="catBar" role="tablist" aria-label="Squad categories"></div>
   <div class="cal-toolbar">
     <div class="nav-row">
-      <button type="button" class="btn btn-ghost" id="prevMonth">←</button>
+      <button type="button" class="btn btn-ghost" id="prevMonth" aria-label="Previous month">←</button>
       <strong id="monthLabel" style="margin:0 10px;font:700 1.1rem var(--font-display);letter-spacing:.06em;text-transform:uppercase"></strong>
-      <button type="button" class="btn btn-ghost" id="nextMonth">→</button>
+      <button type="button" class="btn btn-ghost" id="nextMonth" aria-label="Next month">→</button>
       <button type="button" class="btn btn-ghost" id="thisMonth">Today</button>
     </div>
     <div class="nav-row">
       <a class="btn btn-lime" id="dlAll" href="#">Download season (.ics)</a>
     </div>
   </div>
+  <p class="cal-empty" id="calEmpty" hidden></p>
   <div class="cal-grid" id="calDows"></div>
   <div class="cal-grid" id="calGrid"></div>
   <section class="panel day-panel" id="dayPanel" hidden>
@@ -1308,9 +1382,45 @@ const REMINDER_CATS = new Set({rem_cats_js});
 const REMINDER_DAYS = {rem_days_json};
 const REMINDER_HOUR = {rem_hour};
 const DOW = ["Mon","Tue","Wed","Thu","Fri","Sat","Sun"];
-let cat = (CATS[0] && CATS[0].category) || null;
+function pickDefaultCat(){{
+  if (!CATS.length) return null;
+  const monthPrefix = TODAY.slice(0, 7); // YYYY-MM
+  const withMonth = CATS.find(c => GAMES.some(g => g.category === c.category && (g.date||"").startsWith(monthPrefix)));
+  if (withMonth) return withMonth.category;
+  const upcoming = CATS.map(c => {{
+    const next = GAMES.filter(g => g.category === c.category && g.date && g.date >= TODAY)
+      .map(g => g.date).sort()[0] || null;
+    return {{ category: c.category, next }};
+  }}).filter(x => x.next).sort((a,b) => a.next.localeCompare(b.next));
+  return (upcoming[0] && upcoming[0].category) || CATS[0].category;
+}}
+function catFromQuery(){{
+  const raw = new URLSearchParams(location.search).get("cat");
+  if (!raw || !CATS.length) return null;
+  const key = String(raw).trim().toLowerCase();
+  const hit = CATS.find(c =>
+    String(c.slug||"").toLowerCase() === key ||
+    String(c.category||"").toLowerCase() === key
+  );
+  return hit ? hit.category : null;
+}}
+function syncCatQuery(){{
+  const meta = CATS.find(c => c.category === cat);
+  const slug = meta && meta.slug ? meta.slug : "";
+  const url = new URL(location.href);
+  if (slug) url.searchParams.set("cat", slug);
+  else url.searchParams.delete("cat");
+  history.replaceState(null, "", url.pathname + url.search + url.hash);
+}}
+function monthForCat(catName){{
+  const upcoming = gamesFor(catName).map(g => g.date).filter(Boolean).sort().find(d => d >= TODAY);
+  const anchorDate = upcoming || TODAY;
+  const parts = anchorDate.split("-").map(Number);
+  return new Date(parts[0], parts[1]-1, 1);
+}}
+let cat = catFromQuery() || pickDefaultCat();
 let anchor = new Date(TODAY + "T12:00:00");
-let view = new Date(anchor.getFullYear(), anchor.getMonth(), 1);
+let view = monthForCat(cat);
 let selectedDate = null;
 
 function pad(n){{return String(n).padStart(2,"0");}}
@@ -1435,7 +1545,13 @@ function renderCats(){{
     b.type = "button";
     b.textContent = c.category + " · " + c.games;
     if (c.category === cat) b.classList.add("is-on");
-    b.onclick = () => {{ cat = c.category; selectedDate = null; renderAll(); }};
+    b.onclick = () => {{
+      cat = c.category;
+      selectedDate = null;
+      view = monthForCat(cat);
+      syncCatQuery();
+      renderAll();
+    }};
     bar.appendChild(b);
   }});
   const meta = CATS.find(c => c.category === cat);
@@ -1445,6 +1561,7 @@ function renderCats(){{
     dl.download = meta.slug + ".ics";
     dl.textContent = "Download season · " + meta.category;
   }}
+  syncCatQuery();
 }}
 function renderMonth(){{
   document.getElementById("monthLabel").textContent = view.toLocaleString("en", {{month:"long", year:"numeric"}});
@@ -1459,24 +1576,50 @@ function renderMonth(){{
     if (!byDate[g.date]) byDate[g.date] = [];
     byDate[g.date].push(g);
   }});
+  const monthKeys = Object.keys(byDate).filter(k => {{
+    const parts = k.split("-").map(Number);
+    return parts[0] === view.getFullYear() && parts[1] === view.getMonth()+1;
+  }});
+  const empty = document.getElementById("calEmpty");
+  if (!monthKeys.length) {{
+    const upcoming = gamesFor(cat).map(g => g.date).filter(Boolean).sort().find(d => d >= TODAY);
+    empty.hidden = false;
+    empty.textContent = upcoming
+      ? ("No games in this month for "+cat+". Next game: "+upcoming+".")
+      : ("No games in this month for "+cat+".");
+  }} else {{
+    empty.hidden = true;
+    empty.textContent = "";
+  }}
   for (let i=0;i<startPad;i++) {{
     const cell = document.createElement("div");
     cell.className = "cal-cell mute";
+    cell.setAttribute("aria-hidden", "true");
     grid.appendChild(cell);
   }}
   for (let day=1; day<=daysInMonth; day++) {{
     const d = new Date(view.getFullYear(), view.getMonth(), day);
     const key = ymd(d);
     const list = byDate[key] || [];
-    const cell = document.createElement("div");
-    cell.className = "cal-cell" + (list.length ? " has" : "") + (selectedDate===key ? " is-sel" : "");
+    const isToday = key === TODAY;
+    const cell = document.createElement(list.length ? "button" : "div");
+    if (list.length) cell.type = "button";
+    cell.className = "cal-cell"
+      + (list.length ? " has" : "")
+      + (selectedDate===key ? " is-sel" : "")
+      + (isToday ? " is-today" : "");
     let html = '<div class="d">'+day+'</div>';
     if (list.length) {{
-      html += '<div class="cnt">'+list.length+'</div>';
+      const n = list.length;
+      html += '<div class="cnt" aria-hidden="true">'+n+'</div>';
       html += '<div class="glist">' + list.map(g =>
         '<div class="g"><span class="t">'+escapeHtml(g.time||"TBD")+'</span>vs '+escapeHtml(shortOpp(g.opponent))+'</div>'
       ).join("") + '</div>';
+      cell.setAttribute("aria-label", key + ": " + n + " game" + (n===1?"":"s") + " · " + cat);
+      cell.setAttribute("aria-pressed", selectedDate===key ? "true" : "false");
       cell.onclick = () => {{ selectedDate = key; renderAll(); }};
+    }} else if (isToday) {{
+      cell.setAttribute("aria-label", key + " · today");
     }}
     cell.innerHTML = html;
     grid.appendChild(cell);
@@ -1564,6 +1707,8 @@ def render_all(
             next_run=next_run,
             weekend_n=weekend_n,
             clash_bands=clash_cats,
+            games=games,
+            today=d_today or date.today(),
         ),
         encoding="utf-8",
     )

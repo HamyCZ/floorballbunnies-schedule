@@ -1,7 +1,8 @@
 # Floorballbunnies schedule-watch — end-to-end documentation
 
-**This is the only documentation file you need.**  
-Everything about the Monday watch, change detection, site, email, fortress, and multi-club onboarding is below. Other files under `docs/` are previews or legacy notes; treat this file as authoritative.
+**Authoritative maintainer doc.** Everything about the Monday watch, change detection, site, email, fortress, and multi-club onboarding is below. `docs/site/` is a static HTML preview (open locally — do **not** use agent `127.0.0.1` links).
+
+### Cheat sheet
 
 | | |
 |---|---|
@@ -9,10 +10,12 @@ Everything about the Monday watch, change detection, site, email, fortress, and 
 | Tooling root | `tools/schedule-watch/` |
 | Active config | `tools/schedule-watch/config.yaml` |
 | Baseline | `tools/schedule-watch/data/schedule-snapshot.json` |
-| Site preview | `docs/site/` (open HTML files locally — do **not** use agent `127.0.0.1` links) |
+| Site preview | `docs/site/` HTML · published pages from `tools/schedule-watch/pages/` |
 | MCP | `mcp.floorballflash.at` (HTTPS, no auth today) |
 | Cron | Monday `07:00` UTC ≈ `08:00` Europe/Vienna (CET winter) |
 | Timezone | `Europe/Vienna` (ICS + reminders) |
+| Adult reminders | **Monday 09:00** Vienna · `reminders.weekdays: [mon]` · Bundesliga / Adults GF / KF only |
+| Edit reminders | `config.yaml` → `reminders.weekdays` / `reminders.hour` / `reminders.categories` |
 
 ---
 
@@ -63,11 +66,12 @@ Built into `tools/schedule-watch/pages/` and mirrored for preview under `docs/si
 
 | File | Content |
 |---|---|
-| `index.html` | Hub — stats, last/next run, shortcuts |
+| `index.html` | Hub — stats, next upcoming games, CTAs to weekend / clashes / calendar |
 | `weekend.html` | Next Sat–Sun club games (or empty state) |
 | `clashes.html` | Same-squad SAME DAY view |
-| `calendar.html` | Month grid + per-game / per-day / season ICS download |
+| `calendar.html` | Month grid + per-game / per-day / season ICS download (`?cat=<slug>` deep-link) |
 | `ics/<slug>.ics` | One calendar file per squad/category |
+| `site-meta.json` | Machine-readable run/meta for the site |
 
 Theme: dark `#0d0d0d` + lime `#ccff00`, club crest, Oswald/Barlow — aligned with floorballbunnies.at.  
 Generated HTML includes a Content-Security-Policy when `fortress.csp: true`.
@@ -122,7 +126,7 @@ FloorballFlash MCP (mcp.floorballflash.at)
    · out/changes.{json,md,html}
         │
         ├── render_site.py → pages/*.html + ics/*  (every healthy run)
-        ├── Resend email   → only if has_changes + secrets
+        ├── Resend → changes digest if has_changes; all-clear if healthy + no changes (needs secrets)
         ├── git commit     → snapshot + pages + last-success
         └── Pages deploy   → artifact from THIS run (not stale checkout)
 ```
@@ -133,7 +137,7 @@ FloorballFlash MCP (mcp.floorballflash.at)
 | Schema / count-drop / churn | Continue | Snapshot **frozen**; Issue + optional email; job fails |
 | Diff | `has_changes` true/false | — |
 | Site render | Always on healthy run | Skipped |
-| Email coaches | Only if changes + Resend | Skipped |
+| Email coaches | Change digests if changes; all-clear if none (both need Resend) | Skipped |
 | Commit + Pages | Snapshot + pages + last-success | No commit / no deploy |
 
 ### Baseline lifecycle
@@ -152,7 +156,7 @@ Do **not** hand-edit the baseline for routine updates.
 ## 4. Change detection (watch list)
 
 Comparison is by Flash game **`id`**, across the **whole club** (all competitions).  
-There is **no separate per-category email**. Competition moves still show up because `competitionId` / `competitionName` are watched.
+Competition moves still show up because `competitionId` / `competitionName` are watched. Digests are club-wide by default; optional split by Flash `competitionId` when `coaches:` is set ([§10](#10-coach-routing--split-digests)).
 
 ### Outcomes per game id
 
@@ -216,7 +220,7 @@ Hints matched case-insensitively inside `state`: `cancel`, `abandon`, `postpon`,
 |---|---|
 | Score-only updates | No |
 | Derived opponent/homeAway alone | No |
-| Per-category digest email | No (club-wide digest; lines include competition name) |
+| Per site-category digest by default | No (club-wide; optional split by Flash `competitionId` when `coaches:` is set — §10) |
 | Site “category” remapping without Flash competition change | No |
 
 ### How to change the watch list
@@ -411,10 +415,8 @@ For adult categories (`Bundesliga`, `Adults Grossfeld`, `Adults Kleinfeld`), ext
 | Reminder | When | Content |
 |---|---|---|
 | Monday | Most recent Monday strictly before game day, 09:00 Vienna | "Reminder (Mon): {Category} vs {Opponent}" |
-| Wednesday | Most recent Wednesday strictly before game day, 09:00 Vienna | "Reminder (Wed): {Category} vs {Opponent}" |
-| Friday | Most recent Friday strictly before game day, 09:00 Vienna | "Reminder (Fri): {Category} vs {Opponent}" |
 
-Each reminder includes a `VALARM` with `ACTION:DISPLAY` at trigger time. Youth categories do not receive reminders.
+Each reminder includes a `VALARM` with `TRIGGER:-PT0S` / `ACTION:DISPLAY` (fires at reminder event start = Monday 09:00). Youth categories do not receive reminders.
 
 Configure reminder categories and weekdays in `config.yaml` → `reminders:`.
 
@@ -484,8 +486,11 @@ reminders:
     - Bundesliga
     - Adults Grossfeld
     - Adults Kleinfeld
-  weekdays: [mon, wed, fri]
+  weekdays: [mon]
   hour: 9
+
+coaches: {}                 # competitionId → emails; see §10
+coachesNotifyDefaultFull: false
 ```
 
 Env overrides: `SCHEDULE_WATCH_CONFIG`, `CLUB_ID`, `CLUB_NAME`, `MCP_HOST`, `PAGES_BASE_URL`.
@@ -593,7 +598,7 @@ ALERT_TO=… RESEND_API_KEY=… python3 send_digests.py --mode changes --send
 ```
 
 Fill real addresses in `config.yaml` before go-live (lists are empty placeholders today).  
-Preview example: `docs/site/digests/coach-split-example.html`.
+Dry-run HTML lands in `tools/schedule-watch/out/digests/` (not committed). Club-wide email layout sample: `docs/site/email-digest.html`.
 
 ---
 
@@ -608,7 +613,7 @@ HEARTBEAT_TO='ops@example.com' python3 send_digests.py \
   --mode all-clear --health-json out/health.json --out-dir out/digests
 ```
 
-Preview: `docs/site/digests/all-clear.html`.
+Dry-run writes `tools/schedule-watch/out/digests/all-clear.html` (local / CI artifact).
 
 ---
 
@@ -636,7 +641,7 @@ Audited against club 78 / season 2026 snapshot (200 games).
 | `Adults Grossfeld` | `Wiener Grossfeldliga` | 731 |
 | `Adults Kleinfeld` | `Wiener Kleinfeldliga` | 730 |
 
-These match how FloorballFlash labels the three adult leagues for club 78. ICS reminders (Mon/Wed/Fri 09:00 Vienna) attach only to these three.
+These match how FloorballFlash labels the three adult leagues for club 78. ICS reminders (Monday 09:00 Vienna) attach only to these three.
 
 ---
 
@@ -651,7 +656,7 @@ These match how FloorballFlash labels the three adult leagues for club 78. ICS r
 | All-clear heartbeat dry-run | Wrote `out/digests/all-clear.*` | 2026-10-06 |
 | MCP session-less init | Client updated (host no longer returns `Mcp-Session-Id`) | 2026-10-06 |
 
-Artifacts: `tools/schedule-watch/out/live-fetch.json`, `out/digests/`, `docs/site/email-digest.html`, `docs/site/digests/`.
+Artifacts: `tools/schedule-watch/out/live-fetch.json`, `out/digests/`, `docs/site/email-digest.html`.
 
 ---
 
@@ -661,7 +666,8 @@ Artifacts: `tools/schedule-watch/out/live-fetch.json`, `out/digests/`, `docs/sit
 |---|---|
 | Watch another logistics field | `schedule.watchFields` + store field in `fetch_schedule.py` + update §4 here |
 | New adult reminder categories | `reminders.categories` |
-| Other club | `clubs/<slug>.yaml` + §11 |
+| Reminder weekdays / hour | `reminders.weekdays` / `reminders.hour` |
+| Other club | `clubs/<slug>.yaml` + [§8](#8-multi-club-other-austrian-teams) |
 | Real coach emails | `coaches:` lists in `config.yaml` |
 | Tighter fortress | Lower `minGameRatio` / `maxAddedGames` / `maxRemovedGames` |
 | Deploy key instead of `GITHUB_TOKEN` write | Optional hardening — replace commit step credentials |
@@ -672,7 +678,7 @@ Artifacts: `tools/schedule-watch/out/live-fetch.json`, `out/digests/`, `docs/sit
 
 - [x] Live MCP fetch once (refreshed baseline)
 - [x] Simulate field change → digest + `hasChanges`
-- [x] Alpencup / adult category audit documented (§15) — Alpencup **confirmed separate**
+- [x] Alpencup / adult category audit documented ([§12](#12-category-audit-alpencup--adults)) — Alpencup **confirmed separate**
 - [x] Coach split digests + all-clear heartbeat implemented
 - [ ] Put real emails into `config.yaml` → `coaches:`
 - [ ] Read §4 (watch list) and §5 (protect `main`)

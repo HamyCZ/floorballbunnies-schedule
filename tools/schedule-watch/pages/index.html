@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="de">
+<html lang="en">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -75,16 +75,6 @@ a:hover{color:#e6ff66}
 .nav a:hover,.nav a.is-active{
   background:var(--lime);color:#000;border-color:var(--lime);transform:translateY(-1px);
 }
-.pages-nav{
-  display:flex;flex-wrap:wrap;gap:8px;margin:0 0 16px;padding:10px 0 2px;
-  border-bottom:1px solid rgba(255,255,255,.08);
-}
-.pages-nav a{
-  color:var(--lime);font:700 13px/1 var(--font-display);letter-spacing:.08em;text-transform:uppercase;
-  padding:8px 2px;margin-right:10px;border-bottom:2px solid transparent;
-}
-.pages-nav a.is-active{color:var(--text);border-bottom-color:var(--lime)}
-.pages-nav a:hover{color:#e6ff66}
 .hero{
   position:relative;overflow:hidden;border:1px solid var(--line);border-radius:22px;
   background:
@@ -215,16 +205,26 @@ details.band .band-body{padding:8px 10px 12px}
     </a>
     <nav class="nav" aria-label="Primary"><a class="is-active" href="index.html">Home</a><a class="" href="weekend.html">Weekend</a><a class="" href="clashes.html">Clashes</a><a class="" href="calendar.html">Calendar</a></nav>
   </header>
-  <section class="hero"><h1>Schedule</h1><p>Club 78 · Floorballbunnies · 200 league games in the current baseline.</p></section>
-  <div class="when" role="status"><div><span class="lbl">Last run</span> Thu 08 Oct 2026 08:17 UTC</div><div><span class="lbl">Next run</span> Mon 12 Oct 2026 07:00 UTC<span class="hint"> · Mon 07:00 UTC ≈ 08:00 Vienna (winter)</span></div></div>
-  <nav class="pages-nav" aria-label="Pages"><a class="is-active" href="index.html">Home</a><a class="" href="weekend.html">Weekend</a><a class="" href="clashes.html">Clashes</a><a class="" href="calendar.html">Calendar</a></nav>
+  <section class="hero"><h1>Schedule</h1><p>Club 78 · Floorballbunnies · 200 league games in the current baseline.</p><div class="cta-row"><a class="btn btn-lime" href="weekend.html">This weekend</a><a class="btn btn-ghost" href="clashes.html">Clashes</a><a class="btn btn-ghost" href="calendar.html">Full calendar</a></div></section>
+  <div class="when" role="status"><div><span class="lbl">Last run</span> Thu 08 Oct 2026 11:09 UTC</div><div><span class="lbl">Next run</span> Mon 12 Oct 2026 07:00 UTC<span class="hint"> · Mon 07:00 UTC ≈ 08:00 Vienna (winter)</span></div></div>
   <main class="main">
 <div class="stats">
   <div class="stat"><span>Games in baseline</span><b>200</b></div>
   <div class="stat"><span>This weekend</span><b>4</b></div>
   <div class="stat"><span>Clashes</span><b style="font-size:1.15rem">U12 group overlap</b></div>
 </div>
-</main>
+
+<section class="panel">
+<div class="panel-h"><span>Next games</span><span class="meta">8 upcoming</span></div>
+<article class="game"><div class="time"><div style="font-size:11px;color:var(--muted);margin-bottom:2px">2026-10-11</div>08:30</div><div><div class="league"><span style="color:#f5a524;font-weight:700">U14 Großfeld</span> · Wiener U14 Großfeld Meisterschaft</div><div class="matchup">Home vs <strong>Wiener Floorballverein</strong></div><div class="venue">PAHO Kurt Kucera Rundhalle <span class="id">#16094</span></div><div style="margin-top:8px"><a class="btn btn-ghost" href="calendar.html?cat=u14-grossfeld">Open U14 Großfeld calendar</a></div></div></article>
+<article class="game"><div class="time"><div style="font-size:11px;color:var(--muted);margin-bottom:2px">2026-10-11</div>11:00</div><div><div class="league"><span style="color:#f5a524;font-weight:700">U14 Großfeld</span> · Wiener U14 Großfeld Meisterschaft</div><div class="matchup">Home vs <strong>FBC Dragons</strong></div><div class="venue">PAHO Kurt Kucera Rundhalle <span class="id">#16096</span></div><div style="margin-top:8px"><a class="btn btn-ghost" href="calendar.html?cat=u14-grossfeld">Open U14 Großfeld calendar</a></div></div></article>
+<article class="game"><div class="time"><div style="font-size:11px;color:var(--muted);margin-bottom:2px">2026-10-11</div>16:00</div><div><div class="league"><span style="color:#fb7185;font-weight:700">Adults Grossfeld</span> · Wiener Grossfeldliga</div><div class="matchup">Away vs <strong>IBK Währing</strong></div><div class="venue">PAHO Kurt Kucera Rundhalle <span class="id">#16382</span></div><div style="margin-top:8px"><a class="btn btn-ghost" href="calendar.html?cat=adults-grossfeld">Open Adults Grossfeld calendar</a></div></div></article>
+<article class="game"><div class="time"><div style="font-size:11px;color:var(--muted);margin-bottom:2px">2026-10-11</div>18:30</div><div><div class="league"><span style="color:#fb7185;font-weight:700">Adults Grossfeld</span> · Wiener Grossfeldliga</div><div class="matchup">Home vs <strong>Crossroads</strong></div><div class="venue">PAHO Kurt Kucera Rundhalle <span class="id">#16384</span></div><div style="margin-top:8px"><a class="btn btn-ghost" href="calendar.html?cat=adults-grossfeld">Open Adults Grossfeld calendar</a></div></div></article>
+<article class="game"><div class="time"><div style="font-size:11px;color:var(--muted);margin-bottom:2px">2026-10-17</div>15:00</div><div><div class="league"><span style="color:#f0abfc;font-weight:700">U12 Mädchen</span> · Wiener U12 Mädchen Meisterschaft</div><div class="matchup">Home vs <strong>WFV</strong></div><div class="venue">Alterlaa <span class="id">#16256</span></div><div style="margin-top:8px"><a class="btn btn-ghost" href="calendar.html?cat=u12-maedchen">Open U12 Mädchen calendar</a></div></div></article>
+<article class="game"><div class="time"><div style="font-size:11px;color:var(--muted);margin-bottom:2px">2026-10-17</div>15:32</div><div><div class="league"><span style="color:#f0abfc;font-weight:700">U12 Mädchen</span> · Wiener U12 Mädchen Meisterschaft</div><div class="matchup">Away vs <strong>WFV</strong></div><div class="venue">Alterlaa <span class="id">#16257</span></div><div style="margin-top:8px"><a class="btn btn-ghost" href="calendar.html?cat=u12-maedchen">Open U12 Mädchen calendar</a></div></div></article>
+<article class="game"><div class="time"><div style="font-size:11px;color:var(--muted);margin-bottom:2px">2026-10-17</div>16:30</div><div><div class="league"><span style="color:#fb923c;font-weight:700">U14 Kleinfeld</span> · Wiener U14 Kleinfeld Meisterschaft</div><div class="matchup">Away vs <strong>Minty Penguins</strong></div><div class="venue">Alterlaa <span class="id">#16268</span></div><div style="margin-top:8px"><a class="btn btn-ghost" href="calendar.html?cat=u14-kleinfeld">Open U14 Kleinfeld calendar</a></div></div></article>
+<article class="game"><div class="time"><div style="font-size:11px;color:var(--muted);margin-bottom:2px">2026-10-17</div>17:07</div><div><div class="league"><span style="color:#fb923c;font-weight:700">U14 Kleinfeld</span> · Wiener U14 Kleinfeld Meisterschaft</div><div class="matchup">Away vs <strong>WFV</strong></div><div class="venue">Alterlaa <span class="id">#16270</span></div><div style="margin-top:8px"><a class="btn btn-ghost" href="calendar.html?cat=u14-kleinfeld">Open U14 Kleinfeld calendar</a></div></div></article>
+</section></main>
   <footer class="footer">
     <div>Data from FloorballFlash · club 78</div>
     <div><a href="https://www.floorballbunnies.at" rel="noopener">www.floorballbunnies.at</a></div>
