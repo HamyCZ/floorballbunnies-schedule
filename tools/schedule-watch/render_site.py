@@ -37,14 +37,13 @@ CATEGORY_ORDER = [
 ]
 
 # Related squads: still separate categories/calendars, but surface cross-squad overlaps.
-# U12: Bully = A, Assist = B, Mädchen, Alpencup (OÖ) — same-day only (no kickoff time check).
+# U12: Bully = A, Assist = B, Mädchen, Alpencup (OÖ) — same-day only awareness.
 RELATED_SQUAD_GROUPS = [
     {
         "id": "u12-groups",
         "label": "U12 group overlap",
         "detail": "Assist · Bully · Mädchen · Alpencup — separate squads, flagged when any two play the same day",
         "categories": ("U12 Assist", "U12 Bully", "U12 Mädchen", "U12 Alpencup"),
-        "timeClash": False,
     },
 ]
 BAND_ACCENT = {
@@ -696,23 +695,18 @@ def _game_block(g: dict[str, Any], *, show_date: bool = False) -> str:
     )
 
 
-def _times_overlap(t1: int, t2: int, window_min: int = 90) -> bool:
-    return not (t1 + window_min <= t2 or t2 + window_min <= t1)
-
-
 def detect_clashes(games: list[dict[str, Any]]) -> dict[str, Any]:
     """
-    Same-squad clashes + related multi-squad awareness (e.g. all U12 groups).
+    Same-squad same-day clashes + related multi-squad same-day awareness (e.g. all U12 groups).
 
     Calendars stay per category. Related groups add informational same-day overlaps
-    when any two (or more) listed squads play. U12 uses same-day only — no kickoff
-    time-overlap check (related or same-squad).
+    when any two (or more) listed squads play.
     """
     by_date: dict[str, list] = defaultdict(list)
     for g in games:
         by_date[g["date"]].append(g)
 
-    same: dict[str, dict[str, list]] = {c: {"sameDay": [], "timeClash": []} for c in CATEGORY_ORDER}
+    same: dict[str, list] = {c: [] for c in CATEGORY_ORDER}
     related: list[dict[str, Any]] = []
 
     for dt, gs in by_date.items():
@@ -724,33 +718,13 @@ def detect_clashes(games: list[dict[str, Any]]) -> dict[str, Any]:
         for cat, cgs in by_cat.items():
             leagues = {g["competitionName"] for g in cgs}
             if len(cgs) >= 2 and len(leagues) > 1:
-                same[cat]["sameDay"].append(
+                same[cat].append(
                     {
                         "date": dt,
                         "games": sorted(cgs, key=lambda x: (x.get("time") or "99:99", x["id"])),
                         "leagues": sorted(leagues),
                     }
                 )
-
-        # Same squad: overlapping kickoffs across competitions (not used for U12)
-        seen_pairs: set[tuple[int, int]] = set()
-        for cat, cgs in by_cat.items():
-            if cat.startswith("U12"):
-                continue
-            timed = [(g, parse_time(g.get("time"))) for g in cgs if parse_time(g.get("time")) is not None]
-            for i in range(len(timed)):
-                for j in range(i + 1, len(timed)):
-                    g1, t1 = timed[i]
-                    g2, t2 = timed[j]
-                    if g1["competitionName"] == g2["competitionName"]:
-                        continue
-                    if not _times_overlap(t1, t2):
-                        continue
-                    key = tuple(sorted([g1["id"], g2["id"]]))
-                    if key in seen_pairs:
-                        continue
-                    seen_pairs.add(key)
-                    same[cat]["timeClash"].append({"date": dt, "a": g1, "b": g2})
 
         # Related groups: any 2+ of the listed squads on the same day
         for group in RELATED_SQUAD_GROUPS:
@@ -772,31 +746,6 @@ def detect_clashes(games: list[dict[str, Any]]) -> dict[str, Any]:
                     ),
                 }
             )
-            # Optional kickoff overlap across related squads (disabled for U12)
-            if group.get("timeClash", True) is False:
-                continue
-            timed_by_cat = [
-                (c, [(g, parse_time(g.get("time"))) for g in pool if parse_time(g.get("time")) is not None])
-                for c, pool in present
-            ]
-            for i in range(len(timed_by_cat)):
-                for j in range(i + 1, len(timed_by_cat)):
-                    for g1, t1 in timed_by_cat[i][1]:
-                        for g2, t2 in timed_by_cat[j][1]:
-                            if not _times_overlap(t1, t2):
-                                continue
-                            related.append(
-                                {
-                                    "groupId": group["id"],
-                                    "label": group["label"],
-                                    "detail": group["detail"],
-                                    "kind": "timeClash",
-                                    "date": dt,
-                                    "squads": [timed_by_cat[i][0], timed_by_cat[j][0]],
-                                    "a": g1,
-                                    "b": g2,
-                                }
-                            )
 
     return {"same": same, "related": related}
 
@@ -806,19 +755,19 @@ def build_clashes(
     last_run: datetime | None = None,
     next_run: datetime | None = None,
 ) -> str:
-    """Same-squad clashes + U12 group overlap awareness."""
+    """Same-squad same-day clashes + U12 group overlap awareness."""
     detected = detect_clashes(games)
     structure = detected["same"]
     related = detected["related"]
 
-    active = [c for c in CATEGORY_ORDER if structure[c]["sameDay"] or structure[c]["timeClash"]]
+    active = [c for c in CATEGORY_ORDER if structure[c]]
     related_groups = {g["id"]: g for g in RELATED_SQUAD_GROUPS}
     related_active = sorted({r["groupId"] for r in related})
 
     if not active and not related_active:
         body = (
             '<div class="empty"><strong>No upcoming squad clashes or U12 group overlaps.</strong> '
-            "Same-squad conflicts and U12 Assist/Bully/Mädchen/Alpencup overlaps are listed here when they appear.</div>"
+            "Same-squad same-day conflicts and U12 Assist/Bully/Mädchen/Alpencup overlaps are listed here when they appear.</div>"
         )
         return shell(
             "Clashes",
@@ -827,11 +776,11 @@ def build_clashes(
             next_run=next_run,
             active="clashes",
             hero_title="Clashes",
-            hero_lead="Same squad conflicts, plus U12 group overlaps (Assist · Bully · Mädchen · Alpencup).",
+            hero_lead="Same squad same-day conflicts, plus U12 group overlaps (Assist · Bully · Mädchen · Alpencup).",
         )
 
     parts = [
-        '<p class="lead">Same-squad conflicts, plus U12 group overlap awareness '
+        '<p class="lead">Same-squad same-day conflicts, plus U12 group overlap awareness '
         "(Assist · Bully · Mädchen · Alpencup — separate calendars, flagged when any two play the same day).</p>",
         '<div class="chips">',
     ]
@@ -842,7 +791,7 @@ def build_clashes(
             f'href="#{gid}">{escape(related_groups[gid]["label"])} · {n}</a>'
         )
     for c in active:
-        n = len(structure[c]["sameDay"]) + len(structure[c]["timeClash"])
+        n = len(structure[c])
         accent = CATEGORY_ACCENT.get(c, "#ccff00")
         parts.append(
             f'<a class="chip soft" style="border-color:{accent};color:{accent}" '
@@ -855,9 +804,7 @@ def build_clashes(
         open_attr = " open" if gi == 0 and not active else (" open" if gi == 0 else "")
         items = [r for r in related if r["groupId"] == gid]
         meta = related_groups[gid]
-        same_day = [r for r in items if r["kind"] == "sameDay"]
-        time_x = [r for r in items if r["kind"] == "timeClash"]
-        n = len(same_day) + len(time_x)
+        n = len(items)
         parts.append(
             f'<details class="band"{open_attr} id="{gid}">'
             f'<summary><span style="color:#f5a524">{escape(meta["label"])}</span>'
@@ -865,7 +812,7 @@ def build_clashes(
             f'{escape(meta["detail"])} <span class="chev">▸</span></span></summary>'
             f'<div class="band-body">'
         )
-        for item in sorted(same_day, key=lambda x: x["date"]):
+        for item in sorted(items, key=lambda x: x["date"]):
             squads = item.get("squads") or []
             squad_meta = " + ".join(squads) if squads else "related U12 squads"
             parts.append(
@@ -876,28 +823,12 @@ def build_clashes(
             for g in item["games"]:
                 parts.append(_game_block(g))
             parts.append("</div>")
-        by_dt: dict[str, list] = defaultdict(list)
-        for p in time_x:
-            by_dt[p["date"]].append(p)
-        for dt in sorted(by_dt):
-            parts.append(
-                f'<div class="panel"><div class="panel-h">'
-                f'<span><span class="badge warn">U12 time overlap</span>{escape(fmt_date(dt))}</span></div>'
-            )
-            for p in by_dt[dt]:
-                parts.append(_game_block(p["a"]))
-                parts.append(
-                    '<div style="text-align:center;color:var(--warn);font:700 12px var(--font-display);'
-                    'letter-spacing:.12em;padding:4px 0">U12 OVERLAP ≈ 90 MIN</div>'
-                )
-                parts.append(_game_block(p["b"]))
-            parts.append("</div>")
         parts.append("</div></details>")
 
     for i, cat in enumerate(active):
         open_attr = " open" if i == 0 and not related_active else ""
-        a, b = structure[cat]["sameDay"], structure[cat]["timeClash"]
-        n = len(a) + len(b)
+        items = structure[cat]
+        n = len(items)
         accent = CATEGORY_ACCENT.get(cat, "#ccff00")
         parts.append(
             f'<details class="band"{open_attr} id="{category_slug(cat)}">'
@@ -906,7 +837,7 @@ def build_clashes(
             f'<span class="chev">▸</span></span></summary>'
             f'<div class="band-body">'
         )
-        for item in a:
+        for item in items:
             parts.append(
                 f'<div class="panel"><div class="panel-h">'
                 f'<span><span class="badge">Same day</span>{escape(fmt_date(item["date"]))}</span>'
@@ -914,22 +845,6 @@ def build_clashes(
             )
             for g in item["games"]:
                 parts.append(_game_block(g))
-            parts.append("</div>")
-        by_dt = defaultdict(list)
-        for p in b:
-            by_dt[p["date"]].append(p)
-        for dt in sorted(by_dt):
-            parts.append(
-                f'<div class="panel"><div class="panel-h">'
-                f'<span><span class="badge warn">Time clash</span>{escape(fmt_date(dt))}</span></div>'
-            )
-            for p in by_dt[dt]:
-                parts.append(_game_block(p["a"]))
-                parts.append(
-                    '<div style="text-align:center;color:var(--warn);font:700 12px var(--font-display);'
-                    'letter-spacing:.12em;padding:4px 0">OVERLAP ≈ 90 MIN</div>'
-                )
-                parts.append(_game_block(p["b"]))
             parts.append("</div>")
         parts.append("</div></details>")
 
@@ -940,7 +855,7 @@ def build_clashes(
         next_run=next_run,
         active="clashes",
         hero_title="Clashes",
-        hero_lead="Same-squad conflicts, plus U12 group overlaps (Assist · Bully · Mädchen · Alpencup).",
+        hero_lead="Same-squad same-day conflicts, plus U12 group overlaps (Assist · Bully · Mädchen · Alpencup).",
     )
 
 
@@ -1047,8 +962,7 @@ def _clash_categories(games: list[dict[str, Any]]) -> list[str]:
         if group["id"] in related_ids:
             labels.append(group["label"])
     for cat in CATEGORY_ORDER:
-        bucket = detected["same"][cat]
-        if bucket["sameDay"] or bucket["timeClash"]:
+        if detected["same"][cat]:
             labels.append(cat)
     return labels
 

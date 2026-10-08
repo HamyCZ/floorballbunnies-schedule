@@ -1,7 +1,7 @@
 # Floorballbunnies schedule-watch — end-to-end documentation
 
 **This is the only documentation file you need.**  
-Everything about the Monday watch, change detection, site, email, fortress, enablement, local testing, and multi-club onboarding is below. Other files under `docs/` are previews or legacy notes; treat this file as authoritative.
+Everything about the Monday watch, change detection, site, email, fortress, and multi-club onboarding is below. Other files under `docs/` are previews or legacy notes; treat this file as authoritative.
 
 | | |
 |---|---|
@@ -25,16 +25,13 @@ Everything about the Monday watch, change detection, site, email, fortress, enab
 5. [Fortress gates and security](#5-fortress-gates-and-security)
 6. [Squads, clashes, weekend, calendar, ICS](#6-squads-clashes-weekend-calendar-ics)
 7. [Config reference](#7-config-reference)
-8. [File layout](#8-file-layout)
-9. [Enable on GitHub (production)](#9-enable-on-github-production)
-10. [Local commands and testing](#10-local-commands-and-testing)
-11. [Multi-club (other Austrian teams)](#11-multi-club-other-austrian-teams)
-12. [Secrets, variables, permissions](#12-secrets-variables-permissions)
-13. [Coach routing / split digests](#13-coach-routing--split-digests)
-14. [All-clear heartbeat](#14-all-clear-heartbeat)
-15. [Category audit (Alpencup + adults)](#15-category-audit-alpencup--adults)
-16. [Pre-go-live verification log](#16-pre-go-live-verification-log)
-17. [How to extend](#17-how-to-extend)
+8. [Multi-club (other Austrian teams)](#8-multi-club-other-austrian-teams)
+9. [Secrets, variables, permissions](#9-secrets-variables-permissions)
+10. [Coach routing / split digests](#10-coach-routing--split-digests)
+11. [All-clear heartbeat](#11-all-clear-heartbeat)
+12. [Category audit (Alpencup + adults)](#12-category-audit-alpencup--adults)
+13. [Pre-go-live verification log](#13-pre-go-live-verification-log)
+14. [How to extend](#14-how-to-extend)
 
 ---
 
@@ -68,7 +65,7 @@ Built into `tools/schedule-watch/pages/` and mirrored for preview under `docs/si
 |---|---|
 | `index.html` | Hub — stats, last/next run, shortcuts |
 | `weekend.html` | Next Sat–Sun club games (or empty state) |
-| `clashes.html` | Same-squad SAME DAY / TIME CLASH view |
+| `clashes.html` | Same-squad SAME DAY view |
 | `calendar.html` | Month grid + per-game / per-day / season ICS download |
 | `ics/<slug>.ics` | One calendar file per squad/category |
 
@@ -90,8 +87,8 @@ Produced as `out/changes.md` + `out/changes.html` (email-safe tables + inline CS
 
 | Condition | Email |
 |---|---|
-| Healthy + `has_changes=true` + Resend | Change digests (optionally **split by `competitionId`** — see [§13](#13-coach-routing--split-digests)) |
-| Healthy + `has_changes=false` + Resend | **All-clear heartbeat** to `HEARTBEAT_TO` / `ALERT_TO` — see [§14](#14-all-clear-heartbeat) |
+| Healthy + `has_changes=true` + Resend | Change digests (optionally **split by `competitionId`** — see [§10](#10-coach-routing--split-digests)) |
+| Healthy + `has_changes=false` + Resend | **All-clear heartbeat** to `HEARTBEAT_TO` / `ALERT_TO` — see [§11](#11-all-clear-heartbeat) |
 
 Implementation: `send_digests.py` (dry-run writes `out/digests/`; workflow passes `--send`).
 
@@ -268,7 +265,7 @@ Until `main` is protected, **do not** enable the workflow that has `contents: wr
 | URL sanitize | Reject `javascript:`, quotes, whitespace, `<>` |
 | CSP | Tight policy on generated HTML |
 | Calendar XSS | `escapeHtml` on Flash strings in calendar JS |
-| Least-privilege Actions | See [§12](#12-secrets-variables-permissions) |
+| Least-privilege Actions | See [§9](#9-secrets-variables-permissions) |
 | Artifact Pages deploy | Deploy artifact from **this** run, not trigger-SHA checkout |
 | Safe `GITHUB_OUTPUT` | Multiline delimiter form |
 | ICS Vienna TZ | `TZID=Europe/Vienna` + `VTIMEZONE` (not floating) |
@@ -305,11 +302,10 @@ Categories stay **separate calendars/ICS** (order in `render_site.py`):
 | Detect | Meaning |
 |---|---|
 | **SAME DAY** (same squad) | Same category has games in **2+ different competitions** on one calendar day |
-| **TIME CLASH** (same squad) | Same category, different competitions, kickoffs overlap within **~90 minutes** — **not used for U12** |
-| **U12 same day** | Any **2+** of Assist / Bully / Mädchen / Alpencup play that day (informational) |
-| **Not a clash** | Unrelated age bands (e.g. U12 vs U17); U12 kickoff time overlap is intentionally ignored |
+| **U12 same day** | Any **2+** of Assist / Bully / Mädchen / Alpencup play that day (informational awareness) |
+| **Not a clash** | Unrelated age bands (e.g. U12 vs U17) |
 
-U12 Assist, Bully, Mädchen, and Alpencup stay **own categories/calendars**. Overlaps between **any two** are listed under **U12 group overlap** as **same-day only** (no time-overlap check).
+U12 Assist, Bully, Mädchen, and Alpencup stay **own categories/calendars**. Overlaps between **any two** are listed under **U12 group overlap** as same-day awareness.
 
 Site page: `pages/clashes.html` / preview `docs/site/clashes.html`.
 
@@ -320,6 +316,8 @@ Page: `weekend.html`.
 
 ### Calendar + ICS
 
+#### Interactive calendar page
+
 | Action | Result |
 |---|---|
 | Pick category | Month grid (current month); kickoffs in cells on desktop |
@@ -327,18 +325,111 @@ Page: `weekend.html`.
 | Click day | Day panel: download that day / that game |
 | Download season | Full category `.ics` |
 
-**Timezone:** every timed event uses `DTSTART;TZID=Europe/Vienna:…` plus a full `VTIMEZONE` (CET/CEST). Also `X-WR-TIMEZONE:Europe/Vienna`. Not floating local times.
+The calendar page (`calendar.html`) provides three ICS download levels:
 
-**ICS compatibility (RFC 5545):** files use **CRLF** line endings, **`DTSTAMP`** on every `VEVENT`, line folding for long `DESCRIPTION`s, and exclusive `DTEND` for all-day (`VALUE=DATE`) events. Browser “download day/game” builds the same rules client-side.
+1. **Single game** — click a day, then "Download this game"
+2. **Single day** — click a day, then "Download this day"
+3. **Full season** — "Download season" button for the selected category
 
-**Adult reminders** (config → `reminders`; defaults):
+Each download builds the ICS client-side using the same rules as the server-side generator.
 
-Categories: `Bundesliga`, `Adults Grossfeld`, `Adults Kleinfeld`.
+#### Per-category ICS files
 
-For each game in those categories, three reminder events at **09:00 Vienna** on the Monday / Wednesday / Friday **strictly before** the game day (with display `VALARM`). Youth categories do not get these.
+Static `.ics` files are generated under `pages/ics/`:
 
-Import: download `.ics` into Google Calendar / Apple / Outlook, or later subscribe to `{PAGES_BASE_URL}/ics/<slug>.ics`.
+| File | Category |
+|---|---|
+| `u8.ics` | U8 |
+| `u10.ics` | U10 |
+| `u10-alpencup.ics` | U10 Alpencup |
+| `u12-assist.ics` | U12 Assist |
+| `u12-bully.ics` | U12 Bully |
+| `u12-maedchen.ics` | U12 Mädchen |
+| `u12-alpencup.ics` | U12 Alpencup |
+| `u14-grossfeld.ics` | U14 Großfeld |
+| `u14-kleinfeld.ics` | U14 Kleinfeld |
+| `u14w.ics` | U14w |
+| `u17.ics` | U17 |
+| `u17w.ics` | U17w |
+| `adults-grossfeld.ics` | Adults Grossfeld |
+| `adults-kleinfeld.ics` | Adults Kleinfeld |
+| `bundesliga.ics` | Bundesliga |
 
+Subscribe URL pattern: `{PAGES_BASE_URL}/ics/<slug>.ics`
+
+#### ICS format compliance (RFC 5545)
+
+Every generated ICS file follows RFC 5545 iCalendar specification:
+
+| Requirement | Implementation |
+|---|---|
+| **Line endings** | CRLF (`\r\n`) as required |
+| **Line folding** | Lines > 75 octets folded with leading space continuation |
+| **DTSTAMP** | Present on every `VEVENT` (UTC timestamp) |
+| **UID** | Globally unique: `{club-slug}-{game-id}@{domain}` |
+| **PRODID** | `-//{ClubName}//Schedule//EN` |
+| **CALSCALE** | `GREGORIAN` |
+| **METHOD** | `PUBLISH` |
+
+#### Timezone handling
+
+All timed events use explicit Vienna timezone:
+
+```ics
+DTSTART;TZID=Europe/Vienna:20261115T1900
+DTEND;TZID=Europe/Vienna:20261115T2030
+```
+
+Each file includes:
+- `X-WR-TIMEZONE:Europe/Vienna` header for clients that honor it
+- Full `VTIMEZONE` block with CET/CEST transition rules (EU DST pattern)
+
+**All-day events** (games without kickoff time) use `VALUE=DATE` format with exclusive `DTEND`:
+
+```ics
+DTSTART;VALUE=DATE:20261115
+DTEND;VALUE=DATE:20261116
+```
+
+#### Event content
+
+Each `VEVENT` contains:
+
+| Property | Value |
+|---|---|
+| `SUMMARY` | `{Category}: vs {Opponent}` |
+| `DESCRIPTION` | Competition name, matchup, time, venue, game ID |
+| `LOCATION` | Venue name |
+| `UID` | `{club-slug}-{game-id}@{domain}` |
+
+Special characters (`;`, `,`, `\`, newlines) are escaped per RFC 5545.
+
+#### Adult category reminders
+
+For adult categories (`Bundesliga`, `Adults Grossfeld`, `Adults Kleinfeld`), extra reminder events are injected:
+
+| Reminder | When | Content |
+|---|---|---|
+| Monday | Most recent Monday strictly before game day, 09:00 Vienna | "Reminder (Mon): {Category} vs {Opponent}" |
+| Wednesday | Most recent Wednesday strictly before game day, 09:00 Vienna | "Reminder (Wed): {Category} vs {Opponent}" |
+| Friday | Most recent Friday strictly before game day, 09:00 Vienna | "Reminder (Fri): {Category} vs {Opponent}" |
+
+Each reminder includes a `VALARM` with `ACTION:DISPLAY` at trigger time. Youth categories do not receive reminders.
+
+Configure reminder categories and weekdays in `config.yaml` → `reminders:`.
+
+#### Client compatibility
+
+Tested with:
+
+| Client | Import | Subscribe |
+|---|---|---|
+| **Google Calendar** | Download `.ics` → "Import" | URL subscription via "From URL" |
+| **Apple Calendar** | Open `.ics` file | File → New Calendar Subscription |
+| **Outlook** | File → Import → iCalendar | Account Settings → Internet Calendars |
+| **Thunderbird** | Import → iCalendar | New Calendar → On the Network |
+
+For subscription: use `{PAGES_BASE_URL}/ics/<slug>.ics` — the calendar auto-updates when GitHub Pages rebuilds.
 ---
 
 ## 7. Config reference
@@ -403,95 +494,7 @@ Loader: `config_loader.py` (deep-merge with defaults).
 
 ---
 
-## 8. File layout
-
-```
-tools/schedule-watch/
-  config.yaml                 Active club profile
-  clubs/_template.yaml        Template for other clubs
-  clubs/<slug>.yaml           Optional per-club profiles
-  config_loader.py            Load / merge config
-  validate_snapshot.py        Schema gate
-  fetch_schedule.py           MCP fetch + retries + metrics
-  compare_snapshots.py        Diff + markdown + email HTML
-  render_site.py              Pages + ICS + CSP + brand
-  run_watch.py                One full cycle
-  send_digests.py             Split digests + all-clear heartbeat
-  requirements.txt            pyyaml
-  local-test.sh               Optional local static server
-  data/
-    schedule-snapshot.json    Baseline
-    last-success.json         Last healthy probe marker
-  pages/                      Published static site (+ ics/)
-  github-actions/
-    schedule-watch.yml        Cron + Issues + Resend + Pages
-  out/                        CI/local artifacts (not the product)
-  out/digests/                Email previews / send manifest
-
-docs/
-  e2e.md                      ← THIS FILE (full documentation)
-  site/                       Preview copy of pages (+ sample email files)
-```
-
----
-
-## 9. Enable on GitHub (production)
-
-Do these in order:
-
-1. **Protect `main`** (required reviews, no force-push) — see [§5](#5-fortress-gates-and-security).
-2. Copy `tools/schedule-watch/` into the club repo (include `data/`, `pages/`, `config.yaml`, scripts).
-3. Copy `github-actions/schedule-watch.yml` → `.github/workflows/schedule-watch.yml`.
-4. Repo **Settings → Pages → Source: GitHub Actions**.
-5. Run workflow once via **workflow_dispatch**. Confirm the public Pages URL.
-6. Set repo variable **`PAGES_BASE_URL`** to that URL (`https://…`, no trailing slash required).
-7. Optional: Resend secrets (`RESEND_API_KEY`, `ALERT_TO`, `ALERT_FROM`, `HEARTBEAT_TO`).
-8. Optional: `SCHEDULE_WATCH_CONFIG` if not using default `config.yaml`.
-
-Create Issues labels only if you want them; the workflow creates Issues without requiring labels.
-
----
-
-## 10. Local commands and testing
-
-```bash
-cd tools/schedule-watch
-pip install -r requirements.txt   # or pip3 / python3 -m pip
-
-# Rebuild site from committed baseline
-python3 render_site.py \
-  --snapshot data/schedule-snapshot.json \
-  --out-dir pages \
-  --pages-base-url 'https://USER.github.io/REPO' \
-  --today 2026-10-05
-
-# Full cycle without live MCP (treat a JSON file as the "new" fetch)
-python3 run_watch.py \
-  --new-file data/schedule-snapshot.json \
-  --out-dir out \
-  --pages-dir pages \
-  --pages-base-url 'https://USER.github.io/REPO' \
-  --always-update-snapshot
-
-# Diff only → email digest HTML
-python3 compare_snapshots.py \
-  --old data/schedule-snapshot.json \
-  --new out/schedule-snapshot-new.json \
-  --out-html out/changes.html \
-  --out-md out/changes.md \
-  --pages-base-url 'https://USER.github.io/REPO'
-
-# Live fetch (needs network to mcp.floorballflash.at)
-python3 fetch_schedule.py --out out/live.json
-```
-
-Open `pages/*.html` or `docs/site/*.html` in a browser on **your** machine.
-
-To simulate a change: copy the baseline, edit one watched field (e.g. `time` / `venue`) on one game, run `run_watch.py --new-file …` and inspect `out/changes.json`.
-
----
-
-## 11. Multi-club (other Austrian teams)
+## 8. Multi-club (other Austrian teams)
 
 Same pipeline; swap the profile YAML + seed a new baseline.
 
@@ -535,7 +538,7 @@ Scaling: prefer **one GitHub repo per club** unless you already run a federation
 
 ---
 
-## 12. Secrets, variables, permissions
+## 9. Secrets, variables, permissions
 
 ### Repo variables
 
@@ -569,7 +572,7 @@ pages job:      pages: write, id-token: write
 
 ---
 
-## 13. Coach routing / split digests
+## 10. Coach routing / split digests
 
 `config.yaml` → `coaches:` maps **Flash `competitionId` → email list**.
 
@@ -594,7 +597,7 @@ Preview example: `docs/site/digests/coach-split-example.html`.
 
 ---
 
-## 14. All-clear heartbeat
+## 11. All-clear heartbeat
 
 On a **healthy** Monday with **no** schedule changes, the workflow sends a short “schedule watch OK — no changes” mail to `HEARTBEAT_TO` (else `ALERT_TO`).
 
@@ -609,7 +612,7 @@ Preview: `docs/site/digests/all-clear.html`.
 
 ---
 
-## 15. Category audit (Alpencup + adults)
+## 12. Category audit (Alpencup + adults)
 
 Audited against club 78 / season 2026 snapshot (200 games).
 
@@ -637,7 +640,7 @@ These match how FloorballFlash labels the three adult leagues for club 78. ICS r
 
 ---
 
-## 16. Pre-go-live verification log
+## 13. Pre-go-live verification log
 
 | Check | Result | When |
 |---|---|---|
@@ -652,7 +655,7 @@ Artifacts: `tools/schedule-watch/out/live-fetch.json`, `out/digests/`, `docs/sit
 
 ---
 
-## 17. How to extend
+## 14. How to extend
 
 | Goal | Where |
 |---|---|
