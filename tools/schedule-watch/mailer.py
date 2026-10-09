@@ -157,7 +157,8 @@ def send_resend(
     )
     try:
         with urllib.request.urlopen(req, timeout=60) as resp:
-            return resp.read().decode()[:500]
+            resp.read()  # consume body; do not return (may contain addresses)
+            return f"resend → {len(to)} recipient(s)"
     except urllib.error.HTTPError as e:
         body = e.read().decode()[:500]
         raise RuntimeError(f"Resend HTTP {e.code}: {body}") from e

@@ -287,9 +287,15 @@ def main() -> int:
             if not mail_ready():
                 print("SMTP_* (or RESEND_API_KEY) missing — wrote preview only")
             else:
-                print("sent all-clear", deliver(to=heartbeat_to, subject=subject, text=text, html=html))
+                print(
+                    "sent all-clear",
+                    deliver(to=heartbeat_to, subject=subject, text=text, html=html),
+                )
         else:
-            print(f"dry-run all-clear → {heartbeat_to} (use --send to deliver)")
+            print(
+                f"dry-run all-clear → {len(heartbeat_to)} recipient(s) "
+                f"(use --send to deliver)"
+            )
         (args.out_dir / "manifest.json").write_text(json.dumps(manifest, indent=2) + "\n", encoding="utf-8")
         return 0
 
@@ -337,12 +343,16 @@ def main() -> int:
         }
         (args.out_dir / f"{key}.json").write_text(json.dumps(meta, indent=2) + "\n", encoding="utf-8")
         manifest.append(meta)
-        print(f"digest {key} → {b['to']} counts={c}")
+        n_to = len(b["to"])
+        print(f"digest {key} ({b['label']}) → {n_to} recipient(s) counts={c}")
         if args.send:
             if not mail_ready():
                 print("SMTP_* (or RESEND_API_KEY) missing — preview only")
             else:
-                print("sent", deliver(to=b["to"], subject=subject, text=text, html=html))
+                print(
+                    f"sent {key}",
+                    deliver(to=b["to"], subject=subject, text=text, html=html),
+                )
 
     (args.out_dir / "manifest.json").write_text(json.dumps(manifest, indent=2) + "\n", encoding="utf-8")
     if not args.send:
