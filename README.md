@@ -14,7 +14,6 @@ Public site: <a href="https://hamycz.github.io/floorballbunnies-schedule" target
 - [Squads, clashes, calendar, ICS](#squads-clashes-calendar-ics)
 - [Config](#config)
 - [Secrets and variables](#secrets-and-variables)
-- [Enable on GitHub](#enable-on-github)
 
 | | |
 |---|---|
@@ -233,14 +232,3 @@ watch job:               contents: write, issues: write, actions: write
 heartbeat-on-failure:    issues: write
 pages job:               pages: write, id-token: write
 ```
-
----
-
-## Enable on GitHub
-
-1. Protect `main` (see Fortress above).
-2. Settings → Pages → Build from **GitHub Actions**.
-3. Confirm `mail.smtp` in `config.yaml`; **Variables** → add `PAGES_BASE_URL` (optional club overrides). Delete obsolete `SMTP_HOST` / `SMTP_PORT` / `SMTP_SSL` Variables if present.
-4. **Secrets** → add `SMTP_PASSWORD`, `SMTP_USER` (optional), `ALERT_*`, `HEARTBEAT_TO` (optional).
-5. Optionally fill `coaches:` in `config.yaml`.
-6. Actions → **schedule-watch** → **Run workflow** once; confirm Pages + email.
