@@ -643,10 +643,10 @@ def shell(
   <footer class="footer">
     <div class="footer-meta">
       <div>Data from FloorballFlash · club {escape(str(club_id))}</div>
-      <div><a href="{escape(club_url, quote=True)}" rel="noopener noreferrer" target="_blank">{escape(urlparse(club_url).hostname or club_url)}</a></div>
+      <div><a href="{escape(club_url, quote=True)}" rel="noopener" target="_blank">{escape(urlparse(club_url).hostname or club_url)}</a></div>
     </div>
-    <div class="footer-credit">Created by <a href="https://hamy.cz" target="_blank" rel="noopener noreferrer">hamy.cz</a></div>
-    <div class="footer-powered">Trainings powered by the <a href="https://interval-training-4bdbf.web.app/" target="_blank" rel="noopener noreferrer">Interval Training</a> app · <a href="https://play.google.com/store/apps/details?id=com.intervaltraining.app&amp;utm_source=hamy.cz&amp;utm_medium=referral&amp;utm_campaign=interval-training" target="_blank" rel="noopener noreferrer">Google Play</a></div>
+    <div class="footer-credit">Created by <a href="https://hamy.cz" target="_blank" rel="noopener">hamy.cz</a></div>
+    <div class="footer-powered">Trainings powered by the <a href="https://interval-training-4bdbf.web.app/" target="_blank" rel="noopener">Interval Training</a> app · <a href="https://play.google.com/store/apps/details?id=com.intervaltraining.app&amp;utm_source=hamy.cz&amp;utm_medium=referral&amp;utm_campaign=interval-training" target="_blank" rel="noopener">Google Play</a></div>
   </footer>
 </div>
 </body>
