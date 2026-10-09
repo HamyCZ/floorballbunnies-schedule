@@ -49,6 +49,14 @@ brand:
   lime: "#ccff00"
   ink: "#0d0d0d"
 
+# SMTP connection (non-secret). Password / user / from / to stay in env / GitHub Secrets.
+# Env SMTP_HOST / SMTP_PORT / SMTP_SSL still override these when set.
+mail:
+  smtp:
+    host: mailserver.weinz.org
+    port: 465
+    ssl: true
+
 # Split change digests by competitionId → coach emails.
 # Unmapped competitions fall back to secret ALERT_TO.
 # Set real addresses before go-live; placeholders are ignored by Resend until replaced.

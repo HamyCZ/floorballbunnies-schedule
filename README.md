@@ -83,7 +83,7 @@ It does **not** email the full website. It does **not** alert on score-only upda
 | Healthy + no changes + SMTP ready | All-clear heartbeat to `HEARTBEAT_TO` / `ALERT_TO` (step inside the `watch` job) |
 | Unhealthy / job failure | Issue + optional alert; `heartbeat-on-failure` job runs only on failure |
 
-Mail is ready when variable `SMTP_HOST` + secret `SMTP_PASSWORD` are set. `RESEND_API_KEY` is optional fallback only.
+Mail is ready when `config.yaml` → `mail.smtp.host` (or env `SMTP_HOST`) and secret `SMTP_PASSWORD` are set. `RESEND_API_KEY` is optional fallback only.
 
 ---
 
@@ -101,7 +101,7 @@ FloorballFlash MCP → fetch → fortress gates → diff → render site
 |---|---|---|
 | Fetch / fortress | Continue | Snapshot frozen; Issue + optional email; job fails |
 | Site render | Always | Skipped |
-| Email | Digests or all-clear (needs SMTP vars + secrets) | Failure alert path |
+| Email | Digests or all-clear (needs config `mail.smtp` + secrets) | Failure alert path |
 | Commit + Pages job | Yes | No |
 
 Do **not** hand-edit the baseline for routine updates. Companion file: `data/last-success.json`.
@@ -149,6 +149,20 @@ Alpencup stays **separate** calendars (not merged into Assist/Bully). Adult leag
 
 Active profile: `tools/schedule-watch/config.yaml`. Env overrides (also wired as repository variables in Actions): `SCHEDULE_WATCH_CONFIG`, `CLUB_ID`, `CLUB_NAME`, `PAGES_BASE_URL`. Locally you can also set `MCP_HOST`.
 
+### SMTP (`mail.smtp`)
+
+Non-secret connection settings live in config (not GitHub Variables). Password, login user, and from/to addresses stay in Secrets / env only — never put a mailbox password in YAML.
+
+```yaml
+mail:
+  smtp:
+    host: mailserver.weinz.org
+    port: 465
+    ssl: true
+```
+
+Optional env overrides (if set): `SMTP_HOST`, `SMTP_PORT`, `SMTP_SSL`. Prefer editing `config.yaml` for this deployment.
+
 ### Coach emails (`coaches:`)
 
 Optional map of Flash `competitionId` → email list for split digests. Unmapped changes go to secret `ALERT_TO`. Lists in config are empty placeholders today — put real addresses before go-live.
@@ -176,7 +190,7 @@ GitHub → **Settings → Secrets and variables → Actions**
 | Tab | Use |
 |---|---|
 | **Secrets → Repository secrets** | Mailbox password, mail addresses, optional Resend / push token |
-| **Variables → Repository variables** | SMTP host/port/SSL, Pages URL, optional club overrides |
+| **Variables → Repository variables** | Pages URL, optional club overrides |
 
 Never commit credentials. Never put passwords or mailbox addresses in Variables, Pages, or workflow logs. Keep `ALERT_*` / `HEARTBEAT_*` / `SMTP_USER` as **Secrets** (private).
 
@@ -192,7 +206,7 @@ Never commit credentials. Never put passwords or mailbox addresses in Variables,
 | `RESEND_API_KEY` | No | Optional fallback only if SMTP is not configured |
 | `SCHEDULE_PUSH_TOKEN` | No | PAT with Contents:write if ruleset blocks `GITHUB_TOKEN` push |
 
-Minimum for email: variables `SMTP_HOST` (+ `SMTP_PORT` / `SMTP_SSL` as needed) and secrets `SMTP_PASSWORD`, `ALERT_FROM`, `ALERT_TO` (plus `HEARTBEAT_TO` if you want a separate ops inbox).
+Minimum for email: `config.yaml` → `mail.smtp` (host/port/ssl) and secrets `SMTP_PASSWORD`, `ALERT_FROM`, `ALERT_TO` (plus `HEARTBEAT_TO` if you want a separate ops inbox).
 
 No mail transport configured → fetch, diff, Issues, and Pages still run; emails are skipped.
 
@@ -202,15 +216,12 @@ Configured under **Variables** (not Secrets):
 
 | Name | Required? | Example / used for |
 |---|---|---|
-| `SMTP_HOST` | Yes (to send mail) | `mailserver.weinz.org` |
-| `SMTP_PORT` | No (default `587`) | `465` (with SSL) or `587` (STARTTLS) |
-| `SMTP_SSL` | No | `true` for port 465; leave unset for 587 |
 | `PAGES_BASE_URL` | Recommended | Public Pages root (`https://…`) for digests, ICS links, fortress HTTPS check |
 | `SCHEDULE_WATCH_CONFIG` | No | Path to alternate club YAML (default: `config.yaml`) |
 | `CLUB_ID` | No | Override club id from config |
 | `CLUB_NAME` | No | Override club name from config |
 
-**Weinz SMTP (this deployment):** add Variables `SMTP_HOST=mailserver.weinz.org`, `SMTP_PORT=465`, `SMTP_SSL=true`. Then **remove** `SMTP_HOST` / `SMTP_PORT` / `SMTP_SSL` from Repository **Secrets** if they still exist there (password and addresses stay as Secrets).
+**Obsolete:** repository Variables `SMTP_HOST` / `SMTP_PORT` / `SMTP_SSL` are no longer used by the workflow (host/port/ssl come from `config.yaml`). You can delete those Variables if you added them earlier. Optional local/CI env overrides still work if set manually.
 
 Leave club/Pages vars unset to use defaults from `tools/schedule-watch/config.yaml`.
 
@@ -229,7 +240,7 @@ pages job:               pages: write, id-token: write
 
 1. Protect `main` (see Fortress above).
 2. Settings → Pages → Build from **GitHub Actions**.
-3. **Variables** → add `PAGES_BASE_URL`, `SMTP_HOST`, `SMTP_PORT`, `SMTP_SSL` (see above).
+3. Confirm `mail.smtp` in `config.yaml`; **Variables** → add `PAGES_BASE_URL` (optional club overrides). Delete obsolete `SMTP_HOST` / `SMTP_PORT` / `SMTP_SSL` Variables if present.
 4. **Secrets** → add `SMTP_PASSWORD`, `SMTP_USER` (optional), `ALERT_*`, `HEARTBEAT_TO` (optional).
 5. Optionally fill `coaches:` in `config.yaml`.
 6. Actions → **schedule-watch** → **Run workflow** once; confirm Pages + email.

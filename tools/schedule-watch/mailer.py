@@ -4,6 +4,8 @@ Send digest / alert mail via existing SMTP mailbox (preferred) or Resend.
 
 Secrets must come from the environment (GitHub Actions Secrets) — never from
 committed config. This module never logs passwords or API keys.
+
+SMTP host / port / ssl: env overrides when set; otherwise mail.smtp in config.yaml.
 """
 
 from __future__ import annotations
@@ -31,8 +33,49 @@ def _emails(value: Any) -> list[str]:
     return []
 
 
+def _smtp_from_config() -> dict[str, Any]:
+    """Non-secret SMTP settings from config.yaml → mail.smtp."""
+    try:
+        from config_loader import load_config
+
+        mail = load_config().get("mail") or {}
+        smtp = mail.get("smtp") if isinstance(mail, dict) else None
+        return smtp if isinstance(smtp, dict) else {}
+    except Exception:
+        return {}
+
+
+def _truthy(value: Any) -> bool:
+    if isinstance(value, bool):
+        return value
+    return str(value or "").strip().lower() in {"1", "true", "yes"}
+
+
+def smtp_settings() -> tuple[str, int, bool]:
+    """
+    Resolve host, port, ssl: env wins when non-empty, else config.yaml mail.smtp.
+    Does not read password/user/from/to from config.
+    """
+    cfg = _smtp_from_config()
+    host = (os.getenv("SMTP_HOST") or "").strip() or str(cfg.get("host") or "").strip()
+    port_raw = (os.getenv("SMTP_PORT") or "").strip()
+    if port_raw:
+        port = int(port_raw)
+    else:
+        port = int(cfg.get("port") or 587)
+    ssl_env = (os.getenv("SMTP_SSL") or "").strip()
+    if ssl_env:
+        use_ssl = _truthy(ssl_env)
+    elif "ssl" in cfg:
+        use_ssl = _truthy(cfg.get("ssl"))
+    else:
+        use_ssl = False
+    return host, port, use_ssl
+
+
 def smtp_configured() -> bool:
-    return bool((os.getenv("SMTP_HOST") or "").strip() and (os.getenv("SMTP_PASSWORD") or "").strip())
+    host, _, _ = smtp_settings()
+    return bool(host and (os.getenv("SMTP_PASSWORD") or "").strip())
 
 
 def resend_configured() -> bool:
@@ -55,16 +98,13 @@ def send_smtp(
     text: str,
     html: str | None = None,
 ) -> str:
-    host = (os.getenv("SMTP_HOST") or "").strip()
+    host, port, use_ssl = smtp_settings()
     if not host:
-        raise RuntimeError("SMTP_HOST is not set")
-    port = int(os.getenv("SMTP_PORT") or "587")
+        raise RuntimeError("SMTP host is not set (config mail.smtp.host or SMTP_HOST)")
     user = (os.getenv("SMTP_USER") or "").strip() or frm
     password = os.getenv("SMTP_PASSWORD") or ""
     if not password:
         raise RuntimeError("SMTP_PASSWORD is not set")
-    # Default: STARTTLS on 587. Set SMTP_SSL=1 for implicit TLS (465).
-    use_ssl = (os.getenv("SMTP_SSL") or "").strip().lower() in {"1", "true", "yes"}
 
     msg = EmailMessage()
     msg["Subject"] = subject
@@ -156,4 +196,4 @@ def deliver(
             html=html,
         )
 
-    raise RuntimeError("No mail transport configured (set SMTP_* or RESEND_API_KEY)")
+    raise RuntimeError("No mail transport configured (set SMTP_* / config mail.smtp or RESEND_API_KEY)")

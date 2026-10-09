@@ -127,11 +127,8 @@ jobs:
       - name: Email coaches if schedule changed (split by competitionId)
         if: steps.watch.outputs.has_changes == 'true' && steps.watch.outputs.health_ok == 'true'
         env:
-          SMTP_HOST: ${{ vars.SMTP_HOST }}
-          SMTP_PORT: ${{ vars.SMTP_PORT }}
           SMTP_USER: ${{ secrets.SMTP_USER }}
           SMTP_PASSWORD: ${{ secrets.SMTP_PASSWORD }}
-          SMTP_SSL: ${{ vars.SMTP_SSL }}
           RESEND_API_KEY: ${{ secrets.RESEND_API_KEY }}
           ALERT_TO: ${{ secrets.ALERT_TO }}
           ALERT_FROM: ${{ secrets.ALERT_FROM }}
@@ -149,11 +146,8 @@ jobs:
       - name: All-clear heartbeat (healthy, no changes)
         if: steps.watch.outputs.has_changes == 'false' && steps.watch.outputs.health_ok == 'true'
         env:
-          SMTP_HOST: ${{ vars.SMTP_HOST }}
-          SMTP_PORT: ${{ vars.SMTP_PORT }}
           SMTP_USER: ${{ secrets.SMTP_USER }}
           SMTP_PASSWORD: ${{ secrets.SMTP_PASSWORD }}
-          SMTP_SSL: ${{ vars.SMTP_SSL }}
           RESEND_API_KEY: ${{ secrets.RESEND_API_KEY }}
           ALERT_TO: ${{ secrets.ALERT_TO }}
           HEARTBEAT_TO: ${{ secrets.HEARTBEAT_TO }}
@@ -172,11 +166,8 @@ jobs:
       - name: Alert on thin/empty fetch (count drop)
         if: steps.watch.outputs.health_ok == 'false'
         env:
-          SMTP_HOST: ${{ vars.SMTP_HOST }}
-          SMTP_PORT: ${{ vars.SMTP_PORT }}
           SMTP_USER: ${{ secrets.SMTP_USER }}
           SMTP_PASSWORD: ${{ secrets.SMTP_PASSWORD }}
-          SMTP_SSL: ${{ vars.SMTP_SSL }}
           RESEND_API_KEY: ${{ secrets.RESEND_API_KEY }}
           ALERT_TO: ${{ secrets.ALERT_TO }}
           ALERT_FROM: ${{ secrets.ALERT_FROM }}
@@ -273,11 +264,8 @@ jobs:
 
       - name: Ping backup email on failure
         env:
-          SMTP_HOST: ${{ vars.SMTP_HOST }}
-          SMTP_PORT: ${{ vars.SMTP_PORT }}
           SMTP_USER: ${{ secrets.SMTP_USER }}
           SMTP_PASSWORD: ${{ secrets.SMTP_PASSWORD }}
-          SMTP_SSL: ${{ vars.SMTP_SSL }}
           RESEND_API_KEY: ${{ secrets.RESEND_API_KEY }}
           HEARTBEAT_TO: ${{ secrets.HEARTBEAT_TO }}
           ALERT_TO: ${{ secrets.ALERT_TO }}

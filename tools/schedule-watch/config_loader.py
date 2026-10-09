@@ -47,6 +47,13 @@ DEFAULTS: dict[str, Any] = {
         "csp": True,
     },
     "brand": {"lime": "#ccff00", "ink": "#0d0d0d"},
+    "mail": {
+        "smtp": {
+            "host": "",
+            "port": 587,
+            "ssl": False,
+        },
+    },
     "coaches": {},
     "coachesNotifyDefaultFull": False,
 }
