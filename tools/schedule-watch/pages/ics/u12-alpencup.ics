@@ -25,36 +25,30 @@ END:STANDARD
 END:VTIMEZONE
 BEGIN:VEVENT
 UID:urn:floorballbunnies:day:2026-12-12
-DTSTAMP:20261009T141048Z
-DTSTART;VALUE=DATE:20261212
-DTEND;VALUE=DATE:20261213
-SUMMARY:U12 Alpencup: 8 games
+DTSTAMP:20261009T222420Z
+DTSTART;TZID=Europe/Vienna:20261212T110000
+DTEND;TZID=Europe/Vienna:20261212T155000
+SUMMARY:U12 Alpencup: 6 games
 DESCRIPTION:Please double-check the date and kickoff time — the schedule 
- can change.\nSat 12 Dec 2026 · 8 games · Europe/Vienna\n\nTBD · Away vs
-  UHC Linz Weiß · Rennerschule · #16931\nTBD · Away vs FBV Haag · Renn
- erschule · #16938\nTBD · Home vs SU Puchkirchen · Rennerschule · #1694
- 3\nTBD · Home vs SU Floorball Bad Ischl Grün · Rennerschule · #16948\n
- TBD · Home vs UHC Linz Rot · Rennerschule · #16953\nTBD · Home vs FBC 
- Dragons · Rennerschule · #16957\nTBD · Away vs Salzburg Star Bulls · R
- ennerschule · #16961\nTBD · Away vs SU Floorball Bad Ischl Blau · Renne
- rschule · #16964
+ can change.\nSat 12 Dec 2026 · 6 games · Europe/Vienna\n\n11:00 · Away 
+ vs Salzburg Star Bulls · Rennerschule · #17671\n12:00 · Away vs UHC Lin
+ z Weiß · Rennerschule · #17676\n12:40 · Away vs FBC Dragons · Renners
+ chule · #17681\n13:20 · Away vs FB Mattigtal Mammuts · Rennerschule · 
+ #17685\n13:40 · Away vs SU Floorball Bad Ischl Blau · Rennerschule · #1
+ 7687\n14:20 · Away vs FBV Haag · Rennerschule · #17690
 LOCATION:Rennerschule
 END:VEVENT
 BEGIN:VEVENT
 UID:urn:floorballbunnies:day:2027-01-23
-DTSTAMP:20261009T141048Z
-DTSTART;VALUE=DATE:20270123
-DTEND;VALUE=DATE:20270124
-SUMMARY:U12 Alpencup: 8 games
+DTSTAMP:20261009T222420Z
+DTSTART;TZID=Europe/Vienna:20270123T104000
+DTEND;TZID=Europe/Vienna:20270123T133000
+SUMMARY:U12 Alpencup: 3 games
 DESCRIPTION:Please double-check the date and kickoff time — the schedule 
- can change.\nSat 23 Jan 2027 · 8 games · Europe/Vienna\n\nTBD · Away vs
-  UHC Linz Weiß · Rennerschule · #16880\nTBD · Away vs FBV Haag · Renn
- erschule · #16887\nTBD · Home vs SU Puchkirchen · Rennerschule · #1689
- 2\nTBD · Home vs SU Floorball Bad Ischl Grün · Rennerschule · #16897\n
- TBD · Home vs UHC Linz Rot · Rennerschule · #16902\nTBD · Home vs FBC 
- Dragons · Rennerschule · #16906\nTBD · Away vs Salzburg Star Bulls · R
- ennerschule · #16910\nTBD · Away vs SU Floorball Bad Ischl Blau · Renne
- rschule · #16913
+ can change.\nSat 23 Jan 2027 · 3 games · Europe/Vienna\n\n10:40 · Away 
+ vs SU Floorball Bad Ischl Grün · Rennerschule · #17699\n11:40 · Away v
+ s UHC Linz Rot · Rennerschule · #17704\n12:00 · Away vs SU Puchkirchen 
+ · Rennerschule · #17707
 LOCATION:Rennerschule
 END:VEVENT
 END:VCALENDAR
