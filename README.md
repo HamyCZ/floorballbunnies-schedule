@@ -1,0 +1,235 @@
+# Floorballbunnies schedule
+
+Monday schedule watch, clash detection, Vienna ICS calendars, and coach digests for <a href="https://www.floorballbunnies.at" target="_blank" rel="noopener noreferrer">Floorballbunnies</a> (<a href="https://mcp.floorballflash.at" target="_blank" rel="noopener noreferrer">FloorballFlash MCP</a>).
+
+Public site: <a href="https://hamycz.github.io/floorballbunnies-schedule" target="_blank" rel="noopener noreferrer">https://hamycz.github.io/floorballbunnies-schedule</a>
+
+## Contents
+
+- [Quick start](#quick-start)
+- [What it does](#what-it-does)
+- [Monday flow](#monday-flow)
+- [Change detection](#change-detection)
+- [Fortress and main protection](#fortress-and-main-protection)
+- [Squads, clashes, calendar, ICS](#squads-clashes-calendar-ics)
+- [Config](#config)
+- [Secrets and variables](#secrets-and-variables)
+- [Enable on GitHub](#enable-on-github)
+
+| | |
+|---|---|
+| Club (default) | Floorballbunnies · FloorballFlash club id **78** |
+| Tooling | `tools/schedule-watch/` |
+| Config | `tools/schedule-watch/config.yaml` |
+| Baseline | `tools/schedule-watch/data/schedule-snapshot.json` |
+| Site preview | `docs/site/` (open locally) · built pages in `tools/schedule-watch/pages/` |
+| MCP | `mcp.floorballflash.at` |
+| Cron | Monday `07:00` UTC ≈ `08:00` Europe/Vienna |
+| Workflow | [`.github/workflows/schedule-watch.yml`](.github/workflows/schedule-watch.yml) |
+
+---
+
+## Quick start
+
+```bash
+cd tools/schedule-watch
+python3 -m venv .venv
+# macOS/Linux: source .venv/bin/activate
+# Windows PowerShell: .venv\Scripts\Activate.ps1
+pip install -r requirements.txt
+python3 render_site.py --snapshot data/schedule-snapshot.json --out-dir pages
+```
+
+Open `docs/site/` or `tools/schedule-watch/pages/` in a browser (file://).
+
+### Tooling layout
+
+| Path | Role |
+|---|---|
+| `config.yaml` | Active club profile |
+| `clubs/_template.yaml` | Other-club template |
+| `run_watch.py` | One weekly cycle |
+| `send_digests.py` / `mailer.py` | Digests + SMTP (Resend optional fallback) |
+| `fetch_schedule.py` / `compare_snapshots.py` / `render_site.py` | Fetch · diff · site |
+| `data/schedule-snapshot.json` | Baseline |
+| `pages/` | Static site + `ics/` |
+| `github-actions/schedule-watch.yml` | Packaged workflow copy |
+
+---
+
+## What it does
+
+Once a week (Monday), GitHub Actions:
+
+1. Fetches the club’s **league** schedule from FloorballFlash MCP.
+2. Runs **fortress health gates** (schema, count-drop, max churn).
+3. **Diffs** the new snapshot against the committed baseline.
+4. Rebuilds the **branded static site** (weekend, clashes, calendar + ICS).
+5. Optionally emails coaches a **short digest** via **SMTP** if something changed (`RESEND_API_KEY` is an optional fallback only).
+6. On a healthy run: commits updated snapshot + pages, then the separate **pages** job deploys GitHub Pages.
+
+It does **not** email the full website. It does **not** alert on score-only updates.
+
+### Email ≠ website
+
+| Surface | What |
+|---|---|
+| **GitHub Pages** | Full UI: home, this week, clashes, calendar, `.ics` downloads |
+| **Email digest** | Short change summary + links to Pages (not the full site) |
+
+| Condition | Email |
+|---|---|
+| Healthy + changes + SMTP ready | Change digests (optionally split by `competitionId`) |
+| Healthy + no changes + SMTP ready | All-clear heartbeat to `HEARTBEAT_TO` / `ALERT_TO` (step inside the `watch` job) |
+| Unhealthy / job failure | Issue + optional alert; `heartbeat-on-failure` job runs only on failure |
+
+Mail is ready when variable `SMTP_HOST` + secret `SMTP_PASSWORD` are set. `RESEND_API_KEY` is optional fallback only.
+
+---
+
+## Monday flow
+
+```
+FloorballFlash MCP → fetch → fortress gates → diff → render site
+  → SMTP digests (changes) or all-clear heartbeat (no changes)   ← steps in watch job
+  → git commit snapshot + pages
+  → pages job deploys GitHub Pages (separate job)
+  → on failure only: heartbeat-on-failure (Issue + optional email)
+```
+
+| Step | Healthy | Unhealthy |
+|---|---|---|
+| Fetch / fortress | Continue | Snapshot frozen; Issue + optional email; job fails |
+| Site render | Always | Skipped |
+| Email | Digests or all-clear (needs SMTP vars + secrets) | Failure alert path |
+| Commit + Pages job | Yes | No |
+
+Do **not** hand-edit the baseline for routine updates. Companion file: `data/last-success.json`.
+
+**Note:** The `pages` job reads a remapped `health_ok` job output (`ok`/`fail`, not `true`/`false`) so GitHub secret scrubbing cannot blank the value and skip deploy after a healthy watch.
+
+---
+
+## Change detection
+
+Compared by Flash game `id` across the whole club. Watched fields (`config.yaml` → `schedule.watchFields`):
+
+`date`, `time`, `venue`, `state`, `homeTeam`, `awayTeam`, `competitionId`, `competitionName`
+
+- Added / removed / any watched-field change → `hasChanges=true`
+- Score-only and derived fields (`homeScore`, `awayScore`, `opponent`, …) are ignored
+- Cancellation highlights when `state` looks like cancel / postpone / walkover / forfeit
+
+---
+
+## Fortress and main protection
+
+Protect `main` **before** enabling the workflow (`contents: write` on the watch job):
+
+- Block force-push / deletion
+- Allow GitHub Actions to push (or set secret `SCHEDULE_PUSH_TOKEN`)
+
+Gates (tune under `fortress:`): schema validation, count-drop (`minGameRatio` default 0.70), max churn, HTTPS `PAGES_BASE_URL`, CSP on HTML, Vienna ICS TZ.
+
+---
+
+## Squads, clashes, calendar, ICS
+
+Clashes and calendars use **squad/category** (U12 Assist, U12 Bully, Alpencup, Adults Grossfeld, …), not just age band.
+
+- **SAME DAY clash:** same category in 2+ competitions on one day
+- **U12 group overlap:** any 2+ of Assist / Bully / Mädchen / Alpencup that day
+- Subscribe: `{PAGES_BASE_URL}/ics/<slug>.ics` (Vienna `TZID`, no `VALARM`)
+
+Alpencup stays **separate** calendars (not merged into Assist/Bully). Adult leagues map to Bundesliga / Adults Grossfeld / Adults Kleinfeld.
+
+---
+
+## Config
+
+Active profile: `tools/schedule-watch/config.yaml`. Env overrides (also wired as repository variables in Actions): `SCHEDULE_WATCH_CONFIG`, `CLUB_ID`, `CLUB_NAME`, `PAGES_BASE_URL`. Locally you can also set `MCP_HOST`.
+
+### Coach emails (`coaches:`)
+
+Optional map of Flash `competitionId` → email list for split digests. Unmapped changes go to secret `ALERT_TO`. Lists in config are empty placeholders today — put real addresses before go-live.
+
+```yaml
+coaches:
+  737: []   # Bundesliga
+  731: []   # Adults Grossfeld
+  # …
+coachesNotifyDefaultFull: false  # true → also send full digest to ALERT_TO
+```
+
+### Multi-club
+
+Copy `clubs/_template.yaml` → `clubs/<slug>.yaml`, seed a baseline with `fetch_schedule.py`, set repository variable `SCHEDULE_WATCH_CONFIG` (or env locally). Prefer one GitHub repo per club.
+
+---
+
+## Secrets and variables
+
+### Where to configure
+
+GitHub → **Settings → Secrets and variables → Actions**
+
+| Tab | Use |
+|---|---|
+| **Secrets → Repository secrets** | Mailbox password, mail addresses, optional Resend / push token |
+| **Variables → Repository variables** | SMTP host/port/SSL, Pages URL, optional club overrides |
+
+Never commit credentials. Never put passwords or mailbox addresses in Variables, Pages, or workflow logs. Keep `ALERT_*` / `HEARTBEAT_*` / `SMTP_USER` as **Secrets** (private).
+
+### Repository secrets (keep private)
+
+| Name | Required? | Purpose |
+|---|---|---|
+| `SMTP_USER` | No | Login username; falls back to `ALERT_FROM` |
+| `SMTP_PASSWORD` | Yes (to send mail) | Mailbox or app password |
+| `ALERT_FROM` | Yes (to send) | From address allowed by your provider |
+| `ALERT_TO` | For digests / fallback | Coach digest recipients; also heartbeat fallback |
+| `HEARTBEAT_TO` | No | Failure alerts + weekly all-clear (falls back to `ALERT_TO`) |
+| `RESEND_API_KEY` | No | Optional fallback only if SMTP is not configured |
+| `SCHEDULE_PUSH_TOKEN` | No | PAT with Contents:write if ruleset blocks `GITHUB_TOKEN` push |
+
+Minimum for email: variables `SMTP_HOST` (+ `SMTP_PORT` / `SMTP_SSL` as needed) and secrets `SMTP_PASSWORD`, `ALERT_FROM`, `ALERT_TO` (plus `HEARTBEAT_TO` if you want a separate ops inbox).
+
+No mail transport configured → fetch, diff, Issues, and Pages still run; emails are skipped.
+
+### Repository variables
+
+Configured under **Variables** (not Secrets):
+
+| Name | Required? | Example / used for |
+|---|---|---|
+| `SMTP_HOST` | Yes (to send mail) | `mailserver.weinz.org` |
+| `SMTP_PORT` | No (default `587`) | `465` (with SSL) or `587` (STARTTLS) |
+| `SMTP_SSL` | No | `true` for port 465; leave unset for 587 |
+| `PAGES_BASE_URL` | Recommended | Public Pages root (`https://…`) for digests, ICS links, fortress HTTPS check |
+| `SCHEDULE_WATCH_CONFIG` | No | Path to alternate club YAML (default: `config.yaml`) |
+| `CLUB_ID` | No | Override club id from config |
+| `CLUB_NAME` | No | Override club name from config |
+
+**Weinz SMTP (this deployment):** add Variables `SMTP_HOST=mailserver.weinz.org`, `SMTP_PORT=465`, `SMTP_SSL=true`. Then **remove** `SMTP_HOST` / `SMTP_PORT` / `SMTP_SSL` from Repository **Secrets** if they still exist there (password and addresses stay as Secrets).
+
+Leave club/Pages vars unset to use defaults from `tools/schedule-watch/config.yaml`.
+
+### Workflow permissions
+
+```
+workflow default: contents: read
+watch job:               contents: write, issues: write, actions: write
+heartbeat-on-failure:    issues: write
+pages job:               pages: write, id-token: write
+```
+
+---
+
+## Enable on GitHub
+
+1. Protect `main` (see Fortress above).
+2. Settings → Pages → Build from **GitHub Actions**.
+3. **Variables** → add `PAGES_BASE_URL`, `SMTP_HOST`, `SMTP_PORT`, `SMTP_SSL` (see above).
+4. **Secrets** → add `SMTP_PASSWORD`, `SMTP_USER` (optional), `ALERT_*`, `HEARTBEAT_TO` (optional).
+5. Optionally fill `coaches:` in `config.yaml`.
+6. Actions → **schedule-watch** → **Run workflow** once; confirm Pages + email.

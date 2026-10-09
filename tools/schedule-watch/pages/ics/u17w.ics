@@ -1,0 +1,99 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Floorballbunnies//Schedule//EN
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+X-WR-CALNAME:Floorballbunnies U17w
+X-WR-TIMEZONE:Europe/Vienna
+BEGIN:VTIMEZONE
+TZID:Europe/Vienna
+X-LIC-LOCATION:Europe/Vienna
+BEGIN:DAYLIGHT
+TZOFFSETFROM:+0100
+TZOFFSETTO:+0200
+TZNAME:CEST
+DTSTART:19700329T020000
+RRULE:FREQ=YEARLY;BYMONTH=3;BYDAY=-1SU
+END:DAYLIGHT
+BEGIN:STANDARD
+TZOFFSETFROM:+0200
+TZOFFSETTO:+0100
+TZNAME:CET
+DTSTART:19701025T030000
+RRULE:FREQ=YEARLY;BYMONTH=10;BYDAY=-1SU
+END:STANDARD
+END:VTIMEZONE
+BEGIN:VEVENT
+UID:urn:floorballbunnies:day:2026-01-17
+DTSTAMP:20261009T140304Z
+DTSTART;VALUE=DATE:20260117
+DTEND;VALUE=DATE:20260118
+SUMMARY:U17w: 2 games
+DESCRIPTION:Please double-check the date and kickoff time — the schedule 
+ can change.\nSat 17 Jan 2026 · 2 games · Europe/Vienna\n\nTBD · Home vs
+  FBC Dragons · Sporthalle Neu-Rum · #16656\nTBD · Home vs Wiener Floorb
+ all Verein · Sporthalle Neu-Rum · #16659
+LOCATION:Sporthalle Neu-Rum
+END:VEVENT
+BEGIN:VEVENT
+UID:urn:floorballbunnies:day:2026-11-07
+DTSTAMP:20261009T140304Z
+DTSTART;VALUE=DATE:20261107
+DTEND;VALUE=DATE:20261108
+SUMMARY:U17w: 2 games
+DESCRIPTION:Please double-check the date and kickoff time — the schedule 
+ can change.\nSat 07 Nov 2026 · 2 games · Europe/Vienna\n\nTBD · Away vs
+  UHC Alligator Rum · Sankt Martin · #16640\nTBD · Home vs UHC Alligator
+  Rum · Sankt Martin · #16643
+LOCATION:Sankt Martin
+END:VEVENT
+BEGIN:VEVENT
+UID:urn:floorballbunnies:day:2026-12-20
+DTSTAMP:20261009T140304Z
+DTSTART;VALUE=DATE:20261220
+DTEND;VALUE=DATE:20261221
+SUMMARY:U17w: 2 games
+DESCRIPTION:Please double-check the date and kickoff time — the schedule 
+ can change.\nSun 20 Dec 2026 · 2 games · Europe/Vienna\n\nTBD · Away vs
+  UHC Alligator Rum · PAHO Kurt Kucera Rundhalle · #16646\nTBD · Home vs
+  VSV Unihockey · PAHO Kurt Kucera Rundhalle · #16649
+LOCATION:PAHO Kurt Kucera Rundhalle
+END:VEVENT
+BEGIN:VEVENT
+UID:urn:floorballbunnies:day:2027-02-28
+DTSTAMP:20261009T140304Z
+DTSTART;TZID=Europe/Vienna:20270228T090000
+DTEND;TZID=Europe/Vienna:20270228T114500
+SUMMARY:U17w: 2 games
+DESCRIPTION:Please double-check the date and kickoff time — the schedule 
+ can change.\nSun 28 Feb 2027 · 2 games · Europe/Vienna\n\n09:00 · Away 
+ vs WFV · PAHO Kurt Kucera Rundhalle · #16322\n10:15 · Home vs FBC Drago
+ ns · PAHO Kurt Kucera Rundhalle · #16323
+LOCATION:PAHO Kurt Kucera Rundhalle
+END:VEVENT
+BEGIN:VEVENT
+UID:urn:floorballbunnies:day:2027-03-14
+DTSTAMP:20261009T140304Z
+DTSTART;VALUE=DATE:20270314
+DTEND;VALUE=DATE:20270315
+SUMMARY:U17w: 2 games
+DESCRIPTION:Please double-check the date and kickoff time — the schedule 
+ can change.\nSun 14 Mar 2027 · 2 games · Europe/Vienna\n\nTBD · Home vs
+  Wiener Floorball Verein · Alterlaa · #16650\nTBD · Away vs FBC Dragons
+  · Alterlaa · #16653
+LOCATION:Alterlaa
+END:VEVENT
+BEGIN:VEVENT
+UID:urn:floorballbunnies:day:2027-05-02
+DTSTAMP:20261009T140304Z
+DTSTART;TZID=Europe/Vienna:20270502T090000
+DTEND;TZID=Europe/Vienna:20270502T114500
+SUMMARY:U17w: 2 games
+DESCRIPTION:Please double-check the date and kickoff time — the schedule 
+ can change.\nSun 02 May 2027 · 2 games · Europe/Vienna\n\n09:00 · Away 
+ vs WFV · Alterlaa · #16325\n10:15 · Home vs FBC Dragons · Alterlaa · 
+ #16326
+LOCATION:Alterlaa
+END:VEVENT
+END:VCALENDAR
+

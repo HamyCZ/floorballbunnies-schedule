@@ -1,0 +1,331 @@
+# Weekly FloorballFlash schedule watch
+# Monday 07:00 UTC ≈ 08:00 Europe/Vienna (CET winter).
+#
+# Fortress notes:
+# - Default token is read-only; write scopes are per-job.
+# - Protect `main` (required reviews / no force-push) BEFORE enabling this
+#   workflow — the watch job commits snapshot + pages to the default branch.
+# - See README.md (Fortress and multi-club sections).
+
+name: schedule-watch
+
+on:
+  schedule:
+    - cron: "0 7 * * 1"
+  workflow_dispatch:
+
+# Least privilege at workflow level — jobs request only what they need.
+permissions:
+  contents: read
+
+concurrency:
+  group: schedule-watch
+  cancel-in-progress: false
+
+jobs:
+  watch:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write   # commit snapshot + pages only
+      issues: write     # health / failure Issues
+      actions: write    # upload artifacts
+    outputs:
+      # Remap true/false → ok/fail. GH strips job outputs whose value equals a
+      # secret (e.g. SMTP_SSL=true), which made pages skip after healthy watches.
+      has_changes: ${{ steps.watch.outputs.has_changes == 'true' && 'yes' || 'no' }}
+      health_ok: ${{ steps.watch.outputs.health_ok == 'true' && 'ok' || 'fail' }}
+      health_reason: ${{ steps.watch.outputs.health_reason }}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          # Need full history so we can rebase onto latest main before push
+          # (re-runs often start from an older SHA while main has moved on).
+          fetch-depth: 0
+          # Optional PAT (secret SCHEDULE_PUSH_TOKEN); else GITHUB_TOKEN.
+          persist-credentials: true
+          token: ${{ secrets.SCHEDULE_PUSH_TOKEN != '' && secrets.SCHEDULE_PUSH_TOKEN || github.token }}
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install dependencies
+        working-directory: tools/schedule-watch
+        run: pip install -r requirements.txt
+
+      - name: Fetch + diff + render site
+        id: watch
+        working-directory: tools/schedule-watch
+        env:
+          PAGES_BASE_URL: ${{ vars.PAGES_BASE_URL }}
+          SCHEDULE_WATCH_CONFIG: ${{ vars.SCHEDULE_WATCH_CONFIG }}
+          CLUB_ID: ${{ vars.CLUB_ID }}
+          CLUB_NAME: ${{ vars.CLUB_NAME }}
+        run: |
+          python run_watch.py \
+            --snapshot data/schedule-snapshot.json \
+            --last-success data/last-success.json \
+            --out-dir out \
+            --pages-dir pages \
+            --always-update-snapshot
+
+      - name: Upload reports
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: schedule-watch-reports
+          path: |
+            tools/schedule-watch/out/
+            tools/schedule-watch/pages/
+          retention-days: 14
+
+      - name: Upload pages for deploy
+        if: steps.watch.outputs.health_ok == 'true'
+        uses: actions/upload-artifact@v4
+        with:
+          name: schedule-pages
+          path: tools/schedule-watch/pages
+          retention-days: 7
+
+      - name: Commit snapshot + pages + last-success
+        id: commit
+        if: steps.watch.outputs.health_ok == 'true'
+        continue-on-error: true
+        working-directory: tools/schedule-watch
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/schedule-snapshot.json data/last-success.json pages/
+          if git diff --staged --quiet; then
+            echo "No files to commit"
+            exit 0
+          fi
+          git commit -m "chore(schedule): weekly Flash snapshot + site"
+          # Rebase onto current remote main (avoids "fetch first" on re-runs /
+          # when main moved after checkout). Prefer this run's generated files
+          # if the same paths conflict.
+          git fetch origin main
+          if ! git pull --rebase origin main; then
+            echo "Rebase conflict — keeping this run's schedule outputs"
+            git checkout --theirs -- data/schedule-snapshot.json data/last-success.json pages/ || true
+            git add data/schedule-snapshot.json data/last-success.json pages/ || true
+            GIT_EDITOR=true git rebase --continue
+          fi
+          git push origin HEAD:main
+
+      - name: Warn if baseline push failed
+        if: steps.commit.outcome == 'failure'
+        run: |
+          echo "::warning::Could not push baseline commit to main."
+          echo "Common causes: main moved (should be fixed by rebase), or ruleset/token cannot push."
+          echo "Prefer: Actions → schedule-watch → Run workflow (fresh), not Re-run on an old job."
+          echo "Pages can still deploy from this run's artifact."
+
+      - name: Email coaches if schedule changed (split by competitionId)
+        if: steps.watch.outputs.has_changes == 'true' && steps.watch.outputs.health_ok == 'true'
+        env:
+          SMTP_HOST: ${{ vars.SMTP_HOST }}
+          SMTP_PORT: ${{ vars.SMTP_PORT }}
+          SMTP_USER: ${{ secrets.SMTP_USER }}
+          SMTP_PASSWORD: ${{ secrets.SMTP_PASSWORD }}
+          SMTP_SSL: ${{ vars.SMTP_SSL }}
+          RESEND_API_KEY: ${{ secrets.RESEND_API_KEY }}
+          ALERT_TO: ${{ secrets.ALERT_TO }}
+          ALERT_FROM: ${{ secrets.ALERT_FROM }}
+          PAGES_BASE_URL: ${{ vars.PAGES_BASE_URL }}
+        working-directory: tools/schedule-watch
+        run: |
+          python send_digests.py \
+            --mode changes \
+            --changes-json out/changes.json \
+            --timing out/run-timing.txt \
+            --out-dir out/digests \
+            --pages-base-url "${PAGES_BASE_URL}" \
+            --send
+
+      - name: All-clear heartbeat (healthy, no changes)
+        if: steps.watch.outputs.has_changes == 'false' && steps.watch.outputs.health_ok == 'true'
+        env:
+          SMTP_HOST: ${{ vars.SMTP_HOST }}
+          SMTP_PORT: ${{ vars.SMTP_PORT }}
+          SMTP_USER: ${{ secrets.SMTP_USER }}
+          SMTP_PASSWORD: ${{ secrets.SMTP_PASSWORD }}
+          SMTP_SSL: ${{ vars.SMTP_SSL }}
+          RESEND_API_KEY: ${{ secrets.RESEND_API_KEY }}
+          ALERT_TO: ${{ secrets.ALERT_TO }}
+          HEARTBEAT_TO: ${{ secrets.HEARTBEAT_TO }}
+          ALERT_FROM: ${{ secrets.ALERT_FROM }}
+          PAGES_BASE_URL: ${{ vars.PAGES_BASE_URL }}
+        working-directory: tools/schedule-watch
+        run: |
+          python send_digests.py \
+            --mode all-clear \
+            --health-json out/health.json \
+            --timing out/run-timing.txt \
+            --out-dir out/digests \
+            --pages-base-url "${PAGES_BASE_URL}" \
+            --send
+
+      - name: Alert on thin/empty fetch (count drop)
+        if: steps.watch.outputs.health_ok == 'false'
+        env:
+          SMTP_HOST: ${{ vars.SMTP_HOST }}
+          SMTP_PORT: ${{ vars.SMTP_PORT }}
+          SMTP_USER: ${{ secrets.SMTP_USER }}
+          SMTP_PASSWORD: ${{ secrets.SMTP_PASSWORD }}
+          SMTP_SSL: ${{ vars.SMTP_SSL }}
+          RESEND_API_KEY: ${{ secrets.RESEND_API_KEY }}
+          ALERT_TO: ${{ secrets.ALERT_TO }}
+          ALERT_FROM: ${{ secrets.ALERT_FROM }}
+          HEARTBEAT_TO: ${{ secrets.HEARTBEAT_TO }}
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        working-directory: tools/schedule-watch
+        run: |
+          python - <<'PY'
+          import os, json, urllib.request
+          from mailer import _emails, deliver, mail_ready
+          health = json.loads(open("out/health.json", encoding="utf-8").read())
+          title = f"[Schedule] fetch health: {health.get('reason')}"
+          body = (
+              f"Health check failed.\n\n"
+              f"- reason: `{health.get('reason')}`\n"
+              f"- old games: {health.get('oldGameCount')}\n"
+              f"- new games: {health.get('newGameCount')}\n"
+              f"- ratio: {health.get('actualRatio')} (min {health.get('minRatio')})\n"
+              f"- old probedAt: {health.get('oldProbedAt')}\n"
+              f"- new probedAt: {health.get('newProbedAt')}\n\n"
+              f"Snapshot was NOT updated. Inspect the workflow artifact `health.json` / fetch logs."
+          )
+          repo = os.environ.get("GITHUB_REPOSITORY")
+          token = os.environ.get("GH_TOKEN")
+          if repo and token:
+              payload = {"title": title, "body": body}
+              req = urllib.request.Request(
+                  f"https://api.github.com/repos/{repo}/issues",
+                  data=json.dumps(payload).encode(),
+                  headers={
+                      "Authorization": f"Bearer {token}",
+                      "Accept": "application/vnd.github+json",
+                      "Content-Type": "application/json",
+                      "X-GitHub-Api-Version": "2022-11-28",
+                  },
+                  method="POST",
+              )
+              try:
+                  with urllib.request.urlopen(req, timeout=60) as resp:
+                      print("issue", resp.status, resp.read()[:200])
+              except Exception as e:
+                  print("issue create failed", e)
+          to = _emails(os.environ.get("HEARTBEAT_TO") or os.environ.get("ALERT_TO"))
+          if to and mail_ready():
+              print("mail", deliver(to=to, subject=title, text=body))
+          else:
+              print("No mail transport / recipients — issue-only (if token worked)")
+          PY
+
+      - name: Fail job on unhealthy fetch
+        if: steps.watch.outputs.health_ok == 'false'
+        run: |
+          echo "Health failed: ${{ steps.watch.outputs.health_reason }}"
+          exit 1
+
+  heartbeat-on-failure:
+    needs: watch
+    if: failure()
+    runs-on: ubuntu-latest
+    permissions:
+      issues: write
+      contents: read
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Open GitHub Issue for job failure
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          python - <<'PY'
+          import os, json, urllib.request
+          repo = os.environ["GITHUB_REPOSITORY"]
+          run_id = os.environ.get("GITHUB_RUN_ID", "")
+          server = os.environ.get("GITHUB_SERVER_URL", "https://github.com")
+          url = f"{server}/{repo}/actions/runs/{run_id}"
+          title = "[Schedule] schedule-watch Monday job failed"
+          body = f"The weekly `schedule-watch` workflow failed.\n\nRun: {url}\n\nCheck logs/artifacts. Possible causes: MCP outage, network, script error, or fortress health gate."
+          payload = {"title": title, "body": body}
+          req = urllib.request.Request(
+              f"https://api.github.com/repos/{repo}/issues",
+              data=json.dumps(payload).encode(),
+              headers={
+                  "Authorization": f"Bearer {os.environ['GH_TOKEN']}",
+                  "Accept": "application/vnd.github+json",
+                  "Content-Type": "application/json",
+                  "X-GitHub-Api-Version": "2022-11-28",
+              },
+              method="POST",
+          )
+          with urllib.request.urlopen(req, timeout=60) as resp:
+              print(resp.read()[:300])
+          PY
+
+      - name: Ping backup email on failure
+        env:
+          SMTP_HOST: ${{ vars.SMTP_HOST }}
+          SMTP_PORT: ${{ vars.SMTP_PORT }}
+          SMTP_USER: ${{ secrets.SMTP_USER }}
+          SMTP_PASSWORD: ${{ secrets.SMTP_PASSWORD }}
+          SMTP_SSL: ${{ vars.SMTP_SSL }}
+          RESEND_API_KEY: ${{ secrets.RESEND_API_KEY }}
+          HEARTBEAT_TO: ${{ secrets.HEARTBEAT_TO }}
+          ALERT_TO: ${{ secrets.ALERT_TO }}
+          ALERT_FROM: ${{ secrets.ALERT_FROM }}
+        working-directory: tools/schedule-watch
+        run: |
+          python - <<'PY'
+          import os
+          from mailer import _emails, deliver, mail_ready
+          to = _emails(os.environ.get("HEARTBEAT_TO") or os.environ.get("ALERT_TO"))
+          if not to or not mail_ready():
+              print("Skipping failure email")
+              raise SystemExit(0)
+          repo = os.environ.get("GITHUB_REPOSITORY", "")
+          run_id = os.environ.get("GITHUB_RUN_ID", "")
+          url = f"https://github.com/{repo}/actions/runs/{run_id}"
+          print(deliver(
+              to=to,
+              subject="[Schedule] schedule-watch FAILED",
+              text=f"Monday schedule-watch failed.\n\n{url}\n",
+          ))
+          PY
+
+  pages:
+    needs: watch
+    # Deploy even if the baseline git push was blocked (continue-on-error).
+    # health_ok job output is "ok"/"fail" (not true/false — see watch.outputs).
+    if: always() && needs.watch.result == 'success' && needs.watch.outputs.health_ok == 'ok'
+    runs-on: ubuntu-latest
+    permissions:
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      # Deploy the pages built in this run (not a stale checkout of the trigger SHA).
+      - name: Download built pages
+        uses: actions/download-artifact@v4
+        with:
+          name: schedule-pages
+          path: site
+
+      - name: Upload Pages artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: site
+
+      - name: Deploy GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4

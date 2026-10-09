@@ -1,0 +1,76 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Floorballbunnies//Schedule//EN
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+X-WR-CALNAME:Floorballbunnies U14w
+X-WR-TIMEZONE:Europe/Vienna
+BEGIN:VTIMEZONE
+TZID:Europe/Vienna
+X-LIC-LOCATION:Europe/Vienna
+BEGIN:DAYLIGHT
+TZOFFSETFROM:+0100
+TZOFFSETTO:+0200
+TZNAME:CEST
+DTSTART:19700329T020000
+RRULE:FREQ=YEARLY;BYMONTH=3;BYDAY=-1SU
+END:DAYLIGHT
+BEGIN:STANDARD
+TZOFFSETFROM:+0200
+TZOFFSETTO:+0100
+TZNAME:CET
+DTSTART:19701025T030000
+RRULE:FREQ=YEARLY;BYMONTH=10;BYDAY=-1SU
+END:STANDARD
+END:VTIMEZONE
+BEGIN:VEVENT
+UID:urn:floorballbunnies:day:2026-03-06
+DTSTAMP:20261009T140304Z
+DTSTART;VALUE=DATE:20260306
+DTEND;VALUE=DATE:20260307
+SUMMARY:U14w: 2 games
+DESCRIPTION:Please double-check the date and kickoff time — the schedule 
+ can change.\nFri 06 Mar 2026 · 2 games · Europe/Vienna\n\nTBD · Away vs
+  Wiener Floorball Verein · Sankt Martin · #17366\nTBD · Away vs VSV Uni
+ hockey · Sankt Martin · #17367
+LOCATION:Sankt Martin
+END:VEVENT
+BEGIN:VEVENT
+UID:urn:floorballbunnies:day:2026-12-19
+DTSTAMP:20261009T140304Z
+DTSTART;TZID=Europe/Vienna:20261219T123000
+DTEND;TZID=Europe/Vienna:20261219T144500
+SUMMARY:U14w: 2 games
+DESCRIPTION:Please double-check the date and kickoff time — the schedule 
+ can change.\nSat 19 Dec 2026 · 2 games · Europe/Vienna\n\n12:30 · Home 
+ vs Wiener Floorball Verein · PAHO Kurt Kucera Rundhalle · #17354\n13:15 
+ · Away vs UHC Alligator Rum · PAHO Kurt Kucera Rundhalle · #17357
+LOCATION:PAHO Kurt Kucera Rundhalle
+END:VEVENT
+BEGIN:VEVENT
+UID:urn:floorballbunnies:day:2027-02-06
+DTSTAMP:20261009T140304Z
+DTSTART;VALUE=DATE:20270206
+DTEND;VALUE=DATE:20270207
+SUMMARY:U14w: 2 games
+DESCRIPTION:Please double-check the date and kickoff time — the schedule 
+ can change.\nSat 06 Feb 2027 · 2 games · Europe/Vienna\n\nTBD · Away vs
+  UHC Alligator Rum · Sporthalle Neu-Rum · #17362\nTBD · Home vs VSV Uni
+ hockey · Sporthalle Neu-Rum · #17381
+LOCATION:Sporthalle Neu-Rum
+END:VEVENT
+BEGIN:VEVENT
+UID:urn:floorballbunnies:day:2027-04-25
+DTSTAMP:20261009T140304Z
+DTSTART;TZID=Europe/Vienna:20270425T113000
+DTEND;TZID=Europe/Vienna:20270425T144500
+SUMMARY:U14w: 3 games
+DESCRIPTION:Please double-check the date and kickoff time — the schedule 
+ can change.\nSun 25 Apr 2027 · 3 games · Europe/Vienna\n\n11:30 · Home 
+ vs VSV Unihockey · Alterlaa · #17380\n12:15 · Away vs Wiener Floorball 
+ Verein · Alterlaa · #17372\n13:15 · Away vs UHC Alligator Rum · Alterl
+ aa · #17379
+LOCATION:Alterlaa
+END:VEVENT
+END:VCALENDAR
+

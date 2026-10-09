@@ -1,0 +1,117 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Floorballbunnies//Schedule//EN
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+X-WR-CALNAME:Floorballbunnies Bundesliga
+X-WR-TIMEZONE:Europe/Vienna
+BEGIN:VTIMEZONE
+TZID:Europe/Vienna
+X-LIC-LOCATION:Europe/Vienna
+BEGIN:DAYLIGHT
+TZOFFSETFROM:+0100
+TZOFFSETTO:+0200
+TZNAME:CEST
+DTSTART:19700329T020000
+RRULE:FREQ=YEARLY;BYMONTH=3;BYDAY=-1SU
+END:DAYLIGHT
+BEGIN:STANDARD
+TZOFFSETFROM:+0200
+TZOFFSETTO:+0100
+TZNAME:CET
+DTSTART:19701025T030000
+RRULE:FREQ=YEARLY;BYMONTH=10;BYDAY=-1SU
+END:STANDARD
+END:VTIMEZONE
+BEGIN:VEVENT
+UID:urn:floorballbunnies:game:16442
+DTSTAMP:20261009T140304Z
+DTSTART;TZID=Europe/Vienna:20261115T190000
+DTEND;TZID=Europe/Vienna:20261115T203000
+SUMMARY:Bundesliga: vs Sokol Wien
+DESCRIPTION:Please double-check the date and kickoff time — the schedule 
+ can change.\nÖFBV Bundesliga Herren\nAway vs Sokol Wien\nTime: 19:00 (Eur
+ ope/Vienna)\nVenue: Alterlaa\nGame #16442
+LOCATION:Alterlaa
+END:VEVENT
+BEGIN:VEVENT
+UID:urn:floorballbunnies:game:16440
+DTSTAMP:20261009T140304Z
+DTSTART;TZID=Europe/Vienna:20261205T180000
+DTEND;TZID=Europe/Vienna:20261205T193000
+SUMMARY:Bundesliga: vs ASKÖ Unihockey Club Linz
+DESCRIPTION:Please double-check the date and kickoff time — the schedule 
+ can change.\nÖFBV Bundesliga Herren\nAway vs ASKÖ Unihockey Club Linz\nT
+ ime: 18:00 (Europe/Vienna)\nVenue: Rennerschule\nGame #16440
+LOCATION:Rennerschule
+END:VEVENT
+BEGIN:VEVENT
+UID:urn:floorballbunnies:game:16430
+DTSTAMP:20261009T140304Z
+DTSTART;TZID=Europe/Vienna:20261213T160000
+DTEND;TZID=Europe/Vienna:20261213T173000
+SUMMARY:Bundesliga: vs ASKÖ Unihockey Club Linz
+DESCRIPTION:Please double-check the date and kickoff time — the schedule 
+ can change.\nÖFBV Bundesliga Herren\nHome vs ASKÖ Unihockey Club Linz\nT
+ ime: 16:00 (Europe/Vienna)\nVenue: PAHO Kurt Kucera Rundhalle\nGame #16430
+LOCATION:PAHO Kurt Kucera Rundhalle
+END:VEVENT
+BEGIN:VEVENT
+UID:urn:floorballbunnies:game:16431
+DTSTAMP:20261009T140304Z
+DTSTART;TZID=Europe/Vienna:20261220T190000
+DTEND;TZID=Europe/Vienna:20261220T203000
+SUMMARY:Bundesliga: vs FBC Dragons II
+DESCRIPTION:Please double-check the date and kickoff time — the schedule 
+ can change.\nÖFBV Bundesliga Herren\nHome vs FBC Dragons II\nTime: 19:00 
+ (Europe/Vienna)\nVenue: PAHO Kurt Kucera Rundhalle\nGame #16431
+LOCATION:PAHO Kurt Kucera Rundhalle
+END:VEVENT
+BEGIN:VEVENT
+UID:urn:floorballbunnies:game:16435
+DTSTAMP:20261009T140304Z
+DTSTART;TZID=Europe/Vienna:20270109T180000
+DTEND;TZID=Europe/Vienna:20270109T193000
+SUMMARY:Bundesliga: vs FBC Dragons II
+DESCRIPTION:Please double-check the date and kickoff time — the schedule 
+ can change.\nÖFBV Bundesliga Herren\nAway vs FBC Dragons II\nTime: 18:00 
+ (Europe/Vienna)\nVenue: Alterlaa\nGame #16435
+LOCATION:Alterlaa
+END:VEVENT
+BEGIN:VEVENT
+UID:urn:floorballbunnies:game:16432
+DTSTAMP:20261009T140304Z
+DTSTART;TZID=Europe/Vienna:20270117T160000
+DTEND;TZID=Europe/Vienna:20270117T173000
+SUMMARY:Bundesliga: vs Wiener Floorball Verein II
+DESCRIPTION:Please double-check the date and kickoff time — the schedule 
+ can change.\nÖFBV Bundesliga Herren\nHome vs Wiener Floorball Verein II\n
+ Time: 16:00 (Europe/Vienna)\nVenue: PAHO Kurt Kucera Rundhalle\nGame #1643
+ 2
+LOCATION:PAHO Kurt Kucera Rundhalle
+END:VEVENT
+BEGIN:VEVENT
+UID:urn:floorballbunnies:game:16433
+DTSTAMP:20261009T140304Z
+DTSTART;TZID=Europe/Vienna:20270221T180000
+DTEND;TZID=Europe/Vienna:20270221T193000
+SUMMARY:Bundesliga: vs Sokol Wien
+DESCRIPTION:Please double-check the date and kickoff time — the schedule 
+ can change.\nÖFBV Bundesliga Herren\nHome vs Sokol Wien\nTime: 18:00 (Eur
+ ope/Vienna)\nVenue: PAHO Kurt Kucera Rundhalle\nGame #16433
+LOCATION:PAHO Kurt Kucera Rundhalle
+END:VEVENT
+BEGIN:VEVENT
+UID:urn:floorballbunnies:game:16449
+DTSTAMP:20261009T140304Z
+DTSTART;TZID=Europe/Vienna:20270228T170000
+DTEND;TZID=Europe/Vienna:20270228T183000
+SUMMARY:Bundesliga: vs Wiener Floorball Verein II
+DESCRIPTION:Please double-check the date and kickoff time — the schedule 
+ can change.\nÖFBV Bundesliga Herren\nAway vs Wiener Floorball Verein II\n
+ Time: 17:00 (Europe/Vienna)\nVenue: PAHO Kurt Kucera Rundhalle\nGame #1644
+ 9
+LOCATION:PAHO Kurt Kucera Rundhalle
+END:VEVENT
+END:VCALENDAR
+

@@ -1,0 +1,78 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Floorballbunnies//Schedule//EN
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+X-WR-CALNAME:Floorballbunnies U14 Kleinfeld
+X-WR-TIMEZONE:Europe/Vienna
+BEGIN:VTIMEZONE
+TZID:Europe/Vienna
+X-LIC-LOCATION:Europe/Vienna
+BEGIN:DAYLIGHT
+TZOFFSETFROM:+0100
+TZOFFSETTO:+0200
+TZNAME:CEST
+DTSTART:19700329T020000
+RRULE:FREQ=YEARLY;BYMONTH=3;BYDAY=-1SU
+END:DAYLIGHT
+BEGIN:STANDARD
+TZOFFSETFROM:+0200
+TZOFFSETTO:+0100
+TZNAME:CET
+DTSTART:19701025T030000
+RRULE:FREQ=YEARLY;BYMONTH=10;BYDAY=-1SU
+END:STANDARD
+END:VTIMEZONE
+BEGIN:VEVENT
+UID:urn:floorballbunnies:day:2026-10-17
+DTSTAMP:20261009T140304Z
+DTSTART;TZID=Europe/Vienna:20261017T163000
+DTEND;TZID=Europe/Vienna:20261017T195100
+SUMMARY:U14 Kleinfeld: 4 games
+DESCRIPTION:Please double-check the date and kickoff time — the schedule 
+ can change.\nSat 17 Oct 2026 · 4 games · Europe/Vienna\n\n16:30 · Away 
+ vs Minty Penguins · Alterlaa · #16268\n17:07 · Away vs WFV · Alterlaa 
+ · #16270\n17:44 · Home vs FBC Dragons 2 · Alterlaa · #16274\n18:21 · 
+ Home vs FBC Dragons 1 · Alterlaa · #16660
+LOCATION:Alterlaa
+END:VEVENT
+BEGIN:VEVENT
+UID:urn:floorballbunnies:day:2026-11-14
+DTSTAMP:20261009T140304Z
+DTSTART;TZID=Europe/Vienna:20261114T182100
+DTEND;TZID=Europe/Vienna:20261114T210500
+SUMMARY:U14 Kleinfeld: 3 games
+DESCRIPTION:Please double-check the date and kickoff time — the schedule 
+ can change.\nSat 14 Nov 2026 · 3 games · Europe/Vienna\n\n18:21 · Away 
+ vs FBC Dragons 1 · Alterlaa · #16286\n18:58 · Home vs WFV · Alterlaa 
+ · #16289\n19:35 · Away vs FBC Dragons 2 · Alterlaa · #16290
+LOCATION:Alterlaa
+END:VEVENT
+BEGIN:VEVENT
+UID:urn:floorballbunnies:day:2027-02-20
+DTSTAMP:20261009T140304Z
+DTSTART;TZID=Europe/Vienna:20270220T180000
+DTEND;TZID=Europe/Vienna:20270220T215800
+SUMMARY:U14 Kleinfeld: 4 games
+DESCRIPTION:Please double-check the date and kickoff time — the schedule 
+ can change.\nSat 20 Feb 2027 · 4 games · Europe/Vienna\n\n18:00 · Home 
+ vs Minty Penguins · Alterlaa · #16293\n18:37 · Away vs WFV · Alterlaa 
+ · #16295\n19:14 · Home vs FBC Dragons 1 · Alterlaa · #16300\n20:28 · 
+ Home vs FBC Dragons 2 · Alterlaa · #16303
+LOCATION:Alterlaa
+END:VEVENT
+BEGIN:VEVENT
+UID:urn:floorballbunnies:day:2027-05-22
+DTSTAMP:20261009T140304Z
+DTSTART;TZID=Europe/Vienna:20270522T173000
+DTEND;TZID=Europe/Vienna:20270522T212800
+SUMMARY:U14 Kleinfeld: 4 games
+DESCRIPTION:Please double-check the date and kickoff time — the schedule 
+ can change.\nSat 22 May 2027 · 4 games · Europe/Vienna\n\n17:30 · Home 
+ vs Minty Penguins · Alterlaa · #16304\n18:07 · Away vs FBC Dragons 2 ·
+  Alterlaa · #16306\n18:44 · Home vs WFV · Alterlaa · #16308\n19:58 · 
+ Away vs FBC Dragons 1 · Alterlaa · #16311
+LOCATION:Alterlaa
+END:VEVENT
+END:VCALENDAR
+

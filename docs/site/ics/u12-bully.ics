@@ -1,0 +1,89 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Floorballbunnies//Schedule//EN
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+X-WR-CALNAME:Floorballbunnies U12 Bully
+X-WR-TIMEZONE:Europe/Vienna
+BEGIN:VTIMEZONE
+TZID:Europe/Vienna
+X-LIC-LOCATION:Europe/Vienna
+BEGIN:DAYLIGHT
+TZOFFSETFROM:+0100
+TZOFFSETTO:+0200
+TZNAME:CEST
+DTSTART:19700329T020000
+RRULE:FREQ=YEARLY;BYMONTH=3;BYDAY=-1SU
+END:DAYLIGHT
+BEGIN:STANDARD
+TZOFFSETFROM:+0200
+TZOFFSETTO:+0100
+TZNAME:CET
+DTSTART:19701025T030000
+RRULE:FREQ=YEARLY;BYMONTH=10;BYDAY=-1SU
+END:STANDARD
+END:VTIMEZONE
+BEGIN:VEVENT
+UID:urn:floorballbunnies:day:2026-11-15
+DTSTAMP:20261009T140304Z
+DTSTART;TZID=Europe/Vienna:20261115T090000
+DTEND;TZID=Europe/Vienna:20261115T130200
+SUMMARY:U12 Bully: 2 games
+DESCRIPTION:Please double-check the date and kickoff time — the schedule 
+ can change.\nSun 15 Nov 2026 · 2 games · Europe/Vienna\n\n09:00 · Away 
+ vs FBC Dragons · Alterlaa · #16195\n11:32 · Home vs WFV · Alterlaa · 
+ #16199
+LOCATION:Alterlaa
+END:VEVENT
+BEGIN:VEVENT
+UID:urn:floorballbunnies:day:2027-02-21
+DTSTAMP:20261009T140304Z
+DTSTART;TZID=Europe/Vienna:20270221T120000
+DTEND;TZID=Europe/Vienna:20270221T164000
+SUMMARY:U12 Bully: 3 games
+DESCRIPTION:Please double-check the date and kickoff time — the schedule 
+ can change.\nSun 21 Feb 2027 · 3 games · Europe/Vienna\n\n12:00 · Home 
+ vs Hainburger Löwen · PAHO Kurt Kucera Rundhalle · #16205\n14:32 · Awa
+ y vs IBC Leoben · PAHO Kurt Kucera Rundhalle · #16209\n15:10 · Home vs 
+ IBC Leoben · PAHO Kurt Kucera Rundhalle · #16211
+LOCATION:PAHO Kurt Kucera Rundhalle
+END:VEVENT
+BEGIN:VEVENT
+UID:urn:floorballbunnies:day:2027-03-07
+DTSTAMP:20261009T140304Z
+DTSTART;TZID=Europe/Vienna:20270307T143000
+DTEND;TZID=Europe/Vienna:20270307T160800
+SUMMARY:U12 Bully: 2 games
+DESCRIPTION:Please double-check the date and kickoff time — the schedule 
+ can change.\nSun 07 Mar 2027 · 2 games · Europe/Vienna\n\n14:30 · Away 
+ vs WFV · Alterlaa · #16212\n14:38 · Away vs Hainburger Löwen · Alterl
+ aa · #16213
+LOCATION:Alterlaa
+END:VEVENT
+BEGIN:VEVENT
+UID:urn:floorballbunnies:day:2027-04-11
+DTSTAMP:20261009T140304Z
+DTSTART;TZID=Europe/Vienna:20270411T180800
+DTEND;TZID=Europe/Vienna:20270411T201600
+SUMMARY:U12 Bully: 2 games
+DESCRIPTION:Please double-check the date and kickoff time — the schedule 
+ can change.\nSun 11 Apr 2027 · 2 games · Europe/Vienna\n\n18:08 · Home 
+ vs WFV · PAHO Kurt Kucera Rundhalle · #16202\n18:46 · Home vs FBC Drago
+ ns · PAHO Kurt Kucera Rundhalle · #16203
+LOCATION:PAHO Kurt Kucera Rundhalle
+END:VEVENT
+BEGIN:VEVENT
+UID:urn:floorballbunnies:day:2027-05-29
+DTSTAMP:20261009T140304Z
+DTSTART;TZID=Europe/Vienna:20270529T131600
+DTEND;TZID=Europe/Vienna:20270529T164000
+SUMMARY:U12 Bully: 3 games
+DESCRIPTION:Please double-check the date and kickoff time — the schedule 
+ can change.\nSat 29 May 2027 · 3 games · Europe/Vienna\n\n13:16 · Away 
+ vs FBC Dragons · PAHO Kurt Kucera Rundhalle · #16220\n13:54 · Home vs H
+ ainburger Löwen · PAHO Kurt Kucera Rundhalle · #16221\n15:10 · Away vs
+  IBC Leoben · PAHO Kurt Kucera Rundhalle · #16223
+LOCATION:PAHO Kurt Kucera Rundhalle
+END:VEVENT
+END:VCALENDAR
+

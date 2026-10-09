@@ -1,0 +1,74 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Floorballbunnies//Schedule//EN
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+X-WR-CALNAME:Floorballbunnies U12 Mädchen
+X-WR-TIMEZONE:Europe/Vienna
+BEGIN:VTIMEZONE
+TZID:Europe/Vienna
+X-LIC-LOCATION:Europe/Vienna
+BEGIN:DAYLIGHT
+TZOFFSETFROM:+0100
+TZOFFSETTO:+0200
+TZNAME:CEST
+DTSTART:19700329T020000
+RRULE:FREQ=YEARLY;BYMONTH=3;BYDAY=-1SU
+END:DAYLIGHT
+BEGIN:STANDARD
+TZOFFSETFROM:+0200
+TZOFFSETTO:+0100
+TZNAME:CET
+DTSTART:19701025T030000
+RRULE:FREQ=YEARLY;BYMONTH=10;BYDAY=-1SU
+END:STANDARD
+END:VTIMEZONE
+BEGIN:VEVENT
+UID:urn:floorballbunnies:day:2026-10-17
+DTSTAMP:20261009T140304Z
+DTSTART;TZID=Europe/Vienna:20261017T150000
+DTEND;TZID=Europe/Vienna:20261017T170200
+SUMMARY:U12 Mädchen: 2 games
+DESCRIPTION:Please double-check the date and kickoff time — the schedule 
+ can change.\nSat 17 Oct 2026 · 2 games · Europe/Vienna\n\n15:00 · Home 
+ vs WFV · Alterlaa · #16256\n15:32 · Away vs WFV · Alterlaa · #16257
+LOCATION:Alterlaa
+END:VEVENT
+BEGIN:VEVENT
+UID:urn:floorballbunnies:day:2026-12-13
+DTSTAMP:20261009T140304Z
+DTSTART;TZID=Europe/Vienna:20261213T140000
+DTEND;TZID=Europe/Vienna:20261213T160200
+SUMMARY:U12 Mädchen: 2 games
+DESCRIPTION:Please double-check the date and kickoff time — the schedule 
+ can change.\nSun 13 Dec 2026 · 2 games · Europe/Vienna\n\n14:00 · Home 
+ vs WFV · PAHO Kurt Kucera Rundhalle · #16258\n14:32 · Away vs WFV · PA
+ HO Kurt Kucera Rundhalle · #16259
+LOCATION:PAHO Kurt Kucera Rundhalle
+END:VEVENT
+BEGIN:VEVENT
+UID:urn:floorballbunnies:day:2027-02-27
+DTSTAMP:20261009T140304Z
+DTSTART;TZID=Europe/Vienna:20270227T140000
+DTEND;TZID=Europe/Vienna:20270227T160200
+SUMMARY:U12 Mädchen: 2 games
+DESCRIPTION:Please double-check the date and kickoff time — the schedule 
+ can change.\nSat 27 Feb 2027 · 2 games · Europe/Vienna\n\n14:00 · Home 
+ vs WFV · PAHO Kurt Kucera Rundhalle · #16260\n14:32 · Away vs WFV · PA
+ HO Kurt Kucera Rundhalle · #16261
+LOCATION:PAHO Kurt Kucera Rundhalle
+END:VEVENT
+BEGIN:VEVENT
+UID:urn:floorballbunnies:day:2027-04-18
+DTSTAMP:20261009T140304Z
+DTSTART;TZID=Europe/Vienna:20270418T090000
+DTEND;TZID=Europe/Vienna:20270418T110200
+SUMMARY:U12 Mädchen: 2 games
+DESCRIPTION:Please double-check the date and kickoff time — the schedule 
+ can change.\nSun 18 Apr 2027 · 2 games · Europe/Vienna\n\n09:00 · Home 
+ vs WFV · PAHO Kurt Kucera Rundhalle · #16262\n09:32 · Away vs WFV · PA
+ HO Kurt Kucera Rundhalle · #16263
+LOCATION:PAHO Kurt Kucera Rundhalle
+END:VEVENT
+END:VCALENDAR
+

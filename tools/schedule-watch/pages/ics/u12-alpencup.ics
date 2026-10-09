@@ -1,0 +1,61 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Floorballbunnies//Schedule//EN
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+X-WR-CALNAME:Floorballbunnies U12 Alpencup
+X-WR-TIMEZONE:Europe/Vienna
+BEGIN:VTIMEZONE
+TZID:Europe/Vienna
+X-LIC-LOCATION:Europe/Vienna
+BEGIN:DAYLIGHT
+TZOFFSETFROM:+0100
+TZOFFSETTO:+0200
+TZNAME:CEST
+DTSTART:19700329T020000
+RRULE:FREQ=YEARLY;BYMONTH=3;BYDAY=-1SU
+END:DAYLIGHT
+BEGIN:STANDARD
+TZOFFSETFROM:+0200
+TZOFFSETTO:+0100
+TZNAME:CET
+DTSTART:19701025T030000
+RRULE:FREQ=YEARLY;BYMONTH=10;BYDAY=-1SU
+END:STANDARD
+END:VTIMEZONE
+BEGIN:VEVENT
+UID:urn:floorballbunnies:day:2026-12-12
+DTSTAMP:20261009T140304Z
+DTSTART;VALUE=DATE:20261212
+DTEND;VALUE=DATE:20261213
+SUMMARY:U12 Alpencup: 8 games
+DESCRIPTION:Please double-check the date and kickoff time — the schedule 
+ can change.\nSat 12 Dec 2026 · 8 games · Europe/Vienna\n\nTBD · Away vs
+  UHC Linz Weiß · Rennerschule · #16931\nTBD · Away vs FBV Haag · Renn
+ erschule · #16938\nTBD · Home vs SU Puchkirchen · Rennerschule · #1694
+ 3\nTBD · Home vs SU Floorball Bad Ischl Grün · Rennerschule · #16948\n
+ TBD · Home vs UHC Linz Rot · Rennerschule · #16953\nTBD · Home vs FBC 
+ Dragons · Rennerschule · #16957\nTBD · Away vs Salzburg Star Bulls · R
+ ennerschule · #16961\nTBD · Away vs SU Floorball Bad Ischl Blau · Renne
+ rschule · #16964
+LOCATION:Rennerschule
+END:VEVENT
+BEGIN:VEVENT
+UID:urn:floorballbunnies:day:2027-01-23
+DTSTAMP:20261009T140304Z
+DTSTART;VALUE=DATE:20270123
+DTEND;VALUE=DATE:20270124
+SUMMARY:U12 Alpencup: 8 games
+DESCRIPTION:Please double-check the date and kickoff time — the schedule 
+ can change.\nSat 23 Jan 2027 · 8 games · Europe/Vienna\n\nTBD · Away vs
+  UHC Linz Weiß · Rennerschule · #16880\nTBD · Away vs FBV Haag · Renn
+ erschule · #16887\nTBD · Home vs SU Puchkirchen · Rennerschule · #1689
+ 2\nTBD · Home vs SU Floorball Bad Ischl Grün · Rennerschule · #16897\n
+ TBD · Home vs UHC Linz Rot · Rennerschule · #16902\nTBD · Home vs FBC 
+ Dragons · Rennerschule · #16906\nTBD · Away vs Salzburg Star Bulls · R
+ ennerschule · #16910\nTBD · Away vs SU Floorball Bad Ischl Blau · Renne
+ rschule · #16913
+LOCATION:Rennerschule
+END:VEVENT
+END:VCALENDAR
+

@@ -1,0 +1,77 @@
+# Active club profile for FloorballFlash schedule-watch.
+# Copy clubs/_template.yaml → clubs/<slug>.yaml and point SCHEDULE_WATCH_CONFIG at it
+# for another Austrian club. Keep secrets in GitHub Secrets only.
+
+schemaVersion: 1
+
+club:
+  id: 78
+  name: Floorballbunnies
+  slug: floorballbunnies
+  url: https://www.floorballbunnies.at
+  logoUrl: https://www.floorballbunnies.at/wp-content/uploads/2021/01/cropped-bunnies_wappen_2020-192x192.png
+  # Names matching FloorballFlash home/away labels for this club
+  nameMatchers:
+    - Floorballbunnies
+    - Floorballbunnies Wien
+
+mcp:
+  host: mcp.floorballflash.at
+  # Public FloorballFlash MCP — no auth today
+  timeoutSeconds: 180
+  maxAttempts: 20
+
+schedule:
+  # GitHub Actions cron is UTC. Monday 07:00 UTC ≈ 08:00 Vienna (CET winter).
+  cron: "0 7 * * 1"
+  timezone: Europe/Vienna
+  watchFields:
+    - date
+    - time
+    - venue
+    - state
+    - homeTeam
+    - awayTeam
+    - competitionId
+    - competitionName
+
+fortress:
+  minGameRatio: 0.70
+  # Extra integrity gates (0 = disabled)
+  maxAddedGames: 100
+  maxRemovedGames: 100
+  requireHttpsPagesUrl: true
+  validateSnapshot: true
+  # Content-Security-Policy on generated HTML pages
+  csp: true
+
+brand:
+  lime: "#ccff00"
+  ink: "#0d0d0d"
+
+# Split change digests by competitionId → coach emails.
+# Unmapped competitions fall back to secret ALERT_TO.
+# Set real addresses before go-live; placeholders are ignored by Resend until replaced.
+# competitionId reference (club 78 season 2026):
+#   721 U8 · 722 U10 · 749 U10 Alpencup · 723 U12 Bully · 724 U12 Assist
+#   727 U12 Mädchen · 750 U12 Alpencup · 725 U14 Großfeld · 726 U14 Kleinfeld
+#   743 U14w · 728 U17 · 729/744 U17w · 731 Adults GF · 730 Adults KF · 737 Bundesliga
+coaches:
+  737: []   # Bundesliga — add emails e.g. [coach.bundesliga@example.com]
+  731: []   # Wiener Grossfeldliga
+  730: []   # Wiener Kleinfeldliga
+  724: []   # U12 Assist
+  723: []   # U12 Bully
+  750: []   # U12 Alpencup (OÖ U12 + Alpencup) — own squad, not Assist/Bully (confirmed)
+
+# If true, ALERT_TO also receives a full club digest in addition to split coach mails
+coachesNotifyDefaultFull: false
+
+# Category notes (confirmed):
+# - U12 Bully = A team (id 723) — own calendar; A/B overlap alerts vs Assist
+# - U12 Assist = B team (id 724) — own calendar; A/B overlap alerts vs Bully
+# - U12 Alpencup = Flash "OÖ U12 + Alpencup" (id 750) — SEPARATE (not Assist/Bully)
+# - U10 Alpencup = Flash "OÖ U10 + Alpencup" (id 749) — SEPARATE
+# - Adults Grossfeld ← "Wiener Grossfeldliga" (id 731)
+# - Adults Kleinfeld ← "Wiener Kleinfeldliga" (id 730)
+# - Bundesliga ← "ÖFBV Bundesliga Herren" (id 737)

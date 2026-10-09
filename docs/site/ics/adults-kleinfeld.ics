@@ -1,0 +1,87 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Floorballbunnies//Schedule//EN
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+X-WR-CALNAME:Floorballbunnies Adults Kleinfeld
+X-WR-TIMEZONE:Europe/Vienna
+BEGIN:VTIMEZONE
+TZID:Europe/Vienna
+X-LIC-LOCATION:Europe/Vienna
+BEGIN:DAYLIGHT
+TZOFFSETFROM:+0100
+TZOFFSETTO:+0200
+TZNAME:CEST
+DTSTART:19700329T020000
+RRULE:FREQ=YEARLY;BYMONTH=3;BYDAY=-1SU
+END:DAYLIGHT
+BEGIN:STANDARD
+TZOFFSETFROM:+0200
+TZOFFSETTO:+0100
+TZNAME:CET
+DTSTART:19701025T030000
+RRULE:FREQ=YEARLY;BYMONTH=10;BYDAY=-1SU
+END:STANDARD
+END:VTIMEZONE
+BEGIN:VEVENT
+UID:urn:floorballbunnies:day:2026-10-18
+DTSTAMP:20261009T140304Z
+DTSTART;TZID=Europe/Vienna:20261018T130000
+DTEND;TZID=Europe/Vienna:20261018T170000
+SUMMARY:Adults Kleinfeld: 2 games
+DESCRIPTION:Please double-check the date and kickoff time — the schedule 
+ can change.\nSun 18 Oct 2026 · 2 games · Europe/Vienna\n\n13:00 · Home 
+ vs FBC Dragons Hobby · Alterlaa · #16352\n15:30 · Home vs FBC Dragons Y
+ outh · Alterlaa · #16356
+LOCATION:Alterlaa
+END:VEVENT
+BEGIN:VEVENT
+UID:urn:floorballbunnies:day:2026-11-08
+DTSTAMP:20261009T140304Z
+DTSTART;TZID=Europe/Vienna:20261108T160000
+DTEND;TZID=Europe/Vienna:20261108T200000
+SUMMARY:Adults Kleinfeld: 2 games
+DESCRIPTION:Please double-check the date and kickoff time — the schedule 
+ can change.\nSun 08 Nov 2026 · 2 games · Europe/Vienna\n\n16:00 · Home 
+ vs Crossroads · PAHO Kurt Kucera Rundhalle · #16357\n18:30 · Home vs So
+ kol Wien · PAHO Kurt Kucera Rundhalle · #16361
+LOCATION:PAHO Kurt Kucera Rundhalle
+END:VEVENT
+BEGIN:VEVENT
+UID:urn:floorballbunnies:day:2027-03-14
+DTSTAMP:20261009T140304Z
+DTSTART;TZID=Europe/Vienna:20270314T113000
+DTEND;TZID=Europe/Vienna:20270314T184500
+SUMMARY:Adults Kleinfeld: 2 games
+DESCRIPTION:Please double-check the date and kickoff time — the schedule 
+ can change.\nSun 14 Mar 2027 · 2 games · Europe/Vienna\n\n11:30 · Home 
+ vs Crossroads · Alterlaa · #16366\n17:15 · Home vs WFV · Alterlaa · #
+ 16364
+LOCATION:Alterlaa
+END:VEVENT
+BEGIN:VEVENT
+UID:urn:floorballbunnies:day:2027-04-04
+DTSTAMP:20261009T140304Z
+DTSTART;TZID=Europe/Vienna:20270404T171500
+DTEND;TZID=Europe/Vienna:20270404T200000
+SUMMARY:Adults Kleinfeld: 2 games
+DESCRIPTION:Please double-check the date and kickoff time — the schedule 
+ can change.\nSun 04 Apr 2027 · 2 games · Europe/Vienna\n\n17:15 · Home 
+ vs FBC Dragons Hobby · Alterlaa · #16369\n18:30 · Home vs FBC Dragons Y
+ outh · Alterlaa · #16371
+LOCATION:Alterlaa
+END:VEVENT
+BEGIN:VEVENT
+UID:urn:floorballbunnies:day:2027-06-06
+DTSTAMP:20261009T140304Z
+DTSTART;TZID=Europe/Vienna:20270606T170000
+DTEND;TZID=Europe/Vienna:20270606T210000
+SUMMARY:Adults Kleinfeld: 2 games
+DESCRIPTION:Please double-check the date and kickoff time — the schedule 
+ can change.\nSun 06 Jun 2027 · 2 games · Europe/Vienna\n\n17:00 · Home 
+ vs Sokol Wien · Alterlaa · #16378\n19:30 · Home vs WFV · Alterlaa · #
+ 16381
+LOCATION:Alterlaa
+END:VEVENT
+END:VCALENDAR
+

@@ -1,0 +1,37 @@
+{
+  "probedAt": "2026-10-09T13:02:55Z",
+  "gameCount": 200,
+  "clubId": 78,
+  "savedAt": "2026-10-09T13:02:55Z",
+  "fetchMetrics": {
+    "calls": 240,
+    "successes": 240,
+    "retries": 0,
+    "sessionNotFound": 0,
+    "httpErrors": 0,
+    "connectionErrors": 0,
+    "reinitializes": 0,
+    "byTool": {
+      "current_season": {
+        "calls": 1,
+        "retries": 0,
+        "successes": 1
+      },
+      "search_competitions": {
+        "calls": 1,
+        "retries": 0,
+        "successes": 1
+      },
+      "search_games": {
+        "calls": 38,
+        "retries": 0,
+        "successes": 38
+      },
+      "get_game": {
+        "calls": 200,
+        "retries": 0,
+        "successes": 200
+      }
+    }
+  }
+}

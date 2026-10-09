@@ -1,0 +1,123 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Floorballbunnies//Schedule//EN
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+X-WR-CALNAME:Floorballbunnies U14 Großfeld
+X-WR-TIMEZONE:Europe/Vienna
+BEGIN:VTIMEZONE
+TZID:Europe/Vienna
+X-LIC-LOCATION:Europe/Vienna
+BEGIN:DAYLIGHT
+TZOFFSETFROM:+0100
+TZOFFSETTO:+0200
+TZNAME:CEST
+DTSTART:19700329T020000
+RRULE:FREQ=YEARLY;BYMONTH=3;BYDAY=-1SU
+END:DAYLIGHT
+BEGIN:STANDARD
+TZOFFSETFROM:+0200
+TZOFFSETTO:+0100
+TZNAME:CET
+DTSTART:19701025T030000
+RRULE:FREQ=YEARLY;BYMONTH=10;BYDAY=-1SU
+END:STANDARD
+END:VTIMEZONE
+BEGIN:VEVENT
+UID:urn:floorballbunnies:day:2026-10-11
+DTSTAMP:20261009T140304Z
+DTSTART;TZID=Europe/Vienna:20261011T083000
+DTEND;TZID=Europe/Vienna:20261011T123000
+SUMMARY:U14 Großfeld: 2 games
+DESCRIPTION:Please double-check the date and kickoff time — the schedule 
+ can change.\nSun 11 Oct 2026 · 2 games · Europe/Vienna\n\n08:30 · Home 
+ vs Wiener Floorballverein · PAHO Kurt Kucera Rundhalle · #16094\n11:00 
+ · Home vs FBC Dragons · PAHO Kurt Kucera Rundhalle · #16096
+LOCATION:PAHO Kurt Kucera Rundhalle
+END:VEVENT
+BEGIN:VEVENT
+UID:urn:floorballbunnies:day:2026-11-07
+DTSTAMP:20261009T140304Z
+DTSTART;TZID=Europe/Vienna:20261107T090000
+DTEND;TZID=Europe/Vienna:20261107T113000
+SUMMARY:U14 Großfeld: 2 games
+DESCRIPTION:Please double-check the date and kickoff time — the schedule 
+ can change.\nSat 07 Nov 2026 · 2 games · Europe/Vienna\n\n09:00 · Away 
+ vs HFC Feldkirch · PAHO Kurt Kucera Rundhalle · #16578\n10:00 · Home vs
+  Wiener Floorball Verein · PAHO Kurt Kucera Rundhalle · #16579
+LOCATION:PAHO Kurt Kucera Rundhalle
+END:VEVENT
+BEGIN:VEVENT
+UID:urn:floorballbunnies:day:2026-12-05
+DTSTAMP:20261009T140304Z
+DTSTART;VALUE=DATE:20261205
+DTEND;VALUE=DATE:20261206
+SUMMARY:U14 Großfeld: 2 games
+DESCRIPTION:Please double-check the date and kickoff time — the schedule 
+ can change.\nSat 05 Dec 2026 · 2 games · Europe/Vienna\n\nTBD · Away vs
+  VSV Unihockey · Sankt Martin · #16582\nTBD · Both-club? vs Floorballbu
+ nnies Wien vs Floorballbunnies Wien · Sankt Martin · #16584
+LOCATION:Sankt Martin
+END:VEVENT
+BEGIN:VEVENT
+UID:urn:floorballbunnies:day:2026-12-13
+DTSTAMP:20261009T140304Z
+DTSTART;TZID=Europe/Vienna:20261213T111500
+DTEND;TZID=Europe/Vienna:20261213T140000
+SUMMARY:U14 Großfeld: 2 games
+DESCRIPTION:Please double-check the date and kickoff time — the schedule 
+ can change.\nSun 13 Dec 2026 · 2 games · Europe/Vienna\n\n11:15 · Away 
+ vs Wiener Floorballverein · PAHO Kurt Kucera Rundhalle · #16098\n12:30 
+ · Away vs FBC Dragons · PAHO Kurt Kucera Rundhalle · #16099
+LOCATION:PAHO Kurt Kucera Rundhalle
+END:VEVENT
+BEGIN:VEVENT
+UID:urn:floorballbunnies:day:2027-01-16
+DTSTAMP:20261009T140304Z
+DTSTART;TZID=Europe/Vienna:20270116T101500
+DTEND;TZID=Europe/Vienna:20270116T130000
+SUMMARY:U14 Großfeld: 2 games
+DESCRIPTION:Please double-check the date and kickoff time — the schedule 
+ can change.\nSat 16 Jan 2027 · 2 games · Europe/Vienna\n\n10:15 · Home 
+ vs Wiener Floorballverein · PAHO Kurt Kucera Rundhalle · #16101\n11:30 
+ · Home vs FBC Dragons · PAHO Kurt Kucera Rundhalle · #16102
+LOCATION:PAHO Kurt Kucera Rundhalle
+END:VEVENT
+BEGIN:VEVENT
+UID:urn:floorballbunnies:day:2027-03-06
+DTSTAMP:20261009T140304Z
+DTSTART;TZID=Europe/Vienna:20270306T154500
+DTEND;TZID=Europe/Vienna:20270306T183000
+SUMMARY:U14 Großfeld: 2 games
+DESCRIPTION:Please double-check the date and kickoff time — the schedule 
+ can change.\nSat 06 Mar 2027 · 2 games · Europe/Vienna\n\n15:45 · Away 
+ vs Wiener Floorballverein · Alterlaa · #16314\n17:00 · Away vs FBC Drag
+ ons · Alterlaa · #16315
+LOCATION:Alterlaa
+END:VEVENT
+BEGIN:VEVENT
+UID:urn:floorballbunnies:day:2027-03-13
+DTSTAMP:20261009T140304Z
+DTSTART;VALUE=DATE:20270313
+DTEND;VALUE=DATE:20270314
+SUMMARY:U14 Großfeld: 2 games
+DESCRIPTION:Please double-check the date and kickoff time — the schedule 
+ can change.\nSat 13 Mar 2027 · 2 games · Europe/Vienna\n\nTBD · Home vs
+  KAC Floorball · Rennerschule · #16591\nTBD · Away vs UHC Alligator Rum
+  · Rennerschule · #16594
+LOCATION:Rennerschule
+END:VEVENT
+BEGIN:VEVENT
+UID:urn:floorballbunnies:day:2027-06-06
+DTSTAMP:20261009T140304Z
+DTSTART;TZID=Europe/Vienna:20270606T131500
+DTEND;TZID=Europe/Vienna:20270606T160000
+SUMMARY:U14 Großfeld: 2 games
+DESCRIPTION:Please double-check the date and kickoff time — the schedule 
+ can change.\nSun 06 Jun 2027 · 2 games · Europe/Vienna\n\n13:15 · Home 
+ vs Wiener Floorballverein · Alterlaa · #16317\n14:30 · Home vs FBC Drag
+ ons · Alterlaa · #16318
+LOCATION:Alterlaa
+END:VEVENT
+END:VCALENDAR
+

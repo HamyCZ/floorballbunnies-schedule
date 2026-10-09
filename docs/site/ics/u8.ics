@@ -1,0 +1,95 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Floorballbunnies//Schedule//EN
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+X-WR-CALNAME:Floorballbunnies U8
+X-WR-TIMEZONE:Europe/Vienna
+BEGIN:VTIMEZONE
+TZID:Europe/Vienna
+X-LIC-LOCATION:Europe/Vienna
+BEGIN:DAYLIGHT
+TZOFFSETFROM:+0100
+TZOFFSETTO:+0200
+TZNAME:CEST
+DTSTART:19700329T020000
+RRULE:FREQ=YEARLY;BYMONTH=3;BYDAY=-1SU
+END:DAYLIGHT
+BEGIN:STANDARD
+TZOFFSETFROM:+0200
+TZOFFSETTO:+0100
+TZNAME:CET
+DTSTART:19701025T030000
+RRULE:FREQ=YEARLY;BYMONTH=10;BYDAY=-1SU
+END:STANDARD
+END:VTIMEZONE
+BEGIN:VEVENT
+UID:urn:floorballbunnies:day:2026-11-14
+DTSTAMP:20261009T140304Z
+DTSTART;TZID=Europe/Vienna:20261114T150000
+DTEND;TZID=Europe/Vienna:20261114T175800
+SUMMARY:U8: 4 games
+DESCRIPTION:Please double-check the date and kickoff time — the schedule 
+ can change.\nSat 14 Nov 2026 · 4 games · Europe/Vienna\n\n15:00 · Away 
+ vs FBC Dragons · Alterlaa · #16103\n15:22 · Home vs WFV · Alterlaa · 
+ #16104\n16:06 · Home vs FBC Dragons · Alterlaa · #16106\n16:28 · Away 
+ vs WFV · Alterlaa · #16107
+LOCATION:Alterlaa
+END:VEVENT
+BEGIN:VEVENT
+UID:urn:floorballbunnies:day:2026-12-20
+DTSTAMP:20261009T140304Z
+DTSTART;TZID=Europe/Vienna:20261220T090000
+DTEND;TZID=Europe/Vienna:20261220T115800
+SUMMARY:U8: 4 games
+DESCRIPTION:Please double-check the date and kickoff time — the schedule 
+ can change.\nSun 20 Dec 2026 · 4 games · Europe/Vienna\n\n09:00 · Away 
+ vs FBC Dragons · PAHO Kurt Kucera Rundhalle · #16109\n09:22 · Home vs W
+ FV · PAHO Kurt Kucera Rundhalle · #16110\n10:06 · Home vs FBC Dragons 
+ · PAHO Kurt Kucera Rundhalle · #16112\n10:28 · Away vs WFV · PAHO Kurt
+  Kucera Rundhalle · #16113
+LOCATION:PAHO Kurt Kucera Rundhalle
+END:VEVENT
+BEGIN:VEVENT
+UID:urn:floorballbunnies:day:2027-02-21
+DTSTAMP:20261009T140304Z
+DTSTART;TZID=Europe/Vienna:20270221T090000
+DTEND;TZID=Europe/Vienna:20270221T115800
+SUMMARY:U8: 4 games
+DESCRIPTION:Please double-check the date and kickoff time — the schedule 
+ can change.\nSun 21 Feb 2027 · 4 games · Europe/Vienna\n\n09:00 · Away 
+ vs WFV · PAHO Kurt Kucera Rundhalle · #16115\n09:22 · Home vs FBC Drago
+ ns · PAHO Kurt Kucera Rundhalle · #16116\n10:06 · Home vs WFV · PAHO K
+ urt Kucera Rundhalle · #16118\n10:28 · Away vs FBC Dragons · PAHO Kurt 
+ Kucera Rundhalle · #16119
+LOCATION:PAHO Kurt Kucera Rundhalle
+END:VEVENT
+BEGIN:VEVENT
+UID:urn:floorballbunnies:day:2027-04-25
+DTSTAMP:20261009T140304Z
+DTSTART;TZID=Europe/Vienna:20270425T090000
+DTEND;TZID=Europe/Vienna:20270425T122000
+SUMMARY:U8: 4 games
+DESCRIPTION:Please double-check the date and kickoff time — the schedule 
+ can change.\nSun 25 Apr 2027 · 4 games · Europe/Vienna\n\n09:00 · Home 
+ vs FBC Dragons · Alterlaa · #16121\n09:44 · Home vs WFV · Alterlaa · 
+ #16123\n10:06 · Away vs FBC Dragons · Alterlaa · #16124\n10:50 · Away 
+ vs WFV · Alterlaa · #16126
+LOCATION:Alterlaa
+END:VEVENT
+BEGIN:VEVENT
+UID:urn:floorballbunnies:day:2027-05-30
+DTSTAMP:20261009T140304Z
+DTSTART;TZID=Europe/Vienna:20270530T130000
+DTEND;TZID=Europe/Vienna:20270530T162000
+SUMMARY:U8: 4 games
+DESCRIPTION:Please double-check the date and kickoff time — the schedule 
+ can change.\nSun 30 May 2027 · 4 games · Europe/Vienna\n\n13:00 · Home 
+ vs FBC Dragons · PAHO Kurt Kucera Rundhalle · #16127\n13:44 · Home vs W
+ FV · PAHO Kurt Kucera Rundhalle · #16129\n14:06 · Away vs FBC Dragons 
+ · PAHO Kurt Kucera Rundhalle · #16130\n14:50 · Away vs WFV · PAHO Kurt
+  Kucera Rundhalle · #16132
+LOCATION:PAHO Kurt Kucera Rundhalle
+END:VEVENT
+END:VCALENDAR
+
