@@ -1,0 +1,29 @@
+{
+  "comparedAt": "2026-10-09T22:24:20Z",
+  "oldProbedAt": "2026-10-09T22:24:20Z",
+  "newProbedAt": "2026-10-09T22:24:20Z",
+  "clubId": 78,
+  "clubName": "Floorballbunnies",
+  "watchFields": [
+    "date",
+    "time",
+    "venue",
+    "state",
+    "homeTeam",
+    "awayTeam",
+    "competitionId",
+    "competitionName"
+  ],
+  "counts": {
+    "added": 0,
+    "removed": 0,
+    "changed": 0,
+    "cancellations": 0,
+    "totalEvents": 0
+  },
+  "added": [],
+  "removed": [],
+  "changed": [],
+  "cancellations": [],
+  "hasChanges": false
+}

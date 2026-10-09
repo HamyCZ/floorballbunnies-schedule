@@ -1,6 +1,6 @@
 {
-  "probedAt": "2026-10-09T13:02:55Z",
-  "gameCount": 200,
+  "probedAt": "2026-10-09T22:24:20Z",
+  "gameCount": 193,
   "clubId": 78,
   "clubName": "Floorballbunnies",
   "timezone": "Europe/Vienna",
@@ -98,7 +98,7 @@
       "category": "U12 Alpencup",
       "slug": "u12-alpencup",
       "file": "ics/u12-alpencup.ics",
-      "games": 16,
+      "games": 9,
       "dates": [
         "2026-12-12",
         "2027-01-23"
@@ -216,10 +216,38 @@
       ]
     }
   ],
+  "pages": [
+    "index.html",
+    "weekend.html",
+    "clashes.html",
+    "calendar.html",
+    "changes.html"
+  ],
+  "nav": [
+    "Home",
+    "This week",
+    "Clashes",
+    "Calendar",
+    "Changes"
+  ],
+  "changes": {
+    "hasChanges": false,
+    "comparedAt": "2026-10-09T22:24:20Z",
+    "oldProbedAt": "2026-10-09T22:24:20Z",
+    "newProbedAt": "2026-10-09T22:24:20Z",
+    "counts": {
+      "added": 0,
+      "removed": 0,
+      "changed": 0,
+      "cancellations": 0,
+      "totalEvents": 0
+    },
+    "note": "Reflects the last successful watch diff (pages/changes.json)."
+  },
   "pagesBaseUrl": null,
-  "lastRun": "2026-10-09T14:03:04Z",
+  "lastRun": "2026-10-09T22:57:06Z",
   "nextRun": "2026-10-12T07:00:00Z",
-  "lastRunLabel": "Fri 09 Oct 2026 14:03 UTC",
+  "lastRunLabel": "Fri 09 Oct 2026 22:57 UTC",
   "nextRunLabel": "Mon 12 Oct 2026 07:00 UTC",
   "theme": "floorballbunnies-dark-lime",
   "fortress": {

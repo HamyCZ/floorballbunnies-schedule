@@ -10,6 +10,8 @@ Public site: <a href="https://hamycz.github.io/floorballbunnies-schedule" target
 - [What it does](#what-it-does)
 - [Monday flow](#monday-flow)
 - [Change detection](#change-detection)
+  - [Watched fields and ignores](#watched-fields-and-ignores)
+  - [Changes page](#changes-page)
 - [Fortress and main protection](#fortress-and-main-protection)
 - [Squads, clashes, calendar, ICS](#squads-clashes-calendar-ics)
 - [Config](#config)
@@ -63,7 +65,7 @@ Once a week (Monday), GitHub Actions:
 1. Fetches the club’s **league** schedule from FloorballFlash MCP.
 2. Runs **fortress health gates** (schema, count-drop, max churn).
 3. **Diffs** the new snapshot against the committed baseline.
-4. Rebuilds the **branded static site** (weekend, clashes, calendar + ICS).
+4. Rebuilds the **branded static site** (weekend, clashes, calendar, changes + ICS).
 5. Optionally emails coaches a **short digest** via **SMTP** if something changed (`RESEND_API_KEY` is an optional fallback only).
 6. On a healthy run: commits updated snapshot + pages, then the separate **pages** job deploys GitHub Pages.
 
@@ -73,7 +75,7 @@ It does **not** email the full website. It does **not** alert on score-only upda
 
 | Surface | What |
 |---|---|
-| **GitHub Pages** | Full UI: home, this week, clashes, calendar, `.ics` downloads |
+| **GitHub Pages** | Full UI: home, this week, clashes, calendar, changes, `.ics` downloads |
 | **Email digest** | Short change summary + links to Pages (not the full site) |
 
 | Condition | Email |
@@ -111,13 +113,45 @@ Do **not** hand-edit the baseline for routine updates. Companion file: `data/las
 
 ## Change detection
 
-Compared by Flash game `id` across the whole club. Watched fields (`config.yaml` → `schedule.watchFields`):
+Each healthy Monday run diffs the new FloorballFlash snapshot against the committed baseline (`data/schedule-snapshot.json`) via `compare_snapshots.py`. Games are matched by Flash game `id` across the whole club.
 
-`date`, `time`, `venue`, `state`, `homeTeam`, `awayTeam`, `competitionId`, `competitionName`
+### Watched fields and ignores
 
-- Added / removed / any watched-field change → `hasChanges=true`
-- Score-only and derived fields (`homeScore`, `awayScore`, `opponent`, …) are ignored
-- Cancellation highlights when `state` looks like cancel / postpone / walkover / forfeit
+Watched fields (`config.yaml` → `schedule.watchFields`, defaults below):
+
+| Watched | Meaning |
+|---|---|
+| `date`, `time` | Kickoff moved |
+| `venue` | Hall / location changed |
+| `state` | Status change (incl. cancel / postpone signals) |
+| `homeTeam`, `awayTeam` | Side renamed or swapped in Flash |
+| `competitionId`, `competitionName` | Competition reassignment |
+
+**Counted as a change** (`hasChanges=true`):
+
+- **Added** — game id present only in the new snapshot
+- **Removed** — game id present only in the old snapshot
+- **Field-changed** — any watched field value differs for the same id
+- **Cancellations** — subset of field changes where `state` newly looks like cancel / postpone / abandon / walkover / forfeit (highlighted separately; still part of the field-change list)
+
+**Ignored (not watched):**
+
+- Score-only updates (`homeScore`, `awayScore`, …)
+- Derived / display fields such as `opponent`, category labels, and anything else outside `watchFields`
+
+Artifacts from the diff: `out/changes.json`, `out/changes.md`, and an email-safe `out/changes.html` (digest tables — not the public site).
+
+Before the diff is accepted, **fortress health gates** can refuse the run (snapshot frozen, no site/email update): schema validation, empty fetch, count-drop (`minGameRatio`, default `0.70`), and max churn (`maxAddedGames` / `maxRemovedGames`). See [Fortress and main protection](#fortress-and-main-protection).
+
+### Changes page
+
+Public site page: [`changes.html`](https://hamycz.github.io/floorballbunnies-schedule/changes.html) (nav **Changes**).
+
+- Same branded shell as Home / This week / Clashes / Calendar (nav, hero, footer, CSS) — not the email digest layout
+- Shows the **last successful watch** report: summary counts, cancellations, field changes, new games, removed games, plus compared / previous / new probe timestamps
+- **Empty state** when that run had no diffs: “No schedule changes since last check” (timestamps still shown when available)
+- Durable copy: `pages/changes.json` is written on every healthy render so a later local rebuild can still populate the page
+- Wired by `run_watch` → `render_site.py --changes-json out/changes.json`
 
 ---
 
@@ -128,7 +162,7 @@ Protect `main` **before** enabling the workflow (`contents: write` on the watch 
 - Block force-push / deletion
 - Allow GitHub Actions to push (or set secret `SCHEDULE_PUSH_TOKEN`)
 
-Gates (tune under `fortress:`): schema validation, count-drop (`minGameRatio` default 0.70), max churn, HTTPS `PAGES_BASE_URL`, CSP on HTML, Vienna ICS TZ.
+Gates (tune under `fortress:`): schema validation, empty fetch, count-drop (`minGameRatio` default 0.70), max churn (`maxAddedGames` / `maxRemovedGames`), HTTPS `PAGES_BASE_URL`, CSP on HTML, Vienna ICS TZ.
 
 ---
 

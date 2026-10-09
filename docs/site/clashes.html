@@ -166,6 +166,18 @@ details.day-clash .day-clash-body{padding:0 6px 8px}
   background:rgba(204,255,0,.05);color:var(--text);
 }
 .empty strong{color:var(--lime)}
+.change-list{margin:0;padding:0;list-style:none}
+.change-list li{
+  padding:12px 16px;border-top:1px solid rgba(255,255,255,.05);
+  font-size:14px;line-height:1.45;color:var(--text);
+}
+.change-list li:first-child{border-top:0}
+.delta{margin:4px 0 0;color:var(--muted);font-size:13px}
+.delta code{
+  font-family:ui-monospace,Consolas,monospace;font-size:12px;
+  color:var(--text);background:rgba(0,0,0,.35);padding:1px 5px;border-radius:4px;
+}
+.delta .arrow{color:var(--lime);margin:0 4px}
 details.band{
   margin:0 0 12px;border:1px solid rgba(255,255,255,.08);border-radius:var(--radius);
   background:rgba(22,22,22,.92);overflow:hidden;
@@ -229,10 +241,10 @@ details.band .band-body{padding:8px 10px 12px}
         <div class="brand-name">Match Schedule</div>
       </div>
     </a>
-    <nav class="nav" aria-label="Primary"><a class="" href="index.html">Home</a><a class="" href="weekend.html">This week</a><a class="is-active" href="clashes.html">Clashes</a><a class="" href="calendar.html">Calendar</a></nav>
+    <nav class="nav" aria-label="Primary"><a class="" href="index.html">Home</a><a class="" href="weekend.html">This week</a><a class="is-active" href="clashes.html">Clashes</a><a class="" href="calendar.html">Calendar</a><a class="" href="changes.html">Changes</a></nav>
   </header>
   <section class="hero"><h1>Clashes</h1></section>
-  <div class="when" role="status"><div><span class="lbl">Last run</span> Fri 09 Oct 2026 14:03 UTC</div><div><span class="lbl">Next run</span> Mon 12 Oct 2026 07:00 UTC<span class="hint"> · Mon 07:00 UTC ≈ 08:00 Vienna (winter)</span></div></div>
+  <div class="when" role="status"><div><span class="lbl">Last run</span> Fri 09 Oct 2026 22:57 UTC</div><div><span class="lbl">Next run</span> Mon 12 Oct 2026 07:00 UTC<span class="hint"> · Mon 07:00 UTC ≈ 08:00 Vienna (winter)</span></div></div>
   <main class="main"><details class="band" open id="u12-groups"><summary><span style="color:#f5a524">U12 group overlap</span><span class="chev">▸</span></summary><div class="band-body">
 <details class="day-clash" open><summary><span>Sun 15 Nov 2026</span><span class="meta">5 · <span class="chev">▸</span></span></summary><div class="day-clash-body">
 <article class="game"><div class="time">10:06</div><div><div class="league"><span style="color:#ccff00;font-weight:700">U12 Assist</span> · Wiener U12 Assist Meisterschaft</div><div class="matchup">Home vs <strong>WFV 2</strong></div><div class="venue">Alterlaa <span class="id">#16226</span></div></div></article>
@@ -241,15 +253,13 @@ details.band .band-body{padding:8px 10px 12px}
 <article class="game"><div class="time">09:00</div><div><div class="league"><span style="color:#a3e635;font-weight:700">U12 Bully</span> · Wiener U12 Bully Meisterschaft</div><div class="matchup">Away vs <strong>FBC Dragons</strong></div><div class="venue">Alterlaa <span class="id">#16195</span></div></div></article>
 <article class="game"><div class="time">11:32</div><div><div class="league"><span style="color:#a3e635;font-weight:700">U12 Bully</span> · Wiener U12 Bully Meisterschaft</div><div class="matchup">Home vs <strong>WFV</strong></div><div class="venue">Alterlaa <span class="id">#16199</span></div></div></article>
 </div></details>
-<details class="day-clash"><summary><span>Sat 12 Dec 2026</span><span class="meta">10 · <span class="chev">▸</span></span></summary><div class="day-clash-body">
-<article class="game"><div class="time">TBD</div><div><div class="league"><span style="color:#bef264;font-weight:700">U12 Alpencup</span> · OÖ U12 + Alpencup</div><div class="matchup">Away vs <strong>UHC Linz Weiß</strong></div><div class="venue">Rennerschule <span class="id">#16931</span></div></div></article>
-<article class="game"><div class="time">TBD</div><div><div class="league"><span style="color:#bef264;font-weight:700">U12 Alpencup</span> · OÖ U12 + Alpencup</div><div class="matchup">Away vs <strong>FBV Haag</strong></div><div class="venue">Rennerschule <span class="id">#16938</span></div></div></article>
-<article class="game"><div class="time">TBD</div><div><div class="league"><span style="color:#bef264;font-weight:700">U12 Alpencup</span> · OÖ U12 + Alpencup</div><div class="matchup">Home vs <strong>SU Puchkirchen</strong></div><div class="venue">Rennerschule <span class="id">#16943</span></div></div></article>
-<article class="game"><div class="time">TBD</div><div><div class="league"><span style="color:#bef264;font-weight:700">U12 Alpencup</span> · OÖ U12 + Alpencup</div><div class="matchup">Home vs <strong>SU Floorball Bad Ischl Grün</strong></div><div class="venue">Rennerschule <span class="id">#16948</span></div></div></article>
-<article class="game"><div class="time">TBD</div><div><div class="league"><span style="color:#bef264;font-weight:700">U12 Alpencup</span> · OÖ U12 + Alpencup</div><div class="matchup">Home vs <strong>UHC Linz Rot</strong></div><div class="venue">Rennerschule <span class="id">#16953</span></div></div></article>
-<article class="game"><div class="time">TBD</div><div><div class="league"><span style="color:#bef264;font-weight:700">U12 Alpencup</span> · OÖ U12 + Alpencup</div><div class="matchup">Home vs <strong>FBC Dragons</strong></div><div class="venue">Rennerschule <span class="id">#16957</span></div></div></article>
-<article class="game"><div class="time">TBD</div><div><div class="league"><span style="color:#bef264;font-weight:700">U12 Alpencup</span> · OÖ U12 + Alpencup</div><div class="matchup">Away vs <strong>Salzburg Star Bulls</strong></div><div class="venue">Rennerschule <span class="id">#16961</span></div></div></article>
-<article class="game"><div class="time">TBD</div><div><div class="league"><span style="color:#bef264;font-weight:700">U12 Alpencup</span> · OÖ U12 + Alpencup</div><div class="matchup">Away vs <strong>SU Floorball Bad Ischl Blau</strong></div><div class="venue">Rennerschule <span class="id">#16964</span></div></div></article>
+<details class="day-clash"><summary><span>Sat 12 Dec 2026</span><span class="meta">8 · <span class="chev">▸</span></span></summary><div class="day-clash-body">
+<article class="game"><div class="time">11:00</div><div><div class="league"><span style="color:#bef264;font-weight:700">U12 Alpencup</span> · OÖ U12 + Alpencup</div><div class="matchup">Away vs <strong>Salzburg Star Bulls</strong></div><div class="venue">Rennerschule <span class="id">#17671</span></div></div></article>
+<article class="game"><div class="time">12:00</div><div><div class="league"><span style="color:#bef264;font-weight:700">U12 Alpencup</span> · OÖ U12 + Alpencup</div><div class="matchup">Away vs <strong>UHC Linz Weiß</strong></div><div class="venue">Rennerschule <span class="id">#17676</span></div></div></article>
+<article class="game"><div class="time">12:40</div><div><div class="league"><span style="color:#bef264;font-weight:700">U12 Alpencup</span> · OÖ U12 + Alpencup</div><div class="matchup">Away vs <strong>FBC Dragons</strong></div><div class="venue">Rennerschule <span class="id">#17681</span></div></div></article>
+<article class="game"><div class="time">13:20</div><div><div class="league"><span style="color:#bef264;font-weight:700">U12 Alpencup</span> · OÖ U12 + Alpencup</div><div class="matchup">Away vs <strong>FB Mattigtal Mammuts</strong></div><div class="venue">Rennerschule <span class="id">#17685</span></div></div></article>
+<article class="game"><div class="time">13:40</div><div><div class="league"><span style="color:#bef264;font-weight:700">U12 Alpencup</span> · OÖ U12 + Alpencup</div><div class="matchup">Away vs <strong>SU Floorball Bad Ischl Blau</strong></div><div class="venue">Rennerschule <span class="id">#17687</span></div></div></article>
+<article class="game"><div class="time">14:20</div><div><div class="league"><span style="color:#bef264;font-weight:700">U12 Alpencup</span> · OÖ U12 + Alpencup</div><div class="matchup">Away vs <strong>FBV Haag</strong></div><div class="venue">Rennerschule <span class="id">#17690</span></div></div></article>
 <article class="game"><div class="time">12:38</div><div><div class="league"><span style="color:#ccff00;font-weight:700">U12 Assist</span> · Wiener U12 Assist Meisterschaft</div><div class="matchup">Home vs <strong>WFV 2</strong></div><div class="venue">PAHO Kurt Kucera Rundhalle <span class="id">#16231</span></div></div></article>
 <article class="game"><div class="time">13:16</div><div><div class="league"><span style="color:#ccff00;font-weight:700">U12 Assist</span> · Wiener U12 Assist Meisterschaft</div><div class="matchup">Home vs <strong>WFV 3</strong></div><div class="venue">PAHO Kurt Kucera Rundhalle <span class="id">#16232</span></div></div></article>
 </div></details>

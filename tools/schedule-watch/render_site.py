@@ -476,6 +476,18 @@ details.day-clash .day-clash-body{padding:0 6px 8px}
   background:rgba(204,255,0,.05);color:var(--text);
 }
 .empty strong{color:var(--lime)}
+.change-list{margin:0;padding:0;list-style:none}
+.change-list li{
+  padding:12px 16px;border-top:1px solid rgba(255,255,255,.05);
+  font-size:14px;line-height:1.45;color:var(--text);
+}
+.change-list li:first-child{border-top:0}
+.delta{margin:4px 0 0;color:var(--muted);font-size:13px}
+.delta code{
+  font-family:ui-monospace,Consolas,monospace;font-size:12px;
+  color:var(--text);background:rgba(0,0,0,.35);padding:1px 5px;border-radius:4px;
+}
+.delta .arrow{color:var(--lime);margin:0 4px}
 details.band{
   margin:0 0 12px;border:1px solid rgba(255,255,255,.08);border-radius:var(--radius);
   background:rgba(22,22,22,.92);overflow:hidden;
@@ -590,6 +602,7 @@ def shell(
         ("weekend", "weekend.html", "This week"),
         ("clashes", "clashes.html", "Clashes"),
         ("calendar", "calendar.html", "Calendar"),
+        ("changes", "changes.html", "Changes"),
     ]
     nav = []
     for key, href, label in nav_items:
@@ -833,6 +846,222 @@ def build_clashes(
         next_run=next_run,
         active="clashes",
         hero_title="Clashes",
+    )
+
+
+def empty_changes_report(
+    *,
+    club_name: str | None = None,
+    club_id: Any = None,
+    old_probed_at: str | None = None,
+    new_probed_at: str | None = None,
+    compared_at: str | None = None,
+) -> dict[str, Any]:
+    """Site-safe empty change report (same shape as compare_snapshots.diff_snapshots)."""
+    club = club_info()
+    return {
+        "comparedAt": compared_at
+        or datetime.now(timezone.utc).replace(microsecond=0).isoformat().replace("+00:00", "Z"),
+        "oldProbedAt": old_probed_at,
+        "newProbedAt": new_probed_at,
+        "clubId": club_id if club_id is not None else club.get("id"),
+        "clubName": club_name or club.get("name") or "Club",
+        "watchFields": list(
+            active_cfg().get("schedule", {}).get("watchFields")
+            or (
+                "date",
+                "time",
+                "venue",
+                "state",
+                "homeTeam",
+                "awayTeam",
+                "competitionId",
+                "competitionName",
+            )
+        ),
+        "counts": {
+            "added": 0,
+            "removed": 0,
+            "changed": 0,
+            "cancellations": 0,
+            "totalEvents": 0,
+        },
+        "added": [],
+        "removed": [],
+        "changed": [],
+        "cancellations": [],
+        "hasChanges": False,
+    }
+
+
+def load_changes_report(
+    changes_path: Path | None,
+    *,
+    fallback_path: Path | None = None,
+    snapshot: dict[str, Any] | None = None,
+) -> dict[str, Any]:
+    """Load changes JSON for the site page; fall back to durable copy or empty report."""
+    for path in (changes_path, fallback_path):
+        if path and path.exists():
+            try:
+                data = json.loads(path.read_text(encoding="utf-8"))
+                if isinstance(data, dict) and "counts" in data:
+                    return data
+            except Exception:
+                pass
+    probed = (snapshot or {}).get("probedAt")
+    return empty_changes_report(
+        club_name=(snapshot or {}).get("clubName"),
+        club_id=(snapshot or {}).get("clubId"),
+        old_probed_at=probed,
+        new_probed_at=probed,
+        compared_at=probed,
+    )
+
+
+def _change_opponent(game: dict[str, Any] | None) -> str:
+    if not game:
+        return ""
+    if game.get("opponent"):
+        return str(game["opponent"]).strip()
+    ha = str(game.get("homeAway") or "").strip().lower()
+    home, away = str(game.get("homeTeam") or "").strip(), str(game.get("awayTeam") or "").strip()
+    if ha == "home":
+        return away
+    if ha == "away":
+        return home
+    return f"{home} vs {away}".strip()
+
+
+def build_changes(
+    report: dict[str, Any],
+    last_run: datetime | None = None,
+    next_run: datetime | None = None,
+) -> str:
+    """Public Pages page for the last successful watch diff (added / removed / field / cancel)."""
+    counts = report.get("counts") or {}
+    has = bool(report.get("hasChanges"))
+    compared = report.get("comparedAt") or "—"
+    old_p = report.get("oldProbedAt") or "—"
+    new_p = report.get("newProbedAt") or "—"
+
+    parts: list[str] = [
+        '<p class="lead">Schedule updates from the last successful weekly watch '
+        "(same diff as the email digest). Score-only updates are ignored.</p>",
+        '<div class="when" role="status">',
+        f'<div><span class="lbl">Compared</span> {escape(str(compared))}</div>',
+        f'<div><span class="lbl">Previous</span> {escape(str(old_p))}</div>',
+        f'<div><span class="lbl">New</span> {escape(str(new_p))}</div>',
+        "</div>",
+        '<div class="stats">',
+        f'<div class="stat"><span>Changed</span><b>{int(counts.get("changed") or 0)}</b></div>',
+        f'<div class="stat"><span>Added</span><b>{int(counts.get("added") or 0)}</b></div>',
+        f'<div class="stat"><span>Removed</span><b>{int(counts.get("removed") or 0)}</b></div>',
+        "</div>",
+    ]
+    cancel_n = int(counts.get("cancellations") or 0)
+    if cancel_n:
+        parts.append(
+            f'<div class="chips"><span class="chip" style="background:var(--danger);color:#fff">'
+            f"Cancellations · {cancel_n}</span></div>"
+        )
+
+    if not has:
+        parts.append(
+            '<div class="empty"><strong>No schedule changes since last check.</strong> '
+            "This page reflects the last successful watch.</div>"
+        )
+        return shell(
+            "Changes",
+            "\n".join(parts),
+            last_run=last_run,
+            next_run=next_run,
+            active="changes",
+            hero_title="Changes",
+            hero_lead="Recent schedule updates",
+        )
+
+    def section(title: str, items_html: str, count: int, *, danger: bool = False) -> str:
+        accent = ' style="color:var(--danger)"' if danger else ""
+        return (
+            f'<section class="panel"><div class="panel-h"><span{accent}>{escape(title)}</span>'
+            f'<span class="meta">{count} item(s)</span></div>'
+            f'<ul class="change-list">{items_html}</ul></section>'
+        )
+
+    cancellations = report.get("cancellations") or []
+    if cancellations:
+        lis_parts = []
+        for e in cancellations:
+            summary = e.get("summary") or f"#{e.get('id')}"
+            lis_parts.append(f"<li>{escape(str(summary))}</li>")
+        parts.append(
+            section(
+                "Cancellations / state alerts",
+                "".join(lis_parts),
+                len(cancellations),
+                danger=True,
+            )
+        )
+
+    changed = report.get("changed") or []
+    if changed:
+        blocks: list[str] = []
+        for e in changed:
+            after = e.get("after") or {}
+            gid = e.get("id")
+            league = escape(str(after.get("competitionName") or ""))
+            opp = escape(_change_opponent(after))
+            deltas = []
+            for c in e.get("changes") or []:
+                deltas.append(
+                    f'<div class="delta"><strong>{escape(str(c.get("field")))}</strong>: '
+                    f'<code>{escape(str(c.get("from")))}</code>'
+                    f'<span class="arrow">→</span>'
+                    f'<code>{escape(str(c.get("to")))}</code></div>'
+                )
+            blocks.append(
+                f"<li><strong>#{escape(str(gid))}</strong> · {league}<br>"
+                f'<span style="color:var(--muted)">vs {opp}</span>'
+                f"{''.join(deltas)}</li>"
+            )
+        parts.append(
+            f'<section class="panel"><div class="panel-h"><span>Field changes</span>'
+            f'<span class="meta">{len(changed)} game(s)</span></div>'
+            f'<ul class="change-list">{"".join(blocks)}</ul></section>'
+        )
+
+    added = report.get("added") or []
+    if added:
+        lis_parts = []
+        for e in added:
+            summary = e.get("summary") or f"New game #{e.get('id')}"
+            lis_parts.append(f"<li>{escape(str(summary))}</li>")
+        parts.append(section("New games", "".join(lis_parts), len(added)))
+
+    removed = report.get("removed") or []
+    if removed:
+        lis_parts = []
+        for e in removed:
+            summary = e.get("summary") or f"Removed game #{e.get('id')}"
+            lis_parts.append(f"<li>{escape(str(summary))}</li>")
+        parts.append(section("Removed games", "".join(lis_parts), len(removed)))
+
+    fields = report.get("watchFields") or []
+    if fields:
+        parts.append(
+            f'<p class="lead" style="margin-top:8px">Watched fields: '
+            f'{escape(", ".join(str(f) for f in fields))}.</p>'
+        )
+
+    return shell(
+        "Changes",
+        "\n".join(parts),
+        last_run=last_run,
+        next_run=next_run,
+        active="changes",
+        hero_title="Changes",
+        hero_lead="Recent schedule updates",
     )
 
 
@@ -1700,6 +1929,7 @@ def render_all(
     last_success_path: Path | None = None,
     executed_at: datetime | None = None,
     cfg: dict[str, Any] | None = None,
+    changes_path: Path | None = None,
 ) -> dict[str, Any]:
     if cfg is not None:
         set_active_cfg(cfg)
@@ -1716,6 +1946,11 @@ def render_all(
     clash_cats = _clash_categories(games)
     ics_index = write_category_ics(games, out_dir / "ics")
     club = club_info()
+    changes_report = load_changes_report(
+        changes_path,
+        fallback_path=out_dir / "changes.json",
+        snapshot=snapshot,
+    )
 
     (out_dir / "index.html").write_text(
         build_index(
@@ -1747,6 +1982,15 @@ def render_all(
         ),
         encoding="utf-8",
     )
+    (out_dir / "changes.html").write_text(
+        build_changes(changes_report, last_run=last_run, next_run=next_run),
+        encoding="utf-8",
+    )
+    # Durable copy for Pages / local rebuild without a fresh diff
+    (out_dir / "changes.json").write_text(
+        json.dumps(changes_report, indent=2, ensure_ascii=False) + "\n",
+        encoding="utf-8",
+    )
     meta = {
         "probedAt": snapshot.get("probedAt"),
         "gameCount": len(snapshot.get("games") or []),
@@ -1758,6 +2002,22 @@ def render_all(
         "weekend": {"sat": mon.isoformat(), "sun": sun.isoformat(), "games": week_n},
         "clashCategories": clash_cats,
         "calendarCategories": ics_index,
+        "pages": [
+            "index.html",
+            "weekend.html",
+            "clashes.html",
+            "calendar.html",
+            "changes.html",
+        ],
+        "nav": ["Home", "This week", "Clashes", "Calendar", "Changes"],
+        "changes": {
+            "hasChanges": bool(changes_report.get("hasChanges")),
+            "comparedAt": changes_report.get("comparedAt"),
+            "oldProbedAt": changes_report.get("oldProbedAt"),
+            "newProbedAt": changes_report.get("newProbedAt"),
+            "counts": changes_report.get("counts"),
+            "note": "Reflects the last successful watch diff (pages/changes.json).",
+        },
         "pagesBaseUrl": pages_base_url or None,
         "lastRun": last_run.astimezone(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ"),
         "nextRun": next_run.astimezone(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ"),
@@ -1780,6 +2040,12 @@ def main() -> int:
     ap.add_argument("--pages-base-url", default="", help="e.g. https://USER.github.io/REPO")
     ap.add_argument("--today", default=None, help="YYYY-MM-DD override for weekend calc")
     ap.add_argument("--last-success", type=Path, default=None)
+    ap.add_argument(
+        "--changes-json",
+        type=Path,
+        default=None,
+        help="Change report from compare_snapshots (written to pages/changes.json)",
+    )
     ap.add_argument("--config", type=Path, default=None)
     args = ap.parse_args()
     cfg = load_config(str(args.config) if args.config else None)
@@ -1792,6 +2058,7 @@ def main() -> int:
         last_success_path=args.last_success,
         executed_at=datetime.now(timezone.utc),
         cfg=cfg,
+        changes_path=args.changes_json,
     )
     print(json.dumps(meta, indent=2))
     return 0

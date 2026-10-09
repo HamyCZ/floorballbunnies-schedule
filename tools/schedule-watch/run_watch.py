@@ -263,6 +263,8 @@ def main() -> int:
             args.pages_base_url,
             "--last-success",
             str(args.last_success),
+            "--changes-json",
+            str(report_json),
         ]
         if args.config:
             site_cmd += ["--config", str(args.config)]

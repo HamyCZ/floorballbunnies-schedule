@@ -269,6 +269,8 @@ def render_html(report: dict[str, Any], pages_base_url: str = "") -> str:
     <a href="{esc(base)}/clashes.html" style="color:#0d0d0d;font-weight:700">Clashes</a>
     &nbsp;·&nbsp;
     <a href="{esc(base)}/calendar.html" style="color:#0d0d0d;font-weight:700">Calendar</a>
+    &nbsp;·&nbsp;
+    <a href="{esc(base)}/changes.html" style="color:#0d0d0d;font-weight:700">Changes</a>
   </td></tr>
 </table>
 """
