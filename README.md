@@ -147,7 +147,7 @@ Before the diff is accepted, **fortress health gates** can refuse the run (snaps
 
 Public site page: [`changes.html`](https://hamycz.github.io/floorballbunnies-schedule/changes.html) (nav **Changes**).
 
-- Same branded shell as Home / This week / Clashes / Calendar (nav, hero, footer, CSS) — not the email digest layout
+- Same branded shell as Home / This week / Clashes / Changes / Calendar (nav, hero, footer, CSS) — not the email digest layout
 - Shows the **last successful watch** report: summary counts, cancellations, field changes, new games, removed games, plus compared / previous / new probe timestamps
 - **Empty state** when that run had no diffs: “No schedule changes since last check” (timestamps still shown when available)
 - Durable copy: `pages/changes.json` is written on every healthy render so a later local rebuild can still populate the page

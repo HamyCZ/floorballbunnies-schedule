@@ -601,8 +601,8 @@ def shell(
         ("home", "index.html", "Home"),
         ("weekend", "weekend.html", "This week"),
         ("clashes", "clashes.html", "Clashes"),
-        ("calendar", "calendar.html", "Calendar"),
         ("changes", "changes.html", "Changes"),
+        ("calendar", "calendar.html", "Calendar"),
     ]
     nav = []
     for key, href, label in nav_items:
@@ -2006,10 +2006,10 @@ def render_all(
             "index.html",
             "weekend.html",
             "clashes.html",
-            "calendar.html",
             "changes.html",
+            "calendar.html",
         ],
-        "nav": ["Home", "This week", "Clashes", "Calendar", "Changes"],
+        "nav": ["Home", "This week", "Clashes", "Changes", "Calendar"],
         "changes": {
             "hasChanges": bool(changes_report.get("hasChanges")),
             "comparedAt": changes_report.get("comparedAt"),
