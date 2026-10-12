@@ -72,9 +72,9 @@ CATEGORY_ACCENT = {
     "Bundesliga": "#ef4444",
 }
 
-CRON_WEEKDAY = 0  # Monday
+CRON_WEEKDAY = 0  # Monday (primary cron; soft backup is 09:17 UTC)
 CRON_HOUR_UTC = 7
-CRON_MINUTE_UTC = 0
+CRON_MINUTE_UTC = 17
 
 # Europe/Vienna VTIMEZONE block (CET/CEST EU rules) for ICS
 VIENNA_VTIMEZONE = """BEGIN:VTIMEZONE
@@ -194,12 +194,14 @@ def schedule_banner(
             f'<div class="when" role="status">'
             f'<div><span class="lbl">Last run</span> {escape(last_s)}</div>'
             f'<div><span class="lbl">Next run</span> {escape(next_s)}'
-            f'<span class="hint"> · Mon 07:00 UTC ≈ 08:00 Vienna (winter)</span></div>'
+            f'<span class="hint"> · Mondays ~07:17 UTC (backup ~09:17 UTC)'
+            f' ≈ 09:17 / 11:17 Vienna CEST (08:17 / 10:17 CET)</span></div>'
             f"</div>"
         )
     return (
         f"Last run: {last_s}\n"
-        f"Next run: {next_s} (weekly Monday 07:00 UTC ≈ 08:00 Vienna in winter)\n"
+        f"Next run: {next_s} (Mondays ~07:17 UTC, backup ~09:17 UTC"
+        f" ≈ 09:17 / 11:17 Vienna CEST / 08:17 / 10:17 CET)\n"
     )
 
 

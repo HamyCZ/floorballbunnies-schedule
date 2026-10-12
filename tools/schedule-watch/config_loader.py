@@ -25,7 +25,7 @@ DEFAULTS: dict[str, Any] = {
     },
     "mcp": {"host": "mcp.floorballflash.at", "timeoutSeconds": 180, "maxAttempts": 20},
     "schedule": {
-        "cron": "0 7 * * 1",
+        "cron": "17 7 * * 1",
         "timezone": "Europe/Vienna",
         "watchFields": [
             "date",

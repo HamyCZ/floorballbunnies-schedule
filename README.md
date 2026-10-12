@@ -25,7 +25,7 @@ Public site: <a href="https://hamycz.github.io/floorballbunnies-schedule" target
 | Baseline | `tools/schedule-watch/data/schedule-snapshot.json` |
 | Site preview | `docs/site/` (open locally) · built pages in `tools/schedule-watch/pages/` |
 | MCP | `mcp.floorballflash.at` |
-| Cron | Monday `07:00` UTC ≈ `08:00` Europe/Vienna |
+| Cron | Mondays `07:17` UTC (backup `09:17` UTC) ≈ `09:17` / `11:17` Vienna CEST (`08:17` / `10:17` CET) |
 | Workflow | [`.github/workflows/schedule-watch.yml`](.github/workflows/schedule-watch.yml) |
 
 ---

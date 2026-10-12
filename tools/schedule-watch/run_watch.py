@@ -239,7 +239,8 @@ def main() -> int:
     timing_txt = schedule_banner(executed, next_run, as_html=False)
     timing_md = (
         f"\n---\n\n**Last run:** {fmt_stamp(executed)}  \n"
-        f"**Next run:** {fmt_stamp(next_run)} (weekly Monday 07:00 UTC ≈ 08:00 Vienna in winter)\n"
+        f"**Next run:** {fmt_stamp(next_run)} (Mondays ~07:17 UTC, backup ~09:17 UTC"
+        f" ≈ 09:17 / 11:17 Vienna CEST / 08:17 / 10:17 CET)\n"
     )
     if report_md.exists():
         report_md.write_text(report_md.read_text(encoding="utf-8") + timing_md, encoding="utf-8")

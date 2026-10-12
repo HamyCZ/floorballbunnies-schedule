@@ -1,5 +1,9 @@
 # Weekly FloorballFlash schedule watch
-# Monday 07:00 UTC ≈ 08:00 Europe/Vienna (CET winter).
+#
+# Cron is UTC. Europe/Vienna offsets:
+#   CET (winter) = UTC+1 · CEST (summer) = UTC+2
+# Primary  `17 7 * * 1` → Mon 07:17 UTC ≈ 09:17 Vienna CEST / 08:17 CET (off :00 stampede)
+# Backup   `17 9 * * 1` → Mon 09:17 UTC ≈ 11:17 Vienna CEST / 10:17 CET (soft ~11 Vienna)
 #
 # Fortress notes:
 # - Default token is read-only; write scopes are per-job.
@@ -11,7 +15,8 @@ name: schedule-watch
 
 on:
   schedule:
-    - cron: "0 7 * * 1"
+    - cron: "17 7 * * 1"  # primary
+    - cron: "17 9 * * 1"  # soft backup ~11 Vienna
   workflow_dispatch:
 
 # Least privilege at workflow level — jobs request only what they need.
