@@ -1,7 +1,7 @@
 {
-  "comparedAt": "2026-10-10T08:39:08Z",
-  "oldProbedAt": "2026-10-09T22:24:20Z",
-  "newProbedAt": "2026-10-10T08:39:08Z",
+  "comparedAt": "2026-10-12T09:33:05Z",
+  "oldProbedAt": "2026-10-10T08:39:08Z",
+  "newProbedAt": "2026-10-12T09:33:05Z",
   "clubId": 78,
   "clubName": "Floorballbunnies",
   "watchFields": [
@@ -17,13 +17,170 @@
   "counts": {
     "added": 0,
     "removed": 0,
-    "changed": 0,
+    "changed": 4,
     "cancellations": 0,
-    "totalEvents": 0
+    "totalEvents": 4
   },
   "added": [],
   "removed": [],
-  "changed": [],
+  "changed": [
+    {
+      "id": 16094,
+      "before": {
+        "id": 16094,
+        "date": "2026-10-11",
+        "time": "08:30",
+        "venue": "PAHO Kurt Kucera Rundhalle",
+        "state": "BeforeGame",
+        "homeTeam": "Floorballbunnies",
+        "awayTeam": "Wiener Floorballverein",
+        "homeAway": "Home",
+        "opponent": "Wiener Floorballverein",
+        "clubTeamName": "Floorballbunnies",
+        "competitionId": 725,
+        "competitionName": "Wiener U14 Großfeld Meisterschaft"
+      },
+      "after": {
+        "id": 16094,
+        "date": "2026-10-11",
+        "time": "08:30",
+        "venue": "PAHO Kurt Kucera Rundhalle",
+        "state": "Finished",
+        "homeTeam": "Floorballbunnies",
+        "awayTeam": "Wiener Floorballverein",
+        "homeAway": "Home",
+        "opponent": "Wiener Floorballverein",
+        "clubTeamName": "Floorballbunnies",
+        "competitionId": 725,
+        "competitionName": "Wiener U14 Großfeld Meisterschaft"
+      },
+      "changes": [
+        {
+          "field": "state",
+          "from": "BeforeGame",
+          "to": "Finished"
+        }
+      ],
+      "summary": "#16094 (Wiener U14 Großfeld Meisterschaft): state: 'BeforeGame' → 'Finished'"
+    },
+    {
+      "id": 16096,
+      "before": {
+        "id": 16096,
+        "date": "2026-10-11",
+        "time": "11:00",
+        "venue": "PAHO Kurt Kucera Rundhalle",
+        "state": "BeforeGame",
+        "homeTeam": "Floorballbunnies",
+        "awayTeam": "FBC Dragons",
+        "homeAway": "Home",
+        "opponent": "FBC Dragons",
+        "clubTeamName": "Floorballbunnies",
+        "competitionId": 725,
+        "competitionName": "Wiener U14 Großfeld Meisterschaft"
+      },
+      "after": {
+        "id": 16096,
+        "date": "2026-10-11",
+        "time": "11:00",
+        "venue": "PAHO Kurt Kucera Rundhalle",
+        "state": "Finished",
+        "homeTeam": "Floorballbunnies",
+        "awayTeam": "FBC Dragons",
+        "homeAway": "Home",
+        "opponent": "FBC Dragons",
+        "clubTeamName": "Floorballbunnies",
+        "competitionId": 725,
+        "competitionName": "Wiener U14 Großfeld Meisterschaft"
+      },
+      "changes": [
+        {
+          "field": "state",
+          "from": "BeforeGame",
+          "to": "Finished"
+        }
+      ],
+      "summary": "#16096 (Wiener U14 Großfeld Meisterschaft): state: 'BeforeGame' → 'Finished'"
+    },
+    {
+      "id": 16382,
+      "before": {
+        "id": 16382,
+        "date": "2026-10-11",
+        "time": "16:00",
+        "venue": "PAHO Kurt Kucera Rundhalle",
+        "state": "BeforeGame",
+        "homeTeam": "IBK Währing",
+        "awayTeam": "Floorballbunnies",
+        "homeAway": "Away",
+        "opponent": "IBK Währing",
+        "clubTeamName": "Floorballbunnies",
+        "competitionId": 731,
+        "competitionName": "Wiener Grossfeldliga"
+      },
+      "after": {
+        "id": 16382,
+        "date": "2026-10-11",
+        "time": "16:00",
+        "venue": "PAHO Kurt Kucera Rundhalle",
+        "state": "Finished",
+        "homeTeam": "IBK Währing",
+        "awayTeam": "Floorballbunnies",
+        "homeAway": "Away",
+        "opponent": "IBK Währing",
+        "clubTeamName": "Floorballbunnies",
+        "competitionId": 731,
+        "competitionName": "Wiener Grossfeldliga"
+      },
+      "changes": [
+        {
+          "field": "state",
+          "from": "BeforeGame",
+          "to": "Finished"
+        }
+      ],
+      "summary": "#16382 (Wiener Grossfeldliga): state: 'BeforeGame' → 'Finished'"
+    },
+    {
+      "id": 16384,
+      "before": {
+        "id": 16384,
+        "date": "2026-10-11",
+        "time": "18:30",
+        "venue": "PAHO Kurt Kucera Rundhalle",
+        "state": "BeforeGame",
+        "homeTeam": "Floorballbunnies",
+        "awayTeam": "Crossroads",
+        "homeAway": "Home",
+        "opponent": "Crossroads",
+        "clubTeamName": "Floorballbunnies",
+        "competitionId": 731,
+        "competitionName": "Wiener Grossfeldliga"
+      },
+      "after": {
+        "id": 16384,
+        "date": "2026-10-11",
+        "time": "18:30",
+        "venue": "PAHO Kurt Kucera Rundhalle",
+        "state": "Finished",
+        "homeTeam": "Floorballbunnies",
+        "awayTeam": "Crossroads",
+        "homeAway": "Home",
+        "opponent": "Crossroads",
+        "clubTeamName": "Floorballbunnies",
+        "competitionId": 731,
+        "competitionName": "Wiener Grossfeldliga"
+      },
+      "changes": [
+        {
+          "field": "state",
+          "from": "BeforeGame",
+          "to": "Finished"
+        }
+      ],
+      "summary": "#16384 (Wiener Grossfeldliga): state: 'BeforeGame' → 'Finished'"
+    }
+  ],
   "cancellations": [],
-  "hasChanges": false
+  "hasChanges": true
 }

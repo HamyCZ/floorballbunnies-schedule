@@ -24,20 +24,8 @@ RRULE:FREQ=YEARLY;BYMONTH=10;BYDAY=-1SU
 END:STANDARD
 END:VTIMEZONE
 BEGIN:VEVENT
-UID:urn:floorballbunnies:day:2026-10-11
-DTSTAMP:20261010T084327Z
-DTSTART;TZID=Europe/Vienna:20261011T160000
-DTEND;TZID=Europe/Vienna:20261011T200000
-SUMMARY:Adults Grossfeld: 2 games
-DESCRIPTION:Please double-check the date and kickoff time — the schedule 
- can change.\nSun 11 Oct 2026 · 2 games · Europe/Vienna\n\n16:00 · Away 
- vs IBK Währing · PAHO Kurt Kucera Rundhalle · #16382\n18:30 · Home vs 
- Crossroads · PAHO Kurt Kucera Rundhalle · #16384
-LOCATION:PAHO Kurt Kucera Rundhalle
-END:VEVENT
-BEGIN:VEVENT
 UID:urn:floorballbunnies:day:2026-11-21
-DTSTAMP:20261010T084327Z
+DTSTAMP:20261012T093306Z
 DTSTART;TZID=Europe/Vienna:20261121T101500
 DTEND;TZID=Europe/Vienna:20261121T130000
 SUMMARY:Adults Grossfeld: 2 games
@@ -49,7 +37,7 @@ LOCATION:PAHO Kurt Kucera Rundhalle
 END:VEVENT
 BEGIN:VEVENT
 UID:urn:floorballbunnies:game:16394
-DTSTAMP:20261010T084327Z
+DTSTAMP:20261012T093306Z
 DTSTART;TZID=Europe/Vienna:20270110T160000
 DTEND;TZID=Europe/Vienna:20270110T173000
 SUMMARY:Adults Grossfeld: vs FBC Dragons Youth
