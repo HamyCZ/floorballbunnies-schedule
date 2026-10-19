@@ -4,7 +4,7 @@
   "clubName": "Floorballbunnies",
   "clubSlug": "floorballbunnies",
   "currentSeason": 2026,
-  "probedAt": "2026-10-12T19:04:19Z",
+  "probedAt": "2026-10-19T14:40:45Z",
   "source": "floorballflash-mcp",
   "timezone": "Europe/Vienna",
   "watchFields": [
@@ -415,7 +415,7 @@
       "date": "2026-10-18",
       "time": "09:00",
       "venue": "Alterlaa",
-      "state": "BeforeGame",
+      "state": "Finished",
       "homeTeam": "FBC Dragons 1",
       "awayTeam": "Floorballbunnies",
       "homeAway": "Away",
@@ -429,7 +429,7 @@
       "date": "2026-10-18",
       "time": "09:25",
       "venue": "Alterlaa",
-      "state": "BeforeGame",
+      "state": "Finished",
       "homeTeam": "WFV 2",
       "awayTeam": "Floorballbunnies",
       "homeAway": "Away",
@@ -439,29 +439,29 @@
       "competitionName": "Wiener U10 Meisterschaft"
     },
     {
-      "id": 16140,
+      "id": 16141,
       "date": "2026-10-18",
-      "time": "09:50",
+      "time": "10:15",
       "venue": "Alterlaa",
-      "state": "BeforeGame",
-      "homeTeam": "Hainburger Löwen",
-      "awayTeam": "Floorballbunnies",
-      "homeAway": "Away",
-      "opponent": "Hainburger Löwen",
+      "state": "Finished",
+      "homeTeam": "Floorballbunnies",
+      "awayTeam": "FBC Dragons 2",
+      "homeAway": "Home",
+      "opponent": "FBC Dragons 2",
       "clubTeamName": "Floorballbunnies",
       "competitionId": 722,
       "competitionName": "Wiener U10 Meisterschaft"
     },
     {
-      "id": 16144,
+      "id": 16143,
       "date": "2026-10-18",
       "time": "10:40",
       "venue": "Alterlaa",
-      "state": "BeforeGame",
+      "state": "Finished",
       "homeTeam": "Floorballbunnies",
-      "awayTeam": "FBC Dragons 2",
+      "awayTeam": "WFV 1",
       "homeAway": "Home",
-      "opponent": "FBC Dragons 2",
+      "opponent": "WFV 1",
       "clubTeamName": "Floorballbunnies",
       "competitionId": 722,
       "competitionName": "Wiener U10 Meisterschaft"
@@ -1073,7 +1073,7 @@
       "date": "2026-10-17",
       "time": "15:00",
       "venue": "Alterlaa",
-      "state": "BeforeGame",
+      "state": "Finished",
       "homeTeam": "Floorballbunnies",
       "awayTeam": "WFV",
       "homeAway": "Home",
@@ -1087,7 +1087,7 @@
       "date": "2026-10-17",
       "time": "15:32",
       "venue": "Alterlaa",
-      "state": "BeforeGame",
+      "state": "Finished",
       "homeTeam": "WFV",
       "awayTeam": "Floorballbunnies",
       "homeAway": "Away",
@@ -1185,7 +1185,7 @@
       "date": "2026-10-17",
       "time": "16:30",
       "venue": "Alterlaa",
-      "state": "BeforeGame",
+      "state": "Finished",
       "homeTeam": "Minty Penguins",
       "awayTeam": "Floorballbunnies",
       "homeAway": "Away",
@@ -1199,7 +1199,7 @@
       "date": "2026-10-17",
       "time": "17:07",
       "venue": "Alterlaa",
-      "state": "BeforeGame",
+      "state": "Finished",
       "homeTeam": "WFV",
       "awayTeam": "Floorballbunnies",
       "homeAway": "Away",
@@ -1213,7 +1213,7 @@
       "date": "2026-10-17",
       "time": "17:44",
       "venue": "Alterlaa",
-      "state": "BeforeGame",
+      "state": "Finished",
       "homeTeam": "Floorballbunnies",
       "awayTeam": "FBC Dragons 2",
       "homeAway": "Home",
@@ -1689,7 +1689,7 @@
       "date": "2026-10-18",
       "time": "13:00",
       "venue": "Alterlaa",
-      "state": "BeforeGame",
+      "state": "Finished",
       "homeTeam": "Floorballbunnies",
       "awayTeam": "FBC Dragons Hobby",
       "homeAway": "Home",
@@ -1703,7 +1703,7 @@
       "date": "2026-10-18",
       "time": "15:30",
       "venue": "Alterlaa",
-      "state": "BeforeGame",
+      "state": "Finished",
       "homeTeam": "Floorballbunnies",
       "awayTeam": "FBC Dragons Youth",
       "homeAway": "Home",
@@ -2054,10 +2054,10 @@
       "time": null,
       "venue": "Sankt Martin",
       "state": "BeforeGame",
-      "homeTeam": "Floorballbunnies Wien",
+      "homeTeam": "FBC Dragons",
       "awayTeam": "Floorballbunnies Wien",
-      "homeAway": "Both-club?",
-      "opponent": "Floorballbunnies Wien vs Floorballbunnies Wien",
+      "homeAway": "Away",
+      "opponent": "FBC Dragons",
       "clubTeamName": "Floorballbunnies Wien",
       "competitionId": 746,
       "competitionName": "ÖFBV U14 Jugendliga"
@@ -2291,7 +2291,7 @@
       "date": "2026-10-17",
       "time": "18:21",
       "venue": "Alterlaa",
-      "state": "BeforeGame",
+      "state": "Finished",
       "homeTeam": "Floorballbunnies",
       "awayTeam": "FBC Dragons 1",
       "homeAway": "Home",
@@ -2299,6 +2299,20 @@
       "clubTeamName": "Floorballbunnies",
       "competitionId": 726,
       "competitionName": "Wiener U14 Kleinfeld Meisterschaft"
+    },
+    {
+      "id": 17135,
+      "date": "2027-01-23",
+      "time": "16:30",
+      "venue": "Rennerschule",
+      "state": "BeforeGame",
+      "homeTeam": "ASKÖ UHC Linz",
+      "awayTeam": "Floorballbunnies Wien",
+      "homeAway": "Away",
+      "opponent": "ASKÖ UHC Linz",
+      "clubTeamName": "Floorballbunnies Wien",
+      "competitionId": 747,
+      "competitionName": "ÖFBV U17 Jugendliga"
     },
     {
       "id": 17269,
@@ -2719,9 +2733,23 @@
       "clubTeamName": "Floorballbunnies",
       "competitionId": 750,
       "competitionName": "OÖ U12 + Alpencup"
+    },
+    {
+      "id": 17772,
+      "date": "2027-02-14",
+      "time": "11:30",
+      "venue": "PAHO Kurt Kucera Rundhalle",
+      "state": "BeforeGame",
+      "homeTeam": "Floorballbunnies Wien",
+      "awayTeam": "SU Floorball Bad Ischl",
+      "homeAway": "Home",
+      "opponent": "SU Floorball Bad Ischl",
+      "clubTeamName": "Floorballbunnies Wien",
+      "competitionId": 746,
+      "competitionName": "ÖFBV U14 Jugendliga"
     }
   ],
-  "gameCount": 193,
+  "gameCount": 195,
   "competitionsChecked": [
     {
       "name": "ÖFBV U10 Jugendliga",
@@ -2780,28 +2808,12 @@
       "organizer": "Österreichischer Floorballverband"
     },
     {
-      "name": "SLO 1.SFL - DP VF",
-      "season": 2026,
-      "type": "League",
-      "gender": "MALE",
-      "id": 760,
-      "organizer": "Slovenian Floorball Association"
-    },
-    {
       "name": "OÖ U12 + Alpencup",
       "season": 2026,
       "type": "League",
       "gender": "MIXED",
       "id": 750,
       "organizer": "Oberösterreichischer Floorballverband"
-    },
-    {
-      "name": "SLO DP U19",
-      "season": 2026,
-      "type": "League",
-      "gender": "MIXED",
-      "id": 762,
-      "organizer": "Slovenian Floorball Association"
     },
     {
       "name": "SLO 2.SFL - DP MF",
@@ -2820,6 +2832,14 @@
       "organizer": "Österreichischer Floorballverband"
     },
     {
+      "name": "SLO 1.SFL - DP VF",
+      "season": 2026,
+      "type": "League",
+      "gender": "MALE",
+      "id": 760,
+      "organizer": "Slovenian Floorball Association"
+    },
+    {
       "name": "3 Nations - IFL",
       "season": 2026,
       "type": "League",
@@ -2834,6 +2854,14 @@
       "gender": "FEMALE",
       "id": 739,
       "organizer": "Österreichischer Floorballverband"
+    },
+    {
+      "name": "SLO DP U19",
+      "season": 2026,
+      "type": "League",
+      "gender": "MIXED",
+      "id": 762,
+      "organizer": "Slovenian Floorball Association"
     },
     {
       "name": "ÖFBV U14 Jugendliga",
@@ -2940,6 +2968,14 @@
       "organizer": "Österreichischer Floorballverband"
     },
     {
+      "name": "Junior Cup Feldkirch U10",
+      "season": 2026,
+      "type": "League",
+      "gender": "MIXED",
+      "id": 768,
+      "organizer": "HFC Feldkirch Knights"
+    },
+    {
       "name": "SLO DP U15",
       "season": 2026,
       "type": "League",
@@ -3036,14 +3072,6 @@
       "organizer": "Wiener Floorballbund"
     },
     {
-      "name": "Wiener U14 Kleinfeld Meisterschaft",
-      "season": 2026,
-      "type": "League",
-      "gender": "MIXED",
-      "id": 726,
-      "organizer": "Wiener Floorballbund"
-    },
-    {
       "name": "Wiener U12 Mädchen Meisterschaft",
       "season": 2026,
       "type": "League",
@@ -3076,6 +3104,14 @@
       "organizer": "Wiener Floorballbund"
     },
     {
+      "name": "Wiener U14 Kleinfeld Meisterschaft",
+      "season": 2026,
+      "type": "League",
+      "gender": "MIXED",
+      "id": 726,
+      "organizer": "Wiener Floorballbund"
+    },
+    {
       "name": "Alps Open Kids (U10)",
       "season": 2026,
       "type": "Tournament",
@@ -3101,8 +3137,8 @@
     }
   ],
   "fetchMetrics": {
-    "calls": 233,
-    "successes": 233,
+    "calls": 236,
+    "successes": 236,
     "retries": 0,
     "sessionNotFound": 0,
     "httpErrors": 0,
@@ -3120,14 +3156,14 @@
         "successes": 1
       },
       "search_games": {
-        "calls": 38,
+        "calls": 39,
         "retries": 0,
-        "successes": 38
+        "successes": 39
       },
       "get_game": {
-        "calls": 193,
+        "calls": 195,
         "retries": 0,
-        "successes": 193
+        "successes": 195
       }
     }
   }

@@ -1,18 +1,18 @@
 {
-  "probedAt": "2026-10-12T19:04:19Z",
-  "gameCount": 193,
+  "probedAt": "2026-10-19T14:40:45Z",
+  "gameCount": 195,
   "clubId": 78,
   "clubName": "Floorballbunnies",
   "timezone": "Europe/Vienna",
   "week": {
-    "mon": "2026-10-12",
-    "sun": "2026-10-18",
-    "games": 12
+    "mon": "2026-10-19",
+    "sun": "2026-10-25",
+    "games": 0
   },
   "weekend": {
-    "sat": "2026-10-12",
-    "sun": "2026-10-18",
-    "games": 12
+    "sat": "2026-10-19",
+    "sun": "2026-10-25",
+    "games": 0
   },
   "clashCategories": [
     "U12 group overlap"
@@ -35,9 +35,8 @@
       "category": "U10",
       "slug": "u10",
       "file": "ics/u10.ics",
-      "games": 20,
+      "games": 16,
       "dates": [
-        "2026-10-18",
         "2026-12-12",
         "2027-02-20",
         "2027-04-04",
@@ -86,9 +85,8 @@
       "category": "U12 M\u00e4dchen",
       "slug": "u12-maedchen",
       "file": "ics/u12-maedchen.ics",
-      "games": 8,
+      "games": 6,
       "dates": [
-        "2026-10-17",
         "2026-12-13",
         "2027-02-27",
         "2027-04-18"
@@ -108,12 +106,13 @@
       "category": "U14 Gro\u00dffeld",
       "slug": "u14-grossfeld",
       "file": "ics/u14-grossfeld.ics",
-      "games": 14,
+      "games": 15,
       "dates": [
         "2026-11-07",
         "2026-12-05",
         "2026-12-13",
         "2027-01-16",
+        "2027-02-14",
         "2027-03-06",
         "2027-03-13",
         "2027-06-06"
@@ -123,9 +122,8 @@
       "category": "U14 Kleinfeld",
       "slug": "u14-kleinfeld",
       "file": "ics/u14-kleinfeld.ics",
-      "games": 15,
+      "games": 11,
       "dates": [
-        "2026-10-17",
         "2026-11-14",
         "2027-02-20",
         "2027-05-22"
@@ -147,11 +145,12 @@
       "category": "U17",
       "slug": "u17",
       "file": "ics/u17.ics",
-      "games": 18,
+      "games": 19,
       "dates": [
         "2026-11-22",
         "2026-12-06",
         "2026-12-19",
+        "2027-01-23",
         "2027-02-27",
         "2027-03-07",
         "2027-04-03",
@@ -188,9 +187,8 @@
       "category": "Adults Kleinfeld",
       "slug": "adults-kleinfeld",
       "file": "ics/adults-kleinfeld.ics",
-      "games": 10,
+      "games": 8,
       "dates": [
-        "2026-10-18",
         "2026-11-08",
         "2027-03-14",
         "2027-04-04",
@@ -229,24 +227,24 @@
     "Calendar"
   ],
   "changes": {
-    "hasChanges": false,
-    "comparedAt": "2026-10-12T19:04:20Z",
-    "oldProbedAt": "2026-10-12T09:33:05Z",
-    "newProbedAt": "2026-10-12T19:04:19Z",
+    "hasChanges": true,
+    "comparedAt": "2026-10-19T14:40:45Z",
+    "oldProbedAt": "2026-10-12T19:04:19Z",
+    "newProbedAt": "2026-10-19T14:40:45Z",
     "counts": {
-      "added": 0,
-      "removed": 0,
-      "changed": 0,
+      "added": 4,
+      "removed": 2,
+      "changed": 11,
       "cancellations": 0,
-      "totalEvents": 0
+      "totalEvents": 17
     },
     "note": "Reflects the last successful watch diff (pages/changes.json)."
   },
   "pagesBaseUrl": null,
-  "lastRun": "2026-10-12T19:04:20Z",
-  "nextRun": "2026-10-19T07:17:00Z",
-  "lastRunLabel": "Mon 12 Oct 2026 19:04 UTC",
-  "nextRunLabel": "Mon 19 Oct 2026 07:17 UTC",
+  "lastRun": "2026-10-19T14:40:45Z",
+  "nextRun": "2026-10-26T07:17:00Z",
+  "lastRunLabel": "Mon 19 Oct 2026 14:40 UTC",
+  "nextRunLabel": "Mon 26 Oct 2026 07:17 UTC",
   "theme": "floorballbunnies-dark-lime",
   "fortress": {
     "csp": true,

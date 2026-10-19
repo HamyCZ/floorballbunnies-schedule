@@ -25,7 +25,7 @@ END:STANDARD
 END:VTIMEZONE
 BEGIN:VEVENT
 UID:urn:floorballbunnies:day:2026-11-07
-DTSTAMP:20261012T190420Z
+DTSTAMP:20261019T144045Z
 DTSTART;TZID=Europe/Vienna:20261107T090000
 DTEND;TZID=Europe/Vienna:20261107T113000
 SUMMARY:U14 Großfeld: 2 games
@@ -37,19 +37,19 @@ LOCATION:PAHO Kurt Kucera Rundhalle
 END:VEVENT
 BEGIN:VEVENT
 UID:urn:floorballbunnies:day:2026-12-05
-DTSTAMP:20261012T190420Z
+DTSTAMP:20261019T144045Z
 DTSTART;VALUE=DATE:20261205
 DTEND;VALUE=DATE:20261206
 SUMMARY:U14 Großfeld: 2 games
 DESCRIPTION:Please double-check the date and kickoff time — the schedule 
  can change.\nSat 05 Dec 2026 · 2 games · Europe/Vienna\n\nTBD · Away vs
-  VSV Unihockey · Sankt Martin · #16582\nTBD · Both-club? vs Floorballbu
- nnies Wien vs Floorballbunnies Wien · Sankt Martin · #16584
+  VSV Unihockey · Sankt Martin · #16582\nTBD · Away vs FBC Dragons · Sa
+ nkt Martin · #16584
 LOCATION:Sankt Martin
 END:VEVENT
 BEGIN:VEVENT
 UID:urn:floorballbunnies:day:2026-12-13
-DTSTAMP:20261012T190420Z
+DTSTAMP:20261019T144045Z
 DTSTART;TZID=Europe/Vienna:20261213T111500
 DTEND;TZID=Europe/Vienna:20261213T140000
 SUMMARY:U14 Großfeld: 2 games
@@ -61,7 +61,7 @@ LOCATION:PAHO Kurt Kucera Rundhalle
 END:VEVENT
 BEGIN:VEVENT
 UID:urn:floorballbunnies:day:2027-01-16
-DTSTAMP:20261012T190420Z
+DTSTAMP:20261019T144045Z
 DTSTART;TZID=Europe/Vienna:20270116T101500
 DTEND;TZID=Europe/Vienna:20270116T130000
 SUMMARY:U14 Großfeld: 2 games
@@ -72,8 +72,19 @@ DESCRIPTION:Please double-check the date and kickoff time — the schedule
 LOCATION:PAHO Kurt Kucera Rundhalle
 END:VEVENT
 BEGIN:VEVENT
+UID:urn:floorballbunnies:game:17772
+DTSTAMP:20261019T144045Z
+DTSTART;TZID=Europe/Vienna:20270214T113000
+DTEND;TZID=Europe/Vienna:20270214T130000
+SUMMARY:U14 Großfeld: vs SU Floorball Bad Ischl
+DESCRIPTION:Please double-check the date and kickoff time — the schedule 
+ can change.\nÖFBV U14 Jugendliga\nHome vs SU Floorball Bad Ischl\nTime: 1
+ 1:30 (Europe/Vienna)\nVenue: PAHO Kurt Kucera Rundhalle\nGame #17772
+LOCATION:PAHO Kurt Kucera Rundhalle
+END:VEVENT
+BEGIN:VEVENT
 UID:urn:floorballbunnies:day:2027-03-06
-DTSTAMP:20261012T190420Z
+DTSTAMP:20261019T144045Z
 DTSTART;TZID=Europe/Vienna:20270306T154500
 DTEND;TZID=Europe/Vienna:20270306T183000
 SUMMARY:U14 Großfeld: 2 games
@@ -85,7 +96,7 @@ LOCATION:Alterlaa
 END:VEVENT
 BEGIN:VEVENT
 UID:urn:floorballbunnies:day:2027-03-13
-DTSTAMP:20261012T190420Z
+DTSTAMP:20261019T144045Z
 DTSTART;VALUE=DATE:20270313
 DTEND;VALUE=DATE:20270314
 SUMMARY:U14 Großfeld: 2 games
@@ -97,7 +108,7 @@ LOCATION:Rennerschule
 END:VEVENT
 BEGIN:VEVENT
 UID:urn:floorballbunnies:day:2027-06-06
-DTSTAMP:20261012T190420Z
+DTSTAMP:20261019T144045Z
 DTSTART;TZID=Europe/Vienna:20270606T131500
 DTEND;TZID=Europe/Vienna:20270606T160000
 SUMMARY:U14 Großfeld: 2 games

@@ -1,11 +1,11 @@
 {
-  "probedAt": "2026-10-12T19:04:19Z",
-  "gameCount": 193,
+  "probedAt": "2026-10-19T14:40:45Z",
+  "gameCount": 195,
   "clubId": 78,
-  "savedAt": "2026-10-12T19:04:20Z",
+  "savedAt": "2026-10-19T14:40:45Z",
   "fetchMetrics": {
-    "calls": 233,
-    "successes": 233,
+    "calls": 236,
+    "successes": 236,
     "retries": 0,
     "sessionNotFound": 0,
     "httpErrors": 0,
@@ -23,14 +23,14 @@
         "successes": 1
       },
       "search_games": {
-        "calls": 38,
+        "calls": 39,
         "retries": 0,
-        "successes": 38
+        "successes": 39
       },
       "get_game": {
-        "calls": 193,
+        "calls": 195,
         "retries": 0,
-        "successes": 193
+        "successes": 195
       }
     }
   }
