@@ -25,7 +25,7 @@ Public site: <a href="https://hamycz.github.io/floorballbunnies-schedule" target
 | Baseline | `tools/schedule-watch/data/schedule-snapshot.json` |
 | Site preview | `docs/site/` (open locally) · built pages in `tools/schedule-watch/pages/` |
 | MCP | `mcp.floorballflash.at` |
-| Cron | Mondays `07:17` UTC (backup `09:17` UTC) ≈ `09:17` / `11:17` Vienna CEST (`08:17` / `10:17` CET) |
+| Cron | Mondays `07:17` UTC + fallback `09:17` UTC ≈ `09:17` / `11:17` Vienna CEST (`08:17` / `10:17` CET). Second cron runs only if the first did not succeed that week (see below). |
 | Workflow | [`.github/workflows/schedule-watch.yml`](.github/workflows/schedule-watch.yml) |
 
 ---
@@ -50,6 +50,7 @@ Open `docs/site/` or `tools/schedule-watch/pages/` in a browser (file://).
 | `config.yaml` | Active club profile |
 | `clubs/_template.yaml` | Other-club template |
 | `run_watch.py` | One weekly cycle |
+| `skip_if_already_succeeded.py` | Same-week scheduled fallback guard |
 | `send_digests.py` / `mailer.py` | Digests + SMTP (Resend optional fallback) |
 | `fetch_schedule.py` / `compare_snapshots.py` / `render_site.py` | Fetch · diff · site |
 | `data/schedule-snapshot.json` | Baseline |
@@ -68,6 +69,8 @@ Once a week (Monday), GitHub Actions:
 4. Rebuilds the **branded static site** (weekend, clashes, calendar, changes + ICS).
 5. Optionally emails coaches a **short digest** via **SMTP** if something changed (`RESEND_API_KEY` is an optional fallback only).
 6. On a healthy run: commits updated snapshot + pages, then the separate **pages** job deploys GitHub Pages.
+
+**Two crons, one weekly success:** primary `17 7 * * 1` and backup `17 9 * * 1` (UTC). The backup is a fallback only — if `data/last-success.json` on `main` already records a success for the current Europe/Vienna ISO week, a scheduled run exits successfully without fetch/email/deploy (`skip_run=yes`). GitHub may delay both schedules so both queue; only the first successful weekly watch proceeds. Manual **Run workflow** always runs (no skip).
 
 It does **not** email the full website. It does **not** alert on score-only updates.
 

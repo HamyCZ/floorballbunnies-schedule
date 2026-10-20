@@ -3,7 +3,10 @@
 # Cron is UTC. Europe/Vienna offsets:
 #   CET (winter) = UTC+1 · CEST (summer) = UTC+2
 # Primary  `17 7 * * 1` → Mon 07:17 UTC ≈ 09:17 Vienna CEST / 08:17 CET (off :00 stampede)
-# Backup   `17 9 * * 1` → Mon 09:17 UTC ≈ 11:17 Vienna CEST / 10:17 CET (soft ~11 Vienna)
+# Backup   `17 9 * * 1` → Mon 09:17 UTC ≈ 11:17 Vienna CEST / 10:17 CET
+#   Second cron is a fallback only: if the primary already wrote last-success
+#   for this Vienna ISO week, the backup exits success without re-fetch/email/deploy.
+#   GitHub may delay both schedules; both can queue, but only one weekly run proceeds.
 #
 # Fortress notes:
 # - Default token is read-only; write scopes are per-job.
@@ -37,6 +40,7 @@ jobs:
     outputs:
       # Remap true/false → ok/fail. GH strips job outputs whose value equals a
       # secret (e.g. SMTP_SSL=true), which made pages skip after healthy watches.
+      skip_run: ${{ steps.guard.outputs.skip_run == 'yes' && 'yes' || 'no' }}
       has_changes: ${{ steps.watch.outputs.has_changes == 'true' && 'yes' || 'no' }}
       health_ok: ${{ steps.watch.outputs.health_ok == 'true' && 'ok' || 'fail' }}
       health_reason: ${{ steps.watch.outputs.health_reason }}
@@ -56,12 +60,34 @@ jobs:
         with:
           python-version: "3.12"
 
+      # Scheduled only: if main already has a success this Vienna week, skip work.
+      # Fetch tip of main — schedule events pin an older SHA, so checkout alone
+      # would miss last-success written by the primary run earlier the same day.
+      - name: Skip if already succeeded this week
+        id: guard
+        if: github.event_name == 'schedule'
+        working-directory: tools/schedule-watch
+        run: |
+          set -euo pipefail
+          git fetch origin main
+          mkdir -p /tmp/schedule-watch-guard
+          if git show origin/main:tools/schedule-watch/data/last-success.json \
+               > /tmp/schedule-watch-guard/last-success.json 2>/dev/null; then
+            python skip_if_already_succeeded.py \
+              --last-success /tmp/schedule-watch-guard/last-success.json
+          else
+            echo "No last-success on origin/main — proceeding"
+            echo "skip_run=no" >> "$GITHUB_OUTPUT"
+          fi
+
       - name: Install dependencies
+        if: steps.guard.outputs.skip_run != 'yes'
         working-directory: tools/schedule-watch
         run: pip install -r requirements.txt
 
       - name: Fetch + diff + render site
         id: watch
+        if: steps.guard.outputs.skip_run != 'yes'
         working-directory: tools/schedule-watch
         env:
           PAGES_BASE_URL: ${{ vars.PAGES_BASE_URL }}
@@ -77,7 +103,7 @@ jobs:
             --always-update-snapshot
 
       - name: Upload reports
-        if: always()
+        if: always() && steps.guard.outputs.skip_run != 'yes'
         uses: actions/upload-artifact@v4
         with:
           name: schedule-watch-reports
@@ -87,7 +113,7 @@ jobs:
           retention-days: 14
 
       - name: Upload pages for deploy
-        if: steps.watch.outputs.health_ok == 'true'
+        if: steps.guard.outputs.skip_run != 'yes' && steps.watch.outputs.health_ok == 'true'
         uses: actions/upload-artifact@v4
         with:
           name: schedule-pages
@@ -96,7 +122,7 @@ jobs:
 
       - name: Commit snapshot + pages + last-success
         id: commit
-        if: steps.watch.outputs.health_ok == 'true'
+        if: steps.guard.outputs.skip_run != 'yes' && steps.watch.outputs.health_ok == 'true'
         continue-on-error: true
         working-directory: tools/schedule-watch
         run: |
@@ -298,7 +324,11 @@ jobs:
     needs: watch
     # Deploy even if the baseline git push was blocked (continue-on-error).
     # health_ok job output is "ok"/"fail" (not true/false — see watch.outputs).
-    if: always() && needs.watch.result == 'success' && needs.watch.outputs.health_ok == 'ok'
+    # skip_run=yes: same-week fallback — watch succeeded but did no work / no artifact.
+    if: >-
+      always() && needs.watch.result == 'success'
+      && needs.watch.outputs.skip_run != 'yes'
+      && needs.watch.outputs.health_ok == 'ok'
     runs-on: ubuntu-latest
     permissions:
       pages: write
