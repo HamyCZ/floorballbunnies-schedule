@@ -1,21 +1,22 @@
 {
-  "probedAt": "2026-10-19T16:28:53Z",
-  "gameCount": 195,
+  "probedAt": "2026-10-26T14:15:34Z",
+  "gameCount": 209,
   "clubId": 78,
   "clubName": "Floorballbunnies",
   "timezone": "Europe/Vienna",
   "week": {
-    "mon": "2026-10-19",
-    "sun": "2026-10-25",
+    "mon": "2026-10-26",
+    "sun": "2026-11-01",
     "games": 0
   },
   "weekend": {
-    "sat": "2026-10-19",
-    "sun": "2026-10-25",
+    "sat": "2026-10-26",
+    "sun": "2026-11-01",
     "games": 0
   },
   "clashCategories": [
-    "U12 group overlap"
+    "U12 group overlap",
+    "U10"
   ],
   "calendarCategories": [
     {
@@ -35,7 +36,7 @@
       "category": "U10",
       "slug": "u10",
       "file": "ics/u10.ics",
-      "games": 16,
+      "games": 30,
       "dates": [
         "2026-12-12",
         "2027-02-20",
@@ -227,24 +228,24 @@
     "Calendar"
   ],
   "changes": {
-    "hasChanges": false,
-    "comparedAt": "2026-10-19T16:28:53Z",
-    "oldProbedAt": "2026-10-19T14:40:45Z",
-    "newProbedAt": "2026-10-19T16:28:53Z",
+    "hasChanges": true,
+    "comparedAt": "2026-10-26T14:15:34Z",
+    "oldProbedAt": "2026-10-19T16:28:53Z",
+    "newProbedAt": "2026-10-26T14:15:34Z",
     "counts": {
-      "added": 0,
-      "removed": 0,
-      "changed": 0,
+      "added": 30,
+      "removed": 16,
+      "changed": 6,
       "cancellations": 0,
-      "totalEvents": 0
+      "totalEvents": 52
     },
     "note": "Reflects the last successful watch diff (pages/changes.json)."
   },
   "pagesBaseUrl": null,
-  "lastRun": "2026-10-19T16:28:54Z",
-  "nextRun": "2026-10-26T07:17:00Z",
-  "lastRunLabel": "Mon 19 Oct 2026 16:28 UTC",
-  "nextRunLabel": "Mon 26 Oct 2026 07:17 UTC",
+  "lastRun": "2026-10-26T14:15:34Z",
+  "nextRun": "2026-11-02T07:17:00Z",
+  "lastRunLabel": "Mon 26 Oct 2026 14:15 UTC",
+  "nextRunLabel": "Mon 02 Nov 2026 07:17 UTC",
   "theme": "floorballbunnies-dark-lime",
   "fortress": {
     "csp": true,
