@@ -25,32 +25,30 @@ END:STANDARD
 END:VTIMEZONE
 BEGIN:VEVENT
 UID:urn:floorballbunnies:day:2027-01-16
-DTSTAMP:20261026T141534Z
+DTSTAMP:20261102T170404Z
 DTSTART;TZID=Europe/Vienna:20270116T110000
 DTEND;TZID=Europe/Vienna:20270116T153000
-SUMMARY:U10 Alpencup: 6 games
+SUMMARY:U10 Alpencup: 5 games
 DESCRIPTION:Please double-check the date and kickoff time — the schedule 
- can change.\nSat 16 Jan 2027 · 6 games · Europe/Vienna\n\n11:00 · Home 
+ can change.\nSat 16 Jan 2027 · 5 games · Europe/Vienna\n\n11:00 · Home 
  vs UHC Linz Rot · Rennerschule · #17269\n11:40 · Home vs SU Floorball B
  ad Ischl · Rennerschule · #17271\n12:20 · Away vs UHC Alligator Rum · 
- Rennerschule · #17273\n12:40 · Away vs FBV Haag · Rennerschule · #1727
- 4\n13:20 · Home vs Salzburg Star Bulls · Rennerschule · #17276\n14:00 
- · Away vs UHC Linz Weiß · Rennerschule · #17278
+ Rennerschule · #17273\n13:20 · Home vs Salzburg Star Bulls · Rennerschu
+ le · #17276\n14:00 · Away vs UHC Linz Weiß · Rennerschule · #17278
 LOCATION:Rennerschule
 END:VEVENT
 BEGIN:VEVENT
 UID:urn:floorballbunnies:day:2027-03-14
-DTSTAMP:20261026T141534Z
+DTSTAMP:20261102T170404Z
 DTSTART;TZID=Europe/Vienna:20270314T110000
 DTEND;TZID=Europe/Vienna:20270314T163000
-SUMMARY:U10 Alpencup: 6 games
+SUMMARY:U10 Alpencup: 5 games
 DESCRIPTION:Please double-check the date and kickoff time — the schedule 
- can change.\nSun 14 Mar 2027 · 6 games · Europe/Vienna\n\n11:00 · Home 
+ can change.\nSun 14 Mar 2027 · 5 games · Europe/Vienna\n\n11:00 · Home 
  vs UHC Linz Rot · Rennerschule · #17291\n11:40 · Home vs SU Floorball B
- ad Ischl · Rennerschule · #17293\n12:20 · Away vs FBV Haag · Rennersch
- ule · #17295\n13:00 · Home vs Salzburg Star Bulls · Rennerschule · #17
- 297\n13:40 · Away vs UHC Linz Weiß · Rennerschule · #17299\n15:00 · A
- way vs UHC Alligator Rum · Rennerschule · #17303
+ ad Ischl · Rennerschule · #17293\n13:00 · Home vs Salzburg Star Bulls 
+ · Rennerschule · #17297\n13:40 · Away vs UHC Linz Weiß · Rennerschule
+  · #17299\n15:00 · Away vs UHC Alligator Rum · Rennerschule · #17303
 LOCATION:Rennerschule
 END:VEVENT
 END:VCALENDAR

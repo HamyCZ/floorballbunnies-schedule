@@ -1,18 +1,18 @@
 {
-  "probedAt": "2026-10-26T14:15:34Z",
-  "gameCount": 209,
+  "probedAt": "2026-11-02T17:04:04Z",
+  "gameCount": 207,
   "clubId": 78,
   "clubName": "Floorballbunnies",
   "timezone": "Europe/Vienna",
   "week": {
-    "mon": "2026-10-26",
-    "sun": "2026-11-01",
-    "games": 0
+    "mon": "2026-11-02",
+    "sun": "2026-11-08",
+    "games": 6
   },
   "weekend": {
-    "sat": "2026-10-26",
-    "sun": "2026-11-01",
-    "games": 0
+    "sat": "2026-11-02",
+    "sun": "2026-11-08",
+    "games": 6
   },
   "clashCategories": [
     "U12 group overlap",
@@ -49,7 +49,7 @@
       "category": "U10 Alpencup",
       "slug": "u10-alpencup",
       "file": "ics/u10-alpencup.ics",
-      "games": 12,
+      "games": 10,
       "dates": [
         "2027-01-16",
         "2027-03-14"
@@ -229,23 +229,23 @@
   ],
   "changes": {
     "hasChanges": true,
-    "comparedAt": "2026-10-26T14:15:34Z",
-    "oldProbedAt": "2026-10-19T16:28:53Z",
-    "newProbedAt": "2026-10-26T14:15:34Z",
+    "comparedAt": "2026-11-02T17:04:04Z",
+    "oldProbedAt": "2026-10-26T14:15:34Z",
+    "newProbedAt": "2026-11-02T17:04:04Z",
     "counts": {
-      "added": 30,
-      "removed": 16,
-      "changed": 6,
+      "added": 0,
+      "removed": 2,
+      "changed": 0,
       "cancellations": 0,
-      "totalEvents": 52
+      "totalEvents": 2
     },
     "note": "Reflects the last successful watch diff (pages/changes.json)."
   },
   "pagesBaseUrl": null,
-  "lastRun": "2026-10-26T14:15:34Z",
-  "nextRun": "2026-11-02T07:17:00Z",
-  "lastRunLabel": "Mon 26 Oct 2026 14:15 UTC",
-  "nextRunLabel": "Mon 02 Nov 2026 07:17 UTC",
+  "lastRun": "2026-11-02T17:04:04Z",
+  "nextRun": "2026-11-09T07:17:00Z",
+  "lastRunLabel": "Mon 02 Nov 2026 17:04 UTC",
+  "nextRunLabel": "Mon 09 Nov 2026 07:17 UTC",
   "theme": "floorballbunnies-dark-lime",
   "fortress": {
     "csp": true,

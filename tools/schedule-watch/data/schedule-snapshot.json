@@ -4,7 +4,7 @@
   "clubName": "Floorballbunnies",
   "clubSlug": "floorballbunnies",
   "currentSeason": 2026,
-  "probedAt": "2026-10-26T14:15:34Z",
+  "probedAt": "2026-11-02T17:04:04Z",
   "source": "floorballflash-mcp",
   "timezone": "Europe/Vienna",
   "watchFields": [
@@ -2133,20 +2133,6 @@
       "competitionName": "OÖ U10 + Alpencup"
     },
     {
-      "id": 17274,
-      "date": "2027-01-16",
-      "time": "12:40",
-      "venue": "Rennerschule",
-      "state": "BeforeGame",
-      "homeTeam": "FBV Haag",
-      "awayTeam": "Floorballbunnies",
-      "homeAway": "Away",
-      "opponent": "FBV Haag",
-      "clubTeamName": "Floorballbunnies",
-      "competitionId": 749,
-      "competitionName": "OÖ U10 + Alpencup"
-    },
-    {
       "id": 17276,
       "date": "2027-01-16",
       "time": "13:20",
@@ -2198,20 +2184,6 @@
       "awayTeam": "SU Floorball Bad Ischl",
       "homeAway": "Home",
       "opponent": "SU Floorball Bad Ischl",
-      "clubTeamName": "Floorballbunnies",
-      "competitionId": 749,
-      "competitionName": "OÖ U10 + Alpencup"
-    },
-    {
-      "id": 17295,
-      "date": "2027-03-14",
-      "time": "12:20",
-      "venue": "Rennerschule",
-      "state": "BeforeGame",
-      "homeTeam": "FBV Haag",
-      "awayTeam": "Floorballbunnies",
-      "homeAway": "Away",
-      "opponent": "FBV Haag",
       "clubTeamName": "Floorballbunnies",
       "competitionId": 749,
       "competitionName": "OÖ U10 + Alpencup"
@@ -2945,7 +2917,7 @@
       "competitionName": "Wiener U10 Assist Meisterschaft"
     }
   ],
-  "gameCount": 209,
+  "gameCount": 207,
   "competitionsChecked": [
     {
       "name": "U10 Cup I",
@@ -2994,14 +2966,6 @@
       "gender": "MIXED",
       "id": 750,
       "organizer": "Oberösterreichischer Floorballverband"
-    },
-    {
-      "name": "SLO 2.SFL - DP MF",
-      "season": 2026,
-      "type": "League",
-      "gender": "MIXED",
-      "id": 761,
-      "organizer": "Slovenian Floorball Association"
     },
     {
       "name": "ÖFBV Bundesliga Herren",
@@ -3076,6 +3040,14 @@
       "organizer": "Österreichischer Floorballverband"
     },
     {
+      "name": "SLO 2.SFL - DP MF",
+      "season": 2026,
+      "type": "League",
+      "gender": "MIXED",
+      "id": 761,
+      "organizer": "Slovenian Floorball Association"
+    },
+    {
       "name": "U12 Cup I",
       "season": 2026,
       "type": "Tournament",
@@ -3097,14 +3069,6 @@
       "type": "League",
       "gender": "MIXED",
       "id": 752,
-      "organizer": "Oberösterreichischer Floorballverband"
-    },
-    {
-      "name": "OÖ U 8",
-      "season": 2026,
-      "type": "League",
-      "gender": "MIXED",
-      "id": 753,
       "organizer": "Oberösterreichischer Floorballverband"
     },
     {
@@ -3154,6 +3118,14 @@
       "gender": "MALE",
       "id": 747,
       "organizer": "Österreichischer Floorballverband"
+    },
+    {
+      "name": "OÖ U 8",
+      "season": 2026,
+      "type": "League",
+      "gender": "MIXED",
+      "id": 753,
+      "organizer": "Oberösterreichischer Floorballverband"
     },
     {
       "name": "SLO DP U15",
@@ -3212,20 +3184,20 @@
       "organizer": "Österreichischer Floorballverband"
     },
     {
-      "name": "SLO DP U13",
-      "season": 2026,
-      "type": "League",
-      "gender": "MIXED",
-      "id": 765,
-      "organizer": "Slovenian Floorball Association"
-    },
-    {
       "name": "U14 Cup II",
       "season": 2026,
       "type": "Tournament",
       "gender": "MIXED",
       "id": 770,
       "organizer": "Kärntner Floorballverband"
+    },
+    {
+      "name": "SLO DP U13",
+      "season": 2026,
+      "type": "League",
+      "gender": "MIXED",
+      "id": 765,
+      "organizer": "Slovenian Floorball Association"
     },
     {
       "name": "SLO DP U11",
@@ -3365,8 +3337,8 @@
     }
   ],
   "fetchMetrics": {
-    "calls": 252,
-    "successes": 252,
+    "calls": 250,
+    "successes": 250,
     "retries": 0,
     "sessionNotFound": 0,
     "httpErrors": 0,
@@ -3389,9 +3361,9 @@
         "successes": 41
       },
       "get_game": {
-        "calls": 209,
+        "calls": 207,
         "retries": 0,
-        "successes": 209
+        "successes": 207
       }
     }
   }
