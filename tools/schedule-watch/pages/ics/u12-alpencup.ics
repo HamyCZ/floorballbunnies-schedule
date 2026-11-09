@@ -25,30 +25,30 @@ END:STANDARD
 END:VTIMEZONE
 BEGIN:VEVENT
 UID:urn:floorballbunnies:day:2026-12-12
-DTSTAMP:20261102T170404Z
+DTSTAMP:20261109T172826Z
 DTSTART;TZID=Europe/Vienna:20261212T110000
 DTEND;TZID=Europe/Vienna:20261212T155000
 SUMMARY:U12 Alpencup: 6 games
 DESCRIPTION:Please double-check the date and kickoff time — the schedule 
  can change.\nSat 12 Dec 2026 · 6 games · Europe/Vienna\n\n11:00 · Away 
  vs Salzburg Star Bulls · Rennerschule · #17671\n12:00 · Away vs UHC Lin
- z Weiß · Rennerschule · #17676\n12:40 · Away vs FBC Dragons · Renners
- chule · #17681\n13:20 · Away vs FB Mattigtal Mammuts · Rennerschule · 
- #17685\n13:40 · Away vs SU Floorball Bad Ischl Blau · Rennerschule · #1
- 7687\n14:20 · Away vs FBV Haag · Rennerschule · #17690
+ z Rot · Rennerschule · #17676\n12:40 · Away vs FBC Dragons · Rennersch
+ ule · #17681\n13:20 · Away vs FB Mattigtal Mammuts · Rennerschule · #1
+ 7685\n13:40 · Away vs SU Floorball Bad Ischl Grün · Rennerschule · #17
+ 687\n14:20 · Away vs FBV Haag · Rennerschule · #17690
 LOCATION:Rennerschule
 END:VEVENT
 BEGIN:VEVENT
 UID:urn:floorballbunnies:day:2027-01-23
-DTSTAMP:20261102T170404Z
+DTSTAMP:20261109T172826Z
 DTSTART;TZID=Europe/Vienna:20270123T104000
 DTEND;TZID=Europe/Vienna:20270123T133000
 SUMMARY:U12 Alpencup: 3 games
 DESCRIPTION:Please double-check the date and kickoff time — the schedule 
  can change.\nSat 23 Jan 2027 · 3 games · Europe/Vienna\n\n10:40 · Away 
- vs SU Floorball Bad Ischl Grün · Rennerschule · #17699\n11:40 · Away v
- s UHC Linz Rot · Rennerschule · #17704\n12:00 · Away vs SU Puchkirchen 
- · Rennerschule · #17707
+ vs SU Floorball Bad Ischl Blau · Rennerschule · #17699\n11:40 · Away vs
+  UHC Linz Weiß · Rennerschule · #17704\n12:00 · Away vs SU Puchkirchen
+  · Rennerschule · #17707
 LOCATION:Rennerschule
 END:VEVENT
 END:VCALENDAR

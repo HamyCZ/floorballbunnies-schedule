@@ -1,8 +1,8 @@
 {
-  "probedAt": "2026-11-02T17:04:04Z",
-  "gameCount": 207,
+  "probedAt": "2026-11-09T17:28:26Z",
+  "gameCount": 208,
   "clubId": 78,
-  "savedAt": "2026-11-02T17:04:04Z",
+  "savedAt": "2026-11-09T17:28:26Z",
   "fetchMetrics": {
     "calls": 250,
     "successes": 250,
@@ -23,14 +23,14 @@
         "successes": 1
       },
       "search_games": {
-        "calls": 41,
+        "calls": 40,
         "retries": 0,
-        "successes": 41
+        "successes": 40
       },
       "get_game": {
-        "calls": 207,
+        "calls": 208,
         "retries": 0,
-        "successes": 207
+        "successes": 208
       }
     }
   }
