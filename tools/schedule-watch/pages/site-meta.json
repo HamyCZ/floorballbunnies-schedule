@@ -1,18 +1,18 @@
 {
-  "probedAt": "2026-11-09T17:28:26Z",
-  "gameCount": 208,
+  "probedAt": "2026-11-16T16:59:49Z",
+  "gameCount": 207,
   "clubId": 78,
   "clubName": "Floorballbunnies",
   "timezone": "Europe/Vienna",
   "week": {
-    "mon": "2026-11-09",
-    "sun": "2026-11-15",
-    "games": 14
+    "mon": "2026-11-16",
+    "sun": "2026-11-22",
+    "games": 3
   },
   "weekend": {
-    "sat": "2026-11-09",
-    "sun": "2026-11-15",
-    "games": 14
+    "sat": "2026-11-16",
+    "sun": "2026-11-22",
+    "games": 3
   },
   "clashCategories": [
     "U12 group overlap",
@@ -38,7 +38,7 @@
       "file": "ics/u10.ics",
       "games": 30,
       "dates": [
-        "2026-12-12",
+        "2026-12-05",
         "2027-02-20",
         "2027-04-04",
         "2027-05-22",
@@ -59,9 +59,8 @@
       "category": "U12 Assist",
       "slug": "u12-assist",
       "file": "ics/u12-assist.ics",
-      "games": 15,
+      "games": 12,
       "dates": [
-        "2026-11-15",
         "2026-12-12",
         "2027-02-21",
         "2027-03-07",
@@ -73,9 +72,8 @@
       "category": "U12 Bully",
       "slug": "u12-bully",
       "file": "ics/u12-bully.ics",
-      "games": 13,
+      "games": 10,
       "dates": [
-        "2026-11-15",
         "2027-02-21",
         "2027-03-07",
         "2027-04-11",
@@ -122,9 +120,8 @@
       "category": "U14 Kleinfeld",
       "slug": "u14-kleinfeld",
       "file": "ics/u14-kleinfeld.ics",
-      "games": 11,
+      "games": 8,
       "dates": [
-        "2026-11-14",
         "2027-02-20",
         "2027-05-22"
       ]
@@ -145,7 +142,7 @@
       "category": "U17",
       "slug": "u17",
       "file": "ics/u17.ics",
-      "games": 19,
+      "games": 18,
       "dates": [
         "2026-11-22",
         "2026-12-06",
@@ -197,9 +194,8 @@
       "category": "Bundesliga",
       "slug": "bundesliga",
       "file": "ics/bundesliga.ics",
-      "games": 8,
+      "games": 7,
       "dates": [
-        "2026-11-15",
         "2026-12-05",
         "2026-12-13",
         "2026-12-20",
@@ -226,23 +222,23 @@
   ],
   "changes": {
     "hasChanges": true,
-    "comparedAt": "2026-11-09T17:28:26Z",
-    "oldProbedAt": "2026-11-02T17:04:04Z",
-    "newProbedAt": "2026-11-09T17:28:26Z",
+    "comparedAt": "2026-11-16T16:59:49Z",
+    "oldProbedAt": "2026-11-09T17:28:26Z",
+    "newProbedAt": "2026-11-16T16:59:49Z",
     "counts": {
-      "added": 1,
-      "removed": 0,
-      "changed": 46,
+      "added": 0,
+      "removed": 1,
+      "changed": 19,
       "cancellations": 0,
-      "totalEvents": 47
+      "totalEvents": 20
     },
     "note": "Reflects the last successful watch diff (pages/changes.json)."
   },
   "pagesBaseUrl": null,
-  "lastRun": "2026-11-09T17:28:26Z",
-  "nextRun": "2026-11-16T07:17:00Z",
-  "lastRunLabel": "Mon 09 Nov 2026 17:28 UTC",
-  "nextRunLabel": "Mon 16 Nov 2026 07:17 UTC",
+  "lastRun": "2026-11-16T16:59:49Z",
+  "nextRun": "2026-11-23T07:17:00Z",
+  "lastRunLabel": "Mon 16 Nov 2026 16:59 UTC",
+  "nextRunLabel": "Mon 23 Nov 2026 07:17 UTC",
   "theme": "floorballbunnies-dark-lime",
   "fortress": {
     "csp": true,

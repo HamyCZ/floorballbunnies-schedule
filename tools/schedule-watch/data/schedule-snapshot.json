@@ -4,7 +4,7 @@
   "clubName": "Floorballbunnies",
   "clubSlug": "floorballbunnies",
   "currentSeason": 2026,
-  "probedAt": "2026-11-09T17:28:26Z",
+  "probedAt": "2026-11-16T16:59:49Z",
   "source": "floorballflash-mcp",
   "timezone": "Europe/Vienna",
   "watchFields": [
@@ -471,7 +471,7 @@
       "date": "2026-11-15",
       "time": "09:00",
       "venue": "Alterlaa",
-      "state": "BeforeGame",
+      "state": "Finished",
       "homeTeam": "FBC Dragons",
       "awayTeam": "Floorballbunnies",
       "homeAway": "Away",
@@ -485,7 +485,7 @@
       "date": "2026-11-15",
       "time": "10:16",
       "venue": "Alterlaa",
-      "state": "BeforeGame",
+      "state": "Finished",
       "homeTeam": "Floorballbunnies",
       "awayTeam": "IBC Leoben",
       "homeAway": "Home",
@@ -499,7 +499,7 @@
       "date": "2026-11-15",
       "time": "11:32",
       "venue": "Alterlaa",
-      "state": "BeforeGame",
+      "state": "Finished",
       "homeTeam": "Floorballbunnies",
       "awayTeam": "WFV Tiger",
       "homeAway": "Home",
@@ -653,7 +653,7 @@
       "date": "2026-11-15",
       "time": "09:38",
       "venue": "Alterlaa",
-      "state": "BeforeGame",
+      "state": "Finished",
       "homeTeam": "Floorballbunnies",
       "awayTeam": "WFV Pink Panda",
       "homeAway": "Home",
@@ -667,7 +667,7 @@
       "date": "2026-11-15",
       "time": "10:16",
       "venue": "Alterlaa",
-      "state": "BeforeGame",
+      "state": "Finished",
       "homeTeam": "Floorballbunnies",
       "awayTeam": "WFV Eisbären",
       "homeAway": "Home",
@@ -681,7 +681,7 @@
       "date": "2026-11-15",
       "time": "11:32",
       "venue": "Alterlaa",
-      "state": "BeforeGame",
+      "state": "Finished",
       "homeTeam": "FBC Dragons",
       "awayTeam": "Floorballbunnies",
       "homeAway": "Away",
@@ -1017,7 +1017,7 @@
       "date": "2026-11-14",
       "time": "18:21",
       "venue": "Alterlaa",
-      "state": "BeforeGame",
+      "state": "Finished",
       "homeTeam": "FBC Dragons 1",
       "awayTeam": "Floorballbunnies",
       "homeAway": "Away",
@@ -1031,7 +1031,7 @@
       "date": "2026-11-14",
       "time": "18:58",
       "venue": "Alterlaa",
-      "state": "BeforeGame",
+      "state": "Finished",
       "homeTeam": "Floorballbunnies",
       "awayTeam": "WFV",
       "homeAway": "Home",
@@ -1045,7 +1045,7 @@
       "date": "2026-11-14",
       "time": "19:35",
       "venue": "Alterlaa",
-      "state": "BeforeGame",
+      "state": "Finished",
       "homeTeam": "FBC Dragons 2",
       "awayTeam": "Floorballbunnies",
       "homeAway": "Away",
@@ -1309,27 +1309,13 @@
     {
       "id": 16331,
       "date": "2026-11-22",
-      "time": "10:00",
+      "time": "09:30",
       "venue": "PAHO Kurt Kucera Rundhalle",
       "state": "BeforeGame",
       "homeTeam": "Floorballbunnies",
       "awayTeam": "ASKÖ Linz",
       "homeAway": "Home",
       "opponent": "ASKÖ Linz",
-      "clubTeamName": "Floorballbunnies",
-      "competitionId": 728,
-      "competitionName": "Wiener U17 Meisterschaft"
-    },
-    {
-      "id": 16333,
-      "date": "2026-11-22",
-      "time": "13:00",
-      "venue": "PAHO Kurt Kucera Rundhalle",
-      "state": "BeforeGame",
-      "homeTeam": "WFV",
-      "awayTeam": "Floorballbunnies",
-      "homeAway": "Away",
-      "opponent": "WFV",
       "clubTeamName": "Floorballbunnies",
       "competitionId": 728,
       "competitionName": "Wiener U17 Meisterschaft"
@@ -1773,7 +1759,7 @@
       "date": "2026-11-15",
       "time": "19:00",
       "venue": "Alterlaa",
-      "state": "BeforeGame",
+      "state": "Finished",
       "homeTeam": "Sokol Wien",
       "awayTeam": "Floorballbunnies Wien",
       "homeAway": "Away",
@@ -1827,8 +1813,8 @@
     {
       "id": 16582,
       "date": "2026-12-05",
-      "time": "12:00",
-      "venue": null,
+      "time": "12:30",
+      "venue": "Sankt Martin",
       "state": "BeforeGame",
       "homeTeam": "VSV Unihockey",
       "awayTeam": "Floorballbunnies Wien",
@@ -1841,8 +1827,8 @@
     {
       "id": 16584,
       "date": "2026-12-05",
-      "time": "14:00",
-      "venue": null,
+      "time": "15:30",
+      "venue": "Sankt Martin",
       "state": "BeforeGame",
       "homeTeam": "FBC Dragons",
       "awayTeam": "Floorballbunnies Wien",
@@ -2512,8 +2498,8 @@
     },
     {
       "id": 18002,
-      "date": "2026-12-12",
-      "time": "09:25",
+      "date": "2026-12-05",
+      "time": "13:55",
       "venue": "PAHO Kurt Kucera Rundhalle",
       "state": "BeforeGame",
       "homeTeam": "Floorballbunnies 1",
@@ -2526,8 +2512,8 @@
     },
     {
       "id": 18003,
-      "date": "2026-12-12",
-      "time": "09:50",
+      "date": "2026-12-05",
+      "time": "14:20",
       "venue": "PAHO Kurt Kucera Rundhalle",
       "state": "BeforeGame",
       "homeTeam": "WFV Tiger",
@@ -2540,8 +2526,8 @@
     },
     {
       "id": 18006,
-      "date": "2026-12-12",
-      "time": "11:05",
+      "date": "2026-12-05",
+      "time": "15:35",
       "venue": "PAHO Kurt Kucera Rundhalle",
       "state": "BeforeGame",
       "homeTeam": "WFV Flamingos",
@@ -2722,8 +2708,8 @@
     },
     {
       "id": 18031,
-      "date": "2026-12-12",
-      "time": "09:00",
+      "date": "2026-12-05",
+      "time": "13:30",
       "venue": "PAHO Kurt Kucera Rundhalle",
       "state": "BeforeGame",
       "homeTeam": "Floorballbunnies 2",
@@ -2736,8 +2722,8 @@
     },
     {
       "id": 18034,
-      "date": "2026-12-12",
-      "time": "10:15",
+      "date": "2026-12-05",
+      "time": "14:45",
       "venue": "PAHO Kurt Kucera Rundhalle",
       "state": "BeforeGame",
       "homeTeam": "WFV Eisbären",
@@ -2750,8 +2736,8 @@
     },
     {
       "id": 18035,
-      "date": "2026-12-12",
-      "time": "10:40",
+      "date": "2026-12-05",
+      "time": "15:10",
       "venue": "PAHO Kurt Kucera Rundhalle",
       "state": "BeforeGame",
       "homeTeam": "WFV Pink Panda",
@@ -2931,7 +2917,7 @@
       "competitionName": "Wiener U10 Assist Meisterschaft"
     }
   ],
-  "gameCount": 208,
+  "gameCount": 207,
   "competitionsChecked": [
     {
       "name": "U10 Cup I",
@@ -2974,6 +2960,14 @@
       "organizer": "Österreichischer Floorballverband"
     },
     {
+      "name": "SLO 1.SFL - DP VF",
+      "season": 2026,
+      "type": "League",
+      "gender": "MALE",
+      "id": 760,
+      "organizer": "Slovenian Floorball Association"
+    },
+    {
       "name": "OÖ U12 + Alpencup",
       "season": 2026,
       "type": "League",
@@ -2988,14 +2982,6 @@
       "gender": "MALE",
       "id": 737,
       "organizer": "Österreichischer Floorballverband"
-    },
-    {
-      "name": "SLO 1.SFL - DP VF",
-      "season": 2026,
-      "type": "League",
-      "gender": "MALE",
-      "id": 760,
-      "organizer": "Slovenian Floorball Association"
     },
     {
       "name": "3 Nations - IFL",
@@ -3142,11 +3128,27 @@
       "organizer": "Österreichischer Floorballverband"
     },
     {
+      "name": "Wiener U12 Winterturnier",
+      "season": 2026,
+      "type": "Tournament",
+      "gender": "MIXED",
+      "id": 777,
+      "organizer": "Wiener Floorballbund"
+    },
+    {
       "name": "Alligator Cup u10",
       "season": 2026,
       "type": "Tournament",
       "gender": "MIXED",
       "id": 774,
+      "organizer": "Tiroler Floorballverband"
+    },
+    {
+      "name": "Alligator Future Cup u10",
+      "season": 2026,
+      "type": "Tournament",
+      "gender": "MIXED",
+      "id": 776,
       "organizer": "Tiroler Floorballverband"
     },
     {
@@ -3367,8 +3369,8 @@
     }
   ],
   "fetchMetrics": {
-    "calls": 250,
-    "successes": 250,
+    "calls": 249,
+    "successes": 249,
     "retries": 0,
     "sessionNotFound": 0,
     "httpErrors": 0,
@@ -3391,9 +3393,9 @@
         "successes": 40
       },
       "get_game": {
-        "calls": 208,
+        "calls": 207,
         "retries": 0,
-        "successes": 208
+        "successes": 207
       }
     }
   }
