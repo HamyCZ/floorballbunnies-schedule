@@ -1,5 +1,5 @@
 {
-  "probedAt": "2026-11-23T19:14:24Z",
+  "probedAt": "2026-11-23T22:28:05Z",
   "gameCount": 205,
   "clubId": 78,
   "clubName": "Floorballbunnies",
@@ -219,23 +219,23 @@
     "Calendar"
   ],
   "changes": {
-    "hasChanges": true,
-    "comparedAt": "2026-11-23T19:14:24Z",
-    "oldProbedAt": "2026-11-16T16:59:49Z",
-    "newProbedAt": "2026-11-23T19:14:24Z",
+    "hasChanges": false,
+    "comparedAt": "2026-11-23T22:28:05Z",
+    "oldProbedAt": "2026-11-23T19:14:24Z",
+    "newProbedAt": "2026-11-23T22:28:05Z",
     "counts": {
       "added": 0,
-      "removed": 2,
-      "changed": 9,
+      "removed": 0,
+      "changed": 0,
       "cancellations": 0,
-      "totalEvents": 11
+      "totalEvents": 0
     },
     "note": "Reflects the last successful watch diff (pages/changes.json)."
   },
   "pagesBaseUrl": null,
-  "lastRun": "2026-11-23T19:14:24Z",
+  "lastRun": "2026-11-23T22:28:05Z",
   "nextRun": "2026-11-30T07:17:00Z",
-  "lastRunLabel": "Mon 23 Nov 2026 19:14 UTC",
+  "lastRunLabel": "Mon 23 Nov 2026 22:28 UTC",
   "nextRunLabel": "Mon 30 Nov 2026 07:17 UTC",
   "theme": "floorballbunnies-dark-lime",
   "fortress": {
