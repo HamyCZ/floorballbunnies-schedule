@@ -1,18 +1,18 @@
 {
-  "probedAt": "2026-11-16T16:59:49Z",
-  "gameCount": 207,
+  "probedAt": "2026-11-23T19:14:24Z",
+  "gameCount": 205,
   "clubId": 78,
   "clubName": "Floorballbunnies",
   "timezone": "Europe/Vienna",
   "week": {
-    "mon": "2026-11-16",
-    "sun": "2026-11-22",
-    "games": 3
+    "mon": "2026-11-23",
+    "sun": "2026-11-29",
+    "games": 0
   },
   "weekend": {
-    "sat": "2026-11-16",
-    "sun": "2026-11-22",
-    "games": 3
+    "sat": "2026-11-23",
+    "sun": "2026-11-29",
+    "games": 0
   },
   "clashCategories": [
     "U12 group overlap",
@@ -38,7 +38,7 @@
       "file": "ics/u10.ics",
       "games": 30,
       "dates": [
-        "2026-12-05",
+        "2026-12-12",
         "2027-02-20",
         "2027-04-04",
         "2027-05-22",
@@ -142,9 +142,8 @@
       "category": "U17",
       "slug": "u17",
       "file": "ics/u17.ics",
-      "games": 18,
+      "games": 17,
       "dates": [
-        "2026-11-22",
         "2026-12-06",
         "2026-12-19",
         "2027-01-23",
@@ -173,9 +172,8 @@
       "category": "Adults Grossfeld",
       "slug": "adults-grossfeld",
       "file": "ics/adults-grossfeld.ics",
-      "games": 3,
+      "games": 1,
       "dates": [
-        "2026-11-21",
         "2027-01-10"
       ]
     },
@@ -222,23 +220,23 @@
   ],
   "changes": {
     "hasChanges": true,
-    "comparedAt": "2026-11-16T16:59:49Z",
-    "oldProbedAt": "2026-11-09T17:28:26Z",
-    "newProbedAt": "2026-11-16T16:59:49Z",
+    "comparedAt": "2026-11-23T19:14:24Z",
+    "oldProbedAt": "2026-11-16T16:59:49Z",
+    "newProbedAt": "2026-11-23T19:14:24Z",
     "counts": {
       "added": 0,
-      "removed": 1,
-      "changed": 19,
+      "removed": 2,
+      "changed": 9,
       "cancellations": 0,
-      "totalEvents": 20
+      "totalEvents": 11
     },
     "note": "Reflects the last successful watch diff (pages/changes.json)."
   },
   "pagesBaseUrl": null,
-  "lastRun": "2026-11-16T16:59:49Z",
-  "nextRun": "2026-11-23T07:17:00Z",
-  "lastRunLabel": "Mon 16 Nov 2026 16:59 UTC",
-  "nextRunLabel": "Mon 23 Nov 2026 07:17 UTC",
+  "lastRun": "2026-11-23T19:14:24Z",
+  "nextRun": "2026-11-30T07:17:00Z",
+  "lastRunLabel": "Mon 23 Nov 2026 19:14 UTC",
+  "nextRunLabel": "Mon 30 Nov 2026 07:17 UTC",
   "theme": "floorballbunnies-dark-lime",
   "fortress": {
     "csp": true,

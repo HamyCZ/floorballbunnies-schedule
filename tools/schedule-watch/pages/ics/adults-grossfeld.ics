@@ -24,20 +24,8 @@ RRULE:FREQ=YEARLY;BYMONTH=10;BYDAY=-1SU
 END:STANDARD
 END:VTIMEZONE
 BEGIN:VEVENT
-UID:urn:floorballbunnies:day:2026-11-21
-DTSTAMP:20261116T165949Z
-DTSTART;TZID=Europe/Vienna:20261121T101500
-DTEND;TZID=Europe/Vienna:20261121T130000
-SUMMARY:Adults Grossfeld: 2 games
-DESCRIPTION:Please double-check the date and kickoff time — the schedule 
- can change.\nSat 21 Nov 2026 · 2 games · Europe/Vienna\n\n10:15 · Away 
- vs FBC Dragons Hobby · PAHO Kurt Kucera Rundhalle · #16389\n11:30 · Awa
- y vs FBC Dragons Ladies · PAHO Kurt Kucera Rundhalle · #16390
-LOCATION:PAHO Kurt Kucera Rundhalle
-END:VEVENT
-BEGIN:VEVENT
 UID:urn:floorballbunnies:game:16394
-DTSTAMP:20261116T165949Z
+DTSTAMP:20261123T191424Z
 DTSTART;TZID=Europe/Vienna:20270110T160000
 DTEND;TZID=Europe/Vienna:20270110T173000
 SUMMARY:Adults Grossfeld: vs FBC Dragons Youth

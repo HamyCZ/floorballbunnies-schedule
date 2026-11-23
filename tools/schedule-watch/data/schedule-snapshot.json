@@ -4,7 +4,7 @@
   "clubName": "Floorballbunnies",
   "clubSlug": "floorballbunnies",
   "currentSeason": 2026,
-  "probedAt": "2026-11-16T16:59:49Z",
+  "probedAt": "2026-11-23T19:14:24Z",
   "source": "floorballflash-mcp",
   "timezone": "Europe/Vienna",
   "watchFields": [
@@ -1311,7 +1311,7 @@
       "date": "2026-11-22",
       "time": "09:30",
       "venue": "PAHO Kurt Kucera Rundhalle",
-      "state": "BeforeGame",
+      "state": "Finished",
       "homeTeam": "Floorballbunnies",
       "awayTeam": "ASKÖ Linz",
       "homeAway": "Home",
@@ -1633,7 +1633,7 @@
       "date": "2026-11-21",
       "time": "10:15",
       "venue": "PAHO Kurt Kucera Rundhalle",
-      "state": "BeforeGame",
+      "state": "Finished",
       "homeTeam": "FBC Dragons Hobby",
       "awayTeam": "Floorballbunnies",
       "homeAway": "Away",
@@ -1647,7 +1647,7 @@
       "date": "2026-11-21",
       "time": "11:30",
       "venue": "PAHO Kurt Kucera Rundhalle",
-      "state": "BeforeGame",
+      "state": "Finished",
       "homeTeam": "FBC Dragons Ladies",
       "awayTeam": "Floorballbunnies",
       "homeAway": "Away",
@@ -1781,34 +1781,6 @@
       "clubTeamName": "Floorballbunnies Wien",
       "competitionId": 737,
       "competitionName": "ÖFBV Bundesliga Herren"
-    },
-    {
-      "id": 16578,
-      "date": "2026-11-07",
-      "time": "09:00",
-      "venue": "PAHO Kurt Kucera Rundhalle",
-      "state": "Finished",
-      "homeTeam": "HFC Feldkirch",
-      "awayTeam": "Floorballbunnies Wien",
-      "homeAway": "Away",
-      "opponent": "HFC Feldkirch",
-      "clubTeamName": "Floorballbunnies Wien",
-      "competitionId": 746,
-      "competitionName": "ÖFBV U14 Jugendliga"
-    },
-    {
-      "id": 16579,
-      "date": "2026-11-07",
-      "time": "10:00",
-      "venue": "PAHO Kurt Kucera Rundhalle",
-      "state": "Finished",
-      "homeTeam": "Floorballbunnies Wien",
-      "awayTeam": "Wiener Floorball Verein",
-      "homeAway": "Home",
-      "opponent": "Wiener Floorball Verein",
-      "clubTeamName": "Floorballbunnies Wien",
-      "competitionId": 746,
-      "competitionName": "ÖFBV U14 Jugendliga"
     },
     {
       "id": 16582,
@@ -2498,8 +2470,8 @@
     },
     {
       "id": 18002,
-      "date": "2026-12-05",
-      "time": "13:55",
+      "date": "2026-12-12",
+      "time": "09:25",
       "venue": "PAHO Kurt Kucera Rundhalle",
       "state": "BeforeGame",
       "homeTeam": "Floorballbunnies 1",
@@ -2512,8 +2484,8 @@
     },
     {
       "id": 18003,
-      "date": "2026-12-05",
-      "time": "14:20",
+      "date": "2026-12-12",
+      "time": "09:50",
       "venue": "PAHO Kurt Kucera Rundhalle",
       "state": "BeforeGame",
       "homeTeam": "WFV Tiger",
@@ -2526,8 +2498,8 @@
     },
     {
       "id": 18006,
-      "date": "2026-12-05",
-      "time": "15:35",
+      "date": "2026-12-12",
+      "time": "11:05",
       "venue": "PAHO Kurt Kucera Rundhalle",
       "state": "BeforeGame",
       "homeTeam": "WFV Flamingos",
@@ -2708,8 +2680,8 @@
     },
     {
       "id": 18031,
-      "date": "2026-12-05",
-      "time": "13:30",
+      "date": "2026-12-12",
+      "time": "09:00",
       "venue": "PAHO Kurt Kucera Rundhalle",
       "state": "BeforeGame",
       "homeTeam": "Floorballbunnies 2",
@@ -2722,8 +2694,8 @@
     },
     {
       "id": 18034,
-      "date": "2026-12-05",
-      "time": "14:45",
+      "date": "2026-12-12",
+      "time": "10:15",
       "venue": "PAHO Kurt Kucera Rundhalle",
       "state": "BeforeGame",
       "homeTeam": "WFV Eisbären",
@@ -2736,8 +2708,8 @@
     },
     {
       "id": 18035,
-      "date": "2026-12-05",
-      "time": "15:10",
+      "date": "2026-12-12",
+      "time": "10:40",
       "venue": "PAHO Kurt Kucera Rundhalle",
       "state": "BeforeGame",
       "homeTeam": "WFV Pink Panda",
@@ -2917,7 +2889,7 @@
       "competitionName": "Wiener U10 Assist Meisterschaft"
     }
   ],
-  "gameCount": 207,
+  "gameCount": 205,
   "competitionsChecked": [
     {
       "name": "U10 Cup I",
@@ -3128,14 +3100,6 @@
       "organizer": "Österreichischer Floorballverband"
     },
     {
-      "name": "Wiener U12 Winterturnier",
-      "season": 2026,
-      "type": "Tournament",
-      "gender": "MIXED",
-      "id": 777,
-      "organizer": "Wiener Floorballbund"
-    },
-    {
       "name": "Alligator Cup u10",
       "season": 2026,
       "type": "Tournament",
@@ -3170,7 +3134,7 @@
     {
       "name": "Junior Cup Feldkirch U10",
       "season": 2026,
-      "type": "League",
+      "type": "Tournament",
       "gender": "MIXED",
       "id": 768,
       "organizer": "HFC Feldkirch Knights"
@@ -3206,6 +3170,14 @@
       "gender": "FEMALE",
       "id": 745,
       "organizer": "Österreichischer Floorballverband"
+    },
+    {
+      "name": "Wiener U10 Winterturnier",
+      "season": 2026,
+      "type": "Tournament",
+      "gender": "MIXED",
+      "id": 777,
+      "organizer": "Wiener Floorballbund"
     },
     {
       "name": "U14 Cup II",
@@ -3369,8 +3341,8 @@
     }
   ],
   "fetchMetrics": {
-    "calls": 249,
-    "successes": 249,
+    "calls": 246,
+    "successes": 246,
     "retries": 0,
     "sessionNotFound": 0,
     "httpErrors": 0,
@@ -3388,14 +3360,14 @@
         "successes": 1
       },
       "search_games": {
-        "calls": 40,
+        "calls": 39,
         "retries": 0,
-        "successes": 40
+        "successes": 39
       },
       "get_game": {
-        "calls": 207,
+        "calls": 205,
         "retries": 0,
-        "successes": 207
+        "successes": 205
       }
     }
   }
