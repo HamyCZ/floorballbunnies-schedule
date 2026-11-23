@@ -46,7 +46,7 @@ jobs:
       health_reason: ${{ steps.watch.outputs.health_reason }}
     steps:
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
         with:
           # Need full history so we can rebase onto latest main before push
           # (re-runs often start from an older SHA while main has moved on).
@@ -56,7 +56,7 @@ jobs:
           token: ${{ secrets.SCHEDULE_PUSH_TOKEN != '' && secrets.SCHEDULE_PUSH_TOKEN || github.token }}
 
       - name: Set up Python
-        uses: actions/setup-python@v5
+        uses: actions/setup-python@v6
         with:
           python-version: "3.12"
 
@@ -104,7 +104,7 @@ jobs:
 
       - name: Upload reports
         if: always() && steps.guard.outputs.skip_run != 'yes'
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v5
         with:
           name: schedule-watch-reports
           path: |
@@ -112,13 +112,14 @@ jobs:
             tools/schedule-watch/pages/
           retention-days: 14
 
-      - name: Upload pages for deploy
+      # Creates the special `github-pages` artifact for deploy-pages (same run).
+      # Do not use a generic upload-artifact + re-pack in the pages job — that
+      # left deploy with "No artifacts named github-pages".
+      - name: Upload Pages artifact
         if: steps.guard.outputs.skip_run != 'yes' && steps.watch.outputs.health_ok == 'true'
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-pages-artifact@v4
         with:
-          name: schedule-pages
           path: tools/schedule-watch/pages
-          retention-days: 7
 
       - name: Commit snapshot + pages + last-success
         id: commit
@@ -263,7 +264,7 @@ jobs:
       contents: read
     steps:
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
 
       - name: Open GitHub Issue for job failure
         env:
@@ -337,18 +338,7 @@ jobs:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
     steps:
-      # Deploy the pages built in this run (not a stale checkout of the trigger SHA).
-      - name: Download built pages
-        uses: actions/download-artifact@v4
-        with:
-          name: schedule-pages
-          path: site
-
-      - name: Upload Pages artifact
-        uses: actions/upload-pages-artifact@v3
-        with:
-          path: site
-
+      # Artifact `github-pages` was uploaded by the watch job in this same run.
       - name: Deploy GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
